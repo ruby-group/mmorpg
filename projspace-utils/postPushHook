@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#We are running a set of pareview tests for you. So you need not mention those in this script.
+#If you want to run anything else, use this. By default we are running tests against modules/custom.
+#If you want to add more custom themes to the test uncomment the following and add the path to the
+#themes and other files. You can even add more things to this script. If you want to log the output
+#redirect the output to pareview.log. If the operations are not related to tests, redirect the output
+#to custom.log. Make sure to append but not rewrite.
+
+
+#pareview /path/to/custom/theme/or/whatever >> /home/$project/logs/$env/pareview.log
+
+#custom_command >> /home/$project/logs/$env/custom.log
+
+#End of Script. Put everything above this line.
+
