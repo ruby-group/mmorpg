@@ -1,0 +1,16 @@
+{
+  "generator-drupal-theme": {
+    "projectName": "mmorpg",
+    "projectSlug": "mmorpg",
+    "baseTheme": "aurora",
+    "baseThemeSettings": {
+      "auroraType": "aurora"
+    },
+    "sassDir": "sass",
+    "cssDir": "css",
+    "jsDir": "js",
+    "imgDir": "img",
+    "fontsDir": "fonts",
+    "templateDir": "tpl"
+  }
+}
