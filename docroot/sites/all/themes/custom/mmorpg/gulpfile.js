@@ -79,4 +79,4 @@ gulp.task('browserSync', function () {
 //////////////////////////////
 // Server Tasks
 //////////////////////////////
-gulp.task('default', ['scripts', 'watch', 'compass', 'browserSync']);
+//gulp.task('default', ['scripts', 'watch', 'compass', 'browserSync']);
