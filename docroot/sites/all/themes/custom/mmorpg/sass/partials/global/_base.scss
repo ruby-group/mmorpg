@@ -18,7 +18,12 @@
 // Private Imports
 ////////////////////////
 //@import 'variables';
-@import 'buttons';
-@import 'trending';
 //@import 'mixins';
 //@import 'extendables';
+@import '../layout/sgrids';
+@import 'buttons';
+@import 'trending';
+
+
+@import '../design/homepage';
+
