@@ -20,10 +20,12 @@
 //@import 'variables';
 //@import 'mixins';
 //@import 'extendables';
+
 @import '../layout/sgrids';
 @import 'buttons';
-@import 'trending';
-
-
+//@import 'trending';
+@import '../design/breakpoints';
+@import 'gridss';
 @import '../design/homepage';
+@import '../design/logo';
 
