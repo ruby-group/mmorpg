@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 $grids: 12;
 $gutters: 1/3;
 
@@ -12,8 +13,16 @@ $grids: add-grid(12 at 700px);
 $grids: add-grid(2 8 2 at 900px);
 $grids: add-grid(1 3 5 7 9 at 1100px);
 
+=======
+$grids: 12;
+>>>>>>> Setup grids
 $gutters: 1/3;
-$gutters: add-gutter(.25 at 900px);
 
+<<<<<<< HEAD
 @include sgs-change('debug', true);
 >>>>>>> Stage grid changes
+=======
+$output: 'isolation';
+
+
+>>>>>>> Setup grids
