@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_behat_info().
+ */
+function behat_tests_behat_info() {
+  return array(
+    'paths' => array(
+      'features' => 'features',
+    ),
+  );
+}

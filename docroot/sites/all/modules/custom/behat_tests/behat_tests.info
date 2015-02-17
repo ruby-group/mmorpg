@@ -1,0 +1,5 @@
+name = Behat Tests
+description = Behat Tests written for MMORPG
+core = 7.x
+package = MMORPG
+dependencies[] = behatrunner
