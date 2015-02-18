@@ -6,6 +6,7 @@ dependencies[] = context
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = mmorpg_article
+dependencies[] = mmorpg_siteskins
 dependencies[] = node
 dependencies[] = om_maximenu
 dependencies[] = strongarm

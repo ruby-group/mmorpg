@@ -38,6 +38,18 @@ function mmorpg_site_context_default_contexts() {
           'region' => 'navigation',
           'weight' => '-10',
         ),
+        'mmorpg_siteskins-active_siteskin' => array(
+          'module' => 'mmorpg_siteskins',
+          'delta' => 'active_siteskin',
+          'region' => 'highlighted',
+          'weight' => '-10',
+        ),
+        'system-main' => array(
+          'module' => 'system',
+          'delta' => 'main',
+          'region' => 'content',
+          'weight' => '-9',
+        ),
       ),
     ),
   );

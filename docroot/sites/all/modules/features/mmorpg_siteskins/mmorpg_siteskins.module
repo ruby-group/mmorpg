@@ -1,0 +1,125 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Site Skin feature.
+ */
+
+include_once 'mmorpg_siteskins.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mmorpg_siteskins_form_siteskin_node_form_alter(&$form, &$form_state, $form_id) {
+  if (!isset($form['#node']->nid) or is_null($form['#node']->nid)) {
+
+    $result = db_select('node')
+      ->fields('node', array('nid', 'title'))
+      ->condition('type', 'siteskin')
+      ->orderBy('title')
+      ->execute()
+      ->fetchAllKeyed();
+
+    $script = "
+      jQuery('#edit-mmorpg-siteskins-preload').change(function(){
+        if(jQuery(this).val() == '') location.href = '" . base_path() . "node/add/siteskin';
+        else location.href = '" . base_path() . "node/' + jQuery(this).val() + '/clone/confirm';
+      })
+      ";
+
+    $form['mmorpg_siteskins_preload'] = array(
+      '#type' => 'select',
+      '#title' => t('Preload'),
+      '#options' => array('' => ' - Select One - ') + $result,
+      '#weight' => -50,
+      '#default_value' => isset($form['clone_from_original_nid']['#value']) ? $form['clone_from_original_nid']['#value'] : '',
+      '#description' => t('Select an item and this form will be populated with values of that siteskin.'),
+      '#attached' => array(
+        'js' => array(
+          $script => array(
+            'type' => 'inline',
+            'scope' => 'footer',
+          ),
+        ),
+      ),
+    );
+  }
+
+  $form['mmorpg_siteskins_location'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Location shorthand'),
+    '#weight' => $form['field_siteskin_location']['#weight'] - .5,
+    '#description' => t('Select an item to pre-fill url patterns into the location box.') . '<span class="form-required">The paths will need to be adjusted in future sprints</span>',
+    '#options' => array(
+      '*' => 'All',
+      '<front>' => 'Homepage',
+      'blogs/*' => 'Blogs',
+      'chat/*' => 'Chat',
+      'disciple/*' => 'Disciple',
+      'faq/*' => 'Faq',
+      'features/*' => 'Features',
+      'galleries/*' => 'Galleries',
+      'games/*' => 'Games',
+      'guilds/*' => 'Guilds',
+      'news/*' => 'News',
+      'streams/*' => 'Streams',
+      'subscribe/*' => 'Subscribe',
+      'videos/*' => 'Videos',
+    ),
+    '#ajax' => array(
+      'callback' => '_mmorpg_siteskins_ajax_prefill_paths',
+      'wrapper' => 'field_siteskin_location_wrapper',
+      'method' => 'replace',
+      'effect' => 'fade',
+    ),
+  );
+
+  if (isset($form_state['values']['field_siteskin_location'][LANGUAGE_NONE][0]['value'])) {
+    $items = drupal_map_assoc(array_filter(explode("\n", $form_state['values']['field_siteskin_location'][LANGUAGE_NONE][0]['value'])));
+    if (is_array($form_state['values']['mmorpg_siteskins_location'])) {
+      foreach (array_keys(array_filter($form_state['values']['mmorpg_siteskins_location'])) as $pattern) {
+        $items[$pattern] = $pattern;
+      }
+      foreach (array_keys(array_diff_key($form['mmorpg_siteskins_location']['#options'], array_filter($form_state['values']['mmorpg_siteskins_location']))) as $pattern) {
+        unset($items[$pattern]);
+      };
+    }
+    $form['field_siteskin_location']['und'][0]['value']['#value'] = implode("\n", $items);
+  }
+  $form['field_siteskin_location']['#prefix'] = '<div id="field_siteskin_location_wrapper">';
+  $form['field_siteskin_location']['#suffix'] = '</div>';
+}
+
+function _mmorpg_siteskins_ajax_prefill_paths($form, $form_state) {
+  return $form['field_siteskin_location'];
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_siteskins_block_info() {
+  $blocks['active_siteskin'] = array(
+    'info' => t('Active Siteskin'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_siteskins_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'active_siteskin':
+      $params = drupal_get_query_parameters();
+      if (isset($params['preview']) and strval(intval($params['preview'])) == $params['preview']) {
+        $block['content'] = views_embed_view('siteskins_rendering', 'preview', $params['preview']);
+      }
+      else {
+        $block['content'] = views_embed_view('siteskins_rendering', 'active_siteskin');
+      };
+      break;
+  }
+  return $block;
+}
