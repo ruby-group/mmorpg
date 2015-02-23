@@ -8,17 +8,17 @@
  * Update 7001 - Enable/disable modules.
  */
 function mmorpg_updates_update_7001() {
-	module_enable('admin_menu','admin_menu_toolbar','features');
+  module_enable('admin_menu', 'admin_menu_toolbar', 'features');
 
-	module_disable('toolbar');
+  module_disable('toolbar');
 
-	cache_clear_all();
+  cache_clear_all();
 }
 
 /**
  * Update 7002 - Enable/revert feature for vocabulary.
  */
 function mmorpg_updates_update_7002() {
-	module_enable(array('mmorpg_vocabularies'));
-	mmorpg_features_revert(array('mmorpg_vocabularies'));
+  module_enable(array('mmorpg_vocabularies'));
+  mmorpg_features_revert(array('mmorpg_vocabularies'));
 }
