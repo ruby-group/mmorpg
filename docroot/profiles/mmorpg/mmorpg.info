@@ -1,0 +1,28 @@
+; Packaging information for mmorpg
+name = "MMORPG"
+description = "Base profile for MMORPG"
+exclusive = "1"
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Core
+dependencies[] = block
+dependencies[] = contextual
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = search
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+
+; CONTRIB
+dependencies[] = adminimal_admin_menu
+
+; MMORPG
+dependencies[] = mmorpg_updates
