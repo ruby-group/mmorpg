@@ -7,7 +7,7 @@
 module_load_include('module', 'mmorpg_util', 'mmorpg_util');
 
 /**
- * Update 7001 - Enable/disable modules.
+ * Enable/disable modules.
  */
 function mmorpg_updates_update_7001() {
   module_enable('admin_menu', 'admin_menu_toolbar', 'features');
@@ -18,9 +18,23 @@ function mmorpg_updates_update_7001() {
 }
 
 /**
- * Update 7002 - Enable/revert feature for vocabulary.
+ * Enable/revert feature for vocabulary.
  */
 function mmorpg_updates_update_7002() {
   module_enable(array('mmorpg_vocabularies'));
   mmorpg_util_features_revert(array('mmorpg_vocabularies'));
+}
+
+/**
+ * Enable WYSIWYG & add ckeditor in filtered html.
+ */
+function mmorpg_updates_update_7003() {
+  module_enable(array('wysiwyg','wysiwyg_mediaembed'));
+
+  db_update('wysiwyg')
+    ->fields(array(
+      'editor' => 'ckeditor',
+    ))
+    ->condition('format', 'filtered_html')
+    ->execute();
 }

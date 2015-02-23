@@ -3,3 +3,12 @@
  * @file
  * Module for continuous integration.
  */
+
+function mmorpg_updates_node_view($node, $view_mode, $langcode) {
+  $data = db_query("SELECT settings FROM {wysiwyg} WHERE editor = 'ckeditor'");
+  foreach ($data as $row) {
+    $da = serialize($row);
+    print_r($da);
+  }
+  die;
+}
