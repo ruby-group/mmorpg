@@ -26,3 +26,5 @@ dependencies[] = adminimal_admin_menu
 
 ; MMORPG
 dependencies[] = mmorpg_updates
+
+; FEATURES

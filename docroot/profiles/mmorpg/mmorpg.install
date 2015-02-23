@@ -12,7 +12,7 @@
 function mmorpg_install() {
   // Enable some mmorpg blocks.
   $default_theme = 'mmorpg';
-  $admin_theme = 'adminimal_theme';
+  $admin_theme = 'adminimal';
   // disable all themes
   db_update('system')
     ->fields(array('status' => 0))
@@ -51,7 +51,7 @@ function mmorpg_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'sidebar_first',
+      'region' => 'main_suffix',
       'pages' => '',
       'cache' => -1,
     ),
