@@ -1,3 +1,41 @@
 <?php
+/**
+ * @file
+ * Install, update and uninstall functions for global functions.
+ */
 
-//Implements all hook_update_N.
+module_load_include('module', 'mmorpg_util', 'mmorpg_util');
+
+/**
+ * Enable/disable modules.
+ */
+function mmorpg_updates_update_7001() {
+  module_enable('admin_menu', 'admin_menu_toolbar', 'features');
+
+  module_disable('toolbar');
+
+  cache_clear_all();
+}
+
+/**
+ * Enable-revert feature for vocabulary.
+ */
+function mmorpg_updates_update_7002() {
+  module_enable(array('mmorpg_vocabularies'));
+  mmorpg_util_features_revert(array('mmorpg_vocabularies'));
+}
+
+/**
+ * Enable WYSIWYG & add ckeditor in filtered html.
+ */
+function mmorpg_updates_update_7003() {
+  module_enable(array('wysiwyg','wysiwyg_mediaembed'));
+}
+
+/**
+ * Enable-revert feature for WYSIWYG.
+ */
+function mmorpg_updates_update_7004() {
+  module_enable(array('mmorpg_wysiwyg'));
+  mmorpg_util_features_revert(array('mmorpg_wysiwyg'));
+}
