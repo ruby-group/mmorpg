@@ -5,4 +5,4 @@ docroot/sites/*/files
 docroot/sites/*/private
 .idea
 php_errors.log
-docroot/sites/all/libraries/composer
+#docroot/sites/all/libraries/composer
