@@ -1,6 +1,8 @@
 <?php
-
-//Implements all hook_update_N.
+/**
+ * @file
+ * Install, update and uninstall functions for global functions.
+ */
 
 /**
  * Update 7001 - Enable/disable modules.
