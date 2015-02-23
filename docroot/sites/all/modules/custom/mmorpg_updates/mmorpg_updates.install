@@ -18,7 +18,7 @@ function mmorpg_updates_update_7001() {
 }
 
 /**
- * Enable/revert feature for vocabulary.
+ * Enable-revert feature for vocabulary.
  */
 function mmorpg_updates_update_7002() {
   module_enable(array('mmorpg_vocabularies'));
@@ -30,4 +30,12 @@ function mmorpg_updates_update_7002() {
  */
 function mmorpg_updates_update_7003() {
   module_enable(array('wysiwyg','wysiwyg_mediaembed'));
+}
+
+/**
+ * Enable-revert feature for WYSIWYG.
+ */
+function mmorpg_updates_update_7004() {
+  module_enable(array('mmorpg_wysiwyg'));
+  mmorpg_util_features_revert(array('mmorpg_wysiwyg'));
 }
