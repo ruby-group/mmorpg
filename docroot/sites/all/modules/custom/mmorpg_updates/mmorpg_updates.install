@@ -4,6 +4,8 @@
  * Install, update and uninstall functions for global functions.
  */
 
+module_load_include('module', 'mmorpg_util', 'mmorpg_util');
+
 /**
  * Update 7001 - Enable/disable modules.
  */
@@ -20,5 +22,5 @@ function mmorpg_updates_update_7001() {
  */
 function mmorpg_updates_update_7002() {
   module_enable(array('mmorpg_vocabularies'));
-  mmorpg_features_revert(array('mmorpg_vocabularies'));
+  mmorpg_util_features_revert(array('mmorpg_vocabularies'));
 }
