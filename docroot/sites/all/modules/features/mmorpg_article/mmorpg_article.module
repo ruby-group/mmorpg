@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Article feature.
+ */
+
+include_once 'mmorpg_article.features.inc';
