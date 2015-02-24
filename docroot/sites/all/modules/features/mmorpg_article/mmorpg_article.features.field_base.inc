@@ -136,6 +136,26 @@ function mmorpg_article_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_article_radioactivity'
+  $field_bases['field_article_radioactivity'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_article_radioactivity',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'energy' => array(
+        0 => 'radioactivity_energy',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'radioactivity',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'radioactivity',
+  );
+
   // Exported field_base: 'field_article_related_games'
   $field_bases['field_article_related_games'] = array(
     'active' => 1,
