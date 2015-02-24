@@ -31,6 +31,14 @@ function mmorpg_article_views_api($module = NULL, $api = NULL) {
  */
 function mmorpg_article_node_info() {
   $items = array(
+    'article_news_post' => array(
+      'name' => t('Article News Post'),
+      'base' => 'node_content',
+      'description' => t('The article news post content type to add only news post content in multipage'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'mmorpg_article' => array(
       'name' => t('Article'),
       'base' => 'node_content',
