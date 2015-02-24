@@ -60,6 +60,6 @@ function mmorpg_updates_update_7006() {
  * Enable modules.
  */
 function mmorpg_updates_update_7007() {
-  module_enable(array('panels', 'panels_node', 'page_manager'));
+  module_enable(array('panels','panels_node','panels_ipe','page_manager'));
   cache_clear_all();
 }
