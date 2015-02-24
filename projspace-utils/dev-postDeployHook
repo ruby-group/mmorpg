@@ -6,6 +6,9 @@
 
 #Put all of your actions before #EOF.
 
+cd /home/mmorpg/www/dev/docroot && drush aa --html --bootstrap --detail --skip=insights > sites/default/files/report.html
+
+
 
 
 #EOF
