@@ -55,3 +55,11 @@ function mmorpg_updates_update_7006() {
   module_enable(array('mmorpg_game'));
   mmorpg_util_features_revert(array('mmorpg_game'));
 }
+
+/**
+ * Enable modules.
+ */
+function mmorpg_updates_update_7007() {
+  module_enable(array('panels', 'panels_node', 'page_manager'));
+  cache_clear_all();
+}
