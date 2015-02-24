@@ -10,7 +10,7 @@ module_load_include('module', 'mmorpg_util', 'mmorpg_util');
  * Enable/disable modules.
  */
 function mmorpg_updates_update_7001() {
-  module_enable('admin_menu', 'admin_menu_toolbar', 'features');
+  module_enable(array('admin_menu', 'admin_menu_toolbar', 'features'));
 
   module_disable('toolbar');
 
@@ -38,4 +38,20 @@ function mmorpg_updates_update_7003() {
 function mmorpg_updates_update_7004() {
   module_enable(array('mmorpg_wysiwyg'));
   mmorpg_util_features_revert(array('mmorpg_wysiwyg'));
+}
+
+/**
+ * Update 7005 - Enable content type feature for article
+ */
+function mmorpg_updates_update_7005() {
+  node_type_delete('article');
+  module_enable(array('mmorpg_article'));
+}
+
+/**
+ * Update 7006 - Enable content type feature for game
+ */
+function mmorpg_updates_update_7006() {
+  module_enable(array('mmorpg_game'));
+  mmorpg_util_features_revert(array('mmorpg_game'));
 }
