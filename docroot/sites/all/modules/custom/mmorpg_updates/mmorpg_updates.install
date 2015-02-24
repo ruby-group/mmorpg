@@ -12,7 +12,7 @@ module_load_include('module', 'mmorpg_util', 'mmorpg_util');
 function mmorpg_updates_update_7001() {
   module_enable(array('admin_menu', 'admin_menu_toolbar', 'features'));
 
-  module_disable('toolbar');
+  module_disable(array('toolbar'));
 
   cache_clear_all();
 }
@@ -56,7 +56,7 @@ function mmorpg_updates_update_7006() {
   mmorpg_util_features_revert(array('mmorpg_game'));
 }
 
-/**
+/*
  * Update 7007 - Revert mmorpg_article feature. Adds multi page 
  * view to new post in article
  */
@@ -65,8 +65,16 @@ function mmorpg_updates_update_7007() {
 }
 
 /**
- * Revert WYSIWYG feature.
+ * Enable modules.
  */
 function mmorpg_updates_update_7008() {
+  module_enable(array('panels', 'panels_node', 'panels_ipe', 'page_manager'));
+  cache_clear_all();
+}
+
+/**
+ * Revert WYSIWYG feature.
+ */
+function mmorpg_updates_update_7009() {
   mmorpg_util_features_revert(array('mmorpg_wysiwyg'));
 }
