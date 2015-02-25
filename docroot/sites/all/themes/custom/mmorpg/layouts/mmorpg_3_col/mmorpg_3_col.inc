@@ -2,9 +2,9 @@
 
 $plugin = array(
   'title' => t('mmorpg 3 column'),
-  'icon' => 'mm-3-col.png',
+  'icon' => 'mm_3_col.png',
   'category' => t('Aurora'),
-  'theme' => 'mmoprg-3-col',
+  'theme' => 'mmoprg_3_col',
   'regions' => array(
     'first' => t('First'),
     'second' => t('Second'),
