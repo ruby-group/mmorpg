@@ -1,7 +1,7 @@
 <?php
 
 $plugin = array(
-  'title' => t('mmorpg 3 column'),
+  'title' => t('mmorpg three column'),
   'icon' => 'mm-col.png',
   'category' => t('mmorpg'),
   'theme' => 'mmoprg-col',
