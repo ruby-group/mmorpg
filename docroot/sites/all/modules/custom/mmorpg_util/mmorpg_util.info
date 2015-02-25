@@ -1,4 +1,0 @@
-name = MMORG Util
-description = Util module for all helper functions.
-core = 7.x
-package = MMORPG
