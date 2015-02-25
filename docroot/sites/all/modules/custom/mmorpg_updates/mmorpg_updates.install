@@ -93,51 +93,19 @@ function mmorpg_updates_update_7011() {
 
   cache_clear_all();
 
-  $maximenu_var = array(
-    '1' => array(
-      'code' => 'om-u1-233032521',
-      'title' => 'User Menu',
-      'action' => 'click_fast',
-      'skin' => 'bubble',
-      'output' => 'block',
-      'delay' => '1000',
-      'menu_visibility' => array(
-        'visibility' => 0,
-      ),
-      'block_options' => array(
-        'stacking' => 'row',
-        'direction' => 'block-down',
-        'region' => 'header',
-        'weight' => 0,
-      ),
-      'links' => array(
-        '1' => array(
-          'link_title' => 'User Name',
-          'link_title_option' => 'title',
-          'target' => '_self',
-          'description_option' => 'hover',
-          'content' => array(
-            'system___user-menu' => array(
-              'title' => 'Profile',
-              'module' => 'system',
-              'delta' => 'user-menu',
-              'weight' => 5,
-              'visibility' => 0,
-            ),
-            'views___trending-block_1' => array(
-              'title' => '<none>',
-              'module' => 'views',
-              'delta' => 'trending-block_1',
-              'weight' => 0,
-              'visibility' => 0,
-            ),
-          ),
-        ),
-      ),
-    ),
-  );
+  exec("drush cc drush");
 
-  $variable_input = serialize($maximenu_var);
+  try {
+    exec("drush mcmm");
+  } catch (Exception $e) {
+    drush_print('Maximenu couldnt be created due to '.$e);
+  }
 
-  variable_set('om_maximenu', $variable_input);
+  try {
+    exec("drush mpb");
+  } catch (Exception $e) {
+    drush_print('Blocks couldnt be updated due to '.$e);
+  }
+
+  cache_clear_all();
 }
