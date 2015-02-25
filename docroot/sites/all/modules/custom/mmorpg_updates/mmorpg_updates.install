@@ -137,7 +137,7 @@ function mmorpg_updates_update_7011() {
     ),
   );
 
-  $variable_input = json_encode($maximenu_var);
+  $variable_input = serialize($maximenu_var);
 
   variable_set('om_maximenu', $variable_input);
 }
