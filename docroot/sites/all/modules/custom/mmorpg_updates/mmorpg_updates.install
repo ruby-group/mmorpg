@@ -79,7 +79,7 @@ function mmorpg_updates_update_7009() {
 /**
  * Rebuild registry to clean out deleted modules.
  */
-function mmorpg_updates_update_7009() {
+function mmorpg_updates_update_7010() {
   drush_registry_rebuild();
   cache_clear_all();
 }
