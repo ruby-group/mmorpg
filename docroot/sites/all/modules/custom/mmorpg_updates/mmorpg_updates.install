@@ -134,7 +134,7 @@ function mmorpg_updates_update_7016() {
 function mmorpg_updates_update_7017() {
   module_enable(array('mmorpg_site'));
 }
-
+ 
 /**
  * Enable play now content type feature & revert wysiwyg.
  */
