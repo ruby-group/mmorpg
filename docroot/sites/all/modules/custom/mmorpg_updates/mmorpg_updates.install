@@ -62,7 +62,7 @@ function mmorpg_updates_update_7007() {
 }
 
 /**
- * Enable modules.
+ * Revert WYSIWYG feature.
  */
 function mmorpg_updates_update_7008() {
   module_enable(array('panels', 'panels_node', 'panels_ipe', 'page_manager'));
@@ -100,4 +100,11 @@ function mmorpg_updates_update_7011() {
   mmorpg_updates_mmorpg_place_block();
 
   cache_clear_all();
+}
+
+/**
+ * Update 70012 - Creates a relationship between article and news post
+ */
+function mmorpg_updates_update_7012() {
+  node_collection_api_add_update_relationship('Article News Post','mmorpg_article',array('article_news_post'));
 }
