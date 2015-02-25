@@ -1,0 +1,15 @@
+name = "MMORPG Maritime - .Net to D7 migration"
+description = "Migrate content from mmopg site."
+package = "MMORPG Custom"
+core = 7.x
+
+; Migrate framework.
+dependencies[] = migrate
+
+; Features defining the entities, bundles and fields we are migrating.
+dependencies[] = mmorpg_vocabularies
+
+; Support files.
+files[] = vocab.inc
+files[] = mssql.inc
+files[] = common.inc

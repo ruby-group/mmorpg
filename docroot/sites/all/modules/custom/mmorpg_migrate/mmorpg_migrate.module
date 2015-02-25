@@ -1,0 +1,47 @@
+<?php
+/**
+ * @file
+ * This contains code to register and support core migration for MMORPG Maritime.
+ */
+
+/**
+ * Implements hook_flush_caches().
+ */
+function mmorpg_migrate_flush_caches() {
+  mmorpg_migrate_register_migrations();
+}
+
+/**
+ * Register all MMORPG Maritime migrations.
+ */
+function mmorpg_migrate_register_migrations() {
+
+  // These are our common arguments for all our migrations.
+  $common_arguments = array(
+    'group_name' => 'MMORPG',
+  );
+  // Register MMORPG Faq migration.
+  $arguments = $common_arguments + array(
+    'description' => t('Migration of FAQ category terms'),
+    'machine_name' => 'MMORPGFaqTerms',
+  );
+  Migration::registerMigration('MMORPGMigrateFaqMigration', $arguments['machine_name'], $arguments);
+
+}
+
+/**
+ * Implements hook_migrate_api().
+ */
+function MMORPG_migrate_migrate_api() {
+  $disable_hooks = array();
+  $api = array(
+    'api' => 2,
+    'groups' => array(
+      'MMORPG' => array(
+        'title' => 'MMORPG .Net->D7 migration',
+        'disable_hooks' => $disable_hooks,
+      ),
+    ),
+  );
+  return $api;
+}
