@@ -5,3 +5,100 @@
  */
 
 include_once 'mmorpg_article.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_article_block_info() {
+  $blocks['trending'] = array(
+    'info' => t('Trending Content'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_article_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'trending':
+      $organic_content = views_get_view_result('trending', 'organic');
+      $sponsored_content = views_get_view_result('trending', 'sponsored');
+      foreach ($sponsored_content as $sponsored_item) {
+        array_splice($organic_content, rand(0, variable_get('mmorpg_trending_max', 5)), 0, array($sponsored_item));
+      }
+
+      foreach ($organic_content as &$item) {
+        $item = l($item->node_title, drupal_get_path_alias('node/' . $item->nid));
+      }
+
+      $block['subject'] = t('Trending');
+      $block['content'] = theme('item_list', array(
+        'items' => $organic_content,
+        'title' => 'Trending Content',
+        'type' => 'ul',
+      ));
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function mmorpg_article_cron() {
+  $query = new EntityFieldQuery();
+  $result = $query
+    ->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'mmorpg_article')
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->fieldCondition('field_article_sponsored_untill', 'value', time(), '<=')
+    ->fieldCondition('field_article_sponsored', 'value', 1, '=')
+    ->execute();
+
+  if (isset($result['node'])) {
+    $nodes = entity_load('node', array_keys($result['node']));
+    foreach ($nodes as $node) {
+      $node->field_article_sponsored[LANGUAGE_NONE][0]['value'] = 0;
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mmorpg_article_menu() {
+
+  $items['admin/mmorpg'] = array(
+    'title' => 'MMORPG',
+    'description' => 'MMORPG Settings',
+    'position' => 'left',
+    'weight' => -10,
+    'page callback' => 'mmorpg_article_settings_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'mmorpg_article.admin.inc',
+  );
+
+  $items['admin/mmorpg/settings'] = array(
+    'title' => 'MMORPG Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mmorpg_article_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'mmorpg_article.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['admin/mmorpg/article-settings'] = array(
+    'title' => 'Article Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mmorpg_article_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'mmorpg_article.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}

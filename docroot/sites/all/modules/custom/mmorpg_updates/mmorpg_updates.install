@@ -54,7 +54,7 @@ function mmorpg_updates_update_7006() {
   mmorpg_util_features_revert(array('mmorpg_game'));
 }
 
-/*
+/**
  * Revert mmorpg_article feature. Adds multi page view to new post in article
  */
 function mmorpg_updates_update_7007() {
@@ -80,7 +80,7 @@ function mmorpg_updates_update_7009() {
  * Rebuild registry to clean out deleted modules.
  */
 function mmorpg_updates_update_7010() {
-  drush_registry_rebuild();
+  mmorpg_drush_rr();
   cache_clear_all();
 }
 
@@ -103,8 +103,15 @@ function mmorpg_updates_update_7011() {
 }
 
 /**
- * Update 70012 - Creates a relationship between article and news post
+ * Add the sponsored article fields to nodes and update trending view.
  */
 function mmorpg_updates_update_7012() {
+  mmorpg_deploy();
+}
+
+/**
+ * Update 7013 - Creates a relationship between article and news post
+ */
+function mmorpg_updates_update_7013() {
   node_collection_api_add_update_relationship('Article News Post','mmorpg_article',array('article_news_post'));
 }
