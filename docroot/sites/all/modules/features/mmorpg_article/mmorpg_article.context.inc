@@ -26,9 +26,9 @@ function mmorpg_article_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-trending-block' => array(
-          'module' => 'views',
-          'delta' => 'trending-block',
+        'mmorpg_article-trending' => array(
+          'module' => 'mmorpg_article',
+          'delta' => 'trending',
           'region' => 'content',
           'weight' => '-10',
         ),
