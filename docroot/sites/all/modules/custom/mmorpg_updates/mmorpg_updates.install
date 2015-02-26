@@ -4,7 +4,7 @@
  * Install, update and uninstall functions for global functions.
  */
 
-module_load_include('module', 'mmorpg_util', 'mmorpg_util');
+module_load_include('drush.inc', 'mmorpg_updates', 'mmorpg_updates');
 
 /**
  * Enable/disable modules.
@@ -93,19 +93,11 @@ function mmorpg_updates_update_7011() {
 
   cache_clear_all();
 
-  exec("drush cc drush");
+  //Create maximenu.
+  mmorpg_updates_mmorpg_create_maxi_menu();
 
-  try {
-    exec("drush mcmm");
-  } catch (Exception $e) {
-    drush_print('Maximenu couldnt be created due to '.$e);
-  }
-
-  try {
-    exec("drush mpb");
-  } catch (Exception $e) {
-    drush_print('Blocks couldnt be updated due to '.$e);
-  }
+  //Insert block & place in proper region.
+  mmorpg_updates_mmorpg_place_block();
 
   cache_clear_all();
 }
