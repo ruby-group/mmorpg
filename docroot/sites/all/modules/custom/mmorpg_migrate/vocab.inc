@@ -291,7 +291,7 @@ class MMORPGScreenShotTypeMigration extends MMORPGVocabCommon {
       'Description' => t('Description'),
     );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'ScreenShotTypes','cancel_reason','TypeId','Description');
+    $this->createMapping($fields,'ScreenShotTypes','screenshot_type','TypeId','Description');
   }
 }
 
@@ -325,7 +325,7 @@ class MMORPGArticleSubCategoriesMigration extends MMORPGVocabCommon {
       'Description' => t('Description')
     );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'FeaturetteCategories','article_types','CategoryId','Description');
+    $this->createMapping($fields,'FeaturetteCategories','article_subcategory','CategoryId','Description');
   }
 }
 
@@ -342,7 +342,7 @@ class MMORPGTblShowsMigration extends MMORPGVocabCommon {
       'Enabled' => t('Enabled')
     );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'TblShows','article_subcategory','ShowId','Enabled');
+    $this->createMapping($fields,'TblShows','shows_events','ShowId','Enabled');
   }
 }
 
@@ -475,13 +475,37 @@ class MMORPGBlogTagsMigration extends MMORPGVocabCommon {
 
     $fields = array(
       'TagId' => t('Tag Id'),
-      'TypeId' => t('Type Id'),
-      'Uid' => t('Uid'),
       'Tag' => t('Tag')
     );
-    //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'TblContentTags','blog_tags','TagId','Tag', " TypeId = '1' ");
+
+    $query = "SELECT min(TagId) AS TagId,Tag from dbo.TblContentTags WHERE TypeId = '1' AND Tag != '' GROUP BY Tag";
+    $count_query = "SELECT COUNT(*) FROM (SELECT Tag from dbo.TblContentTags WHERE TypeId = '1' AND Tag != '' GROUP BY Tag) AS a";
+
+    $this->source = new MMORPGSourceMSSQL($this->db, $query, $count_query, $fields);
+    $this->destination = new MigrateDestinationTerm('blog_tags');
+    $this->map = new MigrateSQLMap(
+      $this->machineName,
+      array(
+        'TagId' => array(
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'alias' => 'e',
+        ),
+      ),
+      MigrateDestinationTerm::getKeySchema()
+    );
+
+    $this->addFieldMapping('name','Tag');
+    // DNM.
+    $this->addUnmigratedDestinations(array(
+      'description',
+      'format',
+      'weight',
+      'parent',
+      'parent_name',
+      'path',
+    ), t('DNM'));
+
   }
 }
-
-
