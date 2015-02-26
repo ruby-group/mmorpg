@@ -20,7 +20,7 @@ abstract class MMORPGCommon extends Migration {
       $this->db = array(
         'servername' => '54.82.10.36:1433',
         'username' => 'mmorpg',
-        'password' => 'mmorpg',
+        'password' => 'mynnAshOf7',
         'database' => 'mmorpg',
       );
     }
