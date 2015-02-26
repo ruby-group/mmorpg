@@ -11,6 +11,83 @@ function mmorpg_article_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'latest_updates';
+  $view->description = 'This block will display a visual list of recent articles';
+  $view->tag = 'articles';
+  $view->base_table = 'node';
+  $view->human_name = 'Latest Updates';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Latest Updates';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Article Subcategory */
+  $handler->display->display_options['fields']['field_article_subcategory']['id'] = 'field_article_subcategory';
+  $handler->display->display_options['fields']['field_article_subcategory']['table'] = 'field_data_field_article_subcategory';
+  $handler->display->display_options['fields']['field_article_subcategory']['field'] = 'field_article_subcategory';
+  $handler->display->display_options['fields']['field_article_subcategory']['label'] = '';
+  $handler->display->display_options['fields']['field_article_subcategory']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_subcategory']['type'] = 'taxonomy_term_reference_plain';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'mmorpg_article' => 'mmorpg_article',
+  );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '6';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Link */
+  $handler->display->display_options['footer']['link']['id'] = 'link';
+  $handler->display->display_options['footer']['link']['table'] = 'views';
+  $handler->display->display_options['footer']['link']['field'] = 'link';
+  $handler->display->display_options['footer']['link']['text'] = 'More new stuff';
+  $handler->display->display_options['footer']['link']['path'] = 'recent_updates';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'recent_updates';
+  $export['latest_updates'] = $view;
+
+  $view = new view();
   $view->name = 'trending';
   $view->description = 'This view is not used directly in the UI. It feeds data to the trending block.';
   $view->tag = 'articles';

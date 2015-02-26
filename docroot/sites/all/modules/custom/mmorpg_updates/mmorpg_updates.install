@@ -88,17 +88,8 @@ function mmorpg_updates_update_7010() {
  * Revert article feature.
  */
 function mmorpg_updates_update_7011() {
-  module_enable(array('om_maximenu'));
+  module_enable(array('om_maximenu', 'mmorpg_site'));
   mmorpg_util_features_revert(array('mmorpg_article'));
-
-  cache_clear_all();
-
-  //Create maximenu.
-  mmorpg_updates_mmorpg_create_maxi_menu();
-
-  //Insert block & place in proper region.
-  mmorpg_updates_mmorpg_place_block();
-
   cache_clear_all();
 }
 
@@ -110,7 +101,7 @@ function mmorpg_updates_update_7012() {
 }
 
 /**
- * Update 7013 - Creates a relationship between article and news post
+ * Creates a relationship between article and news post
  */
 function mmorpg_updates_update_7013() {
   node_collection_api_add_update_relationship('Article News Post', 'mmorpg_article', array('article_news_post'));
@@ -122,16 +113,24 @@ function mmorpg_updates_update_7014() {
   mmorpg_drush_fra();
 }
 
-/*
- * Update 7015 - Enable Migrate and MMORPGMigrate module.
+/**
+ * Enable Migrate and MMORPGMigrate module.
  */
 function mmorpg_updates_update_7015() {
   module_enable(array('migrate','migrate_ui','mmorpg_migrate'));
 }
 
-/*
- * Update 7016 - Deregistering some migrate modules */
+/**
+ * De-registering some migrate modules
+ */
 function mmorpg_updates_update_7016() {
   Migration::deRegisterMigration('MMORPGArticleType');
   Migration::deRegisterMigration('MMORPGMigrateTblGamePaymentMethods');
+}
+
+/**
+ * Enable the site settings module
+ */
+function mmorpg_updates_update_7017() {
+  module_enable(array('mmorpg_site'));
 }
