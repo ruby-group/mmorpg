@@ -4,7 +4,7 @@
  * Install, update and uninstall functions for global functions.
  */
 
-module_load_include('module', 'mmorpg_util', 'mmorpg_util');
+module_load_include('inc', 'mmorpg_updates', 'mmorpg_updates.drush');
 
 /**
  * Enable/disable modules.
@@ -81,5 +81,23 @@ function mmorpg_updates_update_7009() {
  */
 function mmorpg_updates_update_7010() {
   drush_registry_rebuild();
+  cache_clear_all();
+}
+
+/**
+ * Revert article feature.
+ */
+function mmorpg_updates_update_7011() {
+  module_enable(array('om_maximenu'));
+  mmorpg_util_features_revert(array('mmorpg_article'));
+
+  cache_clear_all();
+
+  //Create maximenu.
+  mmorpg_updates_mmorpg_create_maxi_menu();
+
+  //Insert block & place in proper region.
+  mmorpg_updates_mmorpg_place_block();
+
   cache_clear_all();
 }
