@@ -149,6 +149,12 @@ function mmorpg_migrate_Register_vocab_migrations() {
   Migration::registerMigration('MMORPGArticleSubCategoriesMigration', $arguments['machine_name'], $arguments);
 
   $arguments = $common_arguments + array(
+    'description' => t('Migration of Article Subcategories'),
+    'machine_name' => 'MMORPGArticleSubCategories',
+  );
+  Migration::registerMigration('MMORPGArticleTypeMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
     'description' => t('Migration of Shows'),
     'machine_name' => 'MMORPGTblShows',
   );
