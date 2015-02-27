@@ -177,6 +177,12 @@ function mmorpg_migrate_Register_vocab_migrations() {
   Migration::registerMigration('MMORPGGamePayTypesMigration', $arguments['machine_name'], $arguments);
 
   $arguments = $common_arguments + array(
+    'description' => t('Migration of Business Model'),
+    'machine_name' => 'MMORPGBusinessModel',
+  );
+  Migration::registerMigration('MMORPGBusinessModelMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
     'description' => t('Migration of Vide Mode'),
     'machine_name' => 'MMORPGVideoMode',
   );

@@ -405,14 +405,31 @@ class MMORPGGamePayTypesMigration extends MMORPGVocabCommon {
     parent::__construct($arguments);
 
     $fields = array(
+      'PaymentMethodId' => t('Payment Method Id'),
+      'Description' => t('Description')
+    );
+    //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
+    $this->createMapping($fields,'TblGamePaymentMethods','payment_methods','PaymentMethodId','Description');
+  }
+}
+
+class MMORPGBusinessModelMigration extends MMORPGVocabCommon {
+  /**
+   * Constructor.
+   */
+  public function __construct($arguments) {
+    parent::__construct($arguments);
+
+    $fields = array(
       'PayTypeId' => t('Pay Type Id'),
       'Name' => t('Name'),
       'Description' => t('Description')
     );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'TblGamePayTypes','payment_methods','PayTypeId','Name');
+    $this->createMapping($fields,'TblGamePayTypes','business_model','PayTypeId','Name');
   }
 }
+
 
 class MMORPGVideoModeMigration extends MMORPGVocabCommon {
   /**
