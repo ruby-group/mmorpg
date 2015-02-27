@@ -329,6 +329,24 @@ class MMORPGArticleSubCategoriesMigration extends MMORPGVocabCommon {
   }
 }
 
+class MMORPGArticleTypeMigration extends MMORPGVocabCommon {
+  /**
+   * Constructor.
+   */
+  public function __construct($arguments) {
+    parent::__construct($arguments);
+
+    $fields = array(
+      'TypeId' => t('Category Id'),
+      'FeatureType' => t('Feature Type'),
+      'SortVal' => t('Sort Val'),
+      'Enabled' => t('Enabled')
+    );
+    //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
+    $this->createMapping($fields,'FeaturetteTypes','article_types','TypeId','FeatureType');
+  }
+}
+
 class MMORPGTblShowsMigration extends MMORPGVocabCommon {
   /**
    * Constructor.
