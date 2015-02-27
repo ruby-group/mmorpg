@@ -343,7 +343,7 @@ class MMORPGArticleTypeMigration extends MMORPGVocabCommon {
       'Enabled' => t('Enabled')
     );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'FeaturetteTypes','article_types','TypeId','FeatureType');
+    $this->createMapping($fields,'FeatureTypes','article_types','TypeId','FeatureType');
   }
 }
 
