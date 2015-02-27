@@ -1,0 +1,15 @@
+//Grids
+//
+// MMORPG Grid System
+//
+// Markup:
+// <div class="trending">Trending Dummy Text</div>
+//
+// Styleguide 3
+
+.trending {
+	@include grid-span(12, 1, $output-style: 'isolation');
+	border:1px solid #777;
+	height: 30px;
+	float: none;
+}
