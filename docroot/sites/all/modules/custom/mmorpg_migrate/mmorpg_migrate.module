@@ -206,4 +206,4 @@ function mmorpg_migrate_Register_vocab_migrations() {
     'description' => t('Migration of Blog Tags'),
     'machine_name' => 'MMORPGBlogTags',
   );
-}
+} 
