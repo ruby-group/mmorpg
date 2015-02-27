@@ -62,8 +62,6 @@ function mmorpg_migrate_Register_vocab_migrations() {
   );
   Migration::registerMigration('MMORPGMigrateOriginMigration', $arguments['machine_name'], $arguments);
 
-    Migration::registerMigration('MMORPGMigrateExpansionMigration', $arguments['machine_name'], $arguments);
-
   $arguments = $common_arguments + array(
     'description' => t('Migration of Distribution Types'),
     'machine_name' => 'MMORPGMigrateDistributionTypes',

@@ -125,11 +125,12 @@ class MMORPGMigrateTblGamePaymentMethodsMigration extends MMORPGVocabCommon {
     parent::__construct($arguments);
 
     $fields = array(
-      'PaymentMethodId' => t('Payment Method Id'),
+      'PayTypeId' => t('Payment Method Id'),
+      'Name' => t('Name'),
       'Description' => t('Description')
     );
 
-    $this->createMapping($fields,'TblGamePaymentMethods','payment_methods','PaymentMethodId','Description');
+    $this->createMapping($fields,'TblGamePayTypes','payment_methods','PaymentMethodId','Description');
   }
 }
 
@@ -360,7 +361,7 @@ class MMORPGTblShowsMigration extends MMORPGVocabCommon {
       'Enabled' => t('Enabled')
     );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'TblShows','shows_events','ShowId','Enabled');
+    $this->createMapping($fields,'TblShows','shows_events','ShowId','Description');
   }
 }
 
