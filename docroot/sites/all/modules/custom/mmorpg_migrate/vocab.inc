@@ -117,23 +117,6 @@ class MMORPGMigrateDistributionTypesMigration extends MMORPGVocabCommon {
   }
 }
 
-class MMORPGMigrateTblGamePaymentMethodsMigration extends MMORPGVocabCommon {
-  /**
-   * Constructor.
-   */
-  public function __construct($arguments) {
-    parent::__construct($arguments);
-
-    $fields = array(
-      'PayTypeId' => t('Payment Method Id'),
-      'Name' => t('Name'),
-      'Description' => t('Description')
-    );
-
-    $this->createMapping($fields,'TblGamePayTypes','payment_methods','PaymentMethodId','Description');
-  }
-}
-
 class MMORPGMigrateLanguageMigration extends MMORPGVocabCommon {
   /**
    * Constructor.

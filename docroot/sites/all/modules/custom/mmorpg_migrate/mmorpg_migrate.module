@@ -69,12 +69,6 @@ function mmorpg_migrate_Register_vocab_migrations() {
   Migration::registerMigration('MMORPGMigrateDistributionTypesMigration', $arguments['machine_name'], $arguments);
 
   $arguments = $common_arguments + array(
-    'description' => t('Migration of Payment Method Types'),
-    'machine_name' => 'MMORPGMigrateTblGamePaymentMethods',
-  );
-  Migration::registerMigration('MMORPGMigrateTblGamePaymentMethodsMigration', $arguments['machine_name'], $arguments);
-
-  $arguments = $common_arguments + array(
     'description' => t('Migration of Languages'),
     'machine_name' => 'MMORPGMigrateLanguage',
   );
