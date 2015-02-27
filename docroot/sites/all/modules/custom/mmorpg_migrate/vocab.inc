@@ -508,4 +508,4 @@ class MMORPGBlogTagsMigration extends MMORPGVocabCommon {
     ), t('DNM'));
 
   }
-} 
+}
