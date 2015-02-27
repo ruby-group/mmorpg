@@ -23,7 +23,7 @@ class MMORPGVocabCommon extends MMORPGCommon {
       $this->machineName,
       array(
         $source_id => array(
-          'type' => 'int',
+          'type' => 'int', 
           'unsigned' => TRUE,
           'not null' => TRUE,
           'alias' => 'e',
