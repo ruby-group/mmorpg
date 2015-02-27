@@ -10,4 +10,7 @@ dependencies[] = wysiwyg
 dependencies[] = wysiwyg_mediaembed
 features[features_api][] = api:2
 features[filter][] = filtered_html
+features[user_permission][] = administer filters
+features[user_permission][] = use text format filtered_html
+features[user_permission][] = use text format full_html
 features[wysiwyg][] = filtered_html
