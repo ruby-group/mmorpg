@@ -121,3 +121,10 @@ function mmorpg_updates_update_7013() {
 function mmorpg_updates_update_7014() {
   mmorpg_drush_fra();
 }
+
+/*
+ * Update 7015 - Enable Migrate and MMORPGMigrate module.
+ */
+function mmorpg_updates_update_7015() {
+  module_enable(array('migrate','migrate_ui','mmorpg_migrate'));
+}
