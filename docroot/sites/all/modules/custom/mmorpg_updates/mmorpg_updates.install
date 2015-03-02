@@ -128,3 +128,10 @@ function mmorpg_updates_update_7014() {
 function mmorpg_updates_update_7015() {
   module_enable(array('migrate','migrate_ui','mmorpg_migrate'));
 }
+
+/*
+ * Update 7016 - Deregistering some migrate modules */
+function mmorpg_updates_update_7016() {
+  Migration::deRegisterMigration('MMORPGArticleType');
+  Migration::deRegisterMigration('MMORPGMigrateTblGamePaymentMethods');
+}
