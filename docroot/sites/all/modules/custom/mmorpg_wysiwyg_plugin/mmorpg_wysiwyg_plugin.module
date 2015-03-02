@@ -10,49 +10,12 @@
 function mmorpg_wysiwyg_plugin_shortcode_info() {
   $shortcodes = array();
 
-  $shortcodes['add-link'] == array(
-    'title' => t('Add link wrapper'),
-    'description' => t('Creates an add link.'),
-    'process callback' => 'mmorpg_wysiwyg_plugin_add_link',
-    'tips callback' => 'mmorpg_wysiwyg_plugin_add_link_tips',
-    'default settings' => array(),
-    'attributes callback' => 'mmorpg_wysiwyg_plugin_add_link_attributes',
-  );
-
-  $shortcodes['poll'] == array(
-    'title' => t('Add polls to node'),
+  $shortcodes['poll'] = array(
+    'title' => t('Add poll'),
     'description' => t('Creates a poll.'),
-    'process callback' => 'mmorpg_wysiwyg_plugin_poll',
-    'tips callback' => 'mmorpg_wysiwyg_plugin_poll_tips',
+    'process callback' => 'mmorpg_wysiwyg_plugin_sortcode_poll',
+    'tips callback' => 'mmorpg_wysiwyg_plugin_shortcode_poll_tips',
     'default settings' => array(),
-    'attributes callback' => 'mmorpg_wysiwyg_plugin_poll_attributes',
-  );
-
-  $shortcodes['twitch'] == array(
-    'title' => t('Add twitch wrapper'),
-    'description' => t('Creates twitch.'),
-    'process callback' => 'mmorpg_wysiwyg_plugin_twitch',
-    'tips callback' => 'mmorpg_wysiwyg_plugin_twitch_tips',
-    'default settings' => array(),
-    'attributes callback' => 'mmorpg_wysiwyg_plugin_twitch_attributes',
-  );
-
-  $shortcodes['related-content'] == array(
-    'title' => t('Add related content wrapper'),
-    'description' => t('Creates related content.'),
-    'process callback' => 'mmorpg_wysiwyg_plugin_related_content',
-    'tips callback' => 'mmorpg_wysiwyg_plugin_related_content_tips',
-    'default settings' => array(),
-    'attributes callback' => 'mmorpg_wysiwyg_plugin_related_content_attributes',
-  );
-
-  $shortcodes['playnow-link'] == array(
-    'title' => t('Add play now content wrapper'),
-    'description' => t('Creates a play now content.'),
-    'process callback' => 'mmorpg_wysiwyg_plugin_play_now',
-    'tips callback' => 'mmorpg_wysiwyg_plugin_play_now_tips',
-    'default settings' => array(),
-    'attributes callback' => 'mmorpg_wysiwyg_plugin_play_now_attributes',
   );
 
   return $shortcodes;
@@ -63,113 +26,39 @@ function mmorpg_wysiwyg_plugin_shortcode_info() {
  */
 function mmorpg_wysiwyg_plugin_theme() {
   return array(
-    'related_content' => array(
+    'poll' => array(
       'variables' => array( 'text' => '', 'class' => ''),
     ),
   );
 }
 
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_add_link() {
+/*============================================================================================*/
+/* Embed Poll
+/*============================================================================================*/
+function mmorpg_wysiwyg_plugin_sortcode_poll($attrs, $text) {
+  extract(shortcode_attrs(array(
+    'id' => '',
+    'class' => '',
+  ), $attrs));
 
+  if(isset($attrs['id'])) {
+    $poll_id = $attrs['id'];
+    $pollim = pollim_load($poll_id);
+    $poll = pollim_page_view($pollim);
+    return render($poll);
+  }
 }
 
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_add_link_tips() {
+function theme_shortcode_poll($vars) {
+  print_r($vars);
+  $poll = '';
+  $poll .= $vars->class;
+  $poll .= pollim_load($vars->id);
 
+  return $poll;
 }
 
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_add_link_attributes() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_poll() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_poll_tips() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_poll_attributes() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_twitch() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_twitch_tips() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_twitch_attributes() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_related_content() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_related_content_tips() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_related_content_attributes() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_play_now() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_play_now_tips() {
-
-}
-
-/**
- *
- */
-function mmorpg_wysiwyg_plugin_play_now_attributes() {
-
+function mmorpg_wysiwyg_plugin_shortcode_poll_tips() {
+  $output = '<strong>[poll id="Poll id" /]</strong>';
+  return $output;
 }
