@@ -1,0 +1,64 @@
+<?php
+/**
+ * @file
+ * Provide custom shortcodes for mmorpg.com
+ */
+
+/**
+ * Implementation of hook_shortcode_info().
+ */
+function mmorpg_wysiwyg_plugin_shortcode_info() {
+  $shortcodes = array();
+
+  $shortcodes['poll'] = array(
+    'title' => t('Add poll'),
+    'description' => t('Creates a poll.'),
+    'process callback' => 'mmorpg_wysiwyg_plugin_sortcode_poll',
+    'tips callback' => 'mmorpg_wysiwyg_plugin_shortcode_poll_tips',
+    'default settings' => array(),
+  );
+
+  return $shortcodes;
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function mmorpg_wysiwyg_plugin_theme() {
+  return array(
+    'poll' => array(
+      'variables' => array( 'text' => '', 'class' => ''),
+    ),
+  );
+}
+
+/*============================================================================================*/
+/* Embed Poll
+/*============================================================================================*/
+function mmorpg_wysiwyg_plugin_sortcode_poll($attrs, $text) {
+  extract(shortcode_attrs(array(
+    'id' => '',
+    'class' => '',
+  ), $attrs));
+
+  if(isset($attrs['id'])) {
+    $poll_id = $attrs['id'];
+    $pollim = pollim_load($poll_id);
+    $poll = pollim_page_view($pollim);
+    return render($poll);
+  }
+}
+
+function theme_shortcode_poll($vars) {
+  print_r($vars);
+  $poll = '';
+  $poll .= $vars->class;
+  $poll .= pollim_load($vars->id);
+
+  return $poll;
+}
+
+function mmorpg_wysiwyg_plugin_shortcode_poll_tips() {
+  $output = '<strong>[poll id="Poll id" /]</strong>';
+  return $output;
+}

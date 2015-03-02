@@ -25,6 +25,28 @@ function mmorpg_wysiwyg_filter_default_formats() {
           'filter_url_length' => 72,
         ),
       ),
+      'shortcode' => array(
+        'weight' => 0,
+        'status' => 1,
+        'settings' => array(
+          'poll' => 1,
+          'quote' => 0,
+          'img' => 0,
+          'highlight' => 0,
+          'button' => 0,
+          'dropcap' => 0,
+          'item' => 0,
+          'clear' => 0,
+          'link' => 0,
+          'random' => 0,
+          'embed_content' => 0,
+        ),
+      ),
+      'shortcode_text_corrector' => array(
+        'weight' => 0,
+        'status' => 1,
+        'settings' => array(),
+      ),
       'filter_autop' => array(
         'weight' => 2,
         'status' => 1,

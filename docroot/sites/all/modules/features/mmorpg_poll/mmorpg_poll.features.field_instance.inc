@@ -18,7 +18,7 @@ function mmorpg_poll_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'choices',
         'settings' => array(),
         'type' => 'choices_default',
