@@ -59,6 +59,17 @@ function mmorpg_wysiwyg_plugin_shortcode_info() {
 }
 
 /**
+ * Implementation of hook_theme().
+ */
+function mmorpg_wysiwyg_plugin_theme() {
+  return array(
+    'related_content' => array(
+      'variables' => array( 'text' => '', 'class' => ''),
+    ),
+  );
+}
+
+/**
  *
  */
 function mmorpg_wysiwyg_plugin_add_link() {
