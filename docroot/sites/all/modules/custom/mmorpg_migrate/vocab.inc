@@ -511,4 +511,13 @@ class MMORPGBlogTagsMigration extends MMORPGVocabCommon {
     ), t('DNM'));
 
   }
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+    $enc = mb_detect_encoding($row->Tag, 'UTF-8', TRUE);
+    if (!$enc) {
+      $row->Tag = mb_convert_encoding($row->Tag, 'UTF-8', 'WINDOWS-1252');
+    }
+  }
 }
