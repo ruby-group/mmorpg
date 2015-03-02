@@ -9,12 +9,37 @@
 //
 // Styleguide 2
 
-.para{
-    color: red;
-    background: #fff;
+#block-mmorpg-article-trending{
+	display: none;
+	@include breakpoint($tablet){
+		display: block;
+	}
 
-    &:hover{
-        background: #000;
-        color: #fff;
-    }
+	h3{
+		display: inline-block;
+	}
+}
+
+ul.trending_links{
+	display: inline-block;
+	li{
+		display: inline-block;
+	}
+
+	li.last span{
+		display : none;
+	}
+
+	a{
+		font-size: 14px;
+		font-weight: 200;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	span{
+		font-size: 16px;
+		color: #959595;
+		font-weight: 300;
+	}
 }
