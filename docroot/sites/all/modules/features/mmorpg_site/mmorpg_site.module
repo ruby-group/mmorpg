@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Site Configs feature.
+ */
+
+include_once 'mmorpg_site.features.inc';

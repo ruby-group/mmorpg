@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * mmorpg_article.context.inc
+ * mmorpg_site.context.inc
  */
 
 /**
  * Implements hook_context_default_contexts().
  */
-function mmorpg_article_context_default_contexts() {
+function mmorpg_site_context_default_contexts() {
   $export = array();
 
   $context = new stdClass();
@@ -26,6 +26,12 @@ function mmorpg_article_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'om_maximenu-om-maximenu-1' => array(
+          'module' => 'om_maximenu',
+          'delta' => 'om-maximenu-1',
+          'region' => 'header',
+          'weight' => '-10',
+        ),
         'mmorpg_article-trending' => array(
           'module' => 'mmorpg_article',
           'delta' => 'trending',
