@@ -1,0 +1,14 @@
+name = MMORPG Poll
+description = A Poll content type based off of the pollim module.
+core = 7.x
+package = MMORPG
+version = 7.x-1.0
+project = mmorpg_poll
+dependencies[] = choices
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = pollim
+features[features_api][] = api:2
+features[field_base][] = field_pollim_question
+features[field_instance][] = pollim-game_of_the_year-field_pollim_question
+features[pollim_type][] = game_of_the_year
