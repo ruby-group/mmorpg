@@ -305,29 +305,13 @@ class MMORPGArticleSubCategoriesMigration extends MMORPGVocabCommon {
     parent::__construct($arguments);
 
     $fields = array(
-      'CategoryId' => t('Category Id'),
-      'Description' => t('Description')
-    );
-    //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'FeaturetteCategories','article_subcategory','CategoryId','Description');
-  }
-}
-
-class MMORPGArticleTypeMigration extends MMORPGVocabCommon {
-  /**
-   * Constructor.
-   */
-  public function __construct($arguments) {
-    parent::__construct($arguments);
-
-    $fields = array(
-      'TypeId' => t('Category Id'),
+      'TypeID' => t('Category Id'),
       'FeatureType' => t('Feature Type'),
       'SortVal' => t('Sort Val'),
       'Enabled' => t('Enabled')
     );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
-    $this->createMapping($fields,'FeatureTypes','article_types','TypeId','FeatureType');
+    $this->createMapping($fields,'FeatureTypes','article_subcategory','TypeID','FeatureType');
   }
 }
 
@@ -526,5 +510,14 @@ class MMORPGBlogTagsMigration extends MMORPGVocabCommon {
       'path',
     ), t('DNM'));
 
+  }
+  public function prepareRow($row) {
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+    $enc = mb_detect_encoding($row->Tag, 'UTF-8', TRUE);
+    if (!$enc) {
+      $row->Tag = mb_convert_encoding($row->Tag, 'UTF-8', 'WINDOWS-1252');
+    }
   }
 }
