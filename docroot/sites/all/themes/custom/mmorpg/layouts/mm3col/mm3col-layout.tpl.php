@@ -32,7 +32,7 @@
     <?php print $messages; ?>
     <?php print render($page['help']); ?>
 
-    <div class="l-content" role="main">
+    <div class="center-content" role="main">
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
         <h1><?php print $title; ?></h1>
@@ -45,8 +45,8 @@
       <?php print $feed_icons; ?>
     </div>
 
-    <?php print render($page['sidebar_first']); ?>
-    <?php print render($page['sidebar_second']); ?>
+    <div class="leftsidebar"<?php print render($page['sidebar_first']); ?></div>
+    <div class="rightsidebar"><?php print render($page['sidebar_second']); ?></div>
   </div>
 
   <footer class="l-footer-wrapper" role="contentinfo">
