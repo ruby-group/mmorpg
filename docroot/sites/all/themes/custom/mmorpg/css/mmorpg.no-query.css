@@ -110,5 +110,8 @@ body {
         /* line 17, ../sass/components/_trending.scss */
         .trending .block__content .trending_links li a {
           margin: 0px 4px; }
+      /* line 22, ../sass/components/_trending.scss */
+      .trending .block__content .trending_links li:last-child span {
+        display: none; }
 
 /*# sourceMappingURL=mmorpg.no-query.css.map */

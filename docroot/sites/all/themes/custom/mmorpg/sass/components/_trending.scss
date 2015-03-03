@@ -18,6 +18,10 @@
 					margin: 0px 4px;
 				}
 			}
+
+			li:last-child span{
+				display: none;
+			}
 		}
 	}
 }
