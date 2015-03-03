@@ -5,8 +5,7 @@
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  border: 1px solid green;
-  height: 100vh; }
+  border: 1px solid green; }
   @media (min-width: 1024px) {
     /* line 22, ../../sass/abstractions/style-guide.scss */
     .main {
@@ -17,7 +16,7 @@
       clear: none;
       clear: both; } }
 
-/* line 31, ../../sass/abstractions/style-guide.scss */
+/* line 30, ../../sass/abstractions/style-guide.scss */
 .ads-section {
   width: 100%;
   float: right;
@@ -27,7 +26,7 @@
   height: 100px;
   border: 1px solid red; }
 
-/* line 36, ../../sass/abstractions/style-guide.scss */
+/* line 35, ../../sass/abstractions/style-guide.scss */
 .ad1 {
   width: 40.67797%;
   float: left;
@@ -37,7 +36,7 @@
   background: red;
   height: 100px; }
 
-/* line 41, ../../sass/abstractions/style-guide.scss */
+/* line 40, ../../sass/abstractions/style-guide.scss */
 .ad2 {
   width: 40.67797%;
   float: left;
@@ -47,7 +46,7 @@
   background: orange;
   height: 100px; }
 
-/* line 46, ../../sass/abstractions/style-guide.scss */
+/* line 45, ../../sass/abstractions/style-guide.scss */
 .leftsidebar {
   display: none;
   width: 100%;
@@ -55,10 +54,9 @@
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  height: 100%;
-  background: green; }
+  border: 1px solid green; }
   @media (min-width: 1024px) {
-    /* line 46, ../../sass/abstractions/style-guide.scss */
+    /* line 45, ../../sass/abstractions/style-guide.scss */
     .leftsidebar {
       width: 15.25424%;
       float: left;
@@ -67,17 +65,16 @@
       clear: none;
       display: block; } }
 
-/* line 57, ../../sass/abstractions/style-guide.scss */
+/* line 55, ../../sass/abstractions/style-guide.scss */
 .center-content {
   width: 100%;
   float: right;
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  height: 100%;
-  background: red; }
+  border: 1px solid red; }
   @media (min-width: 1024px) {
-    /* line 57, ../../sass/abstractions/style-guide.scss */
+    /* line 55, ../../sass/abstractions/style-guide.scss */
     .center-content {
       width: 40.67797%;
       float: left;
@@ -85,13 +82,12 @@
       margin-left: 25.42373%;
       clear: none; } }
 
-/* line 65, ../../sass/abstractions/style-guide.scss */
+/* line 62, ../../sass/abstractions/style-guide.scss */
 .rightsidebar {
   display: none;
-  height: 100%;
-  background: blue; }
+  border: 1px solid blue; }
   @media (min-width: 1024px) {
-    /* line 65, ../../sass/abstractions/style-guide.scss */
+    /* line 62, ../../sass/abstractions/style-guide.scss */
     .rightsidebar {
       width: 23.72881%;
       float: left;

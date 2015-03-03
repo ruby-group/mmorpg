@@ -25,6 +25,7 @@
   <?php endif; ?>
 
   <div class="main">
+  <div class="main-inner">
     <a id="main-content"></a>
     <?php print render($tabs); ?>
     <?php print $breadcrumb; ?>
@@ -46,6 +47,7 @@
 
     <div class="leftsidebar"<?php print render($page['sidebar_first']); ?></div>
     <div class="rightsidebar"><?php print render($page['sidebar_second']); ?></div>
+  </div>
   </div>
 
   <footer class="l-footer-wrapper" role="contentinfo">

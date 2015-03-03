@@ -26,7 +26,6 @@
 		clear: both;
 	}
 	border: 1px solid green;
-	height: 100vh;
 }
 .ads-section{
 	@include grid-span(12, 1);
@@ -50,8 +49,7 @@
 		@include grid-span(2,2);
 		display: block;
 	}
-	height: 100%;
-	background: green;
+	border: 1px solid green;
 }
 
 .center-content {
@@ -59,8 +57,7 @@
 	@include breakpoint(1024px) {
 		@include grid-span(5,4);
 	}
-	height: 100%;
-	background: red;
+	border: 1px solid red;
 }
 .rightsidebar {
 	display: none;
@@ -68,6 +65,5 @@
 		@include grid-span(3,9);
 		display: block;
 	}
-	height: 100%;
-	background: blue;
+	border: 1px solid blue;
 }
