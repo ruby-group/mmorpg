@@ -114,27 +114,29 @@ function mmorpg_wysiwyg_plugin_sortcode_related_content($attrs, $text) {
     'class' => '',
   ), $attrs));
 
+
   if(!empty($attrs['node_id'])) {
-    $nid = trim($attrs['node_id']);
-    $node = node_load($nid);
+    $node = new stdClass();
+    $node = node_load($attrs['node_id']);
     if (empty($node) || !$node->status || !node_access('view', $node)) {
       return '';
     }
     $node->shortcode_embedded = TRUE;
+
+    $params = new stdClass();
+    $params->view_mode = 'teaser';
+    $content = node_view($node, $params->view_mode);
+
+    return render($content);
   }
   else {
     return '';
   }
 
-  $params = new stdClass();
-  $params->view_mode = 'teaser';
-  $content = node_view($node, $params->view_mode);
-
-  return render($content);
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_related_content_tips() {
-  $output = '<strong>[related-content node_id="NODE ID HERE"][/related-content]</strong>';
+  $output = '<strong>[related-content node_id=NODE ID HERE][/related-content]</strong>';
 
   return $output;
 }
@@ -164,26 +166,26 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
   ), $attrs));
 
   if(!empty($attrs['playnow_id'])) {
-    $nid = trim($attrs['playnow_id']);
-    $node = node_load($nid);
+    $node = new stdClass();
+    $node = node_load($attrs['playnow_id']);
     if (empty($node) || !$node->status || !node_access('view', $node) || $node->type != 'play_now_slides') {
       return '';
     }
     $node->shortcode_embedded = TRUE;
+
+    $params = new stdClass();
+    $params->view_mode = 'teaser';
+    $content = node_view($node, $params->view_mode);
+
+    return render($content);
   }
   else {
     return '';
   }
-
-  $params = new stdClass();
-  $params->view_mode = 'teaser';
-  $content = node_view($node, $params->view_mode);
-
-  return render($content);
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_play_now_tips() {
-  $output = '<strong>[play-now playnow_id="NODE ID HERE"][/play-now]</strong>';
+  $output = '<strong>[play-now playnow_id=NODE ID HERE][/play-now]</strong>';
 
   return $output;
 }
