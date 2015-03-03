@@ -57,8 +57,10 @@ function mmorpg_wysiwyg_plugin_sortcode_poll($attrs, $text) {
   if(isset($attrs['poll_id'])) {
     $poll_id = $attrs['poll_id'];
     $pollim = pollim_load($poll_id);
-    $poll = pollim_page_view($pollim);
-    return render($poll);
+    if(is_object($pollim)) {
+      $poll = pollim_page_view($pollim);
+      return render($poll);
+    }
   }
 }
 
