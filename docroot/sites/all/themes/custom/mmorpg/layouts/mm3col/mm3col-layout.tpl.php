@@ -13,7 +13,6 @@
         <?php if ($site_slogan): ?>
           <h2 class="site-branding__slogan"><?php print $site_slogan; ?></h2>
         <?php endif; ?>
-        <div class="advert-bar"><?php print render($page['advert_bar']); ?></div>
       </div>
       <?php print render($page['navigation']); ?>
     </div>

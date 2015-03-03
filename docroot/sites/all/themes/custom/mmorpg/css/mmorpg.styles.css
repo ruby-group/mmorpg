@@ -1,3 +1,30 @@
+/* line 1, ../sass/abstractions/_header.scss */
+.header {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  border-bottom: 1px solid #dbdbdb;
+  background: #fff; }
+  /* line 5, ../sass/abstractions/_header.scss */
+  .header .l-constrained {
+    width: 83.05085%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 8.47458%;
+    clear: none; }
+
+/* line 10, ../sass/abstractions/_header.scss */
+.advert-bar {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  height: 90px;
+  background: #E2E2E2; }
+
 /* line 22, ../sass/abstractions/style-guide.scss */
 .main {
   width: 100%;
