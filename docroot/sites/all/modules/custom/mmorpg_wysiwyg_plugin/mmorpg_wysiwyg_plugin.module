@@ -5,6 +5,17 @@
  */
 
 /**
+ * Implementation of hook_js_alter().
+ * Replace the shortcode_wysiwwyg.js with our custom version
+ */
+function mmorpg_wysiwyg_plugin_js_alter(&$javascript) {
+  $path = drupal_get_path('module', 'mmorpg_wysiwyg_plugin') . '/plugins/shortcode_wysiwyg/shortcode_wysiwyg.js';
+  if( isset($javascript[$path]) ) {
+    $javascript[$path]['data'] = drupal_get_path('module', 'mmorpg_wysiwyg_plugin') . '/shortcode_wysiwyg.js';
+  }
+}
+
+/**
  * Implementation of hook_shortcode_info().
  */
 function mmorpg_wysiwyg_plugin_shortcode_info() {
