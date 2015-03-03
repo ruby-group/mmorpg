@@ -50,12 +50,12 @@ function mmorpg_wysiwyg_plugin_theme() {
 /*============================================================================================*/
 function mmorpg_wysiwyg_plugin_sortcode_poll($attrs, $text) {
   extract(shortcode_attrs(array(
-    'id' => '',
+    'poll_id' => '',
     'class' => '',
   ), $attrs));
 
-  if(isset($attrs['id'])) {
-    $poll_id = $attrs['id'];
+  if(isset($attrs['poll_id'])) {
+    $poll_id = $attrs['poll_id'];
     $pollim = pollim_load($poll_id);
     $poll = pollim_page_view($pollim);
     return render($poll);
