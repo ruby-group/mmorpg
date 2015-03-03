@@ -134,3 +134,11 @@ function mmorpg_updates_update_7016() {
 function mmorpg_updates_update_7017() {
   module_enable(array('mmorpg_site'));
 }
+
+/**
+ * Enable play now content type feature & revert wysiwyg.
+ */
+function mmorpg_updates_update_7018() {
+  module_enable(array('mmorpg_play_now', 'scheduler', 'link'));
+  mmorpg_util_features_revert(array('mmorpg_play_now', 'mmorpg_wysiwyg'));
+}
