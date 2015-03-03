@@ -121,6 +121,7 @@ body {
 
 /* line 1, ../sass/components/_trending.scss */
 .trending {
+  display: none;
   width: 100%;
   float: right;
   margin-left: 0;
@@ -128,29 +129,29 @@ body {
   clear: none;
   height: 40px;
   border-bottom: 1px solid #dbdbdb; }
-  /* line 5, ../sass/components/_trending.scss */
+  /* line 9, ../sass/components/_trending.scss */
   .trending .block__content {
     width: 83.05085%;
     float: left;
     margin-right: -100%;
     margin-left: 8.47458%;
     clear: none; }
-    /* line 7, ../sass/components/_trending.scss */
+    /* line 11, ../sass/components/_trending.scss */
     .trending .block__content h3 {
       float: left;
       margin-right: 0.50em; }
-    /* line 11, ../sass/components/_trending.scss */
+    /* line 15, ../sass/components/_trending.scss */
     .trending .block__content .trending_links {
       line-height: 23px; }
-      /* line 13, ../sass/components/_trending.scss */
+      /* line 17, ../sass/components/_trending.scss */
       .trending .block__content .trending_links li {
         float: left;
         list-style: none;
         color: #959595; }
-        /* line 17, ../sass/components/_trending.scss */
+        /* line 21, ../sass/components/_trending.scss */
         .trending .block__content .trending_links li a {
           margin: 0px 4px; }
-      /* line 22, ../sass/components/_trending.scss */
+      /* line 26, ../sass/components/_trending.scss */
       .trending .block__content .trending_links li:last-child span {
         display: none; }
 

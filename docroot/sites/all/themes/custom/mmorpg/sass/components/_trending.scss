@@ -1,5 +1,9 @@
 .trending {
+	display: none;
 	@include grid-span(12, 1);
+	@include breakpoint(768px) {
+		display: block;
+	}
 	height: 40px;
 	border-bottom: 1px solid $border-grey;
 	.block__content {
