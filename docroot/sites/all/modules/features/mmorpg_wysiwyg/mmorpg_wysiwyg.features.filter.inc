@@ -30,6 +30,8 @@ function mmorpg_wysiwyg_filter_default_formats() {
         'status' => 1,
         'settings' => array(
           'poll' => 1,
+          'related-content' => 1,
+          'play-now' => 1,
           'quote' => 0,
           'img' => 0,
           'highlight' => 0,

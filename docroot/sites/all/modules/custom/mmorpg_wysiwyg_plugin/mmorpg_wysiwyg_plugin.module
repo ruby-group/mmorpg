@@ -28,6 +28,15 @@ function mmorpg_wysiwyg_plugin_shortcode_info() {
     'attributes callback' => 'mmorpg_wysiwyg_plugin_shortcode_related_content_attributes',
   );
 
+  $shortcodes['play-now'] = array(
+    'title' => t('Play Now'),
+    'description' => t('Add play now.'),
+    'process callback' => 'mmorpg_wysiwyg_plugin_sortcode_play_now',
+    'tips callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now_tips',
+    'default settings' => array(),
+    'attributes callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now_attributes',
+  );
+
   return $shortcodes;
 }
 
@@ -128,6 +137,55 @@ function mmorpg_wysiwyg_plugin_shortcode_related_content_attributes($form, $form
     '#states' => array(
       'visible' => array(
         ':input[name="shortcode"]' => array('value' => 'related-content'),
+      ),
+    ),
+  );
+  return $form;
+}
+
+/*============================================================================================*/
+/* Embed Related Content
+/*============================================================================================*/
+function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
+  extract(shortcode_attrs(array(
+    'playnow_id' => '',
+    'class' => '',
+  ), $attrs));
+
+  if(!empty($attrs['playnow_id'])) {
+    $nid = trim($attrs['playnow_id']);
+    $node = node_load($nid);
+    if (empty($node) || !$node->status || !node_access('view', $node) || $node->type != 'play_now_slides') {
+      return '';
+    }
+    $node->shortcode_embedded = TRUE;
+  }
+  else {
+    return '';
+  }
+
+  $params = new stdClass();
+  $params->view_mode = 'teaser';
+  $content = node_view($node, $params->view_mode);
+
+  return render($content);
+}
+
+function mmorpg_wysiwyg_plugin_shortcode_play_now_tips() {
+  $output = '<strong>[play-now playnow_id="NODE ID HERE"][/play-now]</strong>';
+
+  return $output;
+}
+
+function mmorpg_wysiwyg_plugin_shortcode_play_now_attributes($form, $form_state) {
+  $form['playnow_id'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Node ID'),
+    '#size' => 60,
+    '#maxlength' => 60,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="shortcode"]' => array('value' => 'play-now'),
       ),
     ),
   );
