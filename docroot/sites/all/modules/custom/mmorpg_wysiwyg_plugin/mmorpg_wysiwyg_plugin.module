@@ -109,6 +109,7 @@ function mmorpg_wysiwyg_plugin_sortcode_related_content($attrs, $text) {
   $params->show_submitted = FALSE;
   $params->show_terms = FALSE;
   $params->show_links = FALSE;
+  $node->shortcode = $params;
   $params->view_mode = 'teaser';
   $content = node_view($node, $params->view_mode);
 
