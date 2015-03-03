@@ -1,5 +1,72 @@
-img, media {
-  max-width: 100%;
-}
+/* line 22, ../sass/abstractions/style-guide.scss */
+.main {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  border: 1px solid green;
+  height: 100vh; }
 
-/* No files to import found in partials/components/**\/* */
+/* line 31, ../sass/abstractions/style-guide.scss */
+.ads-section, .trending {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  height: 100px;
+  border: 1px solid red; }
+
+/* line 36, ../sass/abstractions/style-guide.scss */
+.ad1 {
+  width: 40.67797%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 8.47458%;
+  clear: none;
+  background: red;
+  height: 100px; }
+
+/* line 41, ../sass/abstractions/style-guide.scss */
+.ad2 {
+  width: 40.67797%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 50.84746%;
+  clear: none;
+  background: orange;
+  height: 100px; }
+
+/* line 46, ../sass/abstractions/style-guide.scss */
+.leftsidebar {
+  display: none;
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  height: 100%;
+  background: green; }
+
+/* line 57, ../sass/abstractions/style-guide.scss */
+.center-content {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  height: 100%;
+  background: red; }
+
+/* line 65, ../sass/abstractions/style-guide.scss */
+.rightsidebar {
+  display: none;
+  height: 100%;
+  background: blue; }
+
+/* line 1, ../sass/base/_media.scss */
+img, media {
+  max-width: 100%; }
+
+/*# sourceMappingURL=mmorpg.no-query.css.map */
