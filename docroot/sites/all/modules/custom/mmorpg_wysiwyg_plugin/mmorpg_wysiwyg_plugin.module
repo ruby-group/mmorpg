@@ -115,19 +115,19 @@ function mmorpg_wysiwyg_plugin_sortcode_related_content($attrs, $text) {
   ), $attrs));
 
 
-  if(!empty($attrs['node_id'])) {
-    $node = new stdClass();
-    $node = node_load($attrs['node_id']);
-    if (empty($node) || !$node->status || !node_access('view', $node)) {
-      return '';
+  if(!empty($attrs['node_id']) && is_numeric($attrs['node_id'])) {
+    $nid = $attrs['node_id'];
+
+    $query = "SELECT title FROM {node} WHERE nid = " . $nid;
+    $result = db_query($query);
+
+    $content = "<h2>Related content</h2>";
+
+    foreach ($result as $row){
+      $content .= "<a href=/node/". $nid .">". $row->title ."</a>";
     }
-    $node->shortcode_embedded = TRUE;
 
-    $params = new stdClass();
-    $params->view_mode = 'teaser';
-    $content = node_view($node, $params->view_mode);
-
-    return render($content);
+    return $content;
   }
   else {
     return '';
@@ -165,19 +165,20 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
     'class' => '',
   ), $attrs));
 
-  if(!empty($attrs['playnow_id'])) {
-    $node = new stdClass();
-    $node = node_load($attrs['playnow_id']);
-    if (empty($node) || !$node->status || !node_access('view', $node) || $node->type != 'play_now_slides') {
-      return '';
+  if(!empty($attrs['playnow_id']) && is_numeric($attrs['playnow_id'])) {
+    $nid = $attrs['playnow_id'];
+
+    $query = "SELECT title FROM {node} WHERE nid = " . $nid;
+    $result = db_query($query);
+
+    $content = "<h2>Game to play</h2>";
+
+    foreach ($result as $row){
+      $content = "<ul><li>" . $row->title . ": ";
+      $content .= "<a href=/node/". $nid .">Play Now</a></li></ul>";
     }
-    $node->shortcode_embedded = TRUE;
 
-    $params = new stdClass();
-    $params->view_mode = 'teaser';
-    $content = node_view($node, $params->view_mode);
-
-    return render($content);
+    return $content;
   }
   else {
     return '';
