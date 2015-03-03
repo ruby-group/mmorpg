@@ -28,7 +28,7 @@
 	border: 1px solid green;
 	height: 100vh;
 }
-.ads-section, .trending{
+.ads-section{
 	@include grid-span(12, 1);
 	height: 100px;
 	border: 1px solid red;

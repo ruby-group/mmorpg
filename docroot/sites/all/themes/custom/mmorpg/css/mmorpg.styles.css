@@ -18,7 +18,7 @@
       clear: both; } }
 
 /* line 31, ../sass/abstractions/style-guide.scss */
-.ads-section, .trending {
+.ads-section {
   width: 100%;
   float: right;
   margin-left: 0;
@@ -103,5 +103,47 @@
 /* line 1, ../sass/base/_media.scss */
 img, media {
   max-width: 100%; }
+
+/* line 1, ../sass/base/_typography.scss */
+a, a:link, a:visited {
+  color: #31b4ff;
+  text-decoration: none; }
+
+/* line 6, ../sass/base/_typography.scss */
+body {
+  font-weight: 100;
+  font-size: 14px; }
+
+/* line 1, ../sass/components/_trending.scss */
+.trending {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  height: 40px;
+  border-bottom: 1px solid #dbdbdb; }
+  /* line 5, ../sass/components/_trending.scss */
+  .trending .block__content {
+    width: 83.05085%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 8.47458%;
+    clear: none; }
+    /* line 7, ../sass/components/_trending.scss */
+    .trending .block__content h3 {
+      float: left;
+      margin-right: 0.50em; }
+    /* line 11, ../sass/components/_trending.scss */
+    .trending .block__content .trending_links {
+      line-height: 23px; }
+      /* line 13, ../sass/components/_trending.scss */
+      .trending .block__content .trending_links li {
+        float: left;
+        list-style: none;
+        color: #959595; }
+        /* line 17, ../sass/components/_trending.scss */
+        .trending .block__content .trending_links li a {
+          margin: 0px 4px; }
 
 /*# sourceMappingURL=mmorpg.styles.css.map */

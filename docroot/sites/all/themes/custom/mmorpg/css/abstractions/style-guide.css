@@ -18,7 +18,7 @@
       clear: both; } }
 
 /* line 31, ../../sass/abstractions/style-guide.scss */
-.ads-section, .trending {
+.ads-section {
   width: 100%;
   float: right;
   margin-left: 0;

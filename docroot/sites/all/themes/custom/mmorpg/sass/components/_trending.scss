@@ -1,0 +1,23 @@
+.trending {
+	@include grid-span(12, 1);
+	height: 40px;
+	border-bottom: 1px solid $border-grey;
+	.block__content {
+		@include grid-span(10, 2);
+		h3 {
+			float: left;
+			margin-right: 0.50em;
+		}
+		.trending_links {
+			line-height: 23px;
+			li {
+				float: left;
+				list-style: none;
+				color: $grey;
+				a {
+					margin: 0px 4px;
+				}
+			}
+		}
+	}
+}
