@@ -172,11 +172,12 @@ body {
 /* line 2, ../sass/components/_article.scss */
 .node-type-mmorpg-article h1 {
   padding: 10px 15px 5px 25px;
+  margin-left: 26px;
   margin: 0px;
   font-size: 35px;
   font-weight: normal;
   line-height: 1.2em; }
-/* line 10, ../sass/components/_article.scss */
+/* line 11, ../sass/components/_article.scss */
 .node-type-mmorpg-article .node__submitted {
   font-size: 13px;
   padding: 6px 0px 15px 1px;
@@ -185,15 +186,35 @@ body {
   margin-left: 26px;
   margin-top: 5px;
   color: #919191; }
-/* line 20, ../sass/components/_article.scss */
+/* line 21, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field--name-field-article-overview {
   display: none; }
-/* line 24, ../sass/components/_article.scss */
+/* line 25, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field__item {
   font-size: 14px;
   line-height: 1.6em;
   padding-top: 0px;
   margin-top: 0px; }
+/* line 32, ../sass/components/_article.scss */
+.node-type-mmorpg-article .article_top_image {
+  padding: 0px;
+  margin-left: 26px; }
+/* line 37, ../sass/components/_article.scss */
+.node-type-mmorpg-article .article__body {
+  font-size: 14px;
+  line-height: 1.6em;
+  margin: 0px 55px;
+  top: -40px;
+  margin-bottom: -40px;
+  padding: 20px;
+  background: #ffffff;
+  border-top: 4px solid #bce6ff;
+  max-width: 640px;
+  position: relative; }
+  /* line 49, ../sass/components/_article.scss */
+  .node-type-mmorpg-article .article__body img {
+    max-width: 640px;
+    width: 100%; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
