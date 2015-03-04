@@ -164,7 +164,7 @@ body {
   clear: none;
   height: 40px;
   border-bottom: 1px solid #dbdbdb; }
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     /* line 1, ../sass/components/_trending.scss */
     .trending {
       display: block; } }

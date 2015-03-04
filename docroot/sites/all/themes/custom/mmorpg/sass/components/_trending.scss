@@ -1,7 +1,7 @@
 .trending {
 	display: none;
 	@include grid-span(12, 1);
-	@include breakpoint(768px) {
+	@include breakpoint(900px) {
 		display: block;
 	}
 	height: 40px;
