@@ -1,0 +1,20 @@
+.om-menu {
+	.item-list {
+		ul {
+			padding: 0;
+			li {
+				border: 0;
+				padding: 0.50em;
+			}
+		}
+	}
+	.om-maximenu .om-maximenu-middle {
+		border-radius: 0 0 3px 3px;
+	}
+	li:hover{
+		background: #bce6ff;
+		.om-maximenu-content {
+			border-top:5px solid #bce6ff;
+		}
+	}
+}
