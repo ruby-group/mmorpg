@@ -27,10 +27,10 @@ class MMORPGVocabCommon extends MMORPGCommon {
           'unsigned' => TRUE,
           'not null' => TRUE,
           'alias' => 'e',
+          ),
         ),
-      ),
       MigrateDestinationTerm::getKeySchema()
-    );
+      );
 
     $this->addFieldMapping('name',$map_key);
     // DNM.
@@ -41,7 +41,7 @@ class MMORPGVocabCommon extends MMORPGCommon {
       'parent',
       'parent_name',
       'path',
-    ), t('DNM'));
+      ), t('DNM'));
   }
 }
 
@@ -60,7 +60,7 @@ class MMORPGMigrateFaqMigration extends MMORPGVocabCommon {
     $fields = array(
       'CategoryID' => t('Category ID'),
       'Description' => t('description'),
-    );
+      );
 
     $this->createMapping($fields,'FaqCategories','faq_category','CategoryID','Description');
 
@@ -77,7 +77,7 @@ class MMORPGMigrateExpansionMigration extends MMORPGVocabCommon {
     $fields = array(
       'ExpansionTypeId' => t('Expansion Type Id'),
       'Description' => t('description'),
-    );
+      );
 
     $this->createMapping($fields,'TblGameExpansionTypes','expansion_types','ExpansionTypeId','Description');
   }
@@ -94,7 +94,7 @@ class MMORPGMigrateOriginMigration extends MMORPGVocabCommon {
       'CountryID' => t('Country Id'),
       'CountryName' => t('Country Name'),
       'CountryCode' => t('Country Code')
-    );
+      );
 
     $this->createMapping($fields,'Countries','origin','CountryID','CountryName');
   }
@@ -111,7 +111,7 @@ class MMORPGMigrateDistributionTypesMigration extends MMORPGVocabCommon {
       'DistributionTypeId' => t('Destribution Id'),
       'Name' => t('Name'),
       'Description' => t('Description')
-    );
+      );
 
     $this->createMapping($fields,'TblGameDistributionTypes','distribution_types','DistributionTypeId','Name');
   }
@@ -127,7 +127,7 @@ class MMORPGMigrateLanguageMigration extends MMORPGVocabCommon {
     $fields = array(
       'LanguageId' => t('Language Id'),
       'Description' => t('Description')
-    );
+      );
 
     $this->createMapping($fields,'TblGameLanguages','languages','LanguageId','Description');
   }
@@ -143,7 +143,7 @@ class MMORPGMigrateMMOGenresMigration extends MMORPGVocabCommon {
     $fields = array(
       'Genre2Id' => t('Genre Id'),
       'Description' => t('Description')
-    );
+      );
 
     $this->createMapping($fields,'TblGameGenres2','mmo_genre','Genre2Id','Description');
   }
@@ -159,7 +159,7 @@ class MMORPGMigrateGenresMigration extends MMORPGVocabCommon {
     $fields = array(
       'GenreID' => t('Genre Id'),
       'Description' => t('Description')
-    );
+      );
 
     $this->createMapping($fields,'Genres','genres','GenreID','Description');
   }
@@ -175,7 +175,7 @@ class MMORPGMigrateGameClassificationMigration extends MMORPGVocabCommon {
     $fields = array(
       'ClassificationId' => t('Classification Id'),
       'Description' => t('Description')
-    );
+      );
     
     $this->createMapping($fields,'TblGameClassifications','classification','ClassificationId','Description');
   }
@@ -192,7 +192,7 @@ class MMORPGMigrateGameStylesMigration extends MMORPGVocabCommon {
       'StyleId' => t('Style Id'),
       'Style' => t('Style'),
       'Description' => t('Description')
-    );
+      );
 
     $this->createMapping($fields,'TblGameStyles','style','StyleId','Style');
   }
@@ -209,7 +209,7 @@ class MMORPGMigrateGameEngineMigration extends MMORPGVocabCommon {
       'EngineId' => t('Engine Id'),
       'Name' => t('Name'),
       'Url' => t('Url'),
-    );
+      );
 
     $this->createMapping($fields,'TblGameEngines','engine','EngineId','Name');
   }
@@ -226,7 +226,7 @@ class MMORPGMigratePlatformMigration extends MMORPGVocabCommon {
       'PlatformID' => t('Platform Id'),
       'PlatformName' => t('Name'),
       'Logo' => t('Logo'),
-    );
+      );
     $this->createMapping($fields,'platforms','platforms','PlatformID','PlatformName');
   }
 }
@@ -241,7 +241,7 @@ class MMORPGGameStatusMigration extends MMORPGVocabCommon {
     $fields = array(
       'GameStatusID' => t('Game Status Id'),
       'Description' => t('Description'),
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'GameStatus','game_development_status','GameStatusID','Description');
   }
@@ -257,7 +257,7 @@ class MMORPGCancelReasonMigration extends MMORPGVocabCommon {
     $fields = array(
       'ReasonId' => t('Reason Id'),
       'Description' => t('Description'),
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblGameCancellationReasons','cancel_reason','ReasonId','Description');
   }
@@ -273,7 +273,7 @@ class MMORPGScreenShotTypeMigration extends MMORPGVocabCommon {
     $fields = array(
       'TypeId' => t('Type Id'),
       'Description' => t('Description'),
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'ScreenShotTypes','screenshot_type','TypeId','Description');
   }
@@ -291,7 +291,7 @@ class MMORPGColumnMigration extends MMORPGVocabCommon {
       'Name' => t('Name'),
       'isActive' => t('Is Active'),
       'isDefault' => t('Is Default'),
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblGameListColumns','column','ColumnId','Name');
   }
@@ -309,7 +309,7 @@ class MMORPGArticleSubCategoriesMigration extends MMORPGVocabCommon {
       'FeatureType' => t('Feature Type'),
       'SortVal' => t('Sort Val'),
       'Enabled' => t('Enabled')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'FeatureTypes','article_subcategory','TypeID','FeatureType');
   }
@@ -326,7 +326,7 @@ class MMORPGTblShowsMigration extends MMORPGVocabCommon {
       'ShowId' => t('Category Id'),
       'Description' => t('Description'),
       'Enabled' => t('Enabled')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblShows','shows_events','ShowId','Description');
   }
@@ -342,7 +342,7 @@ class MMORPGTblVideoCategoriesMigration extends MMORPGVocabCommon {
     $fields = array(
       'CategoryId' => t('Category Id'),
       'Description' => t('Description')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblVideoCategories','video_category','CategoryId','Description');
   }
@@ -358,7 +358,7 @@ class MMORPGTblOfferTypesMigration extends MMORPGVocabCommon {
     $fields = array(
       'TypeId' => t('Type Id'),
       'Description' => t('Description')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'SpecialOfferTypes','offer_types','TypeId','Description');
   }
@@ -375,7 +375,7 @@ class MMORPGTblRenderingEnginesMigration extends MMORPGVocabCommon {
       'EngineId' => t('Engine Id'),
       'Name' => t('Description'),
       'Url' => t('Url')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblGameEngines','engine','EngineId','Name');
   }
@@ -391,7 +391,7 @@ class MMORPGGamePayTypesMigration extends MMORPGVocabCommon {
     $fields = array(
       'PaymentMethodId' => t('Payment Method Id'),
       'Description' => t('Description')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblGamePaymentMethods','payment_methods','PaymentMethodId','Description');
   }
@@ -408,7 +408,7 @@ class MMORPGBusinessModelMigration extends MMORPGVocabCommon {
       'PayTypeId' => t('Pay Type Id'),
       'Name' => t('Name'),
       'Description' => t('Description')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblGamePayTypes','business_model','PayTypeId','Name');
   }
@@ -425,7 +425,7 @@ class MMORPGVideoModeMigration extends MMORPGVocabCommon {
     $fields = array(
       'GameTypeId' => t('Pay Type Id'),
       'Description' => t('Description')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblGameTypes','video_mode','GameTypeId','Description');
   }
@@ -444,7 +444,7 @@ class MMORPGProsMigration extends MMORPGVocabCommon {
       'Description' => t('Description'),
       'IsPro' => t('Is Pro'),
       'IsCon' => t('Is Con')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblReviewProsandCons','pros_highlights','ProConId','Title', " IsPro = '1' ");
   }
@@ -463,7 +463,7 @@ class MMORPGConsMigration extends MMORPGVocabCommon {
       'Description' => t('Description'),
       'IsPro' => t('Is Pro'),
       'IsCon' => t('Is Con')
-    );
+      );
     //createMapping($fields, $table_name, $vocab, $source_id, $map_key)
     $this->createMapping($fields,'TblReviewProsandCons','cons_highlights','ProConId','Title', " IsCon = '1' ");
   }
@@ -479,7 +479,7 @@ class MMORPGBlogTagsMigration extends MMORPGVocabCommon {
     $fields = array(
       'TagId' => t('Tag Id'),
       'Tag' => t('Tag')
-    );
+      );
 
     $query = "SELECT min(TagId) AS TagId,Tag from dbo.TblContentTags WHERE TypeId = '1' AND Tag != '' GROUP BY Tag";
     $count_query = "SELECT COUNT(*) FROM (SELECT Tag from dbo.TblContentTags WHERE TypeId = '1' AND Tag != '' GROUP BY Tag) AS a";
@@ -494,10 +494,10 @@ class MMORPGBlogTagsMigration extends MMORPGVocabCommon {
           'unsigned' => TRUE,
           'not null' => TRUE,
           'alias' => 'e',
+          ),
         ),
-      ),
       MigrateDestinationTerm::getKeySchema()
-    );
+      );
 
     $this->addFieldMapping('name','Tag');
     // DNM.
@@ -508,7 +508,7 @@ class MMORPGBlogTagsMigration extends MMORPGVocabCommon {
       'parent',
       'parent_name',
       'path',
-    ), t('DNM'));
+      ), t('DNM'));
 
   }
   public function prepareRow($row) {
