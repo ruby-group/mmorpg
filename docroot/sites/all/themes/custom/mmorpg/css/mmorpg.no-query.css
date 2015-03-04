@@ -151,6 +151,9 @@ body {
   margin-top: 5px;
   color: #919191; }
 /* line 20, ../sass/components/_article.scss */
+.node-type-mmorpg-article .field--name-field-article-overview {
+  display: none; }
+/* line 24, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field__item {
   font-size: 14px;
   line-height: 1.6em;
