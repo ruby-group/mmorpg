@@ -142,3 +142,11 @@ function mmorpg_updates_update_7018() {
   module_enable(array('mmorpg_play_now', 'scheduler', 'link'));
   mmorpg_util_features_revert(array('mmorpg_play_now', 'mmorpg_wysiwyg'));
 }
+
+/**
+ * Revert article mmorpg_article feature
+ */
+function mmorpg_updates_update_7019() {
+  mmorpg_util_features_revert(array('mmorpg_article'));
+}
+
