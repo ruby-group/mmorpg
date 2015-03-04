@@ -114,7 +114,7 @@
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  background: #333333;
+  background: #333;
   height: 100vh; }
   @media (min-width: 1024px) {
     /* line 45, ../sass/abstractions/style-guide.scss */
@@ -168,6 +168,29 @@ a, a:link, a:visited {
 body {
   font-weight: 100;
   font-size: 14px; }
+
+/* line 2, ../sass/components/_article.scss */
+.node-type-mmorpg-article h1 {
+  padding: 10px 15px 5px 25px;
+  margin: 0px;
+  font-size: 35px;
+  font-weight: normal;
+  line-height: 1.2em; }
+/* line 10, ../sass/components/_article.scss */
+.node-type-mmorpg-article .node__submitted {
+  font-size: 13px;
+  padding: 6px 0px 15px 1px;
+  border-top: 1px solid #bce6ff;
+  display: inline-block;
+  margin-left: 26px;
+  margin-top: 5px;
+  color: #919191; }
+/* line 20, ../sass/components/_article.scss */
+.node-type-mmorpg-article .field__item {
+  font-size: 14px;
+  line-height: 1.6em;
+  padding-top: 0px;
+  margin-top: 0px; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
@@ -228,5 +251,3 @@ body {
       /* line 29, ../sass/components/_trending.scss */
       .trending .block__content .trending_links li:last-child span {
         display: none; }
-
-/*# sourceMappingURL=mmorpg.styles.css.map */

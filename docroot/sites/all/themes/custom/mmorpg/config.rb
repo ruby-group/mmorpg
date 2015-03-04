@@ -45,4 +45,4 @@ output_style = (environment == :production) ? :expanded : :nested
 relative_assets = true
 
 # Output source maps in development mode.
-sass_options = (environment == :production) ? {} : {:sourcemap => true}
+# sass_options = (environment == :production) ? {} : {:sourcemap => true}

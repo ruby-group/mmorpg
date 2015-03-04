@@ -1,76 +1,96 @@
-/*
-Error: Undefined variable: "$darkbg".
-        on line 52 of /Library/WebServer/Documents/mmorpg/docroot/sites/all/themes/custom/mmorpg/sass/abstractions/style-guide.scss
+/* line 22, ../../sass/abstractions/style-guide.scss */
+.main {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  border: 1px solid green; }
+  @media (min-width: 1024px) {
+    /* line 22, ../../sass/abstractions/style-guide.scss */
+    .main {
+      width: 100%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      clear: none;
+      clear: both; } }
 
-47: 	@include grid-span(12,1);
-48: 	@include breakpoint(1024px) {
-49: 		@include grid-span(2,1);
-50: 		display: block;
-51: 	}
-52: 	background: $darkbg;
-53: 	height: 100vh;
-54: }
-55: 
-56: .center-content {
-57: 	@include grid-span(12,1);
+/* line 30, ../../sass/abstractions/style-guide.scss */
+.ads-section {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  height: 100px;
+  border: 1px solid red; }
 
-Backtrace:
-/Library/WebServer/Documents/mmorpg/docroot/sites/all/themes/custom/mmorpg/sass/abstractions/style-guide.scss:52
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/script/tree/variable.rb:49:in `_perform'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/script/tree/node.rb:50:in `perform'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:394:in `visit_prop'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:430:in `block (2 levels) in visit_rule'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:430:in `map'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:430:in `block in visit_rule'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:428:in `visit_rule'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/engine.rb:285:in `render_with_sourcemap'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `each'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:293:in `watch'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/lib/compass/sass_compiler.rb:46:in `watch!'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/lib/compass/commands/watch_project.rb:41:in `perform'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/bin/compass:44:in `call'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
-/Users/ishann/.rvm/rubies/ruby-1.9.3-p551/bin/compass:23:in `load'
-/Users/ishann/.rvm/rubies/ruby-1.9.3-p551/bin/compass:23:in `<main>'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/bin/ruby_executable_hooks:15:in `eval'
-/Users/ishann/.rvm/gems/ruby-1.9.3-p551@global/bin/ruby_executable_hooks:15:in `<main>'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$darkbg\".\A         on line 52 of /Library/WebServer/Documents/mmorpg/docroot/sites/all/themes/custom/mmorpg/sass/abstractions/style-guide.scss\A \A 47: 	@include grid-span(12,1);\A 48: 	@include breakpoint(1024px) {\A 49: 		@include grid-span(2,1);\A 50: 		display: block;\A 51: 	}\A 52: 	background: $darkbg;\A 53: 	height: 100vh;\A 54: }\A 55: \A 56: .center-content {\A 57: 	@include grid-span(12,1);"; }
+/* line 35, ../../sass/abstractions/style-guide.scss */
+.ad1 {
+  width: 40.67797%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 8.47458%;
+  clear: none;
+  background: red;
+  height: 100px; }
+
+/* line 40, ../../sass/abstractions/style-guide.scss */
+.ad2 {
+  width: 40.67797%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 50.84746%;
+  clear: none;
+  background: orange;
+  height: 100px; }
+
+/* line 45, ../../sass/abstractions/style-guide.scss */
+.leftsidebar {
+  display: none;
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none;
+  background: #333;
+  height: 100vh; }
+  @media (min-width: 1024px) {
+    /* line 45, ../../sass/abstractions/style-guide.scss */
+    .leftsidebar {
+      width: 15.25424%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 0;
+      clear: none;
+      display: block; } }
+
+/* line 56, ../../sass/abstractions/style-guide.scss */
+.center-content {
+  width: 100%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }
+  @media (min-width: 1024px) {
+    /* line 56, ../../sass/abstractions/style-guide.scss */
+    .center-content {
+      width: 49.15254%;
+      float: left;
+      margin-right: -100%;
+      margin-left: 16.94915%;
+      clear: none; } }
+
+/* line 62, ../../sass/abstractions/style-guide.scss */
+.rightsidebar {
+  display: none; }
+  @media (min-width: 1024px) {
+    /* line 62, ../../sass/abstractions/style-guide.scss */
+    .rightsidebar {
+      width: 32.20339%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
+      clear: none;
+      display: block; } }
