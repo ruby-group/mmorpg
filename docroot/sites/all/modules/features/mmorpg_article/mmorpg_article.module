@@ -11,7 +11,7 @@ include_once 'mmorpg_article.features.inc';
  */
 function mmorpg_article_block_info() {
   $blocks['trending'] = array(
-    'info' => t('Trending Content'),
+    'info' => t('Trending'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
   return $blocks;
@@ -31,14 +31,14 @@ function mmorpg_article_block_view($delta = '') {
       }
 
       foreach ($organic_content as &$item) {
-        $item = l($item->node_title, drupal_get_path_alias('node/' . $item->nid));
+        $item = l($item->node_title, drupal_get_path_alias('node/' . $item->nid)) . "<span>|</span>";
       }
 
-      $block['subject'] = t('Trending');
       $block['content'] = theme('item_list', array(
         'items' => $organic_content,
         'title' => 'Trending Content',
         'type' => 'ul',
+        'attributes' => array('class' => 'trending_links'),
       ));
       break;
   }

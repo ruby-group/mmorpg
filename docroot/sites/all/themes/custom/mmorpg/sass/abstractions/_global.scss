@@ -1,0 +1,11 @@
+.main {
+    background: url("http://skywisenight.com/spec_rev7/content/skins/1_r5.jpg");
+    background-color: #181818;
+    background-repeat: no-repeat;
+    background-position: top center;
+    padding-top: 185px;
+}
+.main-inner {
+    @include grid-span(10, 2);
+    background: $white;
+}

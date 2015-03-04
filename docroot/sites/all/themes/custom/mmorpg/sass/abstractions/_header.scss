@@ -1,0 +1,14 @@
+.header {
+	@include grid-span(12, 1);
+	border-bottom: 1px solid $border-grey;
+	background: #fff;
+	.l-constrained {
+		@include grid-span(10, 2);
+	}
+}
+
+.advert-bar {
+	@include grid-span(12, 1);
+	height: 90px;
+	background: $bg-grey;
+}

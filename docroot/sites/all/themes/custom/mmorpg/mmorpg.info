@@ -1,31 +1,33 @@
 name = mmorpg
-description =  mmorpg theme.
+description = Please provide a description for your theme.
+base theme = omega
+screenshot = screenshot.png
+engine = phptemplate
 core = 7.x
-base theme = aurora
-
-; ========================================
-; Regions
-; ========================================
-
-regions[header]       = 'Header'
-regions[main_prefix]  = 'Main Region Prefix'
-regions[content]      = 'Main Region'
-regions[main_suffix]  = 'Main Region Suffix'
-regions[footer]       = 'Footer'
 
 ; ========================================
 ; Stylesheets
 ; ========================================
-
-stylesheets[all][] = 'css/style.css'
-stylesheets[print][] = 'css/print.css'
+stylesheets[all][] = css/mmorpg.normalize.css
+stylesheets[all][] = css/mmorpg.hacks.css
+stylesheets[all][] = css/mmorpg.styles.css
+stylesheets[all][] = css/mmorpg.no-query.css
 
 ; ========================================
 ; Scripts
 ; ========================================
+scripts[] = js/mmorpg.behaviors.js
 
 ; ========================================
-; Modernizr
+; Regions
 ; ========================================
-
-modernizr[tests][] = css_boxsizing
+regions[trending]       = Trending
+regions[advert_bar]     = Advert bar
+regions[navigation]           = Navigation
+regions[header]         = Header
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = First Sidebar
+regions[sidebar_second] = Second Sidebar
+regions[footer] = Footer
