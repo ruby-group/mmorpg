@@ -75,12 +75,10 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Global: Link */
+  /* Footer: Broken/missing handler */
   $handler->display->display_options['footer']['link']['id'] = 'link';
   $handler->display->display_options['footer']['link']['table'] = 'views';
   $handler->display->display_options['footer']['link']['field'] = 'link';
-  $handler->display->display_options['footer']['link']['text'] = 'More new stuff';
-  $handler->display->display_options['footer']['link']['path'] = 'recent_updates';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
