@@ -1,9 +1,23 @@
 .header {
 	@include grid-span(12, 1);
 	border-bottom: 1px solid $border-grey;
+	border-top: 1px solid $border-grey;
 	background: #fff;
+	padding: 1.5em 0;
 	.l-constrained {
 		@include grid-span(10, 2);
+	}
+	.site-branding {
+		float: left;
+		margin-right: 0.50em;
+	}
+	.block--om-maximenu h2 {
+		display: none;
+	}
+	.om-menu {
+		li {
+			border-left: 1px solid #d7f0ff;
+		}
 	}
 }
 

@@ -23,16 +23,27 @@
   margin-right: 0;
   clear: none;
   border-bottom: 1px solid #dbdbdb;
-  background: #fff; }
-  /* line 5, ../sass/abstractions/_header.scss */
+  background: #fff;
+  padding: 1.5em 0; }
+  /* line 6, ../sass/abstractions/_header.scss */
   .header .l-constrained {
     width: 83.05085%;
     float: left;
     margin-right: -100%;
     margin-left: 8.47458%;
     clear: none; }
+  /* line 9, ../sass/abstractions/_header.scss */
+  .header .site-branding {
+    float: left;
+    margin-right: 0.50em; }
+  /* line 13, ../sass/abstractions/_header.scss */
+  .header .block--om-maximenu h2 {
+    display: none; }
+  /* line 17, ../sass/abstractions/_header.scss */
+  .header .om-menu li {
+    border-left: 1px solid #d7f0ff; }
 
-/* line 10, ../sass/abstractions/_header.scss */
+/* line 23, ../sass/abstractions/_header.scss */
 .advert-bar {
   width: 100%;
   float: right;
@@ -185,35 +196,38 @@ body {
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  height: 40px;
+  height: 30px;
+  margin-top: 0.50em;
   border-bottom: 1px solid #dbdbdb; }
   @media (min-width: 900px) {
     /* line 1, ../sass/components/_trending.scss */
     .trending {
       display: block; } }
-  /* line 9, ../sass/components/_trending.scss */
+  /* line 10, ../sass/components/_trending.scss */
   .trending .block__content {
     width: 83.05085%;
     float: left;
     margin-right: -100%;
     margin-left: 8.47458%;
     clear: none; }
-    /* line 11, ../sass/components/_trending.scss */
+    /* line 12, ../sass/components/_trending.scss */
     .trending .block__content h3 {
       float: left;
+      margin: 0;
       margin-right: 0.50em; }
-    /* line 15, ../sass/components/_trending.scss */
+    /* line 17, ../sass/components/_trending.scss */
     .trending .block__content .trending_links {
-      line-height: 23px; }
-      /* line 17, ../sass/components/_trending.scss */
+      line-height: 19px;
+      margin: 0; }
+      /* line 20, ../sass/components/_trending.scss */
       .trending .block__content .trending_links li {
         float: left;
         list-style: none;
         color: #959595; }
-        /* line 21, ../sass/components/_trending.scss */
+        /* line 24, ../sass/components/_trending.scss */
         .trending .block__content .trending_links li a {
           margin: 0px 4px; }
-      /* line 26, ../sass/components/_trending.scss */
+      /* line 29, ../sass/components/_trending.scss */
       .trending .block__content .trending_links li:last-child span {
         display: none; }
 
