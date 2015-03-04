@@ -31,7 +31,7 @@
     <?php print $breadcrumb; ?>
     <?php print $messages; ?>
     <?php print render($page['help']); ?>
-
+    <div class="leftsidebar"<?php print render($page['sidebar_first']); ?></div>
     <div class="center-content" role="main">
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
@@ -44,8 +44,6 @@
       <?php print render($page['content']); ?>
       <?php print $feed_icons; ?>
     </div>
-
-    <div class="leftsidebar"<?php print render($page['sidebar_first']); ?></div>
     <div class="rightsidebar"><?php print render($page['sidebar_second']); ?></div>
   </div>
   </div>

@@ -61,7 +61,7 @@
       width: 15.25424%;
       float: left;
       margin-right: -100%;
-      margin-left: 8.47458%;
+      margin-left: 0;
       clear: none;
       display: block; } }
 
@@ -76,10 +76,10 @@
   @media (min-width: 1024px) {
     /* line 55, ../../sass/abstractions/style-guide.scss */
     .center-content {
-      width: 40.67797%;
+      width: 57.62712%;
       float: left;
       margin-right: -100%;
-      margin-left: 25.42373%;
+      margin-left: 16.94915%;
       clear: none; } }
 
 /* line 62, ../../sass/abstractions/style-guide.scss */
