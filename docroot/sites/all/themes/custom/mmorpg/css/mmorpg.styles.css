@@ -132,7 +132,7 @@
   @media (min-width: 1024px) {
     /* line 55, ../sass/abstractions/style-guide.scss */
     .center-content {
-      width: 57.62712%;
+      width: 49.15254%;
       float: left;
       margin-right: -100%;
       margin-left: 16.94915%;
@@ -145,10 +145,10 @@
   @media (min-width: 1024px) {
     /* line 62, ../sass/abstractions/style-guide.scss */
     .rightsidebar {
-      width: 23.72881%;
-      float: left;
-      margin-right: -100%;
-      margin-left: 67.79661%;
+      width: 32.20339%;
+      float: right;
+      margin-left: 0;
+      margin-right: 0;
       clear: none;
       display: block; } }
 
