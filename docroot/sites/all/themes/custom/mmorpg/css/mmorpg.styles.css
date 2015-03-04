@@ -8,7 +8,7 @@
   background-color: #181818;
   background-repeat: no-repeat;
   background-position: top center;
-  padding-top: 185px; }
+  padding-top: 160px; }
 
 /* line 11, ../sass/abstractions/_global.scss */
 .main-inner {
@@ -114,7 +114,8 @@
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  border: 1px solid green; }
+  background: #333333;
+  height: 100vh; }
   @media (min-width: 1024px) {
     /* line 45, ../sass/abstractions/style-guide.scss */
     .leftsidebar {
@@ -125,16 +126,15 @@
       clear: none;
       display: block; } }
 
-/* line 55, ../sass/abstractions/style-guide.scss */
+/* line 56, ../sass/abstractions/style-guide.scss */
 .center-content {
   width: 100%;
   float: right;
   margin-left: 0;
   margin-right: 0;
-  clear: none;
-  border: 1px solid red; }
+  clear: none; }
   @media (min-width: 1024px) {
-    /* line 55, ../sass/abstractions/style-guide.scss */
+    /* line 56, ../sass/abstractions/style-guide.scss */
     .center-content {
       width: 49.15254%;
       float: left;
@@ -144,8 +144,7 @@
 
 /* line 62, ../sass/abstractions/style-guide.scss */
 .rightsidebar {
-  display: none;
-  border: 1px solid blue; }
+  display: none; }
   @media (min-width: 1024px) {
     /* line 62, ../sass/abstractions/style-guide.scss */
     .rightsidebar {
