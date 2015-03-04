@@ -26,16 +26,16 @@ function mmorpg_site_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'om_maximenu-om-maximenu-1' => array(
-          'module' => 'om_maximenu',
-          'delta' => 'om-maximenu-1',
-          'region' => 'header',
-          'weight' => '-10',
-        ),
         'mmorpg_article-trending' => array(
           'module' => 'mmorpg_article',
           'delta' => 'trending',
-          'region' => 'content',
+          'region' => 'trending',
+          'weight' => '-10',
+        ),
+        'om_maximenu-om-maximenu-1' => array(
+          'module' => 'om_maximenu',
+          'delta' => 'om-maximenu-1',
+          'region' => 'navigation',
           'weight' => '-10',
         ),
       ),

@@ -36,7 +36,7 @@ function mmorpg_article_block_view($delta = '') {
 
       $block['content'] = theme('item_list', array(
         'items' => $organic_content,
-        'title' => 'Trending Content',
+        'title' => 'Trending',
         'type' => 'ul',
         'attributes' => array('class' => 'trending_links'),
       ));

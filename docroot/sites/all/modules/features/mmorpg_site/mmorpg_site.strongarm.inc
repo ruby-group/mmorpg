@@ -79,7 +79,7 @@ function mmorpg_site_strongarm() {
       'block_options' => array(
         'stacking' => 'row',
         'direction' => 'block-down',
-        'region' => 'header',
+        'region' => -1,
         'weight' => '0',
       ),
       'links' => array(
