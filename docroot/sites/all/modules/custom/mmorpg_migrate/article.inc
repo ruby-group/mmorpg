@@ -65,6 +65,7 @@ class MMORPGArticleMigrate extends MMORPGCommon {
     $this->addFieldMapping('published_at','FeatureDate');
     $this->addFieldMapping('uid')
       ->defaultValue('1');
+    $this->addFieldMapping('status','Enabled');
 
 
     $this->addUnmigratedSources(array(
