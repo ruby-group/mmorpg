@@ -13,3 +13,4 @@ dependencies[] = mmorpg_vocabularies
 files[] = vocab.inc
 files[] = mssql.inc
 files[] = common.inc
+files[] = article.inc
