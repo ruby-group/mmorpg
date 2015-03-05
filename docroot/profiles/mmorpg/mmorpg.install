@@ -51,7 +51,7 @@ function mmorpg_install() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'main_suffix',
+      'region' => 'content',
       'pages' => '',
       'cache' => -1,
     ),
@@ -103,7 +103,7 @@ function mmorpg_install() {
     'menu_name' => 'main-menu',
   );
   menu_link_save($item);
-
+/*
   $admin_role = new stdClass();
   $admin_role->name = 'administrator';
   $admin_role->weight = 10;
@@ -116,6 +116,7 @@ function mmorpg_install() {
   db_insert('users_roles')
     ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
     ->execute();
+*/
   // Update the menu router information.
   menu_rebuild();
   // ignore any rebuild messages
