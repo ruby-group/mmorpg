@@ -61,8 +61,10 @@ class MMORPGArticleMigrate extends MMORPGCommon {
       ->defaultValue('full_html');
     $this->addFieldMapping('field_article_news_post:format')
       ->defaultValue('full_html');
-    $this->addFieldMapping('created','FeatureDate');
-    $this->addFieldMapping('published_at','FeatureDate');
+    $this->addFieldMapping('created','FeatureDate')
+      ->callBacks(array($this,'formatDate'));
+    $this->addFieldMapping('published_at','FeatureDate')
+      ->callBacks(array($this,'formatDate'));
     $this->addFieldMapping('uid')
       ->defaultValue('1');
     $this->addFieldMapping('status','Enabled');
