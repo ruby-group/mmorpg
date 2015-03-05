@@ -28,4 +28,11 @@ abstract class MMORPGCommon extends Migration {
       $this->db = $arguments['source_database'];
     }
   }
+
+  public function formatDate($value) {
+    substr_replace($value,'',strlen($value) - 6,4);
+    $dateObj = DateTime::createFromFormat('M  d Y h:i:sA',$value);
+    $requiredFormat = $dateObj->format('Ymd\Th:i:s');
+    return $value;
+  }
 }
