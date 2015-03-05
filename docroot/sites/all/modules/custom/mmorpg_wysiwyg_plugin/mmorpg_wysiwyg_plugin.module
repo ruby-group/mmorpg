@@ -136,7 +136,7 @@ function mmorpg_wysiwyg_plugin_sortcode_related_content($attrs, $text) {
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_related_content_tips() {
-  $output = '<strong>[related-content node_id=NODE ID HERE][/related-content]</strong>';
+  $output = '<strong>[related-content node_id="NODE ID HERE"][/related-content]</strong>';
 
   return $output;
 }
@@ -186,7 +186,7 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_play_now_tips() {
-  $output = '<strong>[play-now playnow_id=NODE ID HERE][/play-now]</strong>';
+  $output = '<strong>[play-now playnow_id="NODE ID HERE"][/play-now]</strong>';
 
   return $output;
 }

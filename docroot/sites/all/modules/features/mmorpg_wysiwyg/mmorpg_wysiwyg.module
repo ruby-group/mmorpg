@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the MMORPG WYSIWYG feature.
  */
+
+include_once 'mmorpg_wysiwyg.features.inc';
