@@ -120,6 +120,17 @@
 .rightsidebar {
   display: none; }
 
+/* line 1, ../sass/base/_forms.scss */
+.fullwidth {
+  width: 100%; }
+
+/* line 5, ../sass/base/_forms.scss */
+.btn, .om-autoscroll {
+  background: #2186d4;
+  color: #ffffff;
+  border-radius: 3px;
+  padding: 0.50em; }
+
 /* line 1, ../sass/base/_media.scss */
 img, media {
   max-width: 100%; }
@@ -182,22 +193,32 @@ body {
     max-width: 640px;
     width: 100%; }
 
+/* line 58, ../sass/components/_article.scss */
+.block-views-id-latest_updates-block .views-field-field-article-hero-image {
+  float: left;
+  margin-right: 1em; }
+
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
   padding: 0; }
   /* line 5, ../sass/components/_navigation.scss */
   .om-menu .item-list ul li {
     border: 0;
-    padding: 0.50em; }
-/* line 11, ../sass/components/_navigation.scss */
-.om-menu .om-maximenu .om-maximenu-middle {
-  border-radius: 0 0 3px 3px; }
-/* line 14, ../sass/components/_navigation.scss */
+    line-height: 20px;
+    list-style: none;
+    clear: both;
+    height: 45px;
+    margin-bottom: 1em; }
+/* line 15, ../sass/components/_navigation.scss */
 .om-menu li:hover {
   background: #bce6ff; }
-  /* line 16, ../sass/components/_navigation.scss */
+  /* line 17, ../sass/components/_navigation.scss */
   .om-menu li:hover .om-maximenu-content {
     border-top: 5px solid #bce6ff; }
+
+/* line 22, ../sass/components/_navigation.scss */
+.om-maximenu .om-maximenu-middle {
+  border-radius: 0 0 3px 3px; }
 
 /* line 1, ../sass/components/_trending.scss */
 .trending {
