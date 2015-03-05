@@ -22,7 +22,7 @@ function mmorpg_install() {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', $default_theme)
+    ->condition('name', array($default_theme, 'omega'))
     ->execute();
   // enable $admin_theme
   db_update('system')

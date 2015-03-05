@@ -4,8 +4,6 @@
  * Install, update and uninstall functions for global functions.
  */
 
-module_load_include('inc', 'mmorpg_updates', 'mmorpg_updates.drush');
-
 /**
  * Enable/disable modules.
  */
