@@ -45,6 +45,8 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
       ->defaultValue('full_html');
     $this->addFieldMapping('uid')
       ->defaultValue('1');
+    $this->addFieldMapping('status')
+      ->defaultValue('1');
 
     $this->addUnmigratedSources(array(
       'FeatureId'
