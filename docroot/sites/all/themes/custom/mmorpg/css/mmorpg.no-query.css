@@ -129,7 +129,8 @@
   background: #2186d4;
   color: #ffffff;
   border-radius: 3px;
-  padding: 0.50em; }
+  padding: 0.50em;
+  margin-bottom: 0.50em; }
 
 /* line 1, ../sass/base/_media.scss */
 img, media {
@@ -197,6 +198,9 @@ body {
 .block-views-id-latest_updates-block .views-field-field-article-hero-image {
   float: left;
   margin-right: 1em; }
+/* line 62, ../sass/components/_article.scss */
+.block-views-id-latest_updates-block .view-footer a {
+  color: #ffffff; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
