@@ -126,6 +126,56 @@ function mmorpg_article_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-mmorpg_article-field_article_hero_image'
+  $field_instances['node-mmorpg_article-field_article_hero_image'] = array(
+    'bundle' => 'mmorpg_article',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_article_hero_image',
+    'label' => 'Hero Image',
+    'required' => 1,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'node-mmorpg_article-field_article_news_post'
   $field_instances['node-mmorpg_article-field_article_news_post'] = array(
     'bundle' => 'mmorpg_article',
@@ -245,7 +295,7 @@ function mmorpg_article_field_default_field_instances() {
       'module' => 'radioactivity',
       'settings' => array(),
       'type' => 'radioactivity_basic_widget',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -489,6 +539,7 @@ function mmorpg_article_field_default_field_instances() {
   t('Body');
   t('Column');
   t('Game');
+  t('Hero Image');
   t('News Post');
   t('Overview');
   t('Related Games');

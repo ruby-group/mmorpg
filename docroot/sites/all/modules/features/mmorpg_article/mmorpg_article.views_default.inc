@@ -48,6 +48,17 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['field_article_subcategory']['label'] = '';
   $handler->display->display_options['fields']['field_article_subcategory']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_subcategory']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Hero Image */
+  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
+    'image_style' => '60x45_updates_menu',
+    'image_link' => '',
+  );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -75,10 +86,12 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Footer: Broken/missing handler */
+  /* Footer: Global: Link */
   $handler->display->display_options['footer']['link']['id'] = 'link';
   $handler->display->display_options['footer']['link']['table'] = 'views';
   $handler->display->display_options['footer']['link']['field'] = 'link';
+  $handler->display->display_options['footer']['link']['text'] = 'More New Stuff';
+  $handler->display->display_options['footer']['link']['path'] = 'recent_updates';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');

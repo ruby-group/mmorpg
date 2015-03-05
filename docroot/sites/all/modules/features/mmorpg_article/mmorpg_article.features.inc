@@ -27,6 +27,38 @@ function mmorpg_article_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function mmorpg_article_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: 60x45_updates_menu.
+  $styles['60x45_updates_menu'] = array(
+    'name' => '60x45_updates_menu',
+    'label' => '60x45 Updates Menu',
+    'effects' => array(
+      1 => array(
+        'label' => 'Resize',
+        'help' => 'Resizing will make images an exact set of dimensions. This may cause images to be stretched or shrunk disproportionately.',
+        'effect callback' => 'image_resize_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_resize',
+        'data' => array(
+          'width' => 60,
+          'height' => 45,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function mmorpg_article_node_info() {
