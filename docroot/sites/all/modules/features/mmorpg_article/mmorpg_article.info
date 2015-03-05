@@ -54,6 +54,7 @@ features[field_instance][] = node-mmorpg_article-field_article_sponsored
 features[field_instance][] = node-mmorpg_article-field_article_sponsored_untill
 features[field_instance][] = node-mmorpg_article-field_article_subcategory
 features[field_instance][] = node-mmorpg_article-field_article_type
+features[image][] = 200x160_user_menu
 features[image][] = 60x45_updates_menu
 features[node][] = article_news_post
 features[node][] = mmorpg_article

@@ -32,6 +32,29 @@ function mmorpg_article_views_api($module = NULL, $api = NULL) {
 function mmorpg_article_image_default_styles() {
   $styles = array();
 
+  // Exported image style: 200x160_user_menu.
+  $styles['200x160_user_menu'] = array(
+    'name' => '200x160_user_menu',
+    'label' => '200x160 User Menu',
+    'effects' => array(
+      1 => array(
+        'label' => 'Resize',
+        'help' => 'Resizing will make images an exact set of dimensions. This may cause images to be stretched or shrunk disproportionately.',
+        'effect callback' => 'image_resize_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_resize',
+        'data' => array(
+          'width' => 200,
+          'height' => 160,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: 60x45_updates_menu.
   $styles['60x45_updates_menu'] = array(
     'name' => '60x45_updates_menu',
