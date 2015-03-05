@@ -14,3 +14,4 @@ files[] = vocab.inc
 files[] = mssql.inc
 files[] = common.inc
 files[] = article.inc
+files[] = article_news_post.inc
