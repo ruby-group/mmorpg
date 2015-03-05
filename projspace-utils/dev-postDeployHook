@@ -5,11 +5,8 @@
 #via projspace's UI.
 
 #Put all of your actions before #EOF.
-
+drush updb -y
 cd /home/mmorpg/www/dev/docroot && drush aa --html --bootstrap --detail --skip=insights > sites/default/files/report.html
-
-
-
 
 #EOF
 

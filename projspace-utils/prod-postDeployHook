@@ -5,7 +5,7 @@
 #via projspace's UI.
 
 #Put all of your actions before #EOF.
-
+drush updb -y
 
 #EOF
 
