@@ -37,7 +37,8 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
 
     $this->addFieldMapping('title','Page');
     $this->addFieldMapping('field_article_type:tid');
-    $this->addFieldMapping('created','CreateDate');
+    $this->addFieldMapping('created','CreateDate')
+      ->callBacks(array($this,'formatDate'));
     $this->addFieldMapping('body','Content');
     $this->addFieldMapping('body:value_format')
       ->defaultValue('full_html');
@@ -47,6 +48,8 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
       ->defaultValue('1');
     $this->addFieldMapping('status')
       ->defaultValue('1');
+    $this->addFieldMapping('published_at','CreateDate')
+      ->callBacks(array($this,'formatDate'));
 
 
     $this->addUnmigratedSources(array(
