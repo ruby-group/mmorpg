@@ -148,3 +148,10 @@ function mmorpg_updates_update_7019() {
   mmorpg_util_features_revert(array('mmorpg_article'));
 }
 
+/**
+ * Enable uuid module and revert taxonomy feature
+ */
+function mmorpg_updates_update_7020() {
+  module_enable(array('uuid','uuid_features'));
+  mmorpg_util_features_revert(array('mmorpg_vocabularies'));
+}
