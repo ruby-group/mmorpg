@@ -51,7 +51,6 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
     $this->addFieldMapping('published_at','CreateDate')
       ->callBacks(array($this,'formatDate'));
 
-
     $this->addUnmigratedSources(array(
       'FeatureId'
       ));
