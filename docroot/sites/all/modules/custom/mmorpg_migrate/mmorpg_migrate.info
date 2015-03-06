@@ -1,8 +1,7 @@
-name = "MMORPG - .Net to D7 migration"
-description = "Migrate content from mmopg site."
-package = "MMORPG Custom"
+name = MMORPG Migrations
+description = Migrate content from mmorpg site.
 core = 7.x
-
+package = MMORPG
 ; Migrate framework.
 dependencies[] = migrate
 
