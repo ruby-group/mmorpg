@@ -176,10 +176,10 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -192,19 +192,34 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_article_hero_image']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
     'image_style' => '200x160_user_menu',
-    'image_link' => '',
+    'image_link' => 'content',
   );
   /* Field: Content: Article Type */
   $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
   $handler->display->display_options['fields']['field_article_type']['table'] = 'field_data_field_article_type';
   $handler->display->display_options['fields']['field_article_type']['field'] = 'field_article_type';
   $handler->display->display_options['fields']['field_article_type']['label'] = '';
+  $handler->display->display_options['fields']['field_article_type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="updates_text">
+<div class="updates_type">[field_article_type]</div> 
+<div class="updates_title">[title]</div>
+</div>
+<div class="updates_image">[field_article_hero_image]</div>
+
+';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
