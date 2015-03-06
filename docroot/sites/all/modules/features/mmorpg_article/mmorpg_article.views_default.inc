@@ -179,7 +179,6 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -196,7 +195,7 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
     'image_style' => '200x160_user_menu',
-    'image_link' => '',
+    'image_link' => 'content',
   );
   /* Field: Content: Article Type */
   $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
