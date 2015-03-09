@@ -4,11 +4,10 @@
 			padding: 0;
 			li {
 				border: 0;
-				line-height: 20px;
+				line-height: 23px;
 				list-style: none;
 				clear: both;
-				height: 45px;
-				padding: 1em 0.50em 0;
+				min-height: 45px;
 				margin-bottom: 1em;
 			}
 		}

@@ -208,30 +208,29 @@ body {
   /* line 5, ../sass/components/_navigation.scss */
   .om-menu .item-list ul li {
     border: 0;
-    line-height: 20px;
+    line-height: 23px;
     list-style: none;
     clear: both;
-    height: 45px;
-    padding: 1em 0.50em 0;
+    min-height: 45px;
     margin-bottom: 1em; }
-/* line 16, ../sass/components/_navigation.scss */
+/* line 15, ../sass/components/_navigation.scss */
 .om-menu li:hover {
   background: #bce6ff; }
-  /* line 18, ../sass/components/_navigation.scss */
+  /* line 17, ../sass/components/_navigation.scss */
   .om-menu li:hover .om-maximenu-content {
     border-top: 5px solid #bce6ff; }
 
-/* line 23, ../sass/components/_navigation.scss */
+/* line 22, ../sass/components/_navigation.scss */
 .om-maximenu .om-maximenu-middle {
   border-radius: 0 0 3px 3px; }
 
-/* line 27, ../sass/components/_navigation.scss */
+/* line 26, ../sass/components/_navigation.scss */
 li.leaf-user-name .om-maximenu-middle {
   width: 320px; }
-  /* line 30, ../sass/components/_navigation.scss */
+  /* line 29, ../sass/components/_navigation.scss */
   li.leaf-user-name .om-maximenu-middle .om-maximenu-middle-right {
     padding: 0px; }
-  /* line 34, ../sass/components/_navigation.scss */
+  /* line 33, ../sass/components/_navigation.scss */
   li.leaf-user-name .om-maximenu-middle .views-row {
     width: 50%;
     height: 50%;
@@ -242,29 +241,29 @@ li.leaf-user-name .om-maximenu-middle {
     position: relative;
     margin-bottom: -3px;
     vertical-align: top; }
-    /* line 45, ../sass/components/_navigation.scss */
+    /* line 44, ../sass/components/_navigation.scss */
     li.leaf-user-name .om-maximenu-middle .views-row a {
       color: #ffffff;
       padding: 0;
       background: transparent; }
-    /* line 51, ../sass/components/_navigation.scss */
+    /* line 50, ../sass/components/_navigation.scss */
     li.leaf-user-name .om-maximenu-middle .views-row .updates_text {
       position: absolute;
       top: 0;
       width: 100%;
       height: 98%;
       background: url("../images/updates_bg.png"); }
-      /* line 58, ../sass/components/_navigation.scss */
+      /* line 57, ../sass/components/_navigation.scss */
       li.leaf-user-name .om-maximenu-middle .views-row .updates_text:hover {
         background: none; }
-      /* line 62, ../sass/components/_navigation.scss */
+      /* line 61, ../sass/components/_navigation.scss */
       li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_title {
         bottom: 0.5em;
         font-size: 16px;
         font-weight: 400;
         padding: 10px;
         position: absolute; }
-      /* line 70, ../sass/components/_navigation.scss */
+      /* line 69, ../sass/components/_navigation.scss */
       li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_type {
         color: #bfcad1;
         display: block;
