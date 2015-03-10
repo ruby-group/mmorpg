@@ -70,5 +70,35 @@ function mmorpg_play_now_field_default_field_bases() {
     'type' => 'link_field',
   );
 
+  // Exported field_base: 'field_playnow_link'
+  $field_bases['field_playnow_link'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_playnow_link',
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'clickmeter_link',
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'rel' => '',
+        'target' => 'default',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'clickmeter_link_field',
+  );
+
   return $field_bases;
 }

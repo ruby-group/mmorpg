@@ -31,11 +31,11 @@
 function clickmeter_link_migrate_api() {
   return array(
     'api' => 2,
-    'field handlers' => array('MigrateLinkFieldHandler'),
+    'field handlers' => array('MigrateClickLinkFieldHandler'),
   );
 }
 
-class MigrateLinkFieldHandler extends MigrateFieldHandler {
+class MigrateClickLinkFieldHandler extends MigrateFieldHandler {
   public function __construct() {
     $this->registerTypes(array('clickmeter_link_field'));
   }
