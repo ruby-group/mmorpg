@@ -1,0 +1,15 @@
+name = Clickmeter Link
+description = Defines simple clickmeter link field types.
+core = 7.x
+package = Fields
+
+dependencies[] = restclient
+
+files[] = clickmeter_link.module
+files[] = clickmeter_link.migrate.inc
+files[] = clickmeter.web_services.inc
+
+; Views Handlers
+files[] = views/clickmeter_link_views_handler_argument_target.inc
+files[] = views/clickmeter_link_views_handler_filter_protocol.inc
+
