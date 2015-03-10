@@ -55,9 +55,13 @@
 }
 
 .block-views-id-latest_updates-block {
-	.views-field-field-article-hero-image {
-		float: left;
-		margin-right: 1em;
+	.views-field-title a {
+		min-height: 45px;
+		display: inline-block;
+		img {
+			float: left;
+			margin-right: 0.50em;
+		}
 	}
 	.view-footer a{
 		color: $white;

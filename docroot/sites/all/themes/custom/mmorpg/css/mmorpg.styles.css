@@ -230,10 +230,14 @@ body {
     width: 100%; }
 
 /* line 58, ../sass/components/_article.scss */
-.block-views-id-latest_updates-block .views-field-field-article-hero-image {
-  float: left;
-  margin-right: 1em; }
-/* line 62, ../sass/components/_article.scss */
+.block-views-id-latest_updates-block .views-field-title a {
+  min-height: 45px;
+  display: inline-block; }
+  /* line 61, ../sass/components/_article.scss */
+  .block-views-id-latest_updates-block .views-field-title a img {
+    float: left;
+    margin-right: 0.50em; }
+/* line 66, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .view-footer a {
   color: #ffffff; }
 
@@ -243,7 +247,7 @@ body {
   /* line 5, ../sass/components/_navigation.scss */
   .om-menu .item-list ul li {
     border: 0;
-    line-height: 23px;
+    line-height: 22px;
     list-style: none;
     clear: both;
     min-height: 45px;
