@@ -1,4 +1,4 @@
-name = "MMORPG Maritime - .Net to D7 migration"
+name = "MMORPG - .Net to D7 migration"
 description = "Migrate content from mmopg site."
 package = "MMORPG Custom"
 core = 7.x

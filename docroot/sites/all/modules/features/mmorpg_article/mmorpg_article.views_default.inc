@@ -44,6 +44,7 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_article_hero_image']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
@@ -55,10 +56,11 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '[field_article_hero_image][title]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

@@ -36,9 +36,9 @@
 	}
 
 	.article__body{
-	font-size: 14px;
+		font-size: 14px;
 		line-height: 1.6em;
-	margin: 0px 30px;
+		margin: 0px 30px;
 		top: -40px;
 		margin-bottom: -40px;
 		padding: 20px;
@@ -55,15 +55,24 @@
 }
 
 .block-views-id-latest_updates-block {
-	.views-field-field-article-hero-image {
-		float: left;
-		margin-right: 1em;
+	.views-field-title span {
+		width: 100%;
+		a {
+			min-height: 45px;
+			display: inline-block;
+			width: 100%;
+			img {
+				float: left;
+				margin-right: 0.50em;
+			}
+		}
 	}
 	.view-footer a{
 		color: $white;
 	}
 }
 
-.om-autoscroll {
+.view-footer 	.om-autoscroll {
 	@extend .btn;
+	@extend .fullwidth;
 }
