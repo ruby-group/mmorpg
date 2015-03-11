@@ -61,9 +61,17 @@ function mmorpg_siteskins_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['label'] = 'Skin';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Customer */
+  $handler->display->display_options['fields']['field_siteskin_customer']['id'] = 'field_siteskin_customer';
+  $handler->display->display_options['fields']['field_siteskin_customer']['table'] = 'field_data_field_siteskin_customer';
+  $handler->display->display_options['fields']['field_siteskin_customer']['field'] = 'field_siteskin_customer';
+  $handler->display->display_options['fields']['field_siteskin_customer']['settings'] = array(
+    'link' => 0,
+  );
   /* Field: Content: Siteskin Active */
   $handler->display->display_options['fields']['field_siteskin_active']['id'] = 'field_siteskin_active';
   $handler->display->display_options['fields']['field_siteskin_active']['table'] = 'field_data_field_siteskin_active';
@@ -179,6 +187,28 @@ function mmorpg_siteskins_views_default_views() {
 
   /* Display: Homepage */
   $handler = $view->new_display('page', 'Homepage', 'homepage');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'siteskin' => 'siteskin',
+  );
+  /* Filter criterion: Content: Location (field_siteskin_location) */
+  $handler->display->display_options['filters']['field_siteskin_location_value']['id'] = 'field_siteskin_location_value';
+  $handler->display->display_options['filters']['field_siteskin_location_value']['table'] = 'field_data_field_siteskin_location';
+  $handler->display->display_options['filters']['field_siteskin_location_value']['field'] = 'field_siteskin_location_value';
+  $handler->display->display_options['filters']['field_siteskin_location_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_siteskin_location_value']['value'] = '<front>';
   $handler->display->display_options['path'] = 'admin/mmorpg/siteskins/home';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Homepage';
