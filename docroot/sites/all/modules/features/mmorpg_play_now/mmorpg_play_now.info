@@ -2,7 +2,6 @@ name = MMORPG Play Now
 description = Feature for play now content type along with scheduler.
 core = 7.x
 package = MMORPG
-version = 7.x-2.0
 project = mmorpg_play_now
 dependencies[] = clickmeter_link
 dependencies[] = image
