@@ -11,6 +11,14 @@ function mmorpg_vocabularies_uuid_features_default_terms() {
   $terms = array();
 
   $terms[] = array(
+    'name' => 'Sitewide',
+    'description' => '',
+    'format' => 'filtered_html',
+    'weight' => 0,
+    'uuid' => '1fe1f3a2-8ca0-4536-908a-2e8071f6efe6',
+    'vocabulary_machine_name' => 'area_games_to_play_',
+  );
+  $terms[] = array(
     'name' => 'Feature',
     'description' => '',
     'format' => 'filtered_html',
@@ -57,6 +65,14 @@ function mmorpg_vocabularies_uuid_features_default_terms() {
     'weight' => 0,
     'uuid' => '7cbad6ef-e196-4b7b-adeb-54a04087eb99',
     'vocabulary_machine_name' => 'card_types',
+  );
+  $terms[] = array(
+    'name' => 'Home Page',
+    'description' => '',
+    'format' => 'filtered_html',
+    'weight' => 0,
+    'uuid' => '9935d1d0-c610-48b3-abb0-726229c7f9b3',
+    'vocabulary_machine_name' => 'area_games_to_play_',
   );
   $terms[] = array(
     'name' => 'M (Mature)',

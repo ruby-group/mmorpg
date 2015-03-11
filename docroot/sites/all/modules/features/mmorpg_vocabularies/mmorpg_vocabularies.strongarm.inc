@@ -19,7 +19,8 @@ function mmorpg_vocabularies_strongarm() {
     'card_types' => 'card_types',
     'esrb' => 'esrb',
     'keys_per_day_spread' => 'keys_per_day_spread',
-    'tags' => 0,
+    'tiers_games_to_play_' => 'tiers_games_to_play_',
+    'area_games_to_play_' => 'area_games_to_play_',
     'ai_systems' => 0,
     'article_subcategory' => 0,
     'blog_tags' => 0,
@@ -49,12 +50,9 @@ function mmorpg_vocabularies_strongarm() {
     'shows_events' => 0,
     'sound_engines' => 0,
     'style' => 0,
+    'tags' => 0,
     'video_category' => 0,
     'video_mode' => 0,
-    'migrate_example_beer_styles' => 0,
-    'migrate_example_wine_varieties' => 0,
-    'migrate_example_wine_regions' => 0,
-    'migrate_example_wine_best_with' => 0,
   );
   $export['uuid_features_entity_taxonomy_term'] = $strongarm;
 
