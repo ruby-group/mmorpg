@@ -1,8 +1,11 @@
 name = Demo
 core = 7.x
 package = MMORPG
+dependencies[] = ctools
 dependencies[] = features
 dependencies[] = mmorpg_article
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[features_override_items][] = user_permission.create mmorpg_article content
 features[features_override_items][] = user_permission.delete any mmorpg_article content
@@ -15,3 +18,4 @@ features[features_overrides][] = user_permission.delete own mmorpg_article conte
 features[features_overrides][] = user_permission.edit any mmorpg_article content.roles|subadmin
 features[features_overrides][] = user_permission.edit own mmorpg_article content.roles|subadmin
 features[user_role][] = subadmin
+features[views_view][] = radioactivity

@@ -101,7 +101,7 @@ function mmorpg_article_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -140,7 +140,7 @@ function mmorpg_article_field_default_field_instances() {
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -188,7 +188,7 @@ function mmorpg_article_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -227,7 +227,7 @@ function mmorpg_article_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -260,7 +260,7 @@ function mmorpg_article_field_default_field_instances() {
     'bundle' => 'mmorpg_article',
     'default_value' => array(
       0 => array(
-        'radioactivity_energy' => 0,
+        'radioactivity_energy' => 5,
         'radioactivity_timestamp' => 1424702804,
       ),
     ),
@@ -269,9 +269,14 @@ function mmorpg_article_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 8,
+        'module' => 'radioactivity',
+        'settings' => array(
+          'accuracy' => 100,
+          'energy' => 1,
+          'type' => 'none',
+        ),
+        'type' => 'radioactivity_combo_formatter',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -295,7 +300,7 @@ function mmorpg_article_field_default_field_instances() {
       'module' => 'radioactivity',
       'settings' => array(),
       'type' => 'radioactivity_basic_widget',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -310,7 +315,7 @@ function mmorpg_article_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -346,7 +351,7 @@ function mmorpg_article_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -470,7 +475,7 @@ function mmorpg_article_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -506,7 +511,7 @@ function mmorpg_article_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
