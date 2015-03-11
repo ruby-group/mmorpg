@@ -28,17 +28,9 @@ function mmorpg_games_to_play_image_default_styles() {
 
   // Exported image style: games_to_play__26x26_.
   $styles['games_to_play__26x26_'] = array(
-    'name' => 'games_to_play__26x26_',
     'label' => 'Games To Play (26X26)',
     'effects' => array(
       1 => array(
-        'label' => 'Resize',
-        'help' => 'Resizing will make images an exact set of dimensions. This may cause images to be stretched or shrunk disproportionately.',
-        'effect callback' => 'image_resize_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_resize',
         'data' => array(
           'width' => 26,
