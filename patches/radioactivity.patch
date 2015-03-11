@@ -1,0 +1,16 @@
+diff --git a/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc b/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc
+index 1147be5..1989704 100644
+--- a/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc
++++ b/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc
+@@ -23,9 +23,8 @@ else {
+  * Get the config file path of R
+  */
+ function _radioactivity_get_config_file_path() {
+-  $dir = dirname(__FILE__);
+-  $config_file = $dir . "/radioactivity-bootstrap.cfg.inc";
+-  return $config_file;
++  $extracts = explode("/",__FILE__);
++  return "/home/{$extracts[2]}/includes/{$extracts[4]}.inc";
+ }
+ 
+ /**
