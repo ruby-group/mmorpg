@@ -1,8 +1,10 @@
 name = Customer
+description = Content type and views related to MMORPG Customer
 core = 7.x
 package = MMORPG
 dependencies[] = ctools
 dependencies[] = features
+dependencies[] = mmorpg_game
 dependencies[] = strongarm
 dependencies[] = text
 features[ctools][] = strongarm:strongarm:1
@@ -14,4 +16,3 @@ features[variable][] = menu_parent_customer
 features[variable][] = node_options_customer
 features[variable][] = node_preview_customer
 features[variable][] = node_submitted_customer
-features_exclude[dependencies][mmorpg_game] = mmorpg_game

@@ -32,6 +32,29 @@ function mmorpg_vocabularies_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'area_games_to_play_' => array(
+      'name' => 'Area (Games to Play)',
+      'machine_name' => 'area_games_to_play_',
+      'description' => 'Consists of areas where the games to play are displayed.',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'article_subcategory' => array(
       'name' => 'Article Subcategory',
       'machine_name' => 'article_subcategory',
@@ -772,6 +795,29 @@ function mmorpg_vocabularies_taxonomy_default_vocabularies() {
       'name' => 'Tags',
       'machine_name' => 'tags',
       'description' => 'Use tags to group articles on similar topics into categories.',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'tiers_games_to_play_' => array(
+      'name' => 'Tiers (Games to Play)',
+      'machine_name' => 'tiers_games_to_play_',
+      'description' => 'The tiers for games to play',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
