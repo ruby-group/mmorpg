@@ -7,5 +7,6 @@ dependencies[] = mmorpg_game
 dependencies[] = mmorpg_play_now
 dependencies[] = mmorpg_poll
 dependencies[] = mmorpg_site
+dependencies[] = mmorpg_siteskins
 dependencies[] = mmorpg_vocabularies
 dependencies[] = mmorpg_wysiwyg
