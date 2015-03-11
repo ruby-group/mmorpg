@@ -58,6 +58,22 @@
   height: 90px;
   background: #E2E2E2; }
 
+/* line 1, ../sass/abstractions/_siteskin.scss */
+.main-inner {
+  position: relative;
+  z-index: 2; }
+
+/* line 5, ../sass/abstractions/_siteskin.scss */
+.block--mmorpg-siteskins {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 16em; }
+  /* line 10, ../sass/abstractions/_siteskin.scss */
+  .block--mmorpg-siteskins .skin-tracking-link {
+    height: 100vh;
+    width: 100%; }
+
 /* line 22, ../sass/abstractions/style-guide.scss */
 .main {
   width: 100%;

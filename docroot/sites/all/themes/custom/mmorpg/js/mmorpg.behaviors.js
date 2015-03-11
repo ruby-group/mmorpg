@@ -10,7 +10,7 @@
    * In most cases, there is no good reason to NOT wrap your markup producing
    * JavaScript in a theme function.
    */
-  Drupal.theme.prototype.mmorpgExampleButton = function (path, title) {
+   Drupal.theme.prototype.mmorpgExampleButton = function (path, title) {
     // Create an anchor element with jQuery.
     return $('<a href="' + path + '" title="' + title + '">' + title + '</a>');
   };
@@ -38,7 +38,7 @@
    *   Drupal.settings directly you should use this because of potential
    *   modifications made by the Ajax callback that also produced 'context'.
    */
-  Drupal.behaviors.mmorpgExampleBehavior = {
+   Drupal.behaviors.mmorpgExampleBehavior = {
     attach: function (context, settings) {
       // By using the 'context' variable we make sure that our code only runs on
       // the relevant HTML. Furthermore, by using jQuery.once() we make sure that
@@ -53,6 +53,26 @@
 
         // The anchor is then appended to the current element.
         $anchor.appendTo(this);
+      });
+    }
+  };
+  Drupal.behaviors.mmorpgGameToDisplayBehavior = {
+    attach: function (context, settings) {
+      var date = new Date();
+      var minute = date.getMinutes();
+      $(".view-games-to-play .view-content .tier").each(function(index,element) {
+        var tierLimits = $(element).find("div .views-field-field-tiers-max-links-to-display .field-content").html();
+        var rows = $(element).find(".views-row");
+        var rowsArray = $.map(rows, function (value, index) {
+          return value;
+        });
+        rotateCount = Math.floor(minute / 5);
+        for (i = 0; i < rotateCount; i++) {
+          var temp = rowsArray.shift();
+          rowsArray.push(temp);
+        };
+        var displayRows = rowsArray.slice(0, tierLimits);
+        $(element).html(displayRows);
       });
     }
   };

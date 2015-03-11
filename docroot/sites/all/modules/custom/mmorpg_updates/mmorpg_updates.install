@@ -104,6 +104,7 @@ function mmorpg_updates_update_7012() {
 function mmorpg_updates_update_7013() {
   node_collection_api_add_update_relationship('Article News Post', 'mmorpg_article', array('article_news_post'));
 }
+
 /**
  * Revert WYSIWYG feature.
  */
@@ -115,7 +116,7 @@ function mmorpg_updates_update_7014() {
  * Enable Migrate and MMORPGMigrate module.
  */
 function mmorpg_updates_update_7015() {
-  module_enable(array('migrate','migrate_ui','mmorpg_migrate'));
+  module_enable(array('migrate', 'migrate_ui', 'mmorpg_migrate'));
 }
 
 /**
@@ -132,7 +133,7 @@ function mmorpg_updates_update_7016() {
 function mmorpg_updates_update_7017() {
   module_enable(array('mmorpg_site'));
 }
- 
+
 /**
  * Enable play now content type feature & revert wysiwyg.
  */
@@ -152,6 +153,33 @@ function mmorpg_updates_update_7019() {
  * Enable uuid module and revert taxonomy feature
  */
 function mmorpg_updates_update_7020() {
-  module_enable(array('uuid','uuid_features'));
+  module_enable(array('uuid', 'uuid_features'));
   mmorpg_util_features_revert(array('mmorpg_vocabularies'));
+}
+
+/**
+ * Enable clickmeter module, configure clickmeter for personnel account & add a field.
+ */
+function mmorpg_updates_update_7021() {
+  module_enable(array('clickmeter_link', 'chr', 'restclient'));
+  mmorpg_util_features_revert(array('mmorpg_play_now', 'mmorpg_site'));
+}
+
+/**
+ * Configuration for background image.
+ */
+function mmorpg_updates_update_7022() {
+  module_enable(array('mmorpg_siteskins'));
+}
+
+/**
+ * Enable date views module
+ */
+function mmorpg_updates_update_7023() {
+  mmorpg_util_features_revert(array(
+    'mmorpg_game',
+    'mmorpg_vocabularies',
+    'mmorpg_games_to_play',
+    'mmorpg_customer'
+  ));
 }
