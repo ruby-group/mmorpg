@@ -15,6 +15,7 @@ features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[user_permission][] = access content
 features[user_role][] = administrator
+features[variable][] = CLICKMETER_KEY
 features[variable][] = admin_theme
 features[variable][] = clean_url
 features[variable][] = date_api_version

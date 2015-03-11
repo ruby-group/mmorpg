@@ -155,3 +155,11 @@ function mmorpg_updates_update_7020() {
   module_enable(array('uuid','uuid_features'));
   mmorpg_util_features_revert(array('mmorpg_vocabularies'));
 }
+
+/**
+ * Enable clickmeter module, configure clickmeter for personnel account & add a field.
+ */
+function mmorpg_updates_update_7021() {
+  module_enable(array('clickmeter_link', 'chr', 'restclient'));
+  mmorpg_util_features_revert(array('mmorpg_play_now', 'mmorpg_site'));
+}
