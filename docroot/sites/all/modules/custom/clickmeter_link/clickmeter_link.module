@@ -56,6 +56,15 @@ function clickmeter_link_menu() {
     'file path' => drupal_get_path('module', 'clickmeter_link'),
     'type' => MENU_NORMAL_ITEM,
   );
+  $items['admin/config/clickmeter/stats'] = array(
+    'title' => 'Clickmeter Statistics',
+    'description' => 'Statistics of connected clickmeter account.',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'clickmeter_statistics',
+    'file' => 'clickmeter_link.admin.inc',
+    'file path' => drupal_get_path('module', 'clickmeter_link'),
+    'type' => MENU_NORMAL_ITEM,
+  );
 
   return $items;
 }
@@ -1077,21 +1086,21 @@ function clickmeter_link_field_formatter_view($entity_type, $entity, $field, $in
 function theme_clickmeter_link_formatter_clickmeter_link_default($vars) {
   $link_options = $vars['element'];
   unset($link_options['title']);
-  unset($link_options['url']);
+  unset($link_options['clickmeter_link']);
 
   if (isset($link_options['attributes']['class'])) {
     $link_options['attributes']['class'] = array($link_options['attributes']['class']);
   }
   // Display a normal link if both title and URL are available.
-  if (!empty($vars['element']['title']) && !empty($vars['element']['url'])) {
-    return l($vars['element']['title'], $vars['element']['url'], $link_options);
+  if (!empty($vars['element']['title']) && !empty($vars['element']['clickmeter_link'])) {
+    return l($vars['element']['title'], $vars['element']['clickmeter_link']);
   }
   // If only a title, display the title.
   elseif (!empty($vars['element']['title'])) {
     return $link_options['html'] ? $vars['element']['title'] : check_plain($vars['element']['title']);
   }
-  elseif (!empty($vars['element']['url'])) {
-    return l($vars['element']['title'], $vars['element']['url'], $link_options);
+  elseif (!empty($vars['element']['clickmeter_link'])) {
+    return l($vars['element']['title'], $vars['element']['clickmeter_link']);
   }
 }
 

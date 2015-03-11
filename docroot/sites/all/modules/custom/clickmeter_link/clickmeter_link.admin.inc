@@ -91,3 +91,9 @@ function clickmeter_group_config_form_submit($form_id, &$form_state) {
 //    $disable = ClickmeterService::disable_group($group_id, $group_name);
   }
 }
+
+function clickmeter_statistics() {
+//  return 'test';
+//  $grops = ClickmeterService::get_groups();
+//  print_r($grops);
+}
