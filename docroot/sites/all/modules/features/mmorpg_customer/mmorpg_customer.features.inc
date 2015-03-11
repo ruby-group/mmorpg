@@ -21,7 +21,7 @@ function mmorpg_customer_node_info() {
     'customer' => array(
       'name' => t('Customer'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('A content type for ad customer.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

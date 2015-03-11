@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Games To Play feature.
+ */
+
+include_once 'mmorpg_games_to_play.features.inc';
