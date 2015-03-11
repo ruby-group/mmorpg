@@ -83,6 +83,21 @@ function mmorpg_vocabularies_uuid_features_default_terms() {
     'vocabulary_machine_name' => 'esrb',
   );
   $terms[] = array(
+    'name' => 'Tier 1',
+    'description' => '',
+    'format' => 'filtered_html',
+    'weight' => 0,
+    'uuid' => 'a542cc39-4fd9-4fab-ad6c-f9783436779f',
+    'vocabulary_machine_name' => 'tiers_games_to_play_',
+    'field_tiers_max_links_to_display' => array(
+      'und' => array(
+        0 => array(
+          'value' => 3,
+        ),
+      ),
+    ),
+  );
+  $terms[] = array(
     'name' => 'RP (Rating Pending)',
     'description' => '',
     'format' => 'filtered_html',
@@ -137,6 +152,21 @@ function mmorpg_vocabularies_uuid_features_default_terms() {
     'weight' => 0,
     'uuid' => 'f2b9db4d-30f7-4b89-8f85-2bba1e9565c9',
     'vocabulary_machine_name' => 'esrb',
+  );
+  $terms[] = array(
+    'name' => 'Tier 2',
+    'description' => '',
+    'format' => 'filtered_html',
+    'weight' => 0,
+    'uuid' => 'f71190b6-bc8d-4bee-b40a-21b18cb60dc1',
+    'vocabulary_machine_name' => 'tiers_games_to_play_',
+    'field_tiers_max_links_to_display' => array(
+      'und' => array(
+        0 => array(
+          'value' => 7,
+        ),
+      ),
+    ),
   );
   return $terms;
 }
