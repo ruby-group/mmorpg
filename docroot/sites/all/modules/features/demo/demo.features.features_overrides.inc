@@ -12,11 +12,17 @@ function demo_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: user_permission
+  $overrides["user_permission.create article_news_post content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.create mmorpg_article content.roles|subadmin"] = 'subadmin';
+  $overrides["user_permission.delete any article_news_post content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.delete any mmorpg_article content.roles|subadmin"] = 'subadmin';
+  $overrides["user_permission.delete own article_news_post content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.delete own mmorpg_article content.roles|subadmin"] = 'subadmin';
+  $overrides["user_permission.edit any article_news_post content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.edit any mmorpg_article content.roles|subadmin"] = 'subadmin';
+  $overrides["user_permission.edit own article_news_post content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.edit own mmorpg_article content.roles|subadmin"] = 'subadmin';
+  $overrides["user_permission.use text format filtered_html.roles|subadmin"] = 'subadmin';
 
  return $overrides;
 }

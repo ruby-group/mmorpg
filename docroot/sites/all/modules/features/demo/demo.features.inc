@@ -15,19 +15,37 @@ function demo_views_api($module = NULL, $api = NULL) {
  * Implements hook_user_default_permissions_alter().
  */
 function demo_user_default_permissions_alter(&$data) {
+  if (isset($data['create article_news_post content'])) {
+    $data['create article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
   if (isset($data['create mmorpg_article content'])) {
     $data['create mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete any article_news_post content'])) {
+    $data['delete any article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['delete any mmorpg_article content'])) {
     $data['delete any mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
+  if (isset($data['delete own article_news_post content'])) {
+    $data['delete own article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
   if (isset($data['delete own mmorpg_article content'])) {
     $data['delete own mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit any article_news_post content'])) {
+    $data['edit any article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['edit any mmorpg_article content'])) {
     $data['edit any mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
+  if (isset($data['edit own article_news_post content'])) {
+    $data['edit own article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
   if (isset($data['edit own mmorpg_article content'])) {
     $data['edit own mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['use text format filtered_html'])) {
+    $data['use text format filtered_html']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
 }
