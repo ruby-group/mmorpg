@@ -260,7 +260,7 @@ function mmorpg_article_field_default_field_instances() {
     'bundle' => 'mmorpg_article',
     'default_value' => array(
       0 => array(
-        'radioactivity_energy' => 5,
+        'radioactivity_energy' => 0,
         'radioactivity_timestamp' => 1424702804,
       ),
     ),

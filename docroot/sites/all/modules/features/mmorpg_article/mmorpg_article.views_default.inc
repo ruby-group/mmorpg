@@ -223,6 +223,11 @@ function mmorpg_article_views_default_views() {
 ';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Article Radioactivity (field_article_radioactivity:radioactivity_energy) */
+  $handler->display->display_options['sorts']['field_article_radioactivity_radioactivity_energy']['id'] = 'field_article_radioactivity_radioactivity_energy';
+  $handler->display->display_options['sorts']['field_article_radioactivity_radioactivity_energy']['table'] = 'field_data_field_article_radioactivity';
+  $handler->display->display_options['sorts']['field_article_radioactivity_radioactivity_energy']['field'] = 'field_article_radioactivity_radioactivity_energy';
+  $handler->display->display_options['sorts']['field_article_radioactivity_radioactivity_energy']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -239,6 +244,12 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'mmorpg_article' => 'mmorpg_article',
   );
+  /* Filter criterion: Content: Article Radioactivity (field_article_radioactivity:radioactivity_energy) */
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['id'] = 'field_article_radioactivity_radioactivity_energy';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['table'] = 'field_data_field_article_radioactivity';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['field'] = 'field_article_radioactivity_radioactivity_energy';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['value']['value'] = '1';
 
   /* Display: Organic */
   $handler = $view->new_display('block', 'Organic', 'organic');
@@ -272,6 +283,12 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['filters']['field_article_sponsored_value']['value'] = array(
     0 => '0',
   );
+  /* Filter criterion: Content: Article Radioactivity (field_article_radioactivity:radioactivity_energy) */
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['id'] = 'field_article_radioactivity_radioactivity_energy';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['table'] = 'field_data_field_article_radioactivity';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['field'] = 'field_article_radioactivity_radioactivity_energy';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_article_radioactivity_radioactivity_energy']['value']['value'] = '1';
 
   /* Display: Sponsored */
   $handler = $view->new_display('block', 'Sponsored', 'sponsored');
