@@ -203,32 +203,31 @@ body {
   font-size: 14px;
   line-height: 1.6em;
   margin: 0 auto;
-  top: -40px;
-  margin-bottom: -40px;
+  top: -20px;
+  margin-bottom: -20px;
   padding: 20px;
   background: #ffffff;
   border-top: 4px solid #bce6ff;
-  max-width: 715px;
   position: relative;
-  width: 100%; }
-  /* line 51, ../sass/components/_article.scss */
+  width: 92%; }
+  /* line 54, ../sass/components/_article.scss */
   .node-type-mmorpg-article .field--name-field-article-news-post img {
     max-width: 715px;
     width: 100%; }
 
-/* line 59, ../sass/components/_article.scss */
+/* line 62, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .views-field-title span {
   width: 100%; }
-  /* line 61, ../sass/components/_article.scss */
+  /* line 64, ../sass/components/_article.scss */
   .block-views-id-latest_updates-block .views-field-title span a {
     min-height: 45px;
     display: inline-block;
     width: 100%; }
-    /* line 65, ../sass/components/_article.scss */
+    /* line 68, ../sass/components/_article.scss */
     .block-views-id-latest_updates-block .views-field-title span a img {
       float: left;
       margin-right: 0.50em; }
-/* line 71, ../sass/components/_article.scss */
+/* line 74, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .view-footer a {
   color: #ffffff; }
 
