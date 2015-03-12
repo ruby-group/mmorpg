@@ -467,6 +467,7 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 
   if (!empty($datapointDetails->trackingCode)) {
     $item['clickmeter_link'] = $datapointDetails->trackingCode;
+    $item['clickmeter_url'] = $datapointDetails->trackingCode;
   }
   if (!empty($datapointDetails->groupName)) {
     $item['group'] = $datapointDetails->groupName;
