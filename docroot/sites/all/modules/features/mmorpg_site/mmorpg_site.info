@@ -11,6 +11,7 @@ dependencies[] = node
 dependencies[] = om_maximenu
 dependencies[] = radioactivity
 dependencies[] = strongarm
+dependencies[] = view_unpublished
 features[context][] = mmorpg_global_blocks
 features[ctools][] = context:context:3
 features[ctools][] = strongarm:strongarm:1
