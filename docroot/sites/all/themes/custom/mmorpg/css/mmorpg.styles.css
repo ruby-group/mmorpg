@@ -220,7 +220,7 @@ body {
   border-top: 1px solid #bce6ff;
   display: inline-block;
   margin-top: 5px;
-  color: #919191; }
+  color: #959595; }
 /* line 23, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field--name-field-article-overview {
   display: none; }
@@ -231,10 +231,10 @@ body {
   padding-top: 0px;
   margin-top: 0px; }
 /* line 34, ../sass/components/_article.scss */
-.node-type-mmorpg-article .article_top_image {
+.node-type-mmorpg-article .field--name-field-article-hero-image {
   padding: 0px; }
 /* line 38, ../sass/components/_article.scss */
-.node-type-mmorpg-article .article__body {
+.node-type-mmorpg-article .field--name-field-article-news-post {
   font-size: 14px;
   line-height: 1.6em;
   margin: 0px 30px;
@@ -243,26 +243,27 @@ body {
   padding: 20px;
   background: #ffffff;
   border-top: 4px solid #bce6ff;
-  max-width: 640px;
-  position: relative; }
-  /* line 50, ../sass/components/_article.scss */
-  .node-type-mmorpg-article .article__body img {
-    max-width: 640px;
+  max-width: 715px;
+  position: relative;
+  width: 100%; }
+  /* line 51, ../sass/components/_article.scss */
+  .node-type-mmorpg-article .field--name-field-article-news-post img {
+    max-width: 715px;
     width: 100%; }
 
-/* line 58, ../sass/components/_article.scss */
+/* line 59, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .views-field-title span {
   width: 100%; }
-  /* line 60, ../sass/components/_article.scss */
+  /* line 61, ../sass/components/_article.scss */
   .block-views-id-latest_updates-block .views-field-title span a {
     min-height: 45px;
     display: inline-block;
     width: 100%; }
-    /* line 64, ../sass/components/_article.scss */
+    /* line 65, ../sass/components/_article.scss */
     .block-views-id-latest_updates-block .views-field-title span a img {
       float: left;
       margin-right: 0.50em; }
-/* line 70, ../sass/components/_article.scss */
+/* line 71, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .view-footer a {
   color: #ffffff; }
 

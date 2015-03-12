@@ -14,10 +14,10 @@
 	.node__submitted{
 			font-size: 13px;
 			padding: 6px 0px 15px 1px;
-			border-top: 1px solid #bce6ff;
+			border-top: 1px solid $light-blue;
 			display: inline-block;
 			margin-top: 5px;
-			color: #919191;
+			color: $grey;
 	}
 
 	.field--name-field-article-overview{
@@ -31,24 +31,25 @@
 			margin-top: 0px
 	}
 
-	.article_top_image{
+	.field--name-field-article-hero-image{
 			padding: 0px;
 	}
 
-	.article__body{
+	.field--name-field-article-news-post{
 		font-size: 14px;
 		line-height: 1.6em;
 		margin: 0px 30px;
 		top: -40px;
 		margin-bottom: -40px;
 		padding: 20px;
-		background: #ffffff;
-		border-top: 4px solid #bce6ff;
-		max-width: 640px;
+		background: $white;
+		border-top: 4px solid $light-blue;
+		max-width: 715px;
 		position: relative;
+		width:100%;
 
 		img{
-			max-width: 640px;
+			max-width: 715px;
 			width: 100%;
 		}
 	}
