@@ -230,5 +230,262 @@ function mmorpg_games_to_play_views_default_views() {
   $handler = $view->new_display('block', 'Home Page', 'block_2');
   $export['games_to_play'] = $view;
 
+  $view = new view();
+  $view->name = 'games_to_play_admin';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Games To Play Admin';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Games To Play Admin';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_gtp_tier',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title_1' => 'title_1',
+    'field_gtp_area' => 'field_gtp_area',
+    'field_gtp_schedule' => 'field_gtp_schedule',
+    'field_gtp_schedule_1' => 'field_gtp_schedule_1',
+    'edit_node' => 'edit_node',
+    'field_gtp_tier' => 'edit_node',
+    'nid' => 'edit_node',
+    'delete_node' => 'edit_node',
+    'field_gtp_target_url' => 'edit_node',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_gtp_area' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_gtp_schedule' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_gtp_schedule_1' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'edit_node' => array(
+      'align' => '',
+      'separator' => ' ',
+      'empty_column' => 0,
+    ),
+    'field_gtp_tier' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'delete_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_gtp_target_url' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_gtp_game_target_id']['id'] = 'field_gtp_game_target_id';
+  $handler->display->display_options['relationships']['field_gtp_game_target_id']['table'] = 'field_data_field_gtp_game';
+  $handler->display->display_options['relationships']['field_gtp_game_target_id']['field'] = 'field_gtp_game_target_id';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_gtp_game_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Game';
+  /* Field: Content: Area */
+  $handler->display->display_options['fields']['field_gtp_area']['id'] = 'field_gtp_area';
+  $handler->display->display_options['fields']['field_gtp_area']['table'] = 'field_data_field_gtp_area';
+  $handler->display->display_options['fields']['field_gtp_area']['field'] = 'field_gtp_area';
+  /* Field: Content: Schedule */
+  $handler->display->display_options['fields']['field_gtp_schedule']['id'] = 'field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule']['table'] = 'field_data_field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule']['field'] = 'field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule']['label'] = 'Start';
+  $handler->display->display_options['fields']['field_gtp_schedule']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_gtp_schedule']['settings'] = array(
+    'format_type' => 'short_date_w_o_time',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Schedule */
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['id'] = 'field_gtp_schedule_1';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['table'] = 'field_data_field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['field'] = 'field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['label'] = 'End';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['settings'] = array(
+    'format_type' => 'short_date_w_o_time',
+    'fromto' => 'value2',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Actions';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['status']['expose']['label'] = 'Published';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
+  $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['status']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'games_to_play' => 'games_to_play',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_gtp_game_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Game';
+  /* Field: Content: Area */
+  $handler->display->display_options['fields']['field_gtp_area']['id'] = 'field_gtp_area';
+  $handler->display->display_options['fields']['field_gtp_area']['table'] = 'field_data_field_gtp_area';
+  $handler->display->display_options['fields']['field_gtp_area']['field'] = 'field_gtp_area';
+  /* Field: Content: Schedule */
+  $handler->display->display_options['fields']['field_gtp_schedule']['id'] = 'field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule']['table'] = 'field_data_field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule']['field'] = 'field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule']['label'] = 'Start';
+  $handler->display->display_options['fields']['field_gtp_schedule']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_gtp_schedule']['settings'] = array(
+    'format_type' => 'short_date_w_o_time',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Schedule */
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['id'] = 'field_gtp_schedule_1';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['table'] = 'field_data_field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['field'] = 'field_gtp_schedule';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['label'] = 'End';
+  $handler->display->display_options['fields']['field_gtp_schedule_1']['settings'] = array(
+    'format_type' => 'short_date_w_o_time',
+    'fromto' => 'value2',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Actions';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Tier */
+  $handler->display->display_options['fields']['field_gtp_tier']['id'] = 'field_gtp_tier';
+  $handler->display->display_options['fields']['field_gtp_tier']['table'] = 'field_data_field_gtp_tier';
+  $handler->display->display_options['fields']['field_gtp_tier']['field'] = 'field_gtp_tier';
+  $handler->display->display_options['fields']['field_gtp_tier']['label'] = '';
+  $handler->display->display_options['fields']['field_gtp_tier']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_gtp_tier']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'unpublish';
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'url_unpublish/[nid]';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Target URL */
+  $handler->display->display_options['fields']['field_gtp_target_url']['id'] = 'field_gtp_target_url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['table'] = 'field_data_field_gtp_target_url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['field'] = 'field_gtp_target_url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['text'] = 'URL';
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['path'] = '[field_gtp_target_url-url]';
+  $handler->display->display_options['fields']['field_gtp_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_gtp_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['path'] = 'games-to-play-admin';
+  $export['games_to_play_admin'] = $view;
+
   return $export;
 }
