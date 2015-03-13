@@ -206,4 +206,10 @@ function mmorpg_migrate_register_all_migrations() {
       'machine_name' => 'MMORPGArticleNewsPost',
     );
   Migration::registerMigration('MMORPGArticleNewsPostMigrate', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Customers'),
+      'machine_name' => 'MMORPGCustomers',
+    );
+  Migration::registerMigration('MMORPGCustomerMigrate', $arguments['machine_name'], $arguments);
 } 
