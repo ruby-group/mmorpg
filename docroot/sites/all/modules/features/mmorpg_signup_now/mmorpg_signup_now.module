@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Signup Now feature.
+ */
+
+include_once 'mmorpg_signup_now.features.inc';
