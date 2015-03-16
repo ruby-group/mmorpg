@@ -401,15 +401,18 @@ li.leaf-user-name .om-maximenu-middle {
     /* line 17, ../sass/components/_trending.scss */
     .trending .block__content .trending_links {
       line-height: 19px;
-      margin: 0; }
-      /* line 20, ../sass/components/_trending.scss */
+      margin: 0;
+      padding-left: 0;
+      overflow-y: hidden;
+      height: 20px; }
+      /* line 23, ../sass/components/_trending.scss */
       .trending .block__content .trending_links li {
         float: left;
         list-style: none;
         color: #959595; }
-        /* line 24, ../sass/components/_trending.scss */
+        /* line 27, ../sass/components/_trending.scss */
         .trending .block__content .trending_links li a {
           margin: 0px 4px; }
-      /* line 29, ../sass/components/_trending.scss */
+      /* line 32, ../sass/components/_trending.scss */
       .trending .block__content .trending_links li:last-child span {
         display: none; }
