@@ -186,6 +186,8 @@ function mmorpg_games_to_play_views_default_views() {
 
   /* Display: Sitewide */
   $handler = $view->new_display('block', 'Sitewide', 'block_1');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'sidebar-listing';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
