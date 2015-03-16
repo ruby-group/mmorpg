@@ -1,0 +1,11 @@
+;$Id
+name = Url Unpublish
+description = unpublish nodes through url parameter
+core = 7.x
+package = Other
+; Information added by drupal.org packaging script on 2012-05-11
+version = "7.x-1.1"
+core = "7.x"
+project = "url_unpublish"
+datestamp = "1336730492"
+
