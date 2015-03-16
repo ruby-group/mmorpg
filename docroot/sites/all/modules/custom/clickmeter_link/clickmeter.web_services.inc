@@ -29,7 +29,12 @@ class ClickmeterService {
         'body' => json_encode($body),
       ));
 
-    return $clickmeter->data;
+    if (!empty($clickmeter->data)) {
+      return $clickmeter->data;
+    }
+    else {
+      return 'URL already registered';
+    }
   }
 
   public static function new_group($name) {
@@ -99,8 +104,6 @@ class ClickmeterService {
   }
 
   public static function get_datapoint_hit($datapointId) {
-    return self::rest_post('datapoints', array(
-      'entityId' => $datapointId,
-    ));
+    return self::rest_get('datapoints/' . $datapointId . '/aggregated?timeframe=last365');
   }
 }
