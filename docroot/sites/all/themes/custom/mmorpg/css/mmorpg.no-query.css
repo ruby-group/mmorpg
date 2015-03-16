@@ -1,12 +1,16 @@
 /* line 1, ../sass/abstractions/_global.scss */
-.breadcrumb {
+.hidden {
   display: none; }
 
 /* line 4, ../sass/abstractions/_global.scss */
+.breadcrumb {
+  display: none; }
+
+/* line 7, ../sass/abstractions/_global.scss */
 .main {
   padding-top: 160px; }
 
-/* line 7, ../sass/abstractions/_global.scss */
+/* line 10, ../sass/abstractions/_global.scss */
 .main-inner {
   width: 83.05085%;
   float: left;
@@ -148,6 +152,21 @@
   /* line 13, ../sass/base/_forms.scss */
   .btn:hover, .view-footer .om-autoscroll:hover {
     background: #2b94e4; }
+
+/* line 2, ../sass/base/_lists.scss */
+.sidebar-listing .view-content {
+  line-height: 28px; }
+/* line 5, ../sass/base/_lists.scss */
+.sidebar-listing .views-row {
+  border-bottom: 1px solid #cecece;
+  padding: 0.50em; }
+  /* line 8, ../sass/base/_lists.scss */
+  .sidebar-listing .views-row .views-field-field-game-hero-image {
+    float: left;
+    margin-right: 0.50em; }
+  /* line 12, ../sass/base/_lists.scss */
+  .sidebar-listing .views-row:hover {
+    background-color: #e9f8ff !important; }
 
 /* line 1, ../sass/base/_media.scss */
 img, media {
@@ -300,6 +319,17 @@ li.leaf-user-name .om-maximenu-middle {
         position: absolute;
         top: 0;
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); }
+
+/* line 2, ../sass/components/_rightsidebar.scss */
+.rightsidebar h2.block__title {
+  font-size: 18px;
+  font-weight: normal;
+  border-bottom: 3px solid #bce6ff;
+  margin-bottom: 0.50em;
+  padding-bottom: 0.50em; }
+/* line 9, ../sass/components/_rightsidebar.scss */
+.rightsidebar .block__content {
+  line-height: 18px; }
 
 /* line 1, ../sass/components/_trending.scss */
 .trending {
