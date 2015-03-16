@@ -17,6 +17,9 @@
 		.trending_links {
 			line-height: 19px;
 			margin: 0;
+			padding-left: 0;
+			overflow-y: hidden;
+			height: 20px;
 			li {
 				float: left;
 				list-style: none;
