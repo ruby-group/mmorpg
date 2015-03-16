@@ -1,4 +1,8 @@
 .node-type-mmorpg-article{
+	.node--mmorpg-article .field__item img {
+		max-width: 100%;
+		height: auto !important;
+	}
 	.node-collection-menu-level-1{
 			display: none;
 	}
