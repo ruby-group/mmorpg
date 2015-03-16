@@ -10,8 +10,8 @@
 function mmorpg_signup_now_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-signup_now_link-field_gtp_customer'
-  $field_instances['node-signup_now_link-field_gtp_customer'] = array(
+  // Exported field_instance: 'node-signup_now_link-field_signup_customer'
+  $field_instances['node-signup_now_link-field_signup_customer'] = array(
     'bundle' => 'signup_now_link',
     'default_value' => NULL,
     'deleted' => 0,
@@ -24,7 +24,7 @@ function mmorpg_signup_now_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -34,7 +34,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_gtp_customer',
+    'field_name' => 'field_signup_customer',
     'label' => 'Provider',
     'required' => 1,
     'settings' => array(
@@ -45,7 +45,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => -1,
+      'weight' => 1,
     ),
   );
 
@@ -102,7 +102,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'clickmeter_link',
       'settings' => array(),
       'type' => 'clickmeter_link_field',
-      'weight' => -3,
+      'weight' => 2,
     ),
   );
 
