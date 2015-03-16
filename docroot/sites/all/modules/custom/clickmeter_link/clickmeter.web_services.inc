@@ -23,11 +23,13 @@ class ClickmeterService {
   }
 
   private static function rest_post($url, $body) {
-//    variable_set("restclient_debug", TRUE);
+    variable_set("restclient_debug", FALSE);
 
-    return restclient_post($url, self::headers() + array(
+    $clickmeter = restclient_post($url, self::headers() + array(
         'body' => json_encode($body),
-      ))->data;
+      ));
+
+    return $clickmeter->data;
   }
 
   public static function new_group($name) {
@@ -93,6 +95,12 @@ class ClickmeterService {
       'id' => $groupId,
       'name' => $name,
       'status' => 'paused',
+    ));
+  }
+
+  public static function get_datapoint_hit($datapointId) {
+    return self::rest_post('datapoints', array(
+      'entityId' => $datapointId,
     ));
   }
 }

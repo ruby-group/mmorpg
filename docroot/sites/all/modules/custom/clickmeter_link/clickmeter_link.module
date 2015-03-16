@@ -56,6 +56,15 @@ function clickmeter_link_menu() {
     'file path' => drupal_get_path('module', 'clickmeter_link'),
     'type' => MENU_NORMAL_ITEM,
   );
+  $items['admin/config/clickmeter/stats'] = array(
+    'title' => 'Clickmeter Statistics',
+    'description' => 'Statistics of connected clickmeter account.',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'clickmeter_statistics',
+    'file' => 'clickmeter_link.admin.inc',
+    'file path' => drupal_get_path('module', 'clickmeter_link'),
+    'type' => MENU_NORMAL_ITEM,
+  );
 
   return $items;
 }
@@ -413,7 +422,7 @@ function _clickmeter_link_load($field, $item, $instance) {
 function _clickmeter_link_process(&$item, $delta, $field, $entity) {
   // Trim whitespace from URL.
   if (!empty($item['url'])) {
-    $item['clickmeter_link'] = trim($item['url']);
+    $item['url'] = trim($item['url']);
   }
 
   //Get all values of the items for further use.
@@ -430,7 +439,8 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 
   //Register new datapoint & decode returned JSON.
   if (!empty($url) && !empty($dataPoint_name) && !empty($group_id) && !empty($domain_id)) {
-    $newDatapoint = json_decode(ClickmeterService::new_datapoint($dataPoint_name, $url, $group_id, $domain_id));
+    $dataPoint = ClickmeterService::new_datapoint($dataPoint_name, $url, $group_id, $domain_id);
+    $newDatapoint = json_decode($dataPoint);
   }
 
   //Get registered datapoint ID & their details..
@@ -444,10 +454,13 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
     $item['title'] = $item['title'];
   }
   if (!empty($datapointDetails->trackingCode)) {
-    $item['url'] = $datapointDetails->trackingCode;
+    $item['clickmeter_link'] = $datapointDetails->trackingCode;
   }
   if (!empty($datapointDetails->groupName)) {
     $item['group'] = $datapointDetails->groupName;
+  }
+  if (!empty($datapointDetails->id)) {
+    $item['clickmeter_id'] = $datapointDetails->id;
   }
   if (!empty($item['clickmeter_fieldset']['domain'])) {
     $item['domain'] = $item['clickmeter_fieldset']['domain'];
@@ -1077,21 +1090,21 @@ function clickmeter_link_field_formatter_view($entity_type, $entity, $field, $in
 function theme_clickmeter_link_formatter_clickmeter_link_default($vars) {
   $link_options = $vars['element'];
   unset($link_options['title']);
-  unset($link_options['url']);
+  unset($link_options['clickmeter_link']);
 
   if (isset($link_options['attributes']['class'])) {
     $link_options['attributes']['class'] = array($link_options['attributes']['class']);
   }
   // Display a normal link if both title and URL are available.
-  if (!empty($vars['element']['title']) && !empty($vars['element']['url'])) {
-    return l($vars['element']['title'], $vars['element']['url'], $link_options);
+  if (!empty($vars['element']['title']) && !empty($vars['element']['clickmeter_link'])) {
+    return l($vars['element']['title'], $vars['element']['clickmeter_link']);
   }
   // If only a title, display the title.
   elseif (!empty($vars['element']['title'])) {
     return $link_options['html'] ? $vars['element']['title'] : check_plain($vars['element']['title']);
   }
-  elseif (!empty($vars['element']['url'])) {
-    return l($vars['element']['title'], $vars['element']['url'], $link_options);
+  elseif (!empty($vars['element']['clickmeter_link'])) {
+    return l($vars['element']['title'], $vars['element']['clickmeter_link']);
   }
 }
 
@@ -1106,8 +1119,8 @@ function theme_clickmeter_link_formatter_clickmeter_link_plain($vars) {
   else {
     $vars['element']['title'] = '';
   }
-  unset($link_options['url']);
-  return empty($vars['element']['url']) ? check_plain($vars['element']['title']) : url($vars['element']['url'], $link_options);
+  unset($link_options['clickmeter_link']);
+  return empty($vars['element']['clickmeter_link']) ? check_plain($vars['element']['title']) : url($vars['element']['clickmeter_link'], $link_options);
 }
 
 /**
@@ -1115,7 +1128,7 @@ function theme_clickmeter_link_formatter_clickmeter_link_plain($vars) {
  */
 function theme_clickmeter_link_formatter_clickmeter_link_absolute($vars) {
   $absolute = array('absolute' => TRUE);
-  return empty($vars['element']['url']) ? '' : url($vars['element']['url'], $absolute + $vars['element']);
+  return empty($vars['element']['clickmeter_link']) ? '' : url($vars['element']['clickmeter_link'], $absolute + $vars['element']);
 }
 
 /**
@@ -1124,12 +1137,12 @@ function theme_clickmeter_link_formatter_clickmeter_link_absolute($vars) {
 function theme_clickmeter_link_formatter_clickmeter_link_domain($vars) {
   $link_options = $vars['element'];
   unset($link_options['title']);
-  unset($link_options['url']);
+  unset($link_options['clickmeter_link']);
   $domain = parse_url($vars['element']['display_url'], PHP_URL_HOST);
   if (!empty($vars['display']['settings']['strip_www'])) {
     $domain = str_replace('www.', '', $domain);
   }
-  return $vars['element']['url'] ? l($domain, $vars['element']['url'], $link_options) : '';
+  return $vars['element']['clickmeter_link'] ? l($domain, $vars['element']['clickmeter_link'], $link_options) : '';
 }
 
 /**
@@ -1145,8 +1158,8 @@ function theme_clickmeter_link_formatter_clickmeter_link_title_plain($vars) {
 function theme_clickmeter_link_formatter_clickmeter_link_url($vars) {
   $link_options = $vars['element'];
   unset($link_options['title']);
-  unset($link_options['url']);
-  return $vars['element']['url'] ? l($vars['element']['display_url'], $vars['element']['url'], $link_options) : '';
+  unset($link_options['clickmeter_link']);
+  return $vars['element']['clickmeter_link'] ? l($vars['element']['display_url'], $vars['element']['clickmeter_link'], $link_options) : '';
 }
 
 /**
@@ -1155,8 +1168,8 @@ function theme_clickmeter_link_formatter_clickmeter_link_url($vars) {
 function theme_clickmeter_link_formatter_clickmeter_link_short($vars) {
   $link_options = $vars['element'];
   unset($link_options['title']);
-  unset($link_options['url']);
-  return $vars['element']['url'] ? l(t('Link'), $vars['element']['url'], $link_options) : '';
+  unset($link_options['clickmeter_link']);
+  return $vars['element']['clickmeter_link'] ? l(t('Link'), $vars['element']['clickmeter_link'], $link_options) : '';
 }
 
 /**
@@ -1165,8 +1178,8 @@ function theme_clickmeter_link_formatter_clickmeter_link_short($vars) {
 function theme_clickmeter_link_formatter_clickmeter_link_label($vars) {
   $link_options = $vars['element'];
   unset($link_options['title']);
-  unset($link_options['url']);
-  return $vars['element']['url'] ? l($vars['field']['label'], $vars['element']['url'], $link_options) : '';
+  unset($link_options['clickmeter_link']);
+  return $vars['element']['clickmeter_link'] ? l($vars['field']['label'], $vars['element']['clickmeter_link'], $link_options) : '';
 }
 
 /**
@@ -1177,18 +1190,18 @@ function theme_clickmeter_link_formatter_clickmeter_link_separate($vars) {
   unset($vars['element']['attributes']['class']);
   $link_options = $vars['element'];
   unset($link_options['title']);
-  unset($link_options['url']);
+  unset($link_options['clickmeter_link']);
   $title = empty($vars['element']['title']) ? '' : check_plain($vars['element']['title']);
 
   // @TODO static html markup looks not very elegant
   // needs smarter output solution and an optional title/url seperator
-  $url_parts = _link_parse_url($vars['element']['url']);
+  $url_parts = _link_parse_url($vars['element']['clickmeter_link']);
   $output = '';
   $output .= '<div class="link-item ' . $class . '">';
   if (!empty($title)) {
     $output .= '<div class="link-title">' . $title . '</div>';
   }
-  $output .= '<div class="link-url">' . l($url_parts['url'], $vars['element']['url'], $link_options) . '</div>';
+  $output .= '<div class="link-url">' . l($url_parts['clickmeter_link'], $vars['element']['clickmeter_link'], $link_options) . '</div>';
   $output .= '</div>';
   return $output;
 }
