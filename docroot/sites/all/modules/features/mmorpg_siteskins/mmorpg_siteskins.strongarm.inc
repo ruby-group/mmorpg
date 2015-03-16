@@ -153,41 +153,6 @@ function mmorpg_siteskins_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'clone_reset_article_news_post';
-  $strongarm->value = 0;
-  $export['clone_reset_article_news_post'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'clone_reset_game';
-  $strongarm->value = 0;
-  $export['clone_reset_game'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'clone_reset_mmorpg_article';
-  $strongarm->value = 0;
-  $export['clone_reset_mmorpg_article'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'clone_reset_panel';
-  $strongarm->value = 0;
-  $export['clone_reset_panel'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'clone_reset_play_now_slides';
-  $strongarm->value = 0;
-  $export['clone_reset_play_now_slides'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'clone_reset_siteskin';
   $strongarm->value = 0;
   $export['clone_reset_siteskin'] = $strongarm;
