@@ -35,4 +35,17 @@ abstract class MMORPGCommon extends Migration {
     $requiredFormat = $dateObj->format('Ymd\Th:i:s');
     return $requiredFormat;
   }
+
+  public function prepareRow($row) {
+    //Encoding
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+    foreach ($row as $key => $value) {
+      $enc = mb_detect_encoding($value, 'UTF-8', TRUE);
+      if (!$enc) {
+        $row->$key = mb_convert_encoding($value, 'UTF-8', 'WINDOWS-1252');
+      }
+    }
+  }
 }

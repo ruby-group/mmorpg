@@ -68,20 +68,7 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
     ), t('DNM'));
   }
 
-  public function prepareRow($row) {
-    //Encoding
-    if (parent::prepareRow($row) === FALSE) {
-      return FALSE;
-    }
-    foreach ($row as $key => $value) {
-      $enc = mb_detect_encoding($value, 'UTF-8', TRUE);
-      if (!$enc) {
-        $row->$key = mb_convert_encoding($value, 'UTF-8', 'WINDOWS-1252');
-      }
-    }
-  }
-
-  public function getArticleSourceNid($parent_source_nid) {
+   public function getArticleSourceNid($parent_source_nid) {
     $articleInstance = self::getInstance('MMORPGArticle');
     $row = $articleInstance->map->getRowBySource($parent_source_nid);
     return $row->destination1;
