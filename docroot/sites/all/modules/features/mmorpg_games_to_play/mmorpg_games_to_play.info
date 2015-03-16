@@ -41,7 +41,3 @@ features[variable][] = node_preview_games_to_play
 features[variable][] = node_submitted_games_to_play
 features[views_view][] = games_to_play
 features[views_view][] = games_to_play_admin
-features_exclude[dependencies][ctools] = ctools
-features_exclude[dependencies][features] = features
-features_exclude[dependencies][options] = options
-features_exclude[dependencies][taxonomy] = taxonomy
