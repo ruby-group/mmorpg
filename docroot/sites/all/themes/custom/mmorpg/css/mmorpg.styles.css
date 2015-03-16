@@ -6,13 +6,14 @@
 .main {
   padding-top: 160px; }
 
-/* line 11, ../sass/abstractions/_global.scss */
+/* line 7, ../sass/abstractions/_global.scss */
 .main-inner {
   width: 83.05085%;
   float: left;
   margin-right: -100%;
   margin-left: 8.47458%;
-  clear: none; }
+  clear: none;
+  background-color: #ffffff; }
 
 /* line 1, ../sass/abstractions/_header.scss */
 .header {
