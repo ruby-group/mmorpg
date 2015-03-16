@@ -439,7 +439,8 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 
   //Register new datapoint & decode returned JSON.
   if (!empty($url) && !empty($dataPoint_name) && !empty($group_id) && !empty($domain_id)) {
-    $newDatapoint = json_decode(ClickmeterService::new_datapoint($dataPoint_name, $url, $group_id, $domain_id));
+    $dataPoint = ClickmeterService::new_datapoint($dataPoint_name, $url, $group_id, $domain_id);
+    $newDatapoint = json_decode($dataPoint);
   }
 
   //Get registered datapoint ID & their details..
@@ -453,10 +454,13 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
     $item['title'] = $item['title'];
   }
   if (!empty($datapointDetails->trackingCode)) {
-    $item['clickmeter_url'] = $datapointDetails->trackingCode;
+    $item['clickmeter_link'] = $datapointDetails->trackingCode;
   }
   if (!empty($datapointDetails->groupName)) {
     $item['group'] = $datapointDetails->groupName;
+  }
+  if (!empty($datapointDetails->id)) {
+    $item['clickmeter_id'] = $datapointDetails->id;
   }
   if (!empty($item['clickmeter_fieldset']['domain'])) {
     $item['domain'] = $item['clickmeter_fieldset']['domain'];
