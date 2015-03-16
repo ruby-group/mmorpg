@@ -41,6 +41,12 @@ function clickmeter_link_field_schema($field) {
         'not null' => FALSE,
         'sortable' => TRUE,
       ),
+      'clickmeter_id' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
       'clickmeter_link' => array(
         'type' => 'varchar',
         'length' => 2048,

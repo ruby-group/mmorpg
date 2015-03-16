@@ -183,3 +183,24 @@ function mmorpg_updates_update_7023() {
     'mmorpg_customer'
   ));
 }
+/**
+ * Delete unused content types.
+ *
+ * Adapted from node_type_delete_confirm_submit().
+ */
+function mmorpg_updates_update_7024() {
+  module_disable(array('play_now_slides'));
+  $types = array(
+    'play_now_slides',
+  );
+  foreach($types as $type) {
+    node_type_delete('play_now_slides');
+    variable_del('node_options_' . $type);
+    variable_del('node_preview_' . $type);
+    variable_del('node_submitted_' . $type);
+  }
+  node_types_rebuild();
+  menu_rebuild();
+
+  module_enable(array('mmorpg_signup_now'));
+}
