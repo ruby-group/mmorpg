@@ -253,6 +253,10 @@ function mmorpg_article_views_default_views() {
 
   /* Display: Organic */
   $handler = $view->new_display('block', 'Organic', 'organic');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Article Radioactivity (field_article_radioactivity:radioactivity_energy) */
   $handler->display->display_options['sorts']['field_article_radioactivity_radioactivity_energy']['id'] = 'field_article_radioactivity_radioactivity_energy';
