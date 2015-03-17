@@ -211,7 +211,6 @@ function mmorpg_games_to_play_views_default_views() {
   $handler->display->display_options['filters']['field_gtp_area_tid']['value'] = array(
     12688 => '12688',
   );
-  $handler->display->display_options['filters']['field_gtp_area_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_gtp_area_tid']['vocabulary'] = 'area_games_to_play_';
   /* Filter criterion: Content: Schedule -  start date (field_gtp_schedule) */
   $handler->display->display_options['filters']['field_gtp_schedule_value']['id'] = 'field_gtp_schedule_value';
@@ -242,7 +241,7 @@ function mmorpg_games_to_play_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Games To Play';
+  $handler->display->display_options['title'] = 'Games To Play (All)';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
@@ -408,6 +407,40 @@ No|Yes',
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Actions';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Tier */
+  $handler->display->display_options['fields']['field_gtp_tier']['id'] = 'field_gtp_tier';
+  $handler->display->display_options['fields']['field_gtp_tier']['table'] = 'field_data_field_gtp_tier';
+  $handler->display->display_options['fields']['field_gtp_tier']['field'] = 'field_gtp_tier';
+  $handler->display->display_options['fields']['field_gtp_tier']['label'] = '';
+  $handler->display->display_options['fields']['field_gtp_tier']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_gtp_tier']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'unpublish';
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'url_unpublish/[nid]';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Delete link */
+  $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
+  $handler->display->display_options['fields']['delete_node']['label'] = '';
+  $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
+  /* Field: Content: Target URL */
+  $handler->display->display_options['fields']['field_gtp_target_url']['id'] = 'field_gtp_target_url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['table'] = 'field_data_field_gtp_target_url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['field'] = 'field_gtp_target_url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['text'] = 'URL';
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['path'] = '[field_gtp_target_url-url]';
+  $handler->display->display_options['fields']['field_gtp_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_gtp_target_url']['click_sort_column'] = 'url';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -449,8 +482,8 @@ No|Yes',
   $handler->display->display_options['filters']['status_1']['value'] = '1';
   $handler->display->display_options['filters']['status_1']['group'] = 2;
 
-  /* Display: Present */
-  $handler = $view->new_display('page', 'Present', 'page');
+  /* Display: All */
+  $handler = $view->new_display('page', 'All', 'page');
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
@@ -534,10 +567,10 @@ No|Yes',
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
 
-  /* Display: Past */
-  $handler = $view->new_display('page', 'Past', 'page_1');
+  /* Display: Active */
+  $handler = $view->new_display('page', 'Active', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Games To Play - Past';
+  $handler->display->display_options['title'] = 'Games To Play (Active)';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['groups'] = array(
     1 => 'AND',
@@ -581,10 +614,64 @@ No|Yes',
   $handler->display->display_options['filters']['field_gtp_schedule_value2']['field'] = 'field_gtp_schedule_value2';
   $handler->display->display_options['filters']['field_gtp_schedule_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_gtp_schedule_value2']['default_date'] = 'now';
+  $handler->display->display_options['path'] = 'admin/mmorpg/games-to-play-admin/active';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Active';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Past */
+  $handler = $view->new_display('page', 'Past', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Games To Play (Past)';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'OR',
+  );
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'games_to_play' => 'games_to_play',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '0';
+  $handler->display->display_options['filters']['status']['group'] = 2;
+  $handler->display->display_options['filters']['status']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['status']['expose']['label'] = 'Show Disabled?';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
+  $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['status']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'node';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['value'] = '1';
+  $handler->display->display_options['filters']['status_1']['group'] = 2;
+  /* Filter criterion: Content: Schedule - end date (field_gtp_schedule:value2) */
+  $handler->display->display_options['filters']['field_gtp_schedule_value2']['id'] = 'field_gtp_schedule_value2';
+  $handler->display->display_options['filters']['field_gtp_schedule_value2']['table'] = 'field_data_field_gtp_schedule';
+  $handler->display->display_options['filters']['field_gtp_schedule_value2']['field'] = 'field_gtp_schedule_value2';
+  $handler->display->display_options['filters']['field_gtp_schedule_value2']['operator'] = '<';
+  $handler->display->display_options['filters']['field_gtp_schedule_value2']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'admin/mmorpg/games-to-play-admin/past';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Games To Play Past';
-  $handler->display->display_options['menu']['weight'] = '1';
+  $handler->display->display_options['menu']['title'] = 'Past';
+  $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['games_to_play_admin'] = $view;

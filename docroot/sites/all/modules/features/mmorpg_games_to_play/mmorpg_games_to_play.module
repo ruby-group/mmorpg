@@ -6,35 +6,35 @@
 
 include_once 'mmorpg_games_to_play.features.inc';
 
-function mmorpg_games_to_play_form_alter(&$form, $form_state, $form_id) {
-  if ($form_id == "views_exposed_form" && $form_state['view']->name == "games_to_play_admin") {
-    $form["#submit"] = array_merge(array("mmorpg_games_to_play_admin_view_submit"), $form["#submit"]);
-    $form["status"]['#access'] = false;
-    $form["field_gtp_schedule_value2"]['#access'] = false;
+// function mmorpg_games_to_play_form_alter(&$form, $form_state, $form_id) {
+//   if ($form_id == "views_exposed_form" && $form_state['view']->name == "games_to_play_admin") {
+//     $form["#submit"] = array_merge(array("mmorpg_games_to_play_admin_view_submit"), $form["#submit"]);
+//     $form["status"]['#access'] = false;
+//     $form["field_gtp_schedule_value2"]['#access'] = false;
 
-    $form["disabled"] = array (
-      "#type" => "checkbox",
-      '#title' => t('Show Disabled?'),
-      '#default_value' => TRUE,
-      );
-    $form["past"] = array (
-      "#type" => "checkbox",
-      '#title' => t('Show Past?'),
-      '#default_value' => TRUE,
-      );
+//     $form["disabled"] = array (
+//       "#type" => "checkbox",
+//       '#title' => t('Show Disabled?'),
+//       '#default_value' => TRUE,
+//       );
+//     $form["past"] = array (
+//       "#type" => "checkbox",
+//       '#title' => t('Show Past?'),
+//       '#default_value' => TRUE,
+//       );
 
-  }
-}
+//   }
+// }
 
-function mmorpg_games_to_play_admin_view_submit($form, &$form_state) {
-  if ($form_state['values']['disabled'] == true) {
-    $form_state['values']['status'] = 0;
-  } else {
-    $form_state['values']['status'] = 1;
-  }
-  if ($form_state['values']['past'] == false) {
-    $form_state['values']['field_gtp_schedule_value2'] = array('value'=>Date("Y-m-d"));
-  } else {
-    $form_state['values']['field_gtp_schedule_value2'] = null;
-  }
-}
+// function mmorpg_games_to_play_admin_view_submit($form, &$form_state) {
+//   if ($form_state['values']['disabled'] == true) {
+//     $form_state['values']['status'] = 0;
+//   } else {
+//     $form_state['values']['status'] = 1;
+//   }
+//   if ($form_state['values']['past'] == false) {
+//     $form_state['values']['field_gtp_schedule_value2'] = array('value'=>Date("Y-m-d"));
+//   } else {
+//     $form_state['values']['field_gtp_schedule_value2'] = null;
+//   }
+// }
