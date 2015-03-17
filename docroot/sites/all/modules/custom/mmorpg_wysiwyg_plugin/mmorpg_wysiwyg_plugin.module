@@ -109,50 +109,17 @@ function mmorpg_wysiwyg_plugin_shortcode_poll_attributes($form, $form_state) {
 /* Embed Related Content
 /*============================================================================================*/
 function mmorpg_wysiwyg_plugin_sortcode_related_content($attrs, $text) {
-  extract(shortcode_attrs(array(
-    'node_id' => '',
-    'class' => '',
-  ), $attrs));
-
-
-  if(!empty($attrs['node_id']) && is_numeric($attrs['node_id'])) {
-    $nid = $attrs['node_id'];
-
-    $query = "SELECT title FROM {node} WHERE nid = " . $nid;
-    $result = db_query($query);
-
-    $content = "<h2>Related content</h2>";
-
-    foreach ($result as $row){
-      $content .= "<a href=/node/". $nid .">". $row->title ."</a>";
-    }
-
-    return $content;
-  }
-  else {
-    return '';
-  }
-
+  return '[related-content][/related-content]';
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_related_content_tips() {
-  $output = '<strong>[related-content node_id="NODE ID HERE"][/related-content]</strong>';
+  $output = '<strong>[related-content][/related-content]</strong>';
 
   return $output;
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_related_content_attributes($form, $form_state) {
-  $form['node_id'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Node ID'),
-    '#size' => 60,
-    '#maxlength' => 60,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="shortcode"]' => array('value' => 'related-content'),
-      ),
-    ),
-  );
+  $form = array();
   return $form;
 }
 
