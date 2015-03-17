@@ -59,10 +59,6 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['field_cust_contact_name']['table'] = 'field_data_field_cust_contact_name';
   $handler->display->display_options['fields']['field_cust_contact_name']['field'] = 'field_cust_contact_name';
   $handler->display->display_options['fields']['field_cust_contact_name']['label'] = 'Contact';
-  /* Field: Content: Phone */
-  $handler->display->display_options['fields']['field_cust_phone_no']['id'] = 'field_cust_phone_no';
-  $handler->display->display_options['fields']['field_cust_phone_no']['table'] = 'field_data_field_cust_phone_no';
-  $handler->display->display_options['fields']['field_cust_phone_no']['field'] = 'field_cust_phone_no';
   /* Field: Content: Address */
   $handler->display->display_options['fields']['field_cust_address']['id'] = 'field_cust_address';
   $handler->display->display_options['fields']['field_cust_address']['table'] = 'field_data_field_cust_address';
@@ -78,6 +74,14 @@ function mmorpg_customer_views_default_views() {
     ),
   );
   $handler->display->display_options['fields']['field_cust_address']['group_column'] = 'entity_id';
+  /* Field: Content: Phone */
+  $handler->display->display_options['fields']['field_cust_phone_no']['id'] = 'field_cust_phone_no';
+  $handler->display->display_options['fields']['field_cust_phone_no']['table'] = 'field_data_field_cust_phone_no';
+  $handler->display->display_options['fields']['field_cust_phone_no']['field'] = 'field_cust_phone_no';
+  /* Field: Content: Email */
+  $handler->display->display_options['fields']['field_cust_email']['id'] = 'field_cust_email';
+  $handler->display->display_options['fields']['field_cust_email']['table'] = 'field_data_field_cust_email';
+  $handler->display->display_options['fields']['field_cust_email']['field'] = 'field_cust_email';
   /* Field: COUNT(Content: Nid) */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
