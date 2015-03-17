@@ -10,6 +10,46 @@
 function mmorpg_signup_now_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-signup_now_link-field_countries_cce'
+  $field_instances['node-signup_now_link-field_countries_cce'] = array(
+    'bundle' => 'signup_now_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Select countries where this node will be accessible.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => -1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => -1,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_countries_cce',
+    'label' => 'Countries',
+    'required' => 0,
+    'settings' => array(
+      'allowed_values_function' => 'country_get_list',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'allowed_values_function' => 'country_get_list',
+      ),
+      'type' => 'options_select',
+      'weight' => -1,
+    ),
+  );
+
   // Exported field_instance: 'node-signup_now_link-field_link_type'
   $field_instances['node-signup_now_link-field_link_type'] = array(
     'bundle' => 'signup_now_link',
@@ -185,8 +225,10 @@ function mmorpg_signup_now_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Countries');
   t('Link Type');
   t('Provider');
+  t('Select countries where this node will be accessible.');
   t('Target URL');
   t('Traffic Source');
 
