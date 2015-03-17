@@ -1,21 +1,19 @@
 <?php
+
 /**
  * @file
- * Vocabulary migration support for MMORPG.
+ * Article news post migration support for MMORPG.
  */
-
 class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
 
   public function __construct($arguments) {
     parent::__construct($arguments);
 
-
-
     $fields = array(
       'PageId' => t('Category ID'),
       'FeatureId' => t('description'),
       'CreateDate' => t('overview'),
-      'Content' => t('Column Id')      
+      'Content' => t('Column Id')
     );
 
     $query = 'SELECT PageId, Page, FeatureId, CreateDate, Content FROM dbo.FeaturePages ORDER BY Page';
@@ -25,21 +23,21 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
     $this->map = new MigrateSQLMap(
       $this->machineName,
       array(
-       'PageId'=> array(
-        'type' => 'int', 
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-        'alias' => 'e',
+        'PageId' => array(
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'alias' => 'e',
         ),
-       ),
+      ),
       MigrateDestinationTerm::getKeySchema()
-      );
+    );
 
-    $this->addFieldMapping('title','Page');
+    $this->addFieldMapping('title', 'Page');
     $this->addFieldMapping('field_article_type:tid');
-    $this->addFieldMapping('created','CreateDate')
-      ->callBacks(array($this,'formatDate'));
-    $this->addFieldMapping('body','Content');
+    $this->addFieldMapping('created', 'CreateDate')
+      ->callBacks(array($this, 'formatDate'));
+    $this->addFieldMapping('body', 'Content');
     $this->addFieldMapping('body:value_format')
       ->defaultValue('full_html');
     $this->addFieldMapping('body:format')
@@ -48,12 +46,12 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
       ->defaultValue('1');
     $this->addFieldMapping('status')
       ->defaultValue('1');
-    $this->addFieldMapping('published_at','CreateDate')
-      ->callBacks(array($this,'formatDate'));
+    $this->addFieldMapping('published_at', 'CreateDate')
+      ->callBacks(array($this, 'formatDate'));
 
     $this->addUnmigratedSources(array(
       'FeatureId'
-      ));
+    ));
     // DNM.
     $this->addUnmigratedDestinations(array(
       'changed',
@@ -67,32 +65,19 @@ class MMORPGArticleNewsPostMigrate extends MMORPGCommon {
       'sticky',
       'translate',
       'path'
-      ), t('DNM'));
+    ), t('DNM'));
   }
 
-  public function prepareRow($row) {
-    //Encoding
-    if (parent::prepareRow($row) === FALSE) {
-      return FALSE;
-    }
-    foreach ($row as $key=>$value) {
-      $enc = mb_detect_encoding($value, 'UTF-8', TRUE);
-      if (!$enc) {
-        $row->$key = mb_convert_encoding($value, 'UTF-8', 'WINDOWS-1252');
-      }
-    } 
-  }
-
-  public function getArticleSourceNid($parent_source_nid) {
-      $articleInstance = self::getInstance('MMORPGArticle');
-      $row = $articleInstance->map->getRowBySource($parent_source_nid);
-      return $row->destination1;
+   public function getArticleSourceNid($parent_source_nid) {
+    $articleInstance = self::getInstance('MMORPGArticle');
+    $row = $articleInstance->map->getRowBySource($parent_source_nid);
+    return $row->destination1;
   }
 
   public function complete($entity, $row) {
     $parent_source_nid = $row->FeatureId;
     $parent_nid = $this->getArticleSourceNid($parent_source_nid);
     $parent = node_load($parent_nid);
-    node_collection_api_add_relationship_instance($parent,$entity);
+    node_collection_api_add_relationship_instance($parent, $entity);
   }
 }

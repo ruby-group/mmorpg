@@ -8,9 +8,19 @@
  * Implements hook_ctools_plugin_api().
  */
 function mmorpg_customer_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function mmorpg_customer_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
 
 /**
@@ -23,7 +33,7 @@ function mmorpg_customer_node_info() {
       'base' => 'node_content',
       'description' => t('A content type for ad customer.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Company'),
       'help' => '',
     ),
   );

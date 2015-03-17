@@ -183,6 +183,7 @@ function mmorpg_updates_update_7023() {
     'mmorpg_customer'
   ));
 }
+
 /**
  * Delete unused content types.
  *

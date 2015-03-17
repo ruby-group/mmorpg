@@ -30,9 +30,22 @@ abstract class MMORPGCommon extends Migration {
   }
 
   public function formatDate($value) {
-    substr_replace($value,'',strlen($value) - 6,4);
-    $dateObj = DateTime::createFromFormat('M  d Y h:i:sA',$value);
+    substr_replace($value, '', strlen($value) - 6, 4);
+    $dateObj = DateTime::createFromFormat('M  d Y h:i:sA', $value);
     $requiredFormat = $dateObj->format('Ymd\Th:i:s');
     return $requiredFormat;
+  }
+
+  public function prepareRow($row) {
+    //Encoding
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
+    foreach ($row as $key => $value) {
+      $enc = mb_detect_encoding($value, 'UTF-8', TRUE);
+      if (!$enc) {
+        $row->$key = mb_convert_encoding($value, 'UTF-8', 'WINDOWS-1252');
+      }
+    }
   }
 }
