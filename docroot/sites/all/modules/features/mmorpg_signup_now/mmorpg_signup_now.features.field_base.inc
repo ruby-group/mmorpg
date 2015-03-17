@@ -10,13 +10,39 @@
 function mmorpg_signup_now_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_gtp_customer'
-  $field_bases['field_gtp_customer'] = array(
+  // Exported field_base: 'field_link_type'
+  $field_bases['field_link_type'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_gtp_customer',
+    'field_name' => 'field_link_type',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'playnow' => 'Play Now',
+        'buynow' => 'Buy Now',
+        'preorder' => 'Pre-Order Now',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_signup_customer'
+  $field_bases['field_signup_customer'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_signup_customer',
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -75,6 +101,31 @@ function mmorpg_signup_now_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'clickmeter_link_field',
+  );
+
+  // Exported field_base: 'field_traffic_source'
+  $field_bases['field_traffic_source'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_traffic_source',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'mmorpg' => 'MMORPG.com',
+        'youtube' => 'YouTube.com',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   return $field_bases;

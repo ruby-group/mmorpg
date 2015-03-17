@@ -111,3 +111,28 @@
 
   return $data;
 }*/
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function clickmeter_link_views_pre_render(&$view) {
+  if ($view->name == 'signup_now_links') {
+    $results = $view->result;
+    foreach ($results as $key => $result) {
+      $entity_id = $result->nid;
+      $query = db_query('SELECT field_target_url_clickmeter_id FROM {field_data_field_target_url} WHERE entity_id = ' . $entity_id);
+      $record = $query->fetchObject();
+      $datapoint_id = $record->field_target_url_clickmeter_id;
+
+      $datapoint_aggr = ClickmeterService::get_datapoint_hit($datapoint_id);
+
+      if (!empty($datapoint_aggr->totalClicks)) {
+        $totalClicks = $datapoint_aggr->totalClicks;
+      }
+      else {
+        $totalClicks = 0;
+      }
+      $result->nid = $totalClicks;
+    }
+  }
+}

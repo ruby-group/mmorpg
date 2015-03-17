@@ -10,21 +10,22 @@
 function mmorpg_signup_now_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-signup_now_link-field_gtp_customer'
-  $field_instances['node-signup_now_link-field_gtp_customer'] = array(
+  // Exported field_instance: 'node-signup_now_link-field_link_type'
+  $field_instances['node-signup_now_link-field_link_type'] = array(
     'bundle' => 'signup_now_link',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'playnow',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 2,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -34,7 +35,43 @@ function mmorpg_signup_now_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_gtp_customer',
+    'field_name' => 'field_link_type',
+    'label' => 'Link Type',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-signup_now_link-field_signup_customer'
+  $field_instances['node-signup_now_link-field_signup_customer'] = array(
+    'bundle' => 'signup_now_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_signup_customer',
     'label' => 'Provider',
     'required' => 1,
     'settings' => array(
@@ -45,7 +82,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => -1,
+      'weight' => 2,
     ),
   );
 
@@ -92,7 +129,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'title' => 'optional',
       'title_label_use_field_label' => 0,
       'title_maxlength' => 128,
-      'title_value' => 'Play Now',
+      'title_value' => '',
       'url' => 0,
       'user_register_form' => FALSE,
       'validate_url' => 1,
@@ -102,14 +139,56 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'clickmeter_link',
       'settings' => array(),
       'type' => 'clickmeter_link_field',
-      'weight' => -3,
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-signup_now_link-field_traffic_source'
+  $field_instances['node-signup_now_link-field_traffic_source'] = array(
+    'bundle' => 'signup_now_link',
+    'default_value' => array(
+      0 => array(
+        'value' => 'mmorpg',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_traffic_source',
+    'label' => 'Traffic Source',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Link Type');
   t('Provider');
   t('Target URL');
+  t('Traffic Source');
 
   return $field_instances;
 }

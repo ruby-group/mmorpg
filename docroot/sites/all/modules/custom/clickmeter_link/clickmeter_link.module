@@ -450,9 +450,21 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
   }
 
   //Map values for saving.
-  if (!empty($item['title'])) {
-    $item['title'] = $item['title'];
+  if (!empty($entity->field_link_type['und'][0]['value'])) {
+    $link_type = $entity->field_link_type['und'][0]['value'];
+    switch($link_type) {
+      case 'playnow':
+        $item['title'] = 'Play Now';
+        break;
+      case 'buynow':
+        $item['title'] = 'Buy Now';
+        break;
+      case 'preorder':
+        $item['title'] = 'Pre-Order Now';
+        break;
+    }
   }
+
   if (!empty($datapointDetails->trackingCode)) {
     $item['clickmeter_link'] = $datapointDetails->trackingCode;
   }
