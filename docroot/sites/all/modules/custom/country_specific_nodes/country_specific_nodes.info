@@ -1,0 +1,8 @@
+name = Country Specific Nodes
+description = Handles country specific display of nodes.
+package = Entity
+core = 7.x
+dependencies[] = ip2country
+dependencies[] = locale
+dependencies[] = list
+dependencies[] = field

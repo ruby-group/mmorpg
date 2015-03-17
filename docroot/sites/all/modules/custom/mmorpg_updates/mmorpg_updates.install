@@ -212,3 +212,10 @@ function mmorpg_updates_update_7024() {
 function mmorpg_updates_update_7025() {
   mmorpg_util_features_revert(array('mmorpg_signup_now',));
 }
+
+/**
+ * Enable country specific node & required module.
+ */
+function mmorpg_updates_update_7026() {
+  mmorpg_util_features_revert(array('mmorpg_signup_now',));
+}
