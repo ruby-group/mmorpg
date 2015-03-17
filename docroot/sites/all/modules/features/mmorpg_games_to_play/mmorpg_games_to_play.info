@@ -4,6 +4,7 @@ core = 7.x
 package = MMORPG
 dependencies[] = auto_nodetitle
 dependencies[] = better_exposed_filters
+dependencies[] = clickmeter_link
 dependencies[] = date
 dependencies[] = date_views
 dependencies[] = entityreference
