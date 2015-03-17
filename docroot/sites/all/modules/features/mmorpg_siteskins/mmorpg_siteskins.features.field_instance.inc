@@ -10,6 +10,39 @@
 function mmorpg_siteskins_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-siteskin-field_customer'
+  $field_instances['node-siteskin-field_customer'] = array(
+    'bundle' => 'siteskin',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_customer',
+    'label' => 'Customer',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
   // Exported field_instance: 'node-siteskin-field_siteskin_active'
   $field_instances['node-siteskin-field_siteskin_active'] = array(
     'bundle' => 'siteskin',
@@ -53,40 +86,7 @@ function mmorpg_siteskins_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'node-siteskin-field_siteskin_customer'
-  $field_instances['node-siteskin-field_siteskin_customer'] = array(
-    'bundle' => 'siteskin',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 5,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_siteskin_customer',
-    'label' => 'Customer',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 4,
     ),
   );
 
@@ -126,7 +126,7 @@ function mmorpg_siteskins_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -160,7 +160,7 @@ function mmorpg_siteskins_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -197,7 +197,7 @@ function mmorpg_siteskins_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -248,7 +248,7 @@ function mmorpg_siteskins_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 

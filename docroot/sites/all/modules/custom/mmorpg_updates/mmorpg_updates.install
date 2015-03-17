@@ -194,7 +194,7 @@ function mmorpg_updates_update_7024() {
   $types = array(
     'play_now_slides',
   );
-  foreach($types as $type) {
+  foreach ($types as $type) {
     node_type_delete('play_now_slides');
     variable_del('node_options_' . $type);
     variable_del('node_preview_' . $type);
@@ -218,4 +218,13 @@ function mmorpg_updates_update_7025() {
  */
 function mmorpg_updates_update_7026() {
   mmorpg_util_features_revert(array('mmorpg_signup_now',));
+}
+
+/**
+ * Refactored all the customer references into a single field.
+ */
+function mmorpg_updates_update_7027() {
+  field_delete_instance(field_info_instance('node', 'field_gtp_customer', 'games_to_play'));
+  field_delete_instance(field_info_instance('node', 'field_siteskin_customer', 'siteskin'));
+  field_delete_instance(field_info_instance('node', 'field_signup_customer', 'signup_now_link'));
 }

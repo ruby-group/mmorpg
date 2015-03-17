@@ -41,7 +41,10 @@ function mmorpg_signup_now_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '0',
+          'weight' => '3',
+        ),
+        'path' => array(
+          'weight' => '8',
         ),
       ),
       'display' => array(),

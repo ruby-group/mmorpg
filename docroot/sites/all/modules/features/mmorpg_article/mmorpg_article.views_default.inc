@@ -98,6 +98,21 @@ function mmorpg_article_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'recent_updates';
+  $translatables['latest_updates'] = array(
+    t('Master'),
+    t('Latest Updates'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('No updates at present.'),
+    t('[field_article_hero_image][title]'),
+    t('Block'),
+    t('More New Stuff'),
+    t('Page'),
+  );
   $export['latest_updates'] = $view;
 
   $view = new view();
@@ -324,6 +339,26 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['filters']['field_article_sponsored_value']['field'] = 'field_article_sponsored_value';
   $handler->display->display_options['filters']['field_article_sponsored_value']['value'] = array(
     1 => '1',
+  );
+  $translatables['trending'] = array(
+    t('Master'),
+    t('Trending'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Latest News (User Menu)'),
+    t('<div class="updates_text">
+<div class="updates_type">[field_article_type]</div> 
+<div class="updates_title">[title]</div>
+</div>
+<div class="updates_image">[field_article_hero_image]</div>
+
+'),
+    t('Organic'),
+    t('Sponsored'),
   );
   $export['trending'] = $view;
 

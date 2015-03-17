@@ -25,6 +25,7 @@ function mmorpg_article_field_group_info() {
     'children' => array(
       0 => 'field_article_sponsored',
       1 => 'field_article_sponsored_untill',
+      2 => 'field_customer',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
