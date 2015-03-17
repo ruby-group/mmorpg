@@ -191,10 +191,10 @@ function mmorpg_games_to_play_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'link',
+        'module' => NULL,
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 1,
+        'type' => 'clickmeter_link_field',
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -206,7 +206,7 @@ function mmorpg_games_to_play_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_gtp_target_url',
     'label' => 'Target URL',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'absolute_url' => 1,
       'attributes' => array(
@@ -214,7 +214,7 @@ function mmorpg_games_to_play_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => '_blank',
+        'target' => 'default',
         'title' => '',
       ),
       'display' => array(
@@ -232,9 +232,9 @@ function mmorpg_games_to_play_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'link',
+      'module' => 'clickmeter_link',
       'settings' => array(),
-      'type' => 'link_field',
+      'type' => 'clickmeter_link_field',
       'weight' => 2,
     ),
   );

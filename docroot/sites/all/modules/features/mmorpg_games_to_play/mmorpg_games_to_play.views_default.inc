@@ -441,6 +441,7 @@ No|Yes',
   $handler->display->display_options['fields']['field_gtp_target_url']['alter']['path'] = '[field_gtp_target_url-url]';
   $handler->display->display_options['fields']['field_gtp_target_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_gtp_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['type'] = 'link_default';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -560,6 +561,7 @@ No|Yes',
   $handler->display->display_options['fields']['field_gtp_target_url']['alter']['path'] = '[field_gtp_target_url-url]';
   $handler->display->display_options['fields']['field_gtp_target_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_gtp_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_gtp_target_url']['type'] = 'link_default';
   $handler->display->display_options['path'] = 'admin/mmorpg/games-to-play-admin';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Games To Play';
