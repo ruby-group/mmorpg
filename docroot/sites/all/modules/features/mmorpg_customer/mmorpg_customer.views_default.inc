@@ -43,9 +43,9 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['footer']['result']['table'] = 'views';
   $handler->display->display_options['footer']['result']['field'] = 'result';
   /* Relationship: Entity Reference: Referencing entity */
-  $handler->display->display_options['relationships']['reverse_field_siteskin_customer_node']['id'] = 'reverse_field_siteskin_customer_node';
-  $handler->display->display_options['relationships']['reverse_field_siteskin_customer_node']['table'] = 'node';
-  $handler->display->display_options['relationships']['reverse_field_siteskin_customer_node']['field'] = 'reverse_field_siteskin_customer_node';
+  $handler->display->display_options['relationships']['reverse_field_customer_node']['id'] = 'reverse_field_customer_node';
+  $handler->display->display_options['relationships']['reverse_field_customer_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_customer_node']['field'] = 'reverse_field_customer_node';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -86,7 +86,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['relationship'] = 'reverse_field_siteskin_customer_node';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'reverse_field_customer_node';
   $handler->display->display_options['fields']['nid']['group_type'] = 'count';
   $handler->display->display_options['fields']['nid']['label'] = 'Campaigns';
   /* Field: Content: Edit link */
@@ -116,6 +116,34 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['customers'] = array(
+    t('Master'),
+    t('Customers'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('New Customer'),
+    t('Displaying @start - @end of @total'),
+    t('Content referencing Content from field_customer'),
+    t('Company'),
+    t('Contact'),
+    t('Location'),
+    t('Phone'),
+    t('Email'),
+    t('Campaigns'),
+    t('Edit'),
+    t('Page'),
+  );
   $export['customers'] = $view;
 
   return $export;

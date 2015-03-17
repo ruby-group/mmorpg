@@ -95,10 +95,10 @@ No|Only Unpublished',
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Customer */
-  $handler->display->display_options['fields']['field_siteskin_customer']['id'] = 'field_siteskin_customer';
-  $handler->display->display_options['fields']['field_siteskin_customer']['table'] = 'field_data_field_siteskin_customer';
-  $handler->display->display_options['fields']['field_siteskin_customer']['field'] = 'field_siteskin_customer';
-  $handler->display->display_options['fields']['field_siteskin_customer']['settings'] = array(
+  $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['fields']['field_customer']['field'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['settings'] = array(
     'link' => 0,
   );
   /* Field: Content: Siteskin Active */
@@ -376,6 +376,41 @@ No|Only Unpublished',
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['siteskins'] = array(
+    t('Master'),
+    t('Site Skins'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Select any filter and click on Apply to see results'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Add new skin'),
+    t('No items to display.'),
+    t('Skin'),
+    t('Customer'),
+    t('Active between'),
+    t('Location'),
+    t('Published'),
+    t('Clone'),
+    t('Show'),
+    t('Siteskins'),
+    t('Upcoming'),
+    t('Hide Disabled'),
+    t('Homepage'),
+    t('Gamelist'),
+    t('Other Areas'),
+    t('Remnants'),
+    t('All'),
+  );
   $export['siteskins'] = $view;
 
   $view = new view();
@@ -502,6 +537,19 @@ No|Only Unpublished',
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $translatables['siteskins_rendering'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Active Siteskin'),
+    t('Remnant Pool'),
+    t('Preview'),
+    t('All'),
+  );
   $export['siteskins_rendering'] = $view;
 
   return $export;

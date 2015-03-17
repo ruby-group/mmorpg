@@ -46,7 +46,46 @@ function mmorpg_signup_now_field_default_field_instances() {
         'allowed_values_function' => 'country_get_list',
       ),
       'type' => 'options_select',
-      'weight' => -1,
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-signup_now_link-field_customer'
+  $field_instances['node-signup_now_link-field_customer'] = array(
+    'bundle' => 'signup_now_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_customer',
+    'label' => 'Customer',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
     ),
   );
 
@@ -86,43 +125,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'node-signup_now_link-field_signup_customer'
-  $field_instances['node-signup_now_link-field_signup_customer'] = array(
-    'bundle' => 'signup_now_link',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_signup_customer',
-    'label' => 'Provider',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 6,
     ),
   );
 
@@ -179,7 +182,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'clickmeter_link',
       'settings' => array(),
       'type' => 'clickmeter_link_field',
-      'weight' => 4,
+      'weight' => 7,
     ),
   );
 
@@ -219,15 +222,15 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 4,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Countries');
+  t('Customer');
   t('Link Type');
-  t('Provider');
   t('Select countries where this node will be accessible.');
   t('Target URL');
   t('Traffic Source');

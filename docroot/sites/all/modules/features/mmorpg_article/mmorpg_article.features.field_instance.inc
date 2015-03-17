@@ -460,7 +460,7 @@ function mmorpg_article_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -536,6 +536,39 @@ function mmorpg_article_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-mmorpg_article-field_customer'
+  $field_instances['node-mmorpg_article-field_customer'] = array(
+    'bundle' => 'mmorpg_article',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_customer',
+    'label' => 'Customer',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 12,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Article Radioactivity');
@@ -543,6 +576,7 @@ function mmorpg_article_field_default_field_instances() {
   t('Article Type');
   t('Body');
   t('Column');
+  t('Customer');
   t('Game');
   t('Hero Image');
   t('News Post');

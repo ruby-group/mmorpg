@@ -227,6 +227,29 @@ function mmorpg_games_to_play_views_default_views() {
 
   /* Display: Home Page */
   $handler = $view->new_display('block', 'Home Page', 'block_2');
+  $translatables['games_to_play'] = array(
+    t('Master'),
+    t('MMOs to Play, Download or Pre-Order Now!'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Checkout our complete list of free to play, signup for, pre-order and download now MMORPGs!'),
+    t('term'),
+    t('Content entity referenced from field_gtp_game'),
+    t('[title]'),
+    t('Sitewide'),
+    t('Home Page'),
+  );
   $export['games_to_play'] = $view;
 
   $view = new view();
@@ -676,6 +699,38 @@ No|Yes',
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['games_to_play_admin'] = array(
+    t('Master'),
+    t('Games To Play (All)'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Select any filter and click on Apply to see results'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Content entity referenced from field_gtp_game'),
+    t('Game'),
+    t('Area'),
+    t('Start'),
+    t('End'),
+    t('Actions'),
+    t('unpublish'),
+    t('URL'),
+    t('Show Disabled?'),
+    t('All'),
+    t('Active'),
+    t('Games To Play (Active)'),
+    t('Past'),
+    t('Games To Play (Past)'),
+  );
   $export['games_to_play_admin'] = $view;
 
   return $export;

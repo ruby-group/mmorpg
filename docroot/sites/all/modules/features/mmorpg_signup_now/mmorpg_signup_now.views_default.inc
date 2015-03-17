@@ -45,10 +45,10 @@ function mmorpg_signup_now_views_default_views() {
     ),
   );
   /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_gtp_customer_target_id']['id'] = 'field_gtp_customer_target_id';
-  $handler->display->display_options['relationships']['field_gtp_customer_target_id']['table'] = 'field_data_field_gtp_customer';
-  $handler->display->display_options['relationships']['field_gtp_customer_target_id']['field'] = 'field_gtp_customer_target_id';
-  $handler->display->display_options['relationships']['field_gtp_customer_target_id']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['relationships']['field_customer_target_id']['required'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -85,16 +85,16 @@ function mmorpg_signup_now_views_default_views() {
     'signup_now_link' => 'signup_now_link',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Provider (field_signup_customer) */
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['id'] = 'field_signup_customer_target_id';
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['table'] = 'field_data_field_signup_customer';
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['field'] = 'field_signup_customer_target_id';
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['expose']['operator_id'] = 'field_signup_customer_target_id_op';
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['expose']['label'] = 'Ad Provider';
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['expose']['operator'] = 'field_signup_customer_target_id_op';
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['expose']['identifier'] = 'field_signup_customer_target_id';
-  $handler->display->display_options['filters']['field_signup_customer_target_id']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Provider (field_customer) */
+  $handler->display->display_options['filters']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator_id'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['label'] = 'Ad Provider';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['identifier'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -104,6 +104,29 @@ function mmorpg_signup_now_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'admin/config/clickmeter/stats';
+  $translatables['signup_now_links'] = array(
+    t('Master'),
+    t('Signup Now Links'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Content entity referenced from field_customer'),
+    t('Title'),
+    t('Nid'),
+    t('Custom text'),
+    t('Ad Provider'),
+    t('Page'),
+  );
   $export['signup_now_links'] = $view;
 
   return $export;

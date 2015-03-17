@@ -10,6 +10,45 @@
 function mmorpg_games_to_play_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-games_to_play-field_customer'
+  $field_instances['node-games_to_play-field_customer'] = array(
+    'bundle' => 'games_to_play',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_customer',
+    'label' => 'Customer',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
   // Exported field_instance: 'node-games_to_play-field_gtp_area'
   $field_instances['node-games_to_play-field_gtp_area'] = array(
     'bundle' => 'games_to_play',
@@ -47,46 +86,7 @@ function mmorpg_games_to_play_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance: 'node-games_to_play-field_gtp_customer'
-  $field_instances['node-games_to_play-field_gtp_customer'] = array(
-    'bundle' => 'games_to_play',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_gtp_customer',
-    'label' => 'Customer',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 7,
     ),
   );
 
@@ -125,7 +125,7 @@ function mmorpg_games_to_play_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -178,7 +178,7 @@ function mmorpg_games_to_play_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -235,7 +235,7 @@ function mmorpg_games_to_play_field_default_field_instances() {
       'module' => 'clickmeter_link',
       'settings' => array(),
       'type' => 'clickmeter_link_field',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -276,7 +276,7 @@ function mmorpg_games_to_play_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
