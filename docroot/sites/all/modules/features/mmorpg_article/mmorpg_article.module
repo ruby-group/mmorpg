@@ -113,11 +113,11 @@ function mmorpg_article_node_view($node, $view_mode, $langcode) {
     $game_id = $node->field_article_game[LANGUAGE_NONE][0]['target_id'];
     $news_post = &$node->content['field_article_news_post'][0]['#markup'];
     $nid = $node->nid;
-    $related_node = mmorpg_article_get_related_nid($nid,$game_id);
+    $related_node = mmorpg_article_get_related_node($nid,$game_id);
     if($related_node) {
-      $related_url = '/node/' . $related_node->nid;
+      $related_url = drupal_get_path_alias('node/' . $related_node->nid);
       $related_title = $related_node->title;
-      $replace_content = '<p><h2>Related content</h2> <a href="' . $related_url . '">' . $related_title . '</a></p>';
+      $replace_content = '<p><h2>Related content</h2>' . l($related_title, $related_url) . '</p>';
     } else {
       $replace_content = '';
     }
@@ -126,10 +126,10 @@ function mmorpg_article_node_view($node, $view_mode, $langcode) {
   }
 }
 
-function mmorpg_article_get_related_nid($nid,$game_id) {
-  $nid = mmorpg_article_get_related_node($nid,$game_id);
+function mmorpg_article_get_related_node($nid,$game_id) {
+  $nid = mmorpg_article_get_related_nid($nid,$game_id);
   if (!isset($nid)) {
-    $nid = mmorpg_article_get_related_node($nid,NULL);
+    $nid = mmorpg_article_get_related_nid($nid,NULL);
   }
   if(isset($nid)) {
     return node_load($nid);
@@ -137,7 +137,7 @@ function mmorpg_article_get_related_nid($nid,$game_id) {
   return NULL;
 }
 
-function mmorpg_article_get_related_node($nid,$game_id) {
+function mmorpg_article_get_related_nid($nid,$game_id) {
   $query = new EntityFieldQuery();
   $entity_query = $query->entityCondition('entity_type', 'node')
   ->propertyCondition('type', 'mmorpg_article')
