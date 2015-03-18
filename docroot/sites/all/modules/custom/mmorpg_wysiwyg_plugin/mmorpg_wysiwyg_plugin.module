@@ -124,7 +124,7 @@ function mmorpg_wysiwyg_plugin_shortcode_related_content_attributes($form, $form
 }
 
 /*============================================================================================*/
-/* Embed Related Content
+/* Embed Play Now
 /*============================================================================================*/
 function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
   extract(shortcode_attrs(array(
@@ -135,14 +135,27 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
   if(!empty($attrs['playnow_id']) && is_numeric($attrs['playnow_id'])) {
     $nid = $attrs['playnow_id'];
 
-    $query = "SELECT title FROM {node} WHERE nid = " . $nid;
-    $result = db_query($query);
+    $query_signup_now = "SELECT field_target_url_title, field_target_url_clickmeter_link from {field_data_field_target_url} WHERE entity_id = ". $nid;
+    $result_signup_now = db_query($query_signup_now);
 
-    $content = "<h2>Game to play</h2>";
+    $game_contents = db_select('field_data_field_game_contents', 'fgm')
+      ->fields('fgm', array('field_game_contents_target_id'))
+      ->condition('fgm.entity_id', $nid)
+      ->orderBy('fgm.revision_id', 'DSC')
+      ->execute()->fetchAssoc();
 
-    foreach ($result as $row){
-      $content = "<ul><li>" . $row->title . ": ";
-      $content .= "<a href=/node/". $nid .">Play Now</a></li></ul>";
+    $company_url = db_select('field_data_field_link', 'fdl')
+      ->fields('fdl', array('field_link_url'))
+      ->condition('fdl.entity_id', $game_contents, 'IN')
+      ->execute()->fetchAssoc();
+
+    foreach ($result_signup_now as $row){
+      if (!empty($row->field_target_url_clickmeter_link)) {
+        $content = "<a href=". $row->field_target_url_clickmeter_link .">". $row->field_target_url_title . "</a></li></ul>";
+      }
+      else {
+        $content = "<a href=". $company_url['field_link_url'] .">". $row->field_target_url_title . "</a></li></ul>";
+      }
     }
 
     return $content;
@@ -153,7 +166,7 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_play_now_tips() {
-  $output = '<strong>[play-now playnow_id="NODE ID HERE"][/play-now]</strong>';
+  $output = '<strong>[shortcode planow_id = "SIGNUP NOW NODE ID"][/shortcode]</strong>';
 
   return $output;
 }
