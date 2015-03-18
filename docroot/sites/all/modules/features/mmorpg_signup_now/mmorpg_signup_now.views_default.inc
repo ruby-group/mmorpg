@@ -85,6 +85,7 @@ function mmorpg_signup_now_views_default_views() {
     'signup_now_link' => 'signup_now_link',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+<<<<<<< HEAD
   /* Filter criterion: Content: Customer (field_customer) */
   $handler->display->display_options['filters']['field_customer_target_id']['id'] = 'field_customer_target_id';
   $handler->display->display_options['filters']['field_customer_target_id']['table'] = 'field_data_field_customer';
@@ -100,6 +101,8 @@ function mmorpg_signup_now_views_default_views() {
     3 => 0,
     4 => 0,
   );
+=======
+>>>>>>> New feature field controller added & removes bases from existing features where there were conflict
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -120,11 +123,18 @@ function mmorpg_signup_now_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+<<<<<<< HEAD
     t('Content entity referenced from field_customer'),
     t('Title'),
     t('Nid'),
     t('Custom text'),
     t('Ad Provider'),
+=======
+    t('Content entity referenced from field_gtp_customer'),
+    t('Title'),
+    t('Nid'),
+    t('Custom text'),
+>>>>>>> New feature field controller added & removes bases from existing features where there were conflict
     t('Page'),
   );
   $export['signup_now_links'] = $view;
