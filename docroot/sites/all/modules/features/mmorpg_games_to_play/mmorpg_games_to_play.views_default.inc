@@ -121,8 +121,10 @@ function mmorpg_games_to_play_views_default_views() {
   $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_target_url']['alter']['text'] = '[title]';
   $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-url] ';
+  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-clickmeter_link]';
   $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_default';
   /* Field: Content: Tier */
   $handler->display->display_options['fields']['field_gtp_tier']['id'] = 'field_gtp_tier';
   $handler->display->display_options['fields']['field_gtp_tier']['table'] = 'field_data_field_gtp_tier';
