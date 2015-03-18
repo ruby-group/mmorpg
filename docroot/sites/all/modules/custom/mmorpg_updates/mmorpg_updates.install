@@ -228,3 +228,11 @@ function mmorpg_updates_update_7027() {
   field_delete_instance(field_info_instance('node', 'field_siteskin_customer', 'siteskin'));
   field_delete_instance(field_info_instance('node', 'field_signup_customer', 'signup_now_link'));
 }
+
+/**
+ * Refactored all the clickmeter link references into a single field.
+ */
+function mmorpg_updates_update_7028() {
+  field_delete_instance(field_info_instance('node', 'field_gtp_target_url', 'games_to_play'));
+  field_delete_instance(field_info_instance('node', 'field_siteskin_tracking_link', 'siteskin'));
+}

@@ -569,6 +569,57 @@ function mmorpg_article_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-mmorpg_article-field_target_url'
+  $field_instances['node-mmorpg_article-field_target_url'] = array(
+    'bundle' => 'mmorpg_article',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => NULL,
+        'settings' => array(),
+        'type' => 'clickmeter_link_field',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_target_url',
+    'label' => 'Target URL',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_blank',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'clickmeter_link',
+      'settings' => array(),
+      'type' => 'clickmeter_link_field',
+      'weight' => 14,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Article Radioactivity');
@@ -584,6 +635,7 @@ function mmorpg_article_field_default_field_instances() {
   t('Related Games');
   t('Show/Event');
   t('Sponsored Untill');
+  t('Target URL');
   t('This Article is Sponsored');
 
   return $field_instances;

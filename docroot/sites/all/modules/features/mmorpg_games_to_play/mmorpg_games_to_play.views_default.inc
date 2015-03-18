@@ -114,17 +114,17 @@ function mmorpg_games_to_play_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Target URL */
-  $handler->display->display_options['fields']['field_gtp_target_url']['id'] = 'field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['table'] = 'field_data_field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['field'] = 'field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['label'] = '';
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['text'] = '[title]';
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['path'] = '[field_gtp_target_url-url] ';
-  $handler->display->display_options['fields']['field_gtp_target_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['type'] = 'link_absolute';
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['text'] = '[title]';
+  $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-clickmeter_link]';
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_default';
   /* Field: Content: Tier */
   $handler->display->display_options['fields']['field_gtp_tier']['id'] = 'field_gtp_tier';
   $handler->display->display_options['fields']['field_gtp_tier']['table'] = 'field_data_field_gtp_tier';
@@ -320,7 +320,7 @@ No|Yes',
     'field_gtp_tier' => 'edit_node',
     'nid' => 'edit_node',
     'delete_node' => 'edit_node',
-    'field_gtp_target_url' => 'edit_node',
+    'field_target_url' => 'edit_node',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -376,7 +376,7 @@ No|Yes',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_gtp_target_url' => array(
+    'field_target_url' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -454,17 +454,15 @@ No|Yes',
   $handler->display->display_options['fields']['delete_node']['label'] = '';
   $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
   /* Field: Content: Target URL */
-  $handler->display->display_options['fields']['field_gtp_target_url']['id'] = 'field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['table'] = 'field_data_field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['field'] = 'field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['label'] = '';
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['text'] = 'URL';
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['path'] = '[field_gtp_target_url-url]';
-  $handler->display->display_options['fields']['field_gtp_target_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['type'] = 'link_default';
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['text'] = 'URL';
+  $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-url]';
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -574,17 +572,15 @@ No|Yes',
   $handler->display->display_options['fields']['delete_node']['label'] = '';
   $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
   /* Field: Content: Target URL */
-  $handler->display->display_options['fields']['field_gtp_target_url']['id'] = 'field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['table'] = 'field_data_field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['field'] = 'field_gtp_target_url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['label'] = '';
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['text'] = 'URL';
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['alter']['path'] = '[field_gtp_target_url-url]';
-  $handler->display->display_options['fields']['field_gtp_target_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_gtp_target_url']['click_sort_column'] = 'url';
-  $handler->display->display_options['fields']['field_gtp_target_url']['type'] = 'link_default';
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['text'] = 'URL';
+  $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-url]';
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'admin/mmorpg/games-to-play-admin';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Games To Play';
