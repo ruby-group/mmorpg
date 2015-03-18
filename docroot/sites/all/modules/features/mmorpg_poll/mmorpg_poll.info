@@ -3,6 +3,7 @@ description = A Poll content type based off of the pollim module.
 core = 7.x
 package = MMORPG
 dependencies[] = choices
+dependencies[] = ctools
 dependencies[] = entity
 dependencies[] = features
 dependencies[] = pollim

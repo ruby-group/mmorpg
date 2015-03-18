@@ -85,7 +85,7 @@ function mmorpg_signup_now_views_default_views() {
     'signup_now_link' => 'signup_now_link',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Provider (field_customer) */
+  /* Filter criterion: Content: Customer (field_customer) */
   $handler->display->display_options['filters']['field_customer_target_id']['id'] = 'field_customer_target_id';
   $handler->display->display_options['filters']['field_customer_target_id']['table'] = 'field_data_field_customer';
   $handler->display->display_options['filters']['field_customer_target_id']['field'] = 'field_customer_target_id';

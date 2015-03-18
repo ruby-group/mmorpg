@@ -18,7 +18,6 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[field_base][] = field_countries_cce
 features[field_base][] = field_link_type
-features[field_base][] = field_target_url
 features[field_base][] = field_traffic_source
 features[field_instance][] = node-signup_now_link-field_countries_cce
 features[field_instance][] = node-signup_now_link-field_customer

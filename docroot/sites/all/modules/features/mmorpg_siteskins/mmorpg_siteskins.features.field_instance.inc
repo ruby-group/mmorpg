@@ -201,8 +201,8 @@ function mmorpg_siteskins_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-siteskin-field_siteskin_tracking_link'
-  $field_instances['node-siteskin-field_siteskin_tracking_link'] = array(
+  // Exported field_instance: 'node-siteskin-field_target_url'
+  $field_instances['node-siteskin-field_target_url'] = array(
     'bundle' => 'siteskin',
     'default_value' => NULL,
     'deleted' => 0,
@@ -210,16 +210,16 @@ function mmorpg_siteskins_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'link',
+        'module' => NULL,
         'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 4,
+        'type' => 'clickmeter_link_field',
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_siteskin_tracking_link',
-    'label' => 'Tracking Link',
-    'required' => 0,
+    'field_name' => 'field_target_url',
+    'label' => 'Target URL',
+    'required' => 1,
     'settings' => array(
       'absolute_url' => 1,
       'attributes' => array(
@@ -227,7 +227,7 @@ function mmorpg_siteskins_field_default_field_instances() {
         'configurable_class' => 0,
         'configurable_title' => 0,
         'rel' => '',
-        'target' => 'default',
+        'target' => '_blank',
         'title' => '',
       ),
       'display' => array(
@@ -241,14 +241,14 @@ function mmorpg_siteskins_field_default_field_instances() {
       'title_value' => '',
       'url' => 0,
       'user_register_form' => FALSE,
-      'validate_url' => 0,
+      'validate_url' => 1,
     ),
     'widget' => array(
       'active' => 0,
-      'module' => 'link',
+      'module' => 'clickmeter_link',
       'settings' => array(),
-      'type' => 'link_field',
-      'weight' => 7,
+      'type' => 'clickmeter_link_field',
+      'weight' => 10,
     ),
   );
 
@@ -259,7 +259,7 @@ function mmorpg_siteskins_field_default_field_instances() {
   t('Location');
   t('Remnant Pool');
   t('Siteskin Active');
-  t('Tracking Link');
+  t('Target URL');
 
   return $field_instances;
 }
