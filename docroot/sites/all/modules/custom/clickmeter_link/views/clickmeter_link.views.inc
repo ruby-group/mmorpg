@@ -116,7 +116,7 @@
  * Implements hook_views_pre_render().
  */
 function clickmeter_link_views_pre_render(&$view) {
-  if ($view->name == 'signup_now_links') {
+  if ($view->name == 'signup_now_links' || $view->name == 'ad_reports') {
     $results = $view->result;
     foreach ($results as $key => $result) {
       $entity_id = $result->nid;
