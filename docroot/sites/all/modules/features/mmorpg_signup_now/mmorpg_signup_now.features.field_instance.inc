@@ -22,6 +22,14 @@ function mmorpg_signup_now_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
+      ),
+    ),
+    'description' => 'Select countries for which this node will be hidden or not accessible.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => -1,
       ),
       'teaser' => array(
@@ -50,8 +58,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-signup_now_link-field_customer'
-  $field_instances['node-signup_now_link-field_customer'] = array(
+
+  // Exported field_instance: 'node-signup_now_link-field_customer_contents'
+  $field_instances['node-signup_now_link-field_customer_contents'] = array(
     'bundle' => 'signup_now_link',
     'default_value' => NULL,
     'deleted' => 0,
@@ -64,7 +73,7 @@ function mmorpg_signup_now_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -76,6 +85,51 @@ function mmorpg_signup_now_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_customer',
     'label' => 'Customer',
+    'field_name' => 'field_customer_contents',
+    'label' => 'Provider',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'node-signup_now_link-field_game_contents'
+  $field_instances['node-signup_now_link-field_game_contents'] = array(
+    'bundle' => 'signup_now_link',
+    'default_value' => array(
+      0 => array(
+        'value' => 'playnow',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_contents',
+    'label' => 'Game',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -125,7 +179,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 4,
     ),
   );
 
@@ -182,7 +236,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'clickmeter_link',
       'settings' => array(),
       'type' => 'clickmeter_link_field',
-      'weight' => 7,
+      'weight' => 5,
     ),
   );
 
@@ -222,7 +276,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 
@@ -232,6 +286,10 @@ function mmorpg_signup_now_field_default_field_instances() {
   t('Customer');
   t('Link Type');
   t('Select countries where this node will be accessible.');
+  t('Game');
+  t('Link Type');
+  t('Provider');
+  t('Select countries for which this node will be hidden or not accessible.');
   t('Target URL');
   t('Traffic Source');
 
