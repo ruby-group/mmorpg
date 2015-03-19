@@ -105,10 +105,22 @@ No|Only Unpublished',
   $handler->display->display_options['fields']['field_siteskin_active']['id'] = 'field_siteskin_active';
   $handler->display->display_options['fields']['field_siteskin_active']['table'] = 'field_data_field_siteskin_active';
   $handler->display->display_options['fields']['field_siteskin_active']['field'] = 'field_siteskin_active';
-  $handler->display->display_options['fields']['field_siteskin_active']['label'] = 'Active between';
+  $handler->display->display_options['fields']['field_siteskin_active']['label'] = 'Start date';
   $handler->display->display_options['fields']['field_siteskin_active']['settings'] = array(
     'format_type' => 'short',
-    'fromto' => 'both',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Siteskin Active */
+  $handler->display->display_options['fields']['field_siteskin_active_1']['id'] = 'field_siteskin_active_1';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['table'] = 'field_data_field_siteskin_active';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['field'] = 'field_siteskin_active';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['label'] = 'End date';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -397,7 +409,8 @@ No|Only Unpublished',
     t('No items to display.'),
     t('Skin'),
     t('Customer'),
-    t('Active between'),
+    t('Start date'),
+    t('End date'),
     t('Location'),
     t('Published'),
     t('Clone'),
