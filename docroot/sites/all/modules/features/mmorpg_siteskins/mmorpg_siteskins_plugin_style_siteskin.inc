@@ -10,8 +10,8 @@ class mmorpg_siteskins_plugin_style_siteskin extends views_plugin_style {
     bg_image_add_background_image($image);
 
     $output = "<div class='skin-tracking-link'></div>";
-    if (!empty($node->field_siteskin_tracking_link['und']['0']['url'])) {
-      $output = l($output, $node->field_siteskin_tracking_link['und']['0']['url'], array(
+    if (!empty($node->field_target_url['und']['0']['clickmeter_link'])) {
+      $output = l($output, $node->field_target_url['und']['0']['clickmeter_link'], array(
         'html' => TRUE,
         'attributes' => array(
           'target' => '_blank',
