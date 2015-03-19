@@ -175,6 +175,11 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['field_siteskin_location']['id'] = 'field_siteskin_location';
   $handler->display->display_options['fields']['field_siteskin_location']['table'] = 'field_data_field_siteskin_location';
   $handler->display->display_options['fields']['field_siteskin_location']['field'] = 'field_siteskin_location';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = 'Clicks';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
