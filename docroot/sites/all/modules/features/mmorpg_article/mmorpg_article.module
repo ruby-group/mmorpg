@@ -25,14 +25,19 @@ function mmorpg_article_block_view($delta = '') {
   switch ($delta) {
     case 'trending':
       $organic_content = views_get_view_result('trending', 'organic');
+      foreach ($organic_content as &$item) {
+        $item = l($item->node_title, drupal_get_path_alias('node/' . $item->nid)) . "<span>|</span>";
+      }
+
       $sponsored_content = views_get_view_result('trending', 'sponsored');
+      foreach ($sponsored_content as &$item) {
+        $item = l($item->node_title, $item->field_field_target_url[0]['raw']['clickmeter_link (']) . "<span>|</span>";
+      }
+
       foreach ($sponsored_content as $sponsored_item) {
         array_splice($organic_content, rand(0, variable_get('mmorpg_trending_ad_space', 5)), 0, array($sponsored_item));
       }
 
-      foreach ($organic_content as &$item) {
-        $item = l($item->node_title, drupal_get_path_alias('node/' . $item->nid)) . "<span>|</span>";
-      }
       $organic_content = array_slice($organic_content, 0, variable_get('mmorpg_trending_max', 5));
 
       $block['content'] = theme('item_list', array(
