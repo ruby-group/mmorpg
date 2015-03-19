@@ -437,6 +437,7 @@ No|Yes',
   $handler->display->display_options['fields']['field_gtp_tier']['label'] = '';
   $handler->display->display_options['fields']['field_gtp_tier']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_gtp_tier']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_gtp_tier']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
