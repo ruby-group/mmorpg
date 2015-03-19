@@ -185,11 +185,9 @@ body {
 /* line 2, ../sass/components/_article.scss */
 .node-type-mmorpg-article .node--mmorpg-article .field__item img {
   max-width: 100%;
-  height: auto !important; }
-/* line 6, ../sass/components/_article.scss */
-.node-type-mmorpg-article .node-collection-menu-level-1 {
-  display: none; }
-/* line 9, ../sass/components/_article.scss */
+  height: auto !important;
+  width: 100%; }
+/* line 8, ../sass/components/_article.scss */
 .node-type-mmorpg-article h1 {
   padding: 10px 15px 5px 0px;
   margin-left: 26px;
@@ -197,7 +195,7 @@ body {
   font-size: 35px;
   font-weight: normal;
   line-height: 1.2em; }
-/* line 18, ../sass/components/_article.scss */
+/* line 17, ../sass/components/_article.scss */
 .node-type-mmorpg-article .node__submitted {
   font-size: 13px;
   padding: 6px 0px 15px 1px;
@@ -205,19 +203,19 @@ body {
   display: inline-block;
   margin-top: 5px;
   color: #959595; }
-/* line 27, ../sass/components/_article.scss */
+/* line 26, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field--name-field-article-overview {
   display: none; }
-/* line 31, ../sass/components/_article.scss */
+/* line 30, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field__item {
   font-size: 14px;
   line-height: 1.6em;
   padding-top: 0px;
   margin-top: 0px; }
-/* line 38, ../sass/components/_article.scss */
+/* line 37, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field--name-field-article-hero-image {
   padding: 0px; }
-/* line 42, ../sass/components/_article.scss */
+/* line 41, ../sass/components/_article.scss */
 .node-type-mmorpg-article .field--name-field-article-news-post {
   font-size: 14px;
   line-height: 1.6em;
@@ -229,24 +227,24 @@ body {
   border-top: 4px solid #bce6ff;
   position: relative;
   width: 92%; }
-  /* line 58, ../sass/components/_article.scss */
+  /* line 57, ../sass/components/_article.scss */
   .node-type-mmorpg-article .field--name-field-article-news-post img {
     max-width: 715px;
     width: 100%; }
 
-/* line 66, ../sass/components/_article.scss */
+/* line 65, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .views-field-title span {
   width: 100%; }
-  /* line 68, ../sass/components/_article.scss */
+  /* line 67, ../sass/components/_article.scss */
   .block-views-id-latest_updates-block .views-field-title span a {
     min-height: 45px;
     display: inline-block;
     width: 100%; }
-    /* line 72, ../sass/components/_article.scss */
+    /* line 71, ../sass/components/_article.scss */
     .block-views-id-latest_updates-block .views-field-title span a img {
       float: left;
       margin-right: 0.50em; }
-/* line 78, ../sass/components/_article.scss */
+/* line 77, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .view-footer a {
   color: #ffffff; }
 
@@ -309,7 +307,7 @@ li.leaf-user-name .om-maximenu-middle {
         bottom: 0.5em;
         font-size: 16px;
         font-weight: 400;
-        padding: 10px;
+        padding: 0px;
         position: absolute; }
       /* line 69, ../sass/components/_navigation.scss */
       li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_type {
@@ -318,7 +316,14 @@ li.leaf-user-name .om-maximenu-middle {
         padding: 10px 0px 0px 10px;
         position: absolute;
         top: 0;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); }
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+        z-index: 1; }
+      /* line 79, ../sass/components/_navigation.scss */
+      li.leaf-user-name .om-maximenu-middle .views-row .updates_text a.content_link {
+        display: block;
+        z-index: 2;
+        height: 128px;
+        width: 160px; }
 
 /* line 2, ../sass/components/_rightsidebar.scss */
 .rightsidebar h2.block__title {
