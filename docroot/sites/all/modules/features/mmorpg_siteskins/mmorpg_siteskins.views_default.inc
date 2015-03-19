@@ -192,6 +192,44 @@ No|Only Unpublished',
 
   /* Display: Siteskins */
   $handler = $view->new_display('page', 'Siteskins', 'siteskins');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['status']['expose']['label'] = 'Show';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
+  $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'siteskin' => 'siteskin',
+  );
+  /* Filter criterion: Content: Siteskin Active -  start date (field_siteskin_active) */
+  $handler->display->display_options['filters']['field_siteskin_active_value']['id'] = 'field_siteskin_active_value';
+  $handler->display->display_options['filters']['field_siteskin_active_value']['table'] = 'field_data_field_siteskin_active';
+  $handler->display->display_options['filters']['field_siteskin_active_value']['field'] = 'field_siteskin_active_value';
+  $handler->display->display_options['filters']['field_siteskin_active_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_siteskin_active_value']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'admin/mmorpg/siteskins';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Siteskins';
