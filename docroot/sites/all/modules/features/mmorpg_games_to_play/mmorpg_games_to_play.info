@@ -13,6 +13,7 @@ dependencies[] = features
 dependencies[] = image
 dependencies[] = link
 dependencies[] = mmorpg_customer
+dependencies[] = mmorpg_field_controller
 dependencies[] = mmorpg_vocabularies
 dependencies[] = options
 dependencies[] = strongarm

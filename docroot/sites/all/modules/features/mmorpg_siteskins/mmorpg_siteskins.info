@@ -12,6 +12,7 @@ dependencies[] = features
 dependencies[] = link
 dependencies[] = list
 dependencies[] = mmorpg_customer
+dependencies[] = mmorpg_field_controller
 dependencies[] = strongarm
 dependencies[] = view_unpublished
 dependencies[] = views

@@ -125,10 +125,6 @@ function mmorpg_signup_now_views_default_views() {
     t('Nid'),
     t('Custom text'),
     t('Ad Provider'),
-    t('Content entity referenced from field_gtp_customer'),
-    t('Title'),
-    t('Nid'),
-    t('Custom text'),
     t('Page'),
   );
   $export['signup_now_links'] = $view;

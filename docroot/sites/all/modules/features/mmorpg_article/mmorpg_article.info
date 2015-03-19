@@ -12,6 +12,7 @@ dependencies[] = field_group
 dependencies[] = image
 dependencies[] = list
 dependencies[] = mmorpg_customer
+dependencies[] = mmorpg_field_controller
 dependencies[] = mmorpg_game
 dependencies[] = mmorpg_vocabularies
 dependencies[] = node

@@ -15,15 +15,6 @@ function mmorpg_signup_now_field_default_field_instances() {
     'bundle' => 'signup_now_link',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Select countries where this node will be accessible.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-      ),
-    ),
     'description' => 'Select countries for which this node will be hidden or not accessible.',
     'display' => array(
       'default' => array(
@@ -58,7 +49,6 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
   );
 
-
   // Exported field_instance: 'node-signup_now_link-field_customer_contents'
   $field_instances['node-signup_now_link-field_customer_contents'] = array(
     'bundle' => 'signup_now_link',
@@ -83,8 +73,6 @@ function mmorpg_signup_now_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_customer',
-    'label' => 'Customer',
     'field_name' => 'field_customer_contents',
     'label' => 'Provider',
     'required' => 1,
@@ -283,9 +271,6 @@ function mmorpg_signup_now_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Countries');
-  t('Customer');
-  t('Link Type');
-  t('Select countries where this node will be accessible.');
   t('Game');
   t('Link Type');
   t('Provider');
