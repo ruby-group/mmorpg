@@ -104,25 +104,9 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
-  /* Display: Parent */
-  $handler = $view->new_display('page', 'Parent', 'parent');
-  $handler->display->display_options['path'] = 'admin/mmorpg/reports';
-  $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Reports';
-  $handler->display->display_options['menu']['weight'] = '10';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
-
-  /* Display: Games to play */
-  $handler = $view->new_display('page', 'Games to play', 'gtp');
+  /* Display: Games To Play */
+  $handler = $view->new_display('page', 'Games To Play', 'page_1');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Customer */
-  $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
-  $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
-  $handler->display->display_options['fields']['field_customer']['field'] = 'field_customer';
-  $handler->display->display_options['fields']['field_customer']['settings'] = array(
-    'link' => 0,
-  );
   /* Field: Content: Game */
   $handler->display->display_options['fields']['field_gtp_game']['id'] = 'field_gtp_game';
   $handler->display->display_options['fields']['field_gtp_game']['table'] = 'field_data_field_gtp_game';
@@ -130,11 +114,25 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['field_gtp_game']['settings'] = array(
     'link' => 0,
   );
+  /* Field: Content: Customer */
+  $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['fields']['field_customer']['field'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['label'] = 'Company';
+  $handler->display->display_options['fields']['field_customer']['settings'] = array(
+    'link' => 0,
+  );
   /* Field: Content: Tier */
   $handler->display->display_options['fields']['field_gtp_tier']['id'] = 'field_gtp_tier';
   $handler->display->display_options['fields']['field_gtp_tier']['table'] = 'field_data_field_gtp_tier';
   $handler->display->display_options['fields']['field_gtp_tier']['field'] = 'field_gtp_tier';
+  $handler->display->display_options['fields']['field_gtp_tier']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_gtp_tier']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = 'Clicks';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
@@ -145,12 +143,11 @@ function mmorpg_customer_views_default_views() {
     'games_to_play' => 'games_to_play',
   );
   $handler->display->display_options['path'] = 'admin/mmorpg/reports/gtp';
-  $handler->display->display_options['menu']['type'] = 'default tab';
-  $handler->display->display_options['menu']['title'] = 'Games to play';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Reports: Games To Play';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
-  $handler->display->display_options['tab_options']['weight'] = '0';
 
   /* Display: Siteskins */
   $handler = $view->new_display('page', 'Siteskins', 'siteskins');
@@ -189,7 +186,7 @@ function mmorpg_customer_views_default_views() {
   );
   $handler->display->display_options['path'] = 'admin/mmorpg/reports/siteskins';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Siteskins';
+  $handler->display->display_options['menu']['title'] = 'Reports: Siteskins';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
@@ -213,11 +210,10 @@ function mmorpg_customer_views_default_views() {
     t('Game'),
     t('Company'),
     t('Clicks'),
-    t('Parent'),
-    t('Games to play'),
-    t('Customer'),
+    t('Games To Play'),
     t('Tier'),
     t('Siteskins'),
+    t('Customer'),
     t('SubSkinId'),
     t('.'),
     t(','),
