@@ -139,23 +139,11 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
     $query_signup_now = "SELECT field_target_url_title, field_target_url_clickmeter_link from {field_data_field_target_url} WHERE entity_id = ". $nid;
     $result_signup_now = db_query($query_signup_now);
 
-    $query_game_content = "SELECT field_game_contents_target_id from {field_data_field_game_contents} WHERE entity_id = " . $nid;
-    $result_game_content = db_query($query_game_content);
+    $result = db_query('SELECT fdl.field_link_url FROM {field_data_field_link} AS fdl LEFT JOIN {field_data_field_game_contents} AS fdgc ON fdl.entity_id = fdgc.field_game_contents_target_id WHERE fdgc.entity_id=:nid', array(':nid' => $nid));
 
-    foreach ($result_game_content as $row){
-      if (!empty($row->field_game_contents_target_id)) {
-        $game_content_id = $row->field_game_contents_target_id;
-      }
-    }
-
-    if (!empty($game_content_id)) {
-      $query_company_url = "SELECT field_link_url FROM {field_data_field_link} WHERE entity_id = " . $game_content_id;
-      $result_company_url = db_query($query_company_url);
-
-      foreach ($result_company_url as $row) {
-        if (!empty($row->field_link_url)) {
-          $company_url = $row->field_link_url;
-        }
+    foreach ($result as $row) {
+      if (!empty($row->field_link_url)) {
+        $company_url = $row->field_link_url;
       }
     }
 
