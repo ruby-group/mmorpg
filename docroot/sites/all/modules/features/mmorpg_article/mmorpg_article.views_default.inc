@@ -315,6 +315,30 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Target URL */
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_plain';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
