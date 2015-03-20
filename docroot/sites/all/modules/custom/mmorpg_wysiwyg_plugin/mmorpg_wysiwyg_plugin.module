@@ -45,7 +45,7 @@ function mmorpg_wysiwyg_plugin_shortcode_info() {
     'process callback' => 'mmorpg_wysiwyg_plugin_sortcode_play_now',
     'tips callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now_tips',
     'default settings' => array(),
-    'attributes callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now_attributes',
+//    'attributes callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now_attributes',
   );
 
   return $shortcodes;
@@ -128,31 +128,33 @@ function mmorpg_wysiwyg_plugin_shortcode_related_content_attributes($form, $form
 /*============================================================================================*/
 function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
   extract(shortcode_attrs(array(
-    'playnow_id' => '',
+    'playnow' => '',
     'class' => '',
   ), $attrs));
 
-  if(!empty($attrs['playnow_id']) && is_numeric($attrs['playnow_id'])) {
-    $content = '';
-    $nid = $attrs['playnow_id'];
+  if (!empty($attrs) && $attrs[0] == 'playnow') {
+    if (arg(0) == 'node' && is_numeric(arg(1))) {
+      // Get the nid
+      $node_id = arg(1);
 
-    $query_signup_now = "SELECT field_target_url_title, field_target_url_clickmeter_link from {field_data_field_target_url} WHERE entity_id = ". $nid;
-    $result_signup_now = db_query($query_signup_now);
+      $content = '';
+      $query_play_now = db_select('field_data_field_article_game', 'fdag');
+      $query_play_now->join('field_data_field_game_contents', 'fdgc', 'fdgc.field_game_contents_target_id = fdag.field_article_game_target_id');
+      $query_play_now->join('field_data_field_link', 'fdl', 'fdl.entity_id = fdag.field_article_game_target_id' );
+      $query_play_now->join('field_data_field_target_url', 'fdtu', 'fdtu.entity_id = fdgc.entity_id');
+      $result_play_now = $query_play_now
+        ->fields('fdtu', array('field_target_url_title', 'field_target_url_clickmeter_link'))
+        ->fields('fdl', array('field_link_url'))
+        ->condition('fdag.entity_id', $node_id)
+        ->execute();
 
-    $result = db_query('SELECT fdl.field_link_url FROM {field_data_field_link} AS fdl LEFT JOIN {field_data_field_game_contents} AS fdgc ON fdl.entity_id = fdgc.field_game_contents_target_id WHERE fdgc.entity_id=:nid', array(':nid' => $nid));
-
-    foreach ($result as $row) {
-      if (!empty($row->field_link_url)) {
-        $company_url = $row->field_link_url;
-      }
-    }
-
-    foreach ($result_signup_now as $row){
-      if (!empty($row->field_target_url_clickmeter_link)) {
-        $content .= "<a href=". $row->field_target_url_clickmeter_link .">". $row->field_target_url_title . "</a></li></ul>";
-      }
-      else if (!empty($company_url)) {
-        $content .= "<a href=". $company_url .">". $row->field_target_url_title . "</a></li></ul>";
+      foreach ($result_play_now as $row) {
+        if (!empty($row->field_target_url_clickmeter_link)) {
+          $content .= "<a href=". $row->field_target_url_clickmeter_link .">". $row->field_target_url_title . "</a></li></ul>";
+        }
+        else if (!empty($company_url)) {
+          $content .= "<a href=". $company_url .">". $row->field_target_url_title . "</a></li></ul>";
+        }
       }
     }
 
@@ -164,22 +166,7 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_play_now_tips() {
-  $output = '<strong>[shortcode planow_id = "SIGNUP NOW NODE ID"][/shortcode]</strong>';
+  $output = '<strong>[play-now playnow][/play-now]</strong> : Write "playnow" as shortcode';
 
   return $output;
-}
-
-function mmorpg_wysiwyg_plugin_shortcode_play_now_attributes($form, $form_state) {
-  $form['playnow_id'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Node ID'),
-    '#size' => 60,
-    '#maxlength' => 60,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="shortcode"]' => array('value' => 'play-now'),
-      ),
-    ),
-  );
-  return $form;
 }
