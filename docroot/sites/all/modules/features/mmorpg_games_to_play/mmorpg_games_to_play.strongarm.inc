@@ -21,7 +21,7 @@ function mmorpg_games_to_play_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ant_pattern_games_to_play';
-  $strongarm->value = 'Games to Play';
+  $strongarm->value = '[node:field-customer] [node:field-gtp-schedule:value] to [node:field-gtp-schedule:value2]';
   $export['ant_pattern_games_to_play'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -50,6 +50,13 @@ function mmorpg_games_to_play_strongarm() {
     ),
   );
   $export['field_bundle_settings_node__games_to_play'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_games_to_play';
+  $strongarm->value = '0';
+  $export['language_content_type_games_to_play'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
