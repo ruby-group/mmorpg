@@ -127,37 +127,30 @@ function mmorpg_wysiwyg_plugin_shortcode_related_content_attributes($form, $form
 /* Embed Play Now
 /*============================================================================================*/
 function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
-  extract(shortcode_attrs(array(
-    'playnow' => '',
-    'class' => '',
-  ), $attrs));
+  $content = '';
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    // Get the nid
+    $node_id = arg(1);
 
-  if (!empty($attrs) && $attrs[0] == 'playnow') {
-    if (arg(0) == 'node' && is_numeric(arg(1))) {
-      // Get the nid
-      $node_id = arg(1);
+    $query_play_now = db_select('field_data_field_article_game', 'fdag');
+    $query_play_now->join('field_data_field_game_contents', 'fdgc', 'fdgc.field_game_contents_target_id = fdag.field_article_game_target_id');
+    $query_play_now->join('field_data_field_link', 'fdl', 'fdl.entity_id = fdag.field_article_game_target_id' );
+    $query_play_now->join('field_data_field_target_url', 'fdtu', 'fdtu.entity_id = fdgc.entity_id');
+    $result_play_now = $query_play_now
+      ->fields('fdtu', array('field_target_url_title', 'field_target_url_clickmeter_link'))
+      ->fields('fdl', array('field_link_url'))
+      ->condition('fdag.entity_id', $node_id)
+      ->range(0,1)
+      ->execute();
 
-      $content = '';
-      $query_play_now = db_select('field_data_field_article_game', 'fdag');
-      $query_play_now->join('field_data_field_game_contents', 'fdgc', 'fdgc.field_game_contents_target_id = fdag.field_article_game_target_id');
-      $query_play_now->join('field_data_field_link', 'fdl', 'fdl.entity_id = fdag.field_article_game_target_id' );
-      $query_play_now->join('field_data_field_target_url', 'fdtu', 'fdtu.entity_id = fdgc.entity_id');
-      $result_play_now = $query_play_now
-        ->fields('fdtu', array('field_target_url_title', 'field_target_url_clickmeter_link'))
-        ->fields('fdl', array('field_link_url'))
-        ->condition('fdag.entity_id', $node_id)
-        ->execute();
-
-      foreach ($result_play_now as $row) {
-        if (!empty($row->field_target_url_clickmeter_link)) {
-          $content .= "<a href=". $row->field_target_url_clickmeter_link .">". $row->field_target_url_title . "</a></li></ul>";
-        }
-        else if (!empty($company_url)) {
-          $content .= "<a href=". $company_url .">". $row->field_target_url_title . "</a></li></ul>";
-        }
+    foreach ($result_play_now as $row) {
+      if (!empty($row->field_target_url_clickmeter_link)) {
+        $content .= "<a href=". $row->field_target_url_clickmeter_link .">". $row->field_target_url_title . "</a></li></ul>";
+      }
+      else if (!empty($row->field_link_url)) {
+        $content .= "<a href=". $row->field_link_url .">". $row->field_target_url_title . "</a></li></ul>";
       }
     }
-
     return $content;
   }
   else {
@@ -166,7 +159,7 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_play_now_tips() {
-  $output = '<strong>[play-now playnow][/play-now]</strong> : Write "playnow" as shortcode';
+  $output = '<strong>[play-now][/play-now]</strong>';
 
   return $output;
 }
