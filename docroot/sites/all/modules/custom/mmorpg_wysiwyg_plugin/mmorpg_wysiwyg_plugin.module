@@ -136,10 +136,8 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
     if (arg(0) == 'node' && is_numeric(arg(1))) {
       // Get the nid
       $node_id = arg(1);
-    }
 
-    $content = '';
-    if (!empty($node_id)) {
+      $content = '';
       $query_play_now = db_select('field_data_field_article_game', 'fdag');
       $query_play_now->join('field_data_field_game_contents', 'fdgc', 'fdgc.field_game_contents_target_id = fdag.field_article_game_target_id');
       $query_play_now->join('field_data_field_link', 'fdl', 'fdl.entity_id = fdag.field_article_game_target_id' );
