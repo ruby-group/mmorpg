@@ -62,5 +62,7 @@ Feature: Create Site skin content type
     And I click "Save"
     Then I should see the link "Site Skin Site Skin 3 has been created."
 
+  Scenario: Site skin added using Preload option
+
 
 
