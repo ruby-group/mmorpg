@@ -10,15 +10,6 @@
 function mmorpg_siteskins_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'administer background image'.
-  $permissions['administer background image'] = array(
-    'name' => 'administer background image',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'bg_image',
-  );
-
   // Exported permission: 'clone node'.
   $permissions['clone node'] = array(
     'name' => 'clone node',
@@ -76,15 +67,6 @@ function mmorpg_siteskins_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: 'view all background images'.
-  $permissions['view all background images'] = array(
-    'name' => 'view all background images',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'bg_image',
   );
 
   // Exported permission: 'view any unpublished siteskin content'.

@@ -119,3 +119,10 @@ function mmorpg_siteskins_block_view($delta = '') {
   }
   return $block;
 }
+
+/**
+ * Implements hook_init().
+ */
+function mmorpg_siteskins_init() {
+  drupal_add_library('system', 'jquery.cookie');
+}

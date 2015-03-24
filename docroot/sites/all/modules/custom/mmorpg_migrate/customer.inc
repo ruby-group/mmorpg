@@ -13,10 +13,10 @@ class MMORPGCustomerMigrate extends MMORPGCommon {
     $query = "SELECT CustomerID, Name, Address1, Address2, City, StateID,
                      CountryCode, RecordDate, Phone , PhoneExt, Email, ZIP,
                      Discount, Company, Fax, Password, Notes
-              FROM mmorpg.dbo.Customers
+              FROM adServer.dbo.Customers
               JOIN mmorpg.dbo.Countries
                 ON Customers.CountryID = Countries.CountryID";
-    $count_query = "SELECT COUNT(*) FROM mmorpg.dbo.Customers";
+    $count_query = "SELECT COUNT(*) FROM adServer.dbo.Customers";
     $fields = array(
       'CustomerID' => t('Customer ID'),
       'Name' => t('Name'),
