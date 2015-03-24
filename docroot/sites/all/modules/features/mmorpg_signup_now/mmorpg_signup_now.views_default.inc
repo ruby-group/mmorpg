@@ -774,7 +774,7 @@ No|Yes',
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'admin/config/clickmeter/stats';
+  $handler->display->display_options['path'] = 'admin/mmorpg/reports/signup_now';
   $translatables['signup_now_links'] = array(
     t('Master'),
     t('Signup Now Links'),

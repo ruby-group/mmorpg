@@ -1,6 +1,6 @@
 <?php
 
-define('CLICKMETER_KEY', variable_get('CLICKMETER_KEY', NULL));
+define('CLICKMETER_KEY', variable_get('clickmeter_api_key', NULL));
 
 class ClickmeterService {
   private static $CLICKMETER_BASE_URL = 'http://apiv2.clickmeter.com';

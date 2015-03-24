@@ -27,9 +27,9 @@ function mmorpg_site_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'CLICKMETER_KEY';
-  $strongarm->value = '0BB244DB-4823-4966-AFC2-69AFB56F27D9';
-  $export['CLICKMETER_KEY'] = $strongarm;
+  $strongarm->name = 'clickmeter_api_key';
+  $strongarm->value = '45ac796e-705a-4d8d-a250-a07d737c7825';
+  $export['clickmeter_api_key'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
