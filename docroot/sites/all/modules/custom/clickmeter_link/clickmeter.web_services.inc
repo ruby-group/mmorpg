@@ -39,7 +39,6 @@ class ClickmeterService {
 
   public static function new_group($name) {
     return self::rest_post('groups', array(
-      'id' => 1,
       'name' => $name,
     ));
   }
@@ -48,8 +47,8 @@ class ClickmeterService {
     return self::rest_get('groups/' . $groupId);
   }
 
-  public static function get_groups() {
-    $response = self::rest_get('groups?status=active');
+  public static function get_groups($type = 'all') {
+    $response = self::rest_get('groups?status=' . $type);
     $return = array();
     foreach ($response->entities as $entity) {
       $return[$entity->id] = self::get_group($entity->id)->name;
@@ -79,7 +78,7 @@ class ClickmeterService {
   public static function new_datapoint($name, $url, $groupId, $domainId) {
     return self::rest_post('datapoints', array(
       'groupId' => $groupId,
-      'id'  => 1,      
+      'id' => 1,
       'name' => $name,
       'title' => $name,
       'type' => 0,

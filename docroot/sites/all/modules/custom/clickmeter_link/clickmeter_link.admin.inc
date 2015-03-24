@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Implement hook_form().
- */
-function clickmeter_config_form($form, &$form_state) {
+function clickmeter_config_form() {
   return system_settings_form(array(
     'clickmeter_api_key' => array(
       '#type' => 'textfield',
@@ -14,51 +11,41 @@ function clickmeter_config_form($form, &$form_state) {
   ));
 }
 
-/**
- * Implement hook_form().
- */
-function clickmeter_group_config_form($form, &$form_state) {
-  $form = array();
+function clickmeter_group_config() {
+  $groups = ClickmeterService::get_groups('all');
+  $display = array();
+  foreach ($groups as $id => $name) {
+    $display[] = array(
+      $id,
+      $name,
+    );
+  }
+  $form = drupal_get_form('clickmeter_new_group_form');
 
-  $form['group'] = array(
-    '#title' => 'Group',
-    '#type' => 'select',
-    '#options' => ClickmeterService::get_groups() + array('other' => 'NEW GROUP'),
-    '#description' => t('Create new group by selecting NEW GROUP.'),
-  );
-  $form['new_group'] = array(
-    '#title' => t('Group name'),
-    '#type' => 'textfield',
-    '#size' => 30,
-    '#states' => array(
-      'visible' => array(
-        ':input[name="group"]' => array('value' => 'other'),
-      ),
-      'required' => array(
-        ':input[name="group"]' => array('value' => 'other'),
-      ),
-    ),
-  );
-
-  $form['create'] = array(
-    '#type' => 'submit',
-    '#value' => t('Create'),
-    '#states' => array(
-      'visible' => array(
-        ':input[name="group"]' => array('value' => 'other'),
-      ),
-    ),
-  );
-
-  return $form;
+  return
+    render($form) .
+    '<br/><br/>' .
+    theme('table', array(
+      'header' => array('Id', 'Name'),
+      'rows' => $display
+    ));
 }
 
-/**
- * Implement hook_form_submit().
- */
-function clickmeter_group_config_form_submit($form_id, &$form_state) {
-  if ($form_state['values']['group'] === 'other') {
-    $group_name = $form_state['values']['new_group'];
-    ClickmeterService::new_group($group_name);
-  }
+function clickmeter_new_group_form() {
+  return array(
+    'new_group' => array(
+      '#title' => t('Create Group'),
+      '#type' => 'textfield',
+      '#size' => 30,
+    ),
+    'submit' => array(
+      '#type' => 'submit',
+      '#value' => t('Save')
+    ),
+    '#submit' => array('clickmeter_new_group_form_submit'),
+  );
+}
+
+function clickmeter_new_group_form_submit($form_id, &$form_state) {
+  ClickmeterService::new_group($form_state['values']['new_group']);
 }
