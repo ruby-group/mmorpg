@@ -12,7 +12,6 @@ function mmorpg_signup_now_field_default_field_instances() {
 
   // Exported field_instance: 'node-signup_now_link-field_countries_cce'
   $field_instances['node-signup_now_link-field_countries_cce'] = array(
-<<<<<<< HEAD
     'bundle' => 'signup_now_link',
     'default_value' => NULL,
     'deleted' => 0,
@@ -91,100 +90,6 @@ function mmorpg_signup_now_field_default_field_instances() {
 
   // Exported field_instance: 'node-signup_now_link-field_game_contents'
   $field_instances['node-signup_now_link-field_game_contents'] = array(
-=======
->>>>>>> New feature field controller added & removes bases from existing features where there were conflict
-    'bundle' => 'signup_now_link',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Select countries for which this node will be hidden or not accessible.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => -1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => -1,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_countries_cce',
-    'label' => 'Countries',
-    'required' => 0,
-    'settings' => array(
-      'allowed_values_function' => 'country_get_list',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'allowed_values_function' => 'country_get_list',
-      ),
-      'type' => 'options_select',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance: 'node-signup_now_link-field_customer_contents'
-  $field_instances['node-signup_now_link-field_customer_contents'] = array(
-    'bundle' => 'signup_now_link',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-<<<<<<< HEAD
-        'weight' => 8,
-=======
-        'weight' => 7,
->>>>>>> New feature field controller added & removes bases from existing features where there were conflict
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-<<<<<<< HEAD
-    'field_name' => 'field_game_contents',
-    'label' => 'Game',
-=======
-    'field_name' => 'field_customer_contents',
-    'label' => 'Provider',
->>>>>>> New feature field controller added & removes bases from existing features where there were conflict
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 1,
-    ),
-  );
-
-<<<<<<< HEAD
-  // Exported field_instance: 'node-signup_now_link-field_link_type'
-  $field_instances['node-signup_now_link-field_link_type'] = array(
-=======
-  // Exported field_instance: 'node-signup_now_link-field_game_contents'
-  $field_instances['node-signup_now_link-field_game_contents'] = array(
->>>>>>> New feature field controller added & removes bases from existing features where there were conflict
     'bundle' => 'signup_now_link',
     'default_value' => array(
       0 => array(
@@ -207,8 +112,6 @@ function mmorpg_signup_now_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-<<<<<<< HEAD
-=======
         'weight' => 0,
       ),
     ),
@@ -243,7 +146,6 @@ function mmorpg_signup_now_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
->>>>>>> New feature field controller added & removes bases from existing features where there were conflict
         'weight' => 5,
       ),
       'teaser' => array(
