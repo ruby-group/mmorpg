@@ -45,15 +45,7 @@ function clickmeter_group_config_form($form, &$form_state) {
       ),
     ),
   );
-//  $form['disable'] = array(
-//    '#type' => 'submit',
-//    '#value' => t('Disable'),
-//    '#states' => array(
-//      'invisible' => array(
-//        ':input[name="group"]' => array('value' => 'other'),
-//      ),
-//    ),
-//  );
+
   $form['create'] = array(
     '#type' => 'submit',
     '#value' => t('Create'),
@@ -83,17 +75,4 @@ function clickmeter_group_config_form_submit($form_id, &$form_state) {
     $group_name = $form_state['values']['new_group'];
     ClickmeterService::new_group($group_name);
   }
-  else {
-//    $group_id = $form_state['values']['group'];
-//    $group_details = ClickmeterService::get_group($group_id);
-//    $group_name = $group_details->name;
-//
-//    $disable = ClickmeterService::disable_group($group_id, $group_name);
-  }
-}
-
-function clickmeter_statistics() {
-//  return 'test';
-//  $grops = ClickmeterService::get_groups();
-//  print_r($grops);
 }

@@ -56,15 +56,6 @@ function clickmeter_link_menu() {
     'file path' => drupal_get_path('module', 'clickmeter_link'),
     'type' => MENU_NORMAL_ITEM,
   );
-  $items['admin/config/clickmeter/stats'] = array(
-    'title' => 'Clickmeter Statistics',
-    'description' => 'Statistics of connected clickmeter account.',
-    'access arguments' => array('administer site configuration'),
-    'page callback' => 'clickmeter_statistics',
-    'file' => 'clickmeter_link.admin.inc',
-    'file path' => drupal_get_path('module', 'clickmeter_link'),
-    'type' => MENU_NORMAL_ITEM,
-  );
 
   return $items;
 }
@@ -832,7 +823,7 @@ function clickmeter_link_theme() {
  * Formats a clickmeter_link field widget.
  */
 function theme_clickmeter_link_field($vars) {
-  drupal_add_css(drupal_get_path('module', 'clickmeter_link') . '/link.css');
+  drupal_add_css(drupal_get_path('module', 'clickmeter_link') . '/clickmeter_link.css');
   $element = $vars['element'];
   // Prefix single value link fields with the name of the field.
   if (empty($element['#field']['multiple'])) {
@@ -1427,46 +1418,6 @@ function clickmeter_link_validate_url($text) {
 function _clickmeter_link_domains() {
   $clickmeter_link_extra_domains = variable_get('clickmeter_link_extra_domains', array());
   return empty($clickmeter_link_extra_domains) ? CLICKMETER_LINK_DOMAINS : CLICKMETER_LINK_DOMAINS . '|' . implode('|', $clickmeter_link_extra_domains);
-}
-
-/**
- * Implements hook_migrate_field_alter().
- */
-function clickmeter_link_content_migrate_field_alter(&$field_value, $instance_value) {
-  if ($field_value['type'] == 'clickmeter_link') {
-    // Adjust the field type.
-    $field_value['type'] = 'clickmeter_link_field';
-    // Remove settings that are now on the instance.
-    foreach (array('attributes', 'display', 'url', 'title', 'title_value', 'enable_tokens', 'validate_url') as $setting) {
-      unset($field_value['settings'][$setting]);
-    }
-  }
-}
-
-/**
- * Implements hook_migrate_instance_alter().
- *
- * Widget type also changed to link_field.
- */
-function clickmeter_link_content_migrate_instance_alter(&$instance_value, $field_value) {
-  if ($field_value['type'] == 'clickmeter_link') {
-    // Grab settings that were previously on the field.
-    foreach (array('attributes', 'display', 'url', 'title', 'title_value', 'enable_tokens', 'validate_url') as $setting) {
-      if (isset($field_value['settings'][$setting])) {
-        $instance_value['settings'][$setting] = $field_value['settings'][$setting];
-      }
-    }
-    // Adjust widget type.
-    if ($instance_value['widget']['type'] == 'clickmeter_link') {
-      $instance_value['widget']['type'] = 'clickmeter_link_field';
-    }
-    // Adjust formatter types.
-    foreach ($instance_value['display'] as $context => $settings) {
-      if (in_array($settings['type'], array('default', 'title_plain', 'url', 'plain', 'short', 'label', 'separate'))) {
-        $instance_value['display'][$context]['type'] = 'clickmeter_link_' . $settings['type'];
-      }
-    }
-  }
 }
 
 /**
