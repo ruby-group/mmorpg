@@ -163,12 +163,12 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['label'] = 'Skin';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Background Image (field_siteskin_image:delta) */
+  /* Field: Content: Sub Skin (field_siteskin_subskin:delta) */
   $handler->display->display_options['fields']['delta']['id'] = 'delta';
-  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_siteskin_image';
+  $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_siteskin_subskin';
   $handler->display->display_options['fields']['delta']['field'] = 'delta';
   $handler->display->display_options['fields']['delta']['label'] = 'SubSkinId';
   /* Field: Content: Location */
@@ -219,9 +219,8 @@ function mmorpg_customer_views_default_views() {
     t('Tier'),
     t('Siteskins'),
     t('Customer'),
+    t('Skin'),
     t('SubSkinId'),
-    t('.'),
-    t(','),
     t('Location'),
   );
   $export['ad_reports'] = $view;
