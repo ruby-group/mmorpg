@@ -204,6 +204,13 @@ function mmorpg_site_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'site_frontpage';
+  $strongarm->value = 'home';
+  $export['site_frontpage'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'site_mail';
   $strongarm->value = 'admin@example.com';
   $export['site_mail'] = $strongarm;
@@ -227,16 +234,16 @@ function mmorpg_site_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_mmorpg_settings';
   $strongarm->value = array(
-    'toggle_logo' => 1,
+    'toggle_logo' => 0,
     'toggle_name' => 0,
     'toggle_slogan' => 0,
     'toggle_node_user_picture' => 1,
     'toggle_comment_user_picture' => 1,
     'toggle_comment_user_verification' => 1,
     'toggle_favicon' => 1,
-    'toggle_main_menu' => 1,
-    'toggle_secondary_menu' => 1,
-    'omega_toggle_front_page_content' => 1,
+    'toggle_main_menu' => 0,
+    'toggle_secondary_menu' => 0,
+    'omega_toggle_front_page_content' => 0,
     'default_logo' => 1,
     'logo_path' => '',
     'logo_upload' => '',
@@ -282,7 +289,7 @@ function mmorpg_site_strongarm() {
     'omega_viewport' => 1,
     'omega_viewport_user_scaleable' => 1,
     'omega_chrome_edge' => 1,
-    'omega_toggle_extension_layouts' => 1,
+    'omega_toggle_extension_layouts' => 0,
     'omega_layout' => 'mm3col',
   );
   $export['theme_mmorpg_settings'] = $strongarm;
