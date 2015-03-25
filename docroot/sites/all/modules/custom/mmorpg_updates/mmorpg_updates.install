@@ -242,3 +242,10 @@ function mmorpg_updates_update_7028() {
 function mmorpg_updates_update_7029() {
   module_enable(array('mmorpg_field_controller',));
 }
+
+/**
+ * Revert features - signup now, field controller & game.
+ */
+function mmorpg_updates_update_7030() {
+  mmorpg_util_features_revert(array('mmorpg_signup_now', 'mmorpg_game', 'mmorpg_field_controller'));
+}
