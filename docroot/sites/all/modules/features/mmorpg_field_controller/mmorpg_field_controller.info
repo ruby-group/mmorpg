@@ -13,6 +13,7 @@ dependencies[] = taxonomy
 dependencies[] = text
 features[features_api][] = api:2
 features[field_base][] = field_business_model
+features[field_base][] = field_buy_link
 features[field_base][] = field_classification
 features[field_base][] = field_countries_cce
 features[field_base][] = field_customer_contents
