@@ -92,22 +92,44 @@ function country_specific_nodes_menu() {
 function country_specific_nodes_node_access($node, $op, $account) {
   // Check if $node is object as in some cases it returns string.
   if (is_object($node)) {
+
+    //get the list of types for which the functionality must be inverted
+    $include_list_string = variable_get('country_specific_nodes_include_list','');
+    $include_list = explode(',',$include_list_string);
+    $node_type = $node->type;
+
     // Get user country.
     $user_country = $_SESSION['ip_country_code'];
     // Get countries selected if any.
-    $excluded_countries = field_get_items('node', $node, 'field_countries_cce');
-
-    if (!empty($excluded_countries)) {
-      foreach ($excluded_countries as $ccode) {
-        if ($ccode['value'] == $user_country) {
-          return NODE_ACCESS_DENY;
+    $selected_countries = field_get_items('node', $node, 'field_countries_cce');
+    if (!isset($node->field_countries_cce)) {
+      return NODE_ACCESS_IGNORE;
+    }
+    $is_country_selected = false;
+    if (!empty($selected_countries)) {
+      foreach ($selected_countries as $key => $country_code) {
+        if($user_country == $country_code["value"]) {
+          $is_country_selected = true;
+          break;
         }
       }
     }
+    $is_type_included = in_array($node_type, $include_list);
+    //visible only for selected countries
+    if($is_country_selected && $is_type_included) {
+      return NODE_ACCESS_IGNORE;
+    }
+    else if (!$is_country_selected && $is_type_included) {
+      return NODE_ACCESS_DENY;
+    }
+    //invisible for selected countries
+    else if ($is_country_selected && !$is_type_included) {
+      return NODE_ACCESS_DENY;
+    }
+    else {
+      return NODE_ACCESS_IGNORE;
+    }
   }
-
-  // Returning nothing from this function would have the same effect.
-  return NODE_ACCESS_IGNORE;
 }
 
 /**
