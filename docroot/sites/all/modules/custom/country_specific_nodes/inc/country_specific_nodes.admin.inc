@@ -20,10 +20,16 @@ function country_specific_nodes_content_type($form, &$form_state) {
   // Get list of active content types.
   $types = node_type_get_names();
 
+  //Get include content types.
+  $include_list_string = variable_get('country_specific_nodes_include_list','');
+  $include_list = explode(',',$include_list_string);
+
   // Check if field is attached to content types.
   foreach ($types as $key => $type_val) {
     $has_instance = field_info_instance('node', 'field_countries_cce', $key);
     $field_exist[] = isset($has_instance['bundle']) ? $has_instance['bundle'] : '';
+    if(!empty($include_list))
+      $field_include_exist[] = in_array($key, $include_list)?$key:'';
   }
 
   // List cotnent types with checkboxes.
@@ -32,6 +38,16 @@ function country_specific_nodes_content_type($form, &$form_state) {
     '#title' => t('Content Types'),
     '#options' => $types,
     '#default_value' => $field_exist,
+  );
+
+  // List cotnent types with checkboxes to get the type of functionality.
+  $form['options']['include'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Functionality (Selected type\'s nodes will be displayed for selected countries)'),
+    '#options' => $types,
+    '#default_value' => $field_include_exist,
+    '#description' => t('Select the content types for which the nodes must be
+      made visible for selected countries.')
   );
 
   // Submit button.
@@ -53,6 +69,10 @@ function country_specific_nodes_content_type($form, &$form_state) {
 function country_specific_nodes_content_type_submit($form, &$form_state) {
   // Get selected/non-selected content types.
   $selected_types = $form_state['values']['content_types'];
+
+  $selected_include_types_array = $form_state['values']['include'];
+  $selected_include_types_string = implode(",", $selected_include_types_array);
+  variable_set('country_specific_nodes_include_list',$selected_include_types_string);
 
   foreach ($selected_types as $key => $type_val) {
     // Check for field is already attached to content type.

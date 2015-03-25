@@ -44,4 +44,8 @@ function country_specific_nodes_uninstall() {
 
   // Delete the country fallback variable.
   variable_del('country_specific_nodes_def_cn');
+
+  // Delete the type include variable.
+  variable_del('country_specific_nodes_include_list');
+
 }

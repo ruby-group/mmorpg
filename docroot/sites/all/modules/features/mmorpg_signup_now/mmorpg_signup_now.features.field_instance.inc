@@ -15,7 +15,7 @@ function mmorpg_signup_now_field_default_field_instances() {
     'bundle' => 'signup_now_link',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Select countries for which this node will be hidden or not accessible.',
+    'description' => 'Select the countries where this link must be visible.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -32,7 +32,7 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_countries_cce',
-    'label' => 'Countries',
+    'label' => 'Available Countries',
     'required' => 0,
     'settings' => array(
       'allowed_values_function' => 'country_get_list',
@@ -41,9 +41,7 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'allowed_values_function' => 'country_get_list',
-      ),
+      'settings' => array(),
       'type' => 'options_select',
       'weight' => 2,
     ),
@@ -270,11 +268,11 @@ function mmorpg_signup_now_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Countries');
+  t('Available Countries');
   t('Game');
   t('Link Type');
   t('Provider');
-  t('Select countries for which this node will be hidden or not accessible.');
+  t('Select the countries where this link must be visible.');
   t('Target URL');
   t('Traffic Source');
 
