@@ -17,7 +17,7 @@ class ClickmeterService {
   }
 
   private static function rest_get($url) {
-//    variable_set("restclient_debug", TRUE);
+    variable_set("restclient_debug", FALSE);
 
     return json_decode(restclient_get($url, self::headers())->data);
   }
@@ -25,16 +25,13 @@ class ClickmeterService {
   private static function rest_post($url, $body) {
     variable_set("restclient_debug", FALSE);
 
-    $clickmeter = restclient_post($url, self::headers() + array(
+    $response = restclient_post($url, self::headers() + array(
         'body' => json_encode($body),
       ));
-
-    if (!empty($clickmeter->data)) {
-      return $clickmeter->data;
+    if (!$response) {
+      throw new Exception("Error registering link.");
     }
-    else {
-      return 'URL already registered';
-    }
+    return json_decode($response->data);
   }
 
   public static function new_group($name) {
@@ -75,13 +72,12 @@ class ClickmeterService {
     return $return;
   }
 
-  public static function new_datapoint($name, $url, $groupId, $domainId) {
+  public static function new_datapoint($name, $groupId, $type, $url, $domainId) {
     return self::rest_post('datapoints', array(
       'groupId' => $groupId,
-      'id' => 1,
       'name' => $name,
       'title' => $name,
-      'type' => 0,
+      'type' => $type,
       'typeTL' => array(
         'domainId' => $domainId,
         'url' => $url,
@@ -102,7 +98,14 @@ class ClickmeterService {
     ));
   }
 
-  public static function get_datapoint_hit($datapointId) {
-    return self::rest_get('datapoints/' . $datapointId . '/aggregated?timeframe=last365');
+  public static function get_datapoint_stats($datapointId, $from, $to) {
+    return self::rest_get("datapoints/$datapointId/aggregated?" .
+      http_build_query(array(
+        'hourly' => 'false',
+        'timeframe' => 'custom',
+        'fromDay' => 20150301 . '0000',
+        'toDay' => 20150331 . '1159',
+      ))
+    );
   }
 }

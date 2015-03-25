@@ -45,7 +45,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => -3,
+      'weight' => 1,
     ),
   );
 
@@ -82,7 +82,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -174,7 +174,7 @@ function mmorpg_signup_now_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => -2,
+      'weight' => 5,
     ),
   );
 
@@ -211,7 +211,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 3,
     ),
   );
 
@@ -268,7 +268,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'clickmeter_link',
       'settings' => array(),
       'type' => 'clickmeter_link_field',
-      'weight' => 0,
+      'weight' => 6,
     ),
   );
 
@@ -305,7 +305,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 4,
     ),
   );
 
@@ -344,7 +344,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -427,7 +427,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -484,7 +484,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'clickmeter_link',
       'settings' => array(),
       'type' => 'clickmeter_link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -524,7 +524,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 

@@ -289,3 +289,14 @@ function mmorpg_updates_update_7034() {
   menu_rebuild();
 }
 
+/**
+ * Refactored all the clickmeter fields.
+ */
+function mmorpg_updates_update_7035() {
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'mmorpg_article'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'promoted_signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'siteskin'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'siteskin'));
+}
+
