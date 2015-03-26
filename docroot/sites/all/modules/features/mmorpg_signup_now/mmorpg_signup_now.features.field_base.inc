@@ -1,22 +1,22 @@
 <?php
 /**
  * @file
- * mmorpg_games_to_play.features.field_base.inc
+ * mmorpg_signup_now.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function mmorpg_games_to_play_field_default_field_bases() {
+function mmorpg_signup_now_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_gtp_area'
-  $field_bases['field_gtp_area'] = array(
+  // Exported field_base: 'field_psnl_area'
+  $field_bases['field_psnl_area'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_gtp_area',
+    'field_name' => 'field_psnl_area',
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -36,13 +36,13 @@ function mmorpg_games_to_play_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_gtp_game'
-  $field_bases['field_gtp_game'] = array(
+  // Exported field_base: 'field_psnl_game'
+  $field_bases['field_psnl_game'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_gtp_game',
+    'field_name' => 'field_psnl_game',
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -54,6 +54,9 @@ function mmorpg_games_to_play_field_default_field_bases() {
       'handler' => 'base',
       'handler_settings' => array(
         'behaviors' => array(
+          'views-autocomplete' => array(
+            'status' => 0,
+          ),
           'views-select-list' => array(
             'status' => 0,
           ),
@@ -71,13 +74,13 @@ function mmorpg_games_to_play_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_gtp_schedule'
-  $field_bases['field_gtp_schedule'] = array(
+  // Exported field_base: 'field_psnl_schedule'
+  $field_bases['field_psnl_schedule'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_gtp_schedule',
+    'field_name' => 'field_psnl_schedule',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -100,13 +103,13 @@ function mmorpg_games_to_play_field_default_field_bases() {
     'type' => 'datestamp',
   );
 
-  // Exported field_base: 'field_gtp_tier'
-  $field_bases['field_gtp_tier'] = array(
+  // Exported field_base: 'field_psnl_tier'
+  $field_bases['field_psnl_tier'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_gtp_tier',
+    'field_name' => 'field_psnl_tier',
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
