@@ -157,14 +157,14 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
 
     foreach ($result_play_now as $row) {
       if (!empty($row->field_target_url_clickmeter_link) && !empty($row->field_target_url_title)) {
-        $content .= "<a href=" . $row->field_target_url_clickmeter_link . ">" . $row->field_target_url_title . "</a></li></ul>";
+        $content .= "<a target='_blank' href=" . $row->field_target_url_clickmeter_link . ">" . $row->field_target_url_title . "</a></li></ul>";
       }
       else if (!empty($official_website_url) && !empty($row->field_target_url_title)) {
-        $content .= "<a href=" . $official_website_url .">" . $row->field_target_url_title . "</a></li></ul>";
+        $content .= "<a target='_blank' href=" . $official_website_url .">" . $row->field_target_url_title . "</a></li></ul>";
       }
     }
     if ($content == '' && !empty($official_website_url)) {
-      $content .= "<a href=" . $row->field_link_url .">Play Now</a></li></ul>";
+      $content .= "<a target='_blank' href=" . $row->field_link_url .">Play Now</a></li></ul>";
     }
     return $content;
   }
