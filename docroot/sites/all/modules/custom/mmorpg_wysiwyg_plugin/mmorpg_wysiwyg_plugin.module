@@ -134,7 +134,7 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
 
     $query_play_now = db_select('field_data_field_article_game', 'fdag');
     $query_play_now->join('field_data_field_game_contents', 'fdgc', 'fdgc.field_game_contents_target_id = fdag.field_article_game_target_id');
-    $query_play_now->join('field_data_field_target_url', 'fdtu', 'fdtu.entity_id = fdag.field_article_game_target_id');
+    $query_play_now->join('field_data_field_target_url', 'fdtu', 'fdtu.entity_id = fdgc.entity_id');
     $result_play_now = $query_play_now
       ->fields('fdtu', array('field_target_url_title', 'field_target_url_clickmeter_link'))
       ->condition('fdag.entity_id', $node_id)
