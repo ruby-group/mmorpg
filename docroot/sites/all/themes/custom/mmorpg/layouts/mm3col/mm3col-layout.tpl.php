@@ -1,4 +1,8 @@
 <div<?php print $attributes; ?>>
+  <header class="header" role="banner">
+      <?php print render($page['header']); ?>
+  </header>
+
   <?php if (!empty($page['highlighted'])): ?>
     <div class="l-highlighted-wrapper">
       <?php print render($page['highlighted']); ?>
