@@ -4,10 +4,6 @@ preview = preview.png
 template = mm3col-layout
 
 ; Regions
-regions[trending]       = Trending
-regions[advert_bar]     = Advert bar
-regions[navigation]     = Navigation
-regions[header]         = Header
 regions[highlighted]    = Highlighted
 regions[help]           = Help
 regions[content]        = Content
