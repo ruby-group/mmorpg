@@ -5,7 +5,6 @@ package = MMORPG
 dependencies[] = mmorpg_article
 dependencies[] = mmorpg_game
 dependencies[] = mmorpg_customer
-dependencies[] = mmorpg_games_to_play
 dependencies[] = mmorpg_signup_now
 dependencies[] = mmorpg_poll
 dependencies[] = mmorpg_site

@@ -256,3 +256,12 @@ function mmorpg_updates_update_7030() {
 function mmorpg_updates_update_7031() {
   module_enable(array('color_field'));
 }
+
+/**
+ * Disable mmorpg_games_to_play feature
+ */
+function mmorpg_updates_update_7032() {
+  module_disable(array('mmorpg_games_to_play'));
+  node_type_delete('games_to_play');
+  module_enable(array('promoted_signup_now_link'));
+}
