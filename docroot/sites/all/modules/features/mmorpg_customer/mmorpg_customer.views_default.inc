@@ -22,48 +22,25 @@ function mmorpg_customer_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Ad Reports';
+  $handler->display->display_options['title'] = 'Reports';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
-  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['exposed_form']['options']['bef'] = array(
     'general' => array(
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
     ),
-    'field_customer_target_id' => array(
-      'bef_format' => 'default',
-      'slider_options' => array(
-        'bef_slider_min' => '0',
-        'bef_slider_max' => '99999',
-        'bef_slider_step' => '1',
-        'bef_slider_animate' => '',
-        'bef_slider_orientation' => 'horizontal',
-      ),
-      'more_options' => array(
-        'bef_select_all_none' => FALSE,
-        'bef_collapsible' => 0,
-        'is_secondary' => 0,
-        'any_label' => '',
-        'bef_filter_description' => '',
-        'tokens' => array(
-          'available' => array(
-            0 => 'global_types',
-          ),
-        ),
-        'rewrite' => array(
-          'filter_rewrite_values' => '',
-        ),
-      ),
-    ),
   );
   $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '25';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -78,13 +55,15 @@ function mmorpg_customer_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Field: Content: Game */
-  $handler->display->display_options['fields']['field_gtp_game']['id'] = 'field_gtp_game';
-  $handler->display->display_options['fields']['field_gtp_game']['table'] = 'field_data_field_gtp_game';
-  $handler->display->display_options['fields']['field_gtp_game']['field'] = 'field_gtp_game';
-  $handler->display->display_options['fields']['field_gtp_game']['settings'] = array(
-    'link' => 0,
-  );
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['relationships']['field_customer_target_id']['required'] = TRUE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_psnl_game_target_id']['id'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['relationships']['field_psnl_game_target_id']['table'] = 'field_data_field_psnl_game';
+  $handler->display->display_options['relationships']['field_psnl_game_target_id']['field'] = 'field_psnl_game_target_id';
   /* Field: Content: Customer */
   $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
   $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
@@ -93,27 +72,45 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['field_customer']['settings'] = array(
     'link' => 0,
   );
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = 'Clicks';
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = 'Impressions';
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_view_stats';
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url_1']['id'] = 'field_target_url_1';
+  $handler->display->display_options['fields']['field_target_url_1']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['label'] = 'Clicks';
+  $handler->display->display_options['fields']['field_target_url_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url_1']['type'] = 'clickmeter_click_stats';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
 
-  /* Display: Games To Play */
-  $handler = $view->new_display('page', 'Games To Play', 'page_1');
+  /* Display: Articles */
+  $handler = $view->new_display('page', 'Articles', 'articles');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_article_game_target_id']['id'] = 'field_article_game_target_id';
+  $handler->display->display_options['relationships']['field_article_game_target_id']['table'] = 'field_data_field_article_game';
+  $handler->display->display_options['relationships']['field_article_game_target_id']['field'] = 'field_article_game_target_id';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Game */
-  $handler->display->display_options['fields']['field_gtp_game']['id'] = 'field_gtp_game';
-  $handler->display->display_options['fields']['field_gtp_game']['table'] = 'field_data_field_gtp_game';
-  $handler->display->display_options['fields']['field_gtp_game']['field'] = 'field_gtp_game';
-  $handler->display->display_options['fields']['field_gtp_game']['settings'] = array(
-    'link' => 0,
-  );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
   /* Field: Content: Customer */
   $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
   $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
@@ -122,17 +119,80 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['field_customer']['settings'] = array(
     'link' => 0,
   );
-  /* Field: Content: Tier */
-  $handler->display->display_options['fields']['field_gtp_tier']['id'] = 'field_gtp_tier';
-  $handler->display->display_options['fields']['field_gtp_tier']['table'] = 'field_data_field_gtp_tier';
-  $handler->display->display_options['fields']['field_gtp_tier']['field'] = 'field_gtp_tier';
-  $handler->display->display_options['fields']['field_gtp_tier']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_gtp_tier']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = 'Clicks';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Published */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'node';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['not'] = 0;
+  /* Field: Content: Sponsored Untill */
+  $handler->display->display_options['fields']['field_article_sponsored_untill']['id'] = 'field_article_sponsored_untill';
+  $handler->display->display_options['fields']['field_article_sponsored_untill']['table'] = 'field_data_field_article_sponsored_untill';
+  $handler->display->display_options['fields']['field_article_sponsored_untill']['field'] = 'field_article_sponsored_untill';
+  $handler->display->display_options['fields']['field_article_sponsored_untill']['label'] = 'End';
+  $handler->display->display_options['fields']['field_article_sponsored_untill']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_view_stats';
+  /* Field: Global: Clickmeter Impressions */
+  $handler->display->display_options['fields']['impressions']['id'] = 'impressions';
+  $handler->display->display_options['fields']['impressions']['table'] = 'views';
+  $handler->display->display_options['fields']['impressions']['field'] = 'impressions';
+  $handler->display->display_options['fields']['impressions']['label'] = 'Impressions (Unique)';
+  $handler->display->display_options['fields']['impressions']['datapoint_id'] = '[field_target_url]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Details';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'https://my.clickmeter.com/Links?linkId=[field_target_url]';
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url_1']['id'] = 'field_target_url_1';
+  $handler->display->display_options['fields']['field_target_url_1']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url_1']['type'] = 'clickmeter_click_stats';
+  /* Field: Global: Clickmeter Clicks */
+  $handler->display->display_options['fields']['clicks']['id'] = 'clicks';
+  $handler->display->display_options['fields']['clicks']['table'] = 'views';
+  $handler->display->display_options['fields']['clicks']['field'] = 'clicks';
+  $handler->display->display_options['fields']['clicks']['label'] = 'Clicks (Unique)';
+  $handler->display->display_options['fields']['clicks']['datapoint_id'] = '[field_target_url_1]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'Details';
+  $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'https://my.clickmeter.com/Links?linkId=[field_target_url_1]';
+  $handler->display->display_options['fields']['nothing_1']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
@@ -140,18 +200,102 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'games_to_play' => 'games_to_play',
+    'mmorpg_article' => 'mmorpg_article',
   );
-  $handler->display->display_options['path'] = 'admin/mmorpg/reports/gtp';
+  /* Filter criterion: Content: This Article is Sponsored (field_article_sponsored) */
+  $handler->display->display_options['filters']['field_article_sponsored_value']['id'] = 'field_article_sponsored_value';
+  $handler->display->display_options['filters']['field_article_sponsored_value']['table'] = 'field_data_field_article_sponsored';
+  $handler->display->display_options['filters']['field_article_sponsored_value']['field'] = 'field_article_sponsored_value';
+  $handler->display->display_options['filters']['field_article_sponsored_value']['value'] = array(
+    1 => '1',
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Customer';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['title']['group_info']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['group_info']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['group_info']['remember'] = FALSE;
+  $handler->display->display_options['filters']['title']['group_info']['group_items'] = array(
+    1 => array(),
+    2 => array(),
+    3 => array(),
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['table'] = 'node';
+  $handler->display->display_options['filters']['title_1']['field'] = 'title';
+  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_article_game_target_id';
+  $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['label'] = 'Game';
+  $handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Global: Date Filter */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'views';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date between';
+  $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['path'] = 'admin/mmorpg/reports/articles';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Reports: Games To Play';
+  $handler->display->display_options['menu']['title'] = 'Articles';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Siteskins */
   $handler = $view->new_display('page', 'Siteskins', 'siteskins');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Sub Skin (field_siteskin_subskin) */
+  $handler->display->display_options['relationships']['field_siteskin_subskin_value']['id'] = 'field_siteskin_subskin_value';
+  $handler->display->display_options['relationships']['field_siteskin_subskin_value']['table'] = 'field_data_field_siteskin_subskin';
+  $handler->display->display_options['relationships']['field_siteskin_subskin_value']['field'] = 'field_siteskin_subskin_value';
+  $handler->display->display_options['relationships']['field_siteskin_subskin_value']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_siteskin_subskin_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['relationships']['field_customer_target_id']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
   /* Field: Content: Customer */
   $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
   $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
@@ -166,6 +310,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Skin';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Sub Skin (field_siteskin_subskin:delta) */
   $handler->display->display_options['fields']['delta']['id'] = 'delta';
   $handler->display->display_options['fields']['delta']['table'] = 'field_data_field_siteskin_subskin';
@@ -175,11 +320,84 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['field_siteskin_location']['id'] = 'field_siteskin_location';
   $handler->display->display_options['fields']['field_siteskin_location']['table'] = 'field_data_field_siteskin_location';
   $handler->display->display_options['fields']['field_siteskin_location']['field'] = 'field_siteskin_location';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = 'Clicks';
+  /* Field: Content: Siteskin Active */
+  $handler->display->display_options['fields']['field_siteskin_active']['id'] = 'field_siteskin_active';
+  $handler->display->display_options['fields']['field_siteskin_active']['table'] = 'field_data_field_siteskin_active';
+  $handler->display->display_options['fields']['field_siteskin_active']['field'] = 'field_siteskin_active';
+  $handler->display->display_options['fields']['field_siteskin_active']['label'] = 'Start';
+  $handler->display->display_options['fields']['field_siteskin_active']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Siteskin Active */
+  $handler->display->display_options['fields']['field_siteskin_active_1']['id'] = 'field_siteskin_active_1';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['table'] = 'field_data_field_siteskin_active';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['field'] = 'field_siteskin_active';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['label'] = 'End';
+  $handler->display->display_options['fields']['field_siteskin_active_1']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'value2',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['relationship'] = 'field_siteskin_subskin_value';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_view_stats';
+  /* Field: Global: Clickmeter Impressions */
+  $handler->display->display_options['fields']['impressions']['id'] = 'impressions';
+  $handler->display->display_options['fields']['impressions']['table'] = 'views';
+  $handler->display->display_options['fields']['impressions']['field'] = 'impressions';
+  $handler->display->display_options['fields']['impressions']['label'] = 'Impressions (Unique)';
+  $handler->display->display_options['fields']['impressions']['datapoint_id'] = '[field_target_url]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Details';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'https://my.clickmeter.com/Links?linkId=[field_target_url]';
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url_1']['id'] = 'field_target_url_1';
+  $handler->display->display_options['fields']['field_target_url_1']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['relationship'] = 'field_siteskin_subskin_value';
+  $handler->display->display_options['fields']['field_target_url_1']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url_1']['type'] = 'clickmeter_click_stats';
+  /* Field: Global: Clickmeter Clicks */
+  $handler->display->display_options['fields']['clicks']['id'] = 'clicks';
+  $handler->display->display_options['fields']['clicks']['table'] = 'views';
+  $handler->display->display_options['fields']['clicks']['field'] = 'clicks';
+  $handler->display->display_options['fields']['clicks']['label'] = 'Clicks (Unique)';
+  $handler->display->display_options['fields']['clicks']['datapoint_id'] = '[field_target_url_1]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'Details';
+  $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'https://my.clickmeter.com/Links?linkId=[field_target_url_1]';
+  $handler->display->display_options['fields']['nothing_1']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
@@ -189,15 +407,206 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'siteskin' => 'siteskin',
   );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Customer';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Global: Date Filter */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'views';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date between';
+  $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
   $handler->display->display_options['path'] = 'admin/mmorpg/reports/siteskins';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Reports: Siteskins';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['title'] = 'Siteskins';
+  $handler->display->display_options['menu']['weight'] = '10';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Promoted Signup Now Links */
+  $handler = $view->new_display('page', 'Promoted Signup Now Links', 'promoted_signup_now_links');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
+  /* Field: Content: Customer */
+  $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['fields']['field_customer']['field'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['label'] = 'Company';
+  $handler->display->display_options['fields']['field_customer']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Game */
+  $handler->display->display_options['fields']['field_psnl_game']['id'] = 'field_psnl_game';
+  $handler->display->display_options['fields']['field_psnl_game']['table'] = 'field_data_field_psnl_game';
+  $handler->display->display_options['fields']['field_psnl_game']['field'] = 'field_psnl_game';
+  $handler->display->display_options['fields']['field_psnl_game']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Tier */
+  $handler->display->display_options['fields']['field_psnl_tier']['id'] = 'field_psnl_tier';
+  $handler->display->display_options['fields']['field_psnl_tier']['table'] = 'field_data_field_psnl_tier';
+  $handler->display->display_options['fields']['field_psnl_tier']['field'] = 'field_psnl_tier';
+  $handler->display->display_options['fields']['field_psnl_tier']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Area */
+  $handler->display->display_options['fields']['field_psnl_area']['id'] = 'field_psnl_area';
+  $handler->display->display_options['fields']['field_psnl_area']['table'] = 'field_data_field_psnl_area';
+  $handler->display->display_options['fields']['field_psnl_area']['field'] = 'field_psnl_area';
+  $handler->display->display_options['fields']['field_psnl_area']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_view_stats';
+  /* Field: Global: Clickmeter Impressions */
+  $handler->display->display_options['fields']['impressions']['id'] = 'impressions';
+  $handler->display->display_options['fields']['impressions']['table'] = 'views';
+  $handler->display->display_options['fields']['impressions']['field'] = 'impressions';
+  $handler->display->display_options['fields']['impressions']['label'] = 'Impressions (Unique)';
+  $handler->display->display_options['fields']['impressions']['datapoint_id'] = '[field_target_url]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Details';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'https://my.clickmeter.com/Links?linkId=[field_target_url]';
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url_1']['id'] = 'field_target_url_1';
+  $handler->display->display_options['fields']['field_target_url_1']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url_1']['type'] = 'clickmeter_click_stats';
+  /* Field: Global: Clickmeter Clicks */
+  $handler->display->display_options['fields']['clicks']['id'] = 'clicks';
+  $handler->display->display_options['fields']['clicks']['table'] = 'views';
+  $handler->display->display_options['fields']['clicks']['field'] = 'clicks';
+  $handler->display->display_options['fields']['clicks']['label'] = 'Clicks (Unique)';
+  $handler->display->display_options['fields']['clicks']['datapoint_id'] = '[field_target_url_1]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'Details';
+  $handler->display->display_options['fields']['nothing_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['path'] = 'https://my.clickmeter.com/Links?linkId=[field_target_url_1]';
+  $handler->display->display_options['fields']['nothing_1']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['target'] = '_blank';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'promoted_signup_now_link' => 'promoted_signup_now_link',
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Customer';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['table'] = 'node';
+  $handler->display->display_options['filters']['title_1']['field'] = 'title';
+  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['label'] = 'Game';
+  $handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
+  $handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
+  $handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: Global: Date Filter */
+  $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['table'] = 'views';
+  $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date between';
+  $handler->display->display_options['filters']['date_filter']['expose']['operator'] = 'date_filter_op';
+  $handler->display->display_options['filters']['date_filter']['expose']['identifier'] = 'date_filter';
+  $handler->display->display_options['filters']['date_filter']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['path'] = 'admin/mmorpg/reports/promoted_signup_now_links';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Promoted Signup Now Links';
+  $handler->display->display_options['menu']['weight'] = '5';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['ad_reports'] = array(
     t('Master'),
-    t('Ad Reports'),
+    t('Reports'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -212,16 +621,34 @@ function mmorpg_customer_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Game'),
+    t('Content entity referenced from field_customer'),
+    t('Content entity referenced from field_psnl_game'),
     t('Company'),
+    t('Impressions'),
     t('Clicks'),
-    t('Games To Play'),
-    t('Tier'),
-    t('Siteskins'),
+    t('Articles'),
+    t('Content entity referenced from field_article_game'),
+    t('Edit'),
+    t('Title'),
+    t('Published'),
+    t('End'),
+    t('Impressions (Unique)'),
+    t('Details'),
+    t('Clicks (Unique)'),
     t('Customer'),
+    t('Game'),
+    t('Date between'),
+    t('Siteskins'),
+    t('field collection item from field_siteskin_subskin'),
     t('Skin'),
     t('SubSkinId'),
+    t('.'),
+    t(','),
     t('Location'),
+    t('Start'),
+    t('Promoted Signup Now Links'),
+    t('Tier'),
+    t('Area'),
   );
   $export['ad_reports'] = $view;
 

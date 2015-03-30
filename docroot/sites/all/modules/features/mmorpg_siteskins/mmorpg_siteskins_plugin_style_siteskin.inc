@@ -28,8 +28,9 @@ class mmorpg_siteskins_plugin_style_siteskin extends views_plugin_style {
       $collection = field_collection_item_load($subskin['value']);
       $details[$id] = array(
         'image' => file_create_url($collection->field_siteskin_image[LANGUAGE_NONE][0]['uri']),
-        'link' => $collection->field_target_url[LANGUAGE_NONE][0]['clickmeter_link'],
+        'link' => $collection->field_target_url[LANGUAGE_NONE][0]['link_url'],
         'color' => $collection->field_siteskin_bg_color[LANGUAGE_NONE][0]['rgb'],
+        'pixel' => $collection->field_target_url[LANGUAGE_NONE][0]['pixel_url'],
       );
     }
     return $details;

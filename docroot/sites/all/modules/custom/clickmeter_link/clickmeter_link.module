@@ -30,14 +30,14 @@ function clickmeter_link_menu() {
   $items = array();
 
   $items['admin/config/clickmeter'] = array(
-    'title' => 'Clickmeter Configuration',
+    'title' => 'Clickmeter',
     'description' => 'Clickmeter configuration page.',
     'position' => 'right',
     'weight' => -5,
     'access arguments' => array('administer site configuration'),
   );
   $items['admin/config/clickmeter/key'] = array(
-    'title' => 'Clickmeter API Key',
+    'title' => 'API Key',
     'description' => 'Configuration for clickmeter API key.',
     'access arguments' => array('administer site configuration'),
     'page callback' => 'drupal_get_form',
@@ -46,27 +46,27 @@ function clickmeter_link_menu() {
     'file path' => drupal_get_path('module', 'clickmeter_link'),
     'type' => MENU_NORMAL_ITEM,
   );
-  $items['admin/config/clickmeter/group'] = array(
-    'title' => 'Clickmeter Group',
-    'description' => 'Create new clickmeter group.',
+  $items['admin/config/clickmeter/groups'] = array(
+    'title' => 'Group Management',
+    'description' => 'Link group management page.',
     'access arguments' => array('administer site configuration'),
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('clickmeter_group_config_form'),
-    'file' => 'clickmeter_link.admin.inc',
-    'file path' => drupal_get_path('module', 'clickmeter_link'),
-    'type' => MENU_NORMAL_ITEM,
-  );
-  $items['admin/config/clickmeter/stats'] = array(
-    'title' => 'Clickmeter Statistics',
-    'description' => 'Statistics of connected clickmeter account.',
-    'access arguments' => array('administer site configuration'),
-    'page callback' => 'clickmeter_statistics',
+    'page callback' => 'clickmeter_group_config',
     'file' => 'clickmeter_link.admin.inc',
     'file path' => drupal_get_path('module', 'clickmeter_link'),
     'type' => MENU_NORMAL_ITEM,
   );
 
   return $items;
+}
+
+function clickmeter_link_render_item_as_link($html, $entity) {
+  return l($html, $entity[LANGUAGE_NONE][0]['link_url']) . "
+<script type='text/javascript'>var ClickMeter_pixel_url = '{$entity[LANGUAGE_NONE][0]['pixel_url']}';</script>
+<script type='text/javascript' src='//s3.amazonaws.com/scripts-clickmeter-com/js/pixelNew.js'></script>
+<noscript>
+<img height='0' width='0' alt='' src='{$entity[LANGUAGE_NONE][0]['link_url']}' />
+</noscript>
+";
 }
 
 /**
@@ -424,61 +424,34 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
   if (!empty($item['url'])) {
     $item['url'] = trim($item['url']);
   }
-
-  //Get all values of the items for further use.
+/*custom code*/
   if (!empty($item['url'])) {
-    $url = $item['url'];
-    $dataPoint_name = sha1($url);
-  }
-  if (!empty($item['clickmeter_fieldset']['group'])) {
-    $group_id = $item['clickmeter_fieldset']['group'];
-  }
-  if (!empty($item['clickmeter_fieldset']['domain'])) {
-    $domain_id = $item['clickmeter_fieldset']['domain'];
-  }
+    $parent = $entity; // we assume $entity instanceof stdClass
+    if ($entity instanceof FieldCollectionItemEntity) {
+      $parent = $entity->hostEntity();
+    }
+    $name = $parent->type . '-' . str_replace(' ', '_', $parent->title) . '-' . $parent->nid . '-' . $delta;
 
-  //Register new datapoint & decode returned JSON.
-  if (!empty($url) && !empty($dataPoint_name) && !empty($group_id) && !empty($domain_id)) {
-    $dataPoint = ClickmeterService::new_datapoint($dataPoint_name, $url, $group_id, $domain_id);
-    $newDatapoint = json_decode($dataPoint);
-  }
+    try {
+      $group_id = $item['clickmeter_fieldset']['group'];
+      $domain_id = $item['clickmeter_fieldset']['domain'];
+      $pixel_details = ClickmeterService::get_datapoint(ClickmeterService::new_datapoint($name, $group_id, 1, $item['url'], $domain_id)->id);
+      $link_details = ClickmeterService::get_datapoint(ClickmeterService::new_datapoint($name, $group_id, 0, $item['url'], $domain_id)->id);
 
-  //Get registered datapoint ID & their details..
-  if (!empty($newDatapoint->id)) {
-    $datapointId = $newDatapoint->id;
-    $datapointDetails = ClickmeterService::get_datapoint($datapointId);
-  }
-
-  //Map values for saving.
-  if (!empty($entity->field_link_type['und'][0]['value'])) {
-    $link_type = $entity->field_link_type['und'][0]['value'];
-    switch($link_type) {
-      case 'playnow':
-        $item['title'] = 'Play Now';
-        break;
-      case 'buynow':
-        $item['title'] = 'Buy Now';
-        break;
-      case 'preorder':
-        $item['title'] = 'Pre-Order Now';
-        break;
+      $item['group'] = $group_id;
+      $item['domain'] = $domain_id;
+      $item['pixel_id'] = $pixel_details->id;
+      $item['pixel_url'] = $pixel_details->trackingCode;
+      $item['link_id'] = $link_details->id;
+      $item['link_url'] = $link_details->trackingCode;
+    } catch (Exception $e) {
+      $item['pixel_id'] = $item['clickmeter_fieldset']['pixel_id'];
+      $item['pixel_url'] = $item['clickmeter_fieldset']['pixel_url'];
+      $item['link_id'] = $item['clickmeter_fieldset']['link_id'];
+      $item['link_url'] = $item['clickmeter_fieldset']['link_url'];
     }
   }
-
-  if (!empty($datapointDetails->trackingCode)) {
-    $item['clickmeter_link'] = $datapointDetails->trackingCode;
-    $item['clickmeter_url'] = $datapointDetails->trackingCode;
-  }
-  if (!empty($datapointDetails->groupName)) {
-    $item['group'] = $datapointDetails->groupName;
-  }
-  if (!empty($datapointDetails->id)) {
-    $item['clickmeter_id'] = $datapointDetails->id;
-  }
-  if (!empty($item['clickmeter_fieldset']['domain'])) {
-    $item['domain'] = $item['clickmeter_fieldset']['domain'];
-  }
-
+/*end custom code*/
   // If no attributes are set then make sure $item['attributes'] is an empty
   // array, so $field['attributes'] can override it.
   if (empty($item['attributes'])) {
@@ -549,13 +522,13 @@ function _clickmeter_link_validate(&$item, $delta, $field, $entity, $instance, $
 /**
  * Clean up user-entered values for a link field according to field settings.
  *
- * @param array $item 
+ * @param array $item
  *   A single link item, usually containing url, title, and attributes.
- * @param int $delta 
+ * @param int $delta
  *   The delta value if this field is one of multiple fields.
- * @param array $field 
+ * @param array $field
  *   The CCK field definition.
- * @param object $entity 
+ * @param object $entity
  *   The entity containing this link.
  */
 function _clickmeter_link_sanitize(&$item, $delta, &$field, $instance, &$entity) {
@@ -822,6 +795,12 @@ function clickmeter_link_theme() {
     'clickmeter_link_formatter_clickmeter_link_separate' => array(
       'variables' => array('element' => NULL, 'field' => NULL),
     ),
+    'clickmeter_link_formatter_clickmeter_view_stats' => array(
+      'variables' => array('element' => NULL),
+    ),
+    'clickmeter_link_formatter_clickmeter_click_stats' => array(
+      'variables' => array('element' => NULL),
+    ),
     'clickmeter_link_field' => array(
       'render element' => 'element',
     ),
@@ -832,7 +811,7 @@ function clickmeter_link_theme() {
  * Formats a clickmeter_link field widget.
  */
 function theme_clickmeter_link_field($vars) {
-  drupal_add_css(drupal_get_path('module', 'clickmeter_link') . '/link.css');
+  drupal_add_css(drupal_get_path('module', 'clickmeter_link') . '/clickmeter_link.css');
   $element = $vars['element'];
   // Prefix single value link fields with the name of the field.
   if (empty($element['#field']['multiple'])) {
@@ -971,21 +950,42 @@ function clickmeter_link_field_process($element, $form_state, $complete_form) {
   $element['clickmeter_fieldset'] = array(
     '#title' => t("Clickmeter Details"),
     '#type' => 'fieldset',
-    '#description' => t('Please fill required info for clickmeter.'),
   );
 
   $element['clickmeter_fieldset']['group'] = array(
     '#title' => t('Group'),
     '#type' => 'select',
-    '#options' => ClickmeterService::get_groups() + array('other' => 'New Group'),
-    '#description' => t('Select the group under which you would like to create the link.'),
+    '#options' => ClickmeterService::get_groups(),
+    '#description' => t('Categorization group for the link.'),
+    '#default_value' => isset($element['#value']['group']) ? $element['#value']['group'] : NULL,
   );
 
   $element['clickmeter_fieldset']['domain'] = array(
     '#title' => t('Domain'),
     '#type' => 'select',
-    '#options' => ClickmeterService::get_domains() + array('other' => 'New Domain'),
-    '#description' => t('Select the domain under which you would like to create the link.'),
+    '#options' => ClickmeterService::get_domains(),
+    '#description' => t('Vanity domain for the link.'),
+    '#default_value' => isset($element['#value']['domain']) ? $element['#value']['domain'] : NULL,
+  );
+
+  $element['clickmeter_fieldset']['pixel_id'] = array(
+    '#type' => 'hidden',
+    '#default_value' => isset($element['#value']['pixel_id']) ? $element['#value']['pixel_id'] : NULL,
+  );
+
+  $element['clickmeter_fieldset']['pixel_url'] = array(
+    '#type' => 'hidden',
+    '#default_value' => isset($element['#value']['pixel_url']) ? $element['#value']['pixel_url'] : NULL,
+  );
+
+  $element['clickmeter_fieldset']['link_id'] = array(
+    '#type' => 'hidden',
+    '#default_value' => isset($element['#value']['link_id']) ? $element['#value']['link_id'] : NULL,
+  );
+
+  $element['clickmeter_fieldset']['link_url'] = array(
+    '#type' => 'hidden',
+    '#default_value' => isset($element['#value']['link_url']) ? $element['#value']['link_url'] : NULL,
   );
 
   return $element;
@@ -1041,6 +1041,16 @@ function clickmeter_link_field_formatter_info() {
     ),
     'clickmeter_link_separate' => array(
       'label' => t('Separate title and URL'),
+      'field types' => array('clickmeter_link_field'),
+      'multiple values' => FIELD_BEHAVIOR_DEFAULT,
+    ),
+    'clickmeter_view_stats' => array(
+      'label' => t('Impression Statistics'),
+      'field types' => array('clickmeter_link_field'),
+      'multiple values' => FIELD_BEHAVIOR_DEFAULT,
+    ),
+    'clickmeter_click_stats' => array(
+      'label' => t('Click Statistics'),
       'field types' => array('clickmeter_link_field'),
       'multiple values' => FIELD_BEHAVIOR_DEFAULT,
     ),
@@ -1220,6 +1230,20 @@ function theme_clickmeter_link_formatter_clickmeter_link_separate($vars) {
 }
 
 /**
+ * Formats a link as separate title and URL elements.
+ */
+function theme_clickmeter_link_formatter_clickmeter_view_stats($vars) {
+  return $vars['element']['pixel_id'];
+}
+
+/**
+ * Formats a link as separate title and URL elements.
+ */
+function theme_clickmeter_link_formatter_clickmeter_click_stats($vars) {
+  return $vars['element']['link_id'];
+}
+
+/**
  * Implements hook_token_list().
  *
  * @TODO: hook_token_list no longer exists - this should change to hook_token_info().
@@ -1256,14 +1280,14 @@ function clickmeter_link_token_values($type, $object = NULL) {
  */
 function clickmeter_link_views_api() {
   return array(
-    'api' => 2,
-    'path' => drupal_get_path('module', 'clickmeter_link') . '/views',
+    'api' => 3,
+    'path' => drupal_get_path('module', 'clickmeter_link'),
   );
 }
 
 /**
  * Forms a valid URL if possible from an entered address.
- * 
+ *
  * Trims whitespace and automatically adds an http:// to addresses without a
  * protocol specified
  *
@@ -1294,13 +1318,13 @@ function clickmeter_link_cleanup_url($url, $protocol = 'http') {
 
 /**
  * Validates a URL.
- * 
+ *
  * Accepts all URLs following RFC 1738 standard for URL formation and all e-mail
  * addresses following the RFC 2368 standard for mailto address formation.
  *
  * @param string $text
  *   Url to be validated.
- * 
+ *
  * @return mixed
  *   Returns boolean FALSE if the URL is not valid. On success, returns one of
  *   the CLICKMETER_LINK_(linktype) constants.
@@ -1430,46 +1454,6 @@ function _clickmeter_link_domains() {
 }
 
 /**
- * Implements hook_migrate_field_alter().
- */
-function clickmeter_link_content_migrate_field_alter(&$field_value, $instance_value) {
-  if ($field_value['type'] == 'clickmeter_link') {
-    // Adjust the field type.
-    $field_value['type'] = 'clickmeter_link_field';
-    // Remove settings that are now on the instance.
-    foreach (array('attributes', 'display', 'url', 'title', 'title_value', 'enable_tokens', 'validate_url') as $setting) {
-      unset($field_value['settings'][$setting]);
-    }
-  }
-}
-
-/**
- * Implements hook_migrate_instance_alter().
- *
- * Widget type also changed to link_field.
- */
-function clickmeter_link_content_migrate_instance_alter(&$instance_value, $field_value) {
-  if ($field_value['type'] == 'clickmeter_link') {
-    // Grab settings that were previously on the field.
-    foreach (array('attributes', 'display', 'url', 'title', 'title_value', 'enable_tokens', 'validate_url') as $setting) {
-      if (isset($field_value['settings'][$setting])) {
-        $instance_value['settings'][$setting] = $field_value['settings'][$setting];
-      }
-    }
-    // Adjust widget type.
-    if ($instance_value['widget']['type'] == 'clickmeter_link') {
-      $instance_value['widget']['type'] = 'clickmeter_link_field';
-    }
-    // Adjust formatter types.
-    foreach ($instance_value['display'] as $context => $settings) {
-      if (in_array($settings['type'], array('default', 'title_plain', 'url', 'plain', 'short', 'label', 'separate'))) {
-        $instance_value['display'][$context]['type'] = 'clickmeter_link_' . $settings['type'];
-      }
-    }
-  }
-}
-
-/**
  * Implements hook_field_settings_form().
  */
 function clickmeter_link_field_settings_form() {
@@ -1478,7 +1462,7 @@ function clickmeter_link_field_settings_form() {
 
 /**
  * Additional callback to adapt the property info of clickmeter_link fields.
- * 
+ *
  * @see entity_metadata_field_entity_property_info()
  */
 function clickmeter_link_field_property_info_callback(&$info, $entity_type, $field, $instance, $field_type) {

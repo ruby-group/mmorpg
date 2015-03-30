@@ -37,5 +37,3 @@
     <?php print render($page['footer']); ?>
   </footer>
 </div>
-
-

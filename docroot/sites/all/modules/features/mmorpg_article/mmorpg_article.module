@@ -31,7 +31,7 @@ function mmorpg_article_block_view($delta = '') {
 
       $sponsored_content = views_get_view_result('trending', 'sponsored');
       foreach ($sponsored_content as &$item) {
-        $item = l($item->node_title, $item->field_field_target_url[0]['raw']['clickmeter_link']) . "<span>|</span>";
+        $item = clickmeter_link_render_item_as_link($item->node_title, $item->_field_data['nid']['entity']->field_target_url) . "<span>|</span>";
       }
 
       foreach ($sponsored_content as $sponsored_item) {

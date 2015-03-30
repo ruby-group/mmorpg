@@ -5,3 +5,16 @@
  */
 
 include_once 'mmorpg_site.features.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function mmorpg_site_menu() {
+  $items['admin/mmorpg/reports'] = array(
+    'title' => 'Reports',
+    'description' => 'Access various advt. reports',
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}
