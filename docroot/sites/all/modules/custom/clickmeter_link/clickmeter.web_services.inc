@@ -103,8 +103,8 @@ class ClickmeterService {
       http_build_query(array(
         'hourly' => 'false',
         'timeframe' => 'custom',
-        'fromDay' => 20150301 . '0000',
-        'toDay' => 20150331 . '1159',
+        'fromDay' => $from . '0000',
+        'toDay' => $to . '1159',
       ))
     );
   }
