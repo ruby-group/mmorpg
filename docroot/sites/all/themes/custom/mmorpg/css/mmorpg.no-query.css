@@ -348,32 +348,32 @@ li.leaf-user-name .om-maximenu-middle {
   margin-top: 0.50em;
   border-bottom: 1px solid #dbdbdb; }
   /* line 10, ../sass/components/_trending.scss */
-  .trending .block__content {
+  .trending .l-region--trending {
     width: 83.05085%;
     float: left;
     margin-right: -100%;
     margin-left: 8.47458%;
     clear: none; }
     /* line 12, ../sass/components/_trending.scss */
-    .trending .block__content h3 {
+    .trending .l-region--trending h3 {
       float: left;
       margin: 0;
       margin-right: 0.50em; }
     /* line 17, ../sass/components/_trending.scss */
-    .trending .block__content .trending_links {
+    .trending .l-region--trending .trending_links {
       line-height: 19px;
       margin: 0;
       padding-left: 0;
       overflow-y: hidden;
       height: 20px; }
       /* line 23, ../sass/components/_trending.scss */
-      .trending .block__content .trending_links li {
+      .trending .l-region--trending .trending_links li {
         float: left;
         list-style: none;
         color: #959595; }
         /* line 27, ../sass/components/_trending.scss */
-        .trending .block__content .trending_links li a {
+        .trending .l-region--trending .trending_links li a {
           margin: 0px 4px; }
       /* line 32, ../sass/components/_trending.scss */
-      .trending .block__content .trending_links li:last-child span {
+      .trending .l-region--trending .trending_links li:last-child span {
         display: none; }

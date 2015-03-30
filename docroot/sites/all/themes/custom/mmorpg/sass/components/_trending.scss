@@ -7,7 +7,7 @@
 	height: 30px;
 	margin-top: 0.50em;
 	border-bottom: 1px solid $border-grey;
-	.block__content {
+	.l-region--trending{
 		@include grid-span(10, 2);
 		h3 {
 			float: left;
