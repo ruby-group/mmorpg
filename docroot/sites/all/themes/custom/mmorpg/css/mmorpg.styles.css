@@ -20,6 +20,10 @@
   background-color: #ffffff; }
 
 /* line 1, ../sass/abstractions/_header.scss */
+header.header {
+  padding-top: 0; }
+
+/* line 3, ../sass/abstractions/_header.scss */
 .header {
   width: 100%;
   float: right;
@@ -30,25 +34,25 @@
   border-top: 1px solid #dbdbdb;
   background: #fff;
   padding: 1.5em 0; }
-  /* line 7, ../sass/abstractions/_header.scss */
+  /* line 9, ../sass/abstractions/_header.scss */
   .header .l-constrained {
     width: 83.05085%;
     float: left;
     margin-right: -100%;
     margin-left: 8.47458%;
     clear: none; }
-  /* line 10, ../sass/abstractions/_header.scss */
+  /* line 12, ../sass/abstractions/_header.scss */
   .header .site-branding {
     float: left;
     margin-right: 0.50em; }
-  /* line 14, ../sass/abstractions/_header.scss */
+  /* line 16, ../sass/abstractions/_header.scss */
   .header .block--om-maximenu h2 {
     display: none; }
-  /* line 18, ../sass/abstractions/_header.scss */
+  /* line 20, ../sass/abstractions/_header.scss */
   .header .om-menu li {
     border-left: 1px solid #d7f0ff; }
 
-/* line 24, ../sass/abstractions/_header.scss */
+/* line 26, ../sass/abstractions/_header.scss */
 .advert-bar {
   width: 100%;
   float: right;
