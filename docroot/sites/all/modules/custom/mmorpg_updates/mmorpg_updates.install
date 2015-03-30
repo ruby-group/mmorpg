@@ -309,6 +309,8 @@ function mmorpg_updates_update_7036() {
   $page = page_manager_get_page_cache('site_template');
   $function = ctools_plugin_get_function($page->subtask, "enable callback");
   $function($page, FALSE);
+
+  field_delete_instance(field_info_instance('node', 'field_siteskin_image', 'siteskin'));
 }
 
 
