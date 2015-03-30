@@ -127,6 +127,7 @@ function mmorpg_wysiwyg_plugin_shortcode_related_content_attributes($form, $form
 /* Embed Play Now
 /*============================================================================================*/
 function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
+  return '';
   $content = '';
   if (arg(0) == 'node' && is_numeric(arg(1))) {
     // Get the nid
