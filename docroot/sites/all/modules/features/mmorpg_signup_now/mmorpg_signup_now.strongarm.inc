@@ -13,6 +13,13 @@ function mmorpg_signup_now_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_promoted_signup_now_link';
+  $strongarm->value = '[node:field-customer] [node:field-psnl-schedule:value] to [node:field-psnl-schedule:value2]';
+  $export['ant_pattern_promoted_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'country_specific_nodes_def_cn';
   $strongarm->value = 'US';
   $export['country_specific_nodes_def_cn'] = $strongarm;

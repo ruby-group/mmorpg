@@ -50,7 +50,7 @@ function mmorpg_signup_now_image_default_styles() {
 function mmorpg_signup_now_node_info() {
   $items = array(
     'promoted_signup_now_link' => array(
-      'name' => t('Promoted Signup Now Link'),
+      'name' => t('Promoted Signup Link'),
       'base' => 'node_content',
       'description' => t('A content type to add promoted signup now links'),
       'has_title' => '1',
