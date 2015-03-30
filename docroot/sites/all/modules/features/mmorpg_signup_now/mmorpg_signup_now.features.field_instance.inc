@@ -302,10 +302,10 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'multiselect',
       'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 4,
+      'type' => 'multiselect',
+      'weight' => 2,
     ),
   );
 
