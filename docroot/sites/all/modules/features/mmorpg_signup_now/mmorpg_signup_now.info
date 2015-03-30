@@ -70,5 +70,3 @@ features[variable][] = node_submitted_promoted_signup_now_link
 features[variable][] = node_submitted_signup_now_link
 features[views_view][] = promoted_signup_now_link
 features[views_view][] = promoted_signup_now_links_admin
-features_exclude[dependencies][taxonomy] = taxonomy
-features_exclude[dependencies][view_unpublished] = view_unpublished

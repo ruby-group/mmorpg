@@ -136,6 +136,3 @@ features[variable][] = node_submitted_game_link
 features[variable][] = node_submitted_screenshot_gallery
 features[variable][] = node_submitted_video
 features[views_view][] = video_preview_admin
-features_exclude[field_base][field_buy_link] = field_buy_link
-features_exclude[dependencies][ctools] = ctools
-features_exclude[dependencies][list] = list

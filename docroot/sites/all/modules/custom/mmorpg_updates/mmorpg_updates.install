@@ -300,3 +300,16 @@ function mmorpg_updates_update_7035() {
   field_delete_instance(field_info_instance('node', 'field_target_url', 'siteskin'));
 }
 
+/**
+ * Enabling new modules.
+ */
+function mmorpg_updates_update_7036() {
+  module_enable(array('hms_field', 'panels_everywhere'));
+
+  $page = page_manager_get_page_cache('site_template');
+  $function = ctools_plugin_get_function($page->subtask, "enable callback");
+  $function($page, FALSE);
+}
+
+
+
