@@ -313,5 +313,15 @@ function mmorpg_updates_update_7036() {
   field_delete_instance(field_info_instance('node', 'field_siteskin_image', 'siteskin'));
 }
 
-
-
+/**
+ * Refactoring of game reference field.
+ */
+function mmorpg_updates_update_7037() {
+  field_delete_instance(field_info_instance('node', 'field_video_game', 'video'));
+  field_delete_instance(field_info_instance('node', 'field_game_contents', 'signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_game_contents', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_psnl_game', 'promoted_signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_game_link', 'game_link'));
+  field_delete_instance(field_info_instance('node', 'field_article_game', 'mmorpg_article'));
+  field_delete_instance(field_info_instance('node', 'field_screenshot_game', 'screenshot_gallery'));
+}

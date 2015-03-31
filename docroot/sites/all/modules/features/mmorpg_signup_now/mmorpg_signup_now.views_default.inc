@@ -89,14 +89,14 @@ function mmorpg_signup_now_views_default_views() {
     'video_mode' => 0,
   );
   /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['id'] = 'field_psnl_game_target_id';
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['table'] = 'field_data_field_psnl_game';
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['field'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
   /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_game_hero_image']['id'] = 'field_game_hero_image';
   $handler->display->display_options['fields']['field_game_hero_image']['table'] = 'field_data_field_game_hero_image';
   $handler->display->display_options['fields']['field_game_hero_image']['field'] = 'field_game_hero_image';
-  $handler->display->display_options['fields']['field_game_hero_image']['relationship'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['fields']['field_game_hero_image']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['fields']['field_game_hero_image']['label'] = '';
   $handler->display->display_options['fields']['field_game_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_game_hero_image']['click_sort_column'] = 'fid';
@@ -108,7 +108,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
@@ -275,7 +275,7 @@ function mmorpg_signup_now_views_default_views() {
     t('last »'),
     t('Checkout our complete list of free to play, signup for, pre-order and download now MMORPGs!'),
     t('term'),
-    t('Content entity referenced from field_psnl_game'),
+    t('Content entity referenced from field_game'),
     t('[title]'),
     t('Sitewide'),
     t('A content pane for sitewide promoted links'),
@@ -418,14 +418,14 @@ No|Yes',
     ),
   );
   /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['id'] = 'field_psnl_game_target_id';
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['table'] = 'field_data_field_psnl_game';
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['field'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['fields']['title_1']['label'] = 'Game';
   /* Field: Content: Area */
   $handler->display->display_options['fields']['field_psnl_area']['id'] = 'field_psnl_area';
@@ -607,7 +607,7 @@ No|Yes',
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'games_to_play' => 'games_to_play',
+    'promoted_signup_now_link' => 'promoted_signup_now_link',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Published */
@@ -674,7 +674,7 @@ No|Yes',
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Content entity referenced from field_psnl_game'),
+    t('Content entity referenced from field_game'),
     t('Game'),
     t('Area'),
     t('Start'),

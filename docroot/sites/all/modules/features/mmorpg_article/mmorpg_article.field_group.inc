@@ -21,7 +21,7 @@ function mmorpg_article_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Sponsored Content',
-    'weight' => '10',
+    'weight' => '11',
     'children' => array(
       0 => 'field_article_sponsored',
       1 => 'field_article_sponsored_untill',

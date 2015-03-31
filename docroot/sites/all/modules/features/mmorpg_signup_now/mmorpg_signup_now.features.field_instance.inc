@@ -49,6 +49,45 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-promoted_signup_now_link-field_game'
+  $field_instances['node-promoted_signup_now_link-field_game'] = array(
+    'bundle' => 'promoted_signup_now_link',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game',
+    'label' => 'Game',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'node-promoted_signup_now_link-field_psnl_area'
   $field_instances['node-promoted_signup_now_link-field_psnl_area'] = array(
     'bundle' => 'promoted_signup_now_link',
@@ -83,45 +122,6 @@ function mmorpg_signup_now_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 4,
-    ),
-  );
-
-  // Exported field_instance: 'node-promoted_signup_now_link-field_psnl_game'
-  $field_instances['node-promoted_signup_now_link-field_psnl_game'] = array(
-    'bundle' => 'promoted_signup_now_link',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_psnl_game',
-    'label' => 'Game',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 2,
     ),
   );
 
@@ -227,7 +227,7 @@ function mmorpg_signup_now_field_default_field_instances() {
         'module' => NULL,
         'settings' => array(),
         'type' => 'clickmeter_link_field',
-        'weight' => 2,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -305,7 +305,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'multiselect',
       'settings' => array(),
       'type' => 'multiselect',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -348,14 +348,10 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-signup_now_link-field_game_contents'
-  $field_instances['node-signup_now_link-field_game_contents'] = array(
+  // Exported field_instance: 'node-signup_now_link-field_game'
+  $field_instances['node-signup_now_link-field_game'] = array(
     'bundle' => 'signup_now_link',
-    'default_value' => array(
-      0 => array(
-        'value' => 'playnow',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -376,7 +372,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_game_contents',
+    'field_name' => 'field_game',
     'label' => 'Game',
     'required' => 1,
     'settings' => array(
@@ -524,7 +520,7 @@ function mmorpg_signup_now_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 

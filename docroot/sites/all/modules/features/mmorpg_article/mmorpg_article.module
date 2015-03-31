@@ -115,7 +115,7 @@ function mmorpg_article_menu() {
 
 function mmorpg_article_node_view($node, $view_mode, $langcode) {
   if ($node->type == 'mmorpg_article') {
-    $game_id = $node->field_article_game[LANGUAGE_NONE][0]['target_id'];
+    $game_id = $node->field_game[LANGUAGE_NONE][0]['target_id'];
     $news_post = &$node->content['field_article_news_post'][0]['#markup'];
     $nid = $node->nid;
     $related_node = mmorpg_article_get_related_node($nid,$game_id);
@@ -151,7 +151,7 @@ function mmorpg_article_get_related_nid($nid,$game_id) {
   ->fieldOrderBy('field_article_radioactivity', 'radioactivity_energy', 'DESC')
   ->range(0,1);
   if (isset($game_id)) {
-    $entity_query = $entity_query->fieldCondition('field_article_game', 'target_id', $game_id, '=');
+    $entity_query = $entity_query->fieldCondition('field_game', 'target_id', $game_id, '=');
   }
   $entities = $entity_query->execute();
   if (isset($entities['node'])) {
