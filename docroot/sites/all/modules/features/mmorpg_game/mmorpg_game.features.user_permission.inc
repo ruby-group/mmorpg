@@ -10,6 +10,13 @@
 function mmorpg_game_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'create game content'.
+  $permissions['create game content'] = array(
+    'name' => 'create game content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create game_link content'.
   $permissions['create game_link content'] = array(
     'name' => 'create game_link content',
@@ -29,6 +36,13 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'create video content'.
   $permissions['create video content'] = array(
     'name' => 'create video content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any game content'.
+  $permissions['delete any game content'] = array(
+    'name' => 'delete any game content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -54,6 +68,12 @@ function mmorpg_game_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own game content'.
+  $permissions['delete own game content'] = array(
+    'name' => 'delete own game content',
+    'roles' => array(),
+    'module' => 'node',
+  );
 
   // Exported permission: 'delete own game_link content'.
   $permissions['delete own game_link content'] = array(
@@ -76,6 +96,13 @@ function mmorpg_game_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any game content'.
+  $permissions['edit any game content'] = array(
+    'name' => 'edit any game content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any game_link content'.
   $permissions['edit any game_link content'] = array(
     'name' => 'edit any game_link content',
@@ -93,6 +120,13 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'edit any video content'.
   $permissions['edit any video content'] = array(
     'name' => 'edit any video content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own game content'.
+  $permissions['edit own game content'] = array(
+    'name' => 'edit own game content',
     'roles' => array(),
     'module' => 'node',
   );
