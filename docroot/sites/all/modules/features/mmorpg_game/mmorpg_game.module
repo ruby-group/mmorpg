@@ -5,3 +5,72 @@
  */
 
 include_once 'mmorpg_game.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_game_block_info() {
+  $blocks = array();
+  $blocks['game_menu_block'] = array(
+    'info' => t('Game Menu Block'),
+  );
+  
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_game_block_view($delta='') {
+  $block = array();
+  
+  switch($delta) {
+    case 'game_menu_block' :
+      $block['content'] = mmorpg_game_menu_content();
+      break;
+  }
+  
+  return $block;
+}
+
+function mmorpg_game_menu_content() {
+  $game_nid = arg(1);
+  $current = arg(2);
+
+  $active_attribute = array('class' => array('active'));
+  $overview_attributes = $forum_attributes = $ratings_attributes = $reviews_attributes
+  = $screenshots_attributes = $videos_attributes = array();
+
+  switch ($current) {
+    case 'overview':
+      $overview_attributes = $active_attribute;
+      break;
+    case 'forum':
+      $forum_attributes = $active_attribute;
+      break;
+    case 'ratings':
+      $ratings_attributes = $active_attribute;
+      break;
+    case 'reviews':
+      $reviews_attributes = $active_attribute;
+      break;
+    case 'screenshots':
+      $screenshots_attributes = $active_attribute;
+      break;
+    case 'videos':
+      $videos_attributes = $active_attribute;
+      break;
+
+  }
+  $overview = l(t('Overview'), 'game/' . $game_nid . '/overview', array('attributes' => $overview_attributes));
+  $forum = l(t('Forum'), 'game/' . $game_nid . '/forum', array('attributes' => $forum_attributes));
+  $ratings = l(t('Ratings'), 'game/' . $game_nid . '/ratings', array('attributes' => $ratings_attributes));
+  $reviews = l(t('Reviews'), 'game/' . $game_nid . '/reviews', array('attributes' => $reviews_attributes));
+  $screenshots = l(t('Screenshots'), 'game/' . $game_nid . '/screenshots', array('attributes' => $screenshots_attributes));
+  $videos = l(t('Videos'), 'game/' . $game_nid . '/videos', array('attributes' => $videos_attributes));
+
+  $links = '<div class="game-sub-menu">' . $overview . $forum . $reviews . $screenshots . $videos . '</div>';
+
+  return $links;
+
+}
