@@ -11,6 +11,328 @@ function mmorpg_game_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'screenshot_gallery_grid';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Screenshot Gallery Grid';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '18';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '3';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_screenshot_image']['id'] = 'field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['table'] = 'field_data_field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['field'] = 'field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['label'] = '';
+  $handler->display->display_options['fields']['field_screenshot_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_screenshot_image']['settings'] = array(
+    'image_style' => 'screenshot_gallery__228_x_150_',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_screenshot_image']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot_image']['delta_offset'] = '0';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Game (field_screenshot_game) */
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['id'] = 'field_screenshot_game_target_id';
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['table'] = 'field_data_field_screenshot_game';
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['field'] = 'field_screenshot_game_target_id';
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'screenshot_gallery' => 'screenshot_gallery',
+  );
+
+  /* Display: Screenshot Gallery Grid */
+  $handler = $view->new_display('panel_pane', 'Screenshot Gallery Grid', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'field_screenshot_game_target_id' => array(
+      'type' => 'user',
+      'context' => 'entity:field_collection_item.archived',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Game (field_screenshot_game)',
+    ),
+  );
+  $translatables['screenshot_gallery_grid'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('All'),
+    t('Screenshot Gallery Grid'),
+    t('View panes'),
+  );
+  $export['screenshot_gallery_grid'] = $view;
+
+  $view = new view();
+  $view->name = 'video_exclusive';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Video Exclusive View';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Video URL */
+  $handler->display->display_options['fields']['field_video_url']['id'] = 'field_video_url';
+  $handler->display->display_options['fields']['field_video_url']['table'] = 'field_data_field_video_url';
+  $handler->display->display_options['fields']['field_video_url']['field'] = 'field_video_url';
+  $handler->display->display_options['fields']['field_video_url']['label'] = '';
+  $handler->display->display_options['fields']['field_video_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_video_url']['type'] = 'isfield_video';
+  $handler->display->display_options['fields']['field_video_url']['settings'] = array(
+    'dimensions' => '670x400',
+  );
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '300',
+  );
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Game (field_video_game) */
+  $handler->display->display_options['arguments']['field_video_game_target_id']['id'] = 'field_video_game_target_id';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['table'] = 'field_data_field_video_game';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['field'] = 'field_video_game_target_id';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+  /* Filter criterion: Content: Game Overview (field_video_game_overview) */
+  $handler->display->display_options['filters']['field_video_game_overview_value']['id'] = 'field_video_game_overview_value';
+  $handler->display->display_options['filters']['field_video_game_overview_value']['table'] = 'field_data_field_video_game_overview';
+  $handler->display->display_options['filters']['field_video_game_overview_value']['field'] = 'field_video_game_overview_value';
+  $handler->display->display_options['filters']['field_video_game_overview_value']['value'] = array(
+    1 => '1',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'field_video_game_target_id' => array(
+      'type' => 'user',
+      'context' => 'entity:field_collection_item.archived',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Game (field_video_game)',
+    ),
+  );
+  $translatables['video_exclusive'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('All'),
+    t('Content pane'),
+    t('View panes'),
+  );
+  $export['video_exclusive'] = $view;
+
+  $view = new view();
+  $view->name = 'video_gallery_grid';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Video Gallery Grid';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '16';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Video URL */
+  $handler->display->display_options['fields']['field_video_url']['id'] = 'field_video_url';
+  $handler->display->display_options['fields']['field_video_url']['table'] = 'field_data_field_video_url';
+  $handler->display->display_options['fields']['field_video_url']['field'] = 'field_video_url';
+  $handler->display->display_options['fields']['field_video_url']['label'] = '';
+  $handler->display->display_options['fields']['field_video_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_video_url']['alter']['path'] = 'game/!1/video/[nid]';
+  $handler->display->display_options['fields']['field_video_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_video_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_video_url']['type'] = 'isfield_thumbnail';
+  $handler->display->display_options['fields']['field_video_url']['settings'] = array(
+    'dimensions' => '150x120',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'game/!1/video/[nid]';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Game (field_video_game) */
+  $handler->display->display_options['arguments']['field_video_game_target_id']['id'] = 'field_video_game_target_id';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['table'] = 'field_data_field_video_game';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['field'] = 'field_video_game_target_id';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_video_game_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'video' => 'video',
+  );
+
+  /* Display: Video Gallery Grid */
+  $handler = $view->new_display('panel_pane', 'Video Gallery Grid', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'field_video_game_target_id' => array(
+      'type' => 'user',
+      'context' => 'entity:field_collection_item.archived',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Game (field_video_game)',
+    ),
+  );
+  $translatables['video_gallery_grid'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('All'),
+    t('Video Gallery Grid'),
+    t('View panes'),
+  );
+  $export['video_gallery_grid'] = $view;
+
+  $view = new view();
   $view->name = 'video_preview_admin';
   $view->description = '';
   $view->tag = 'default';
