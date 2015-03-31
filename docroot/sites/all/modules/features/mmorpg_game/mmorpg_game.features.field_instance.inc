@@ -1328,8 +1328,8 @@ function mmorpg_game_field_default_field_instances() {
         'label' => 'above',
         'module' => 'hms_field',
         'settings' => array(
-          'format' => 'h:mm',
-          'leading_zero' => TRUE,
+          'format' => 'm:ss',
+          'leading_zero' => 1,
         ),
         'type' => 'hms_default_formatter',
         'weight' => 5,
