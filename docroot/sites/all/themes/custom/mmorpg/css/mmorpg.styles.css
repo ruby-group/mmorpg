@@ -34,25 +34,28 @@ header.header {
   border-top: 1px solid #dbdbdb;
   background: #fff;
   padding: 1.5em 0; }
-  /* line 9, ../sass/abstractions/_header.scss */
+  /* line 10, ../sass/abstractions/_header.scss */
+  .l-region--header .header {
+    padding-top: 1.5em; }
+  /* line 14, ../sass/abstractions/_header.scss */
   .header .l-constrained {
     width: 83.05085%;
     float: left;
     margin-right: -100%;
     margin-left: 8.47458%;
     clear: none; }
-  /* line 12, ../sass/abstractions/_header.scss */
-  .header .site-branding {
+  /* line 17, ../sass/abstractions/_header.scss */
+  .header .pane-logo-block-logo {
     float: left;
     margin-right: 0.50em; }
-  /* line 16, ../sass/abstractions/_header.scss */
+  /* line 21, ../sass/abstractions/_header.scss */
   .header .block--om-maximenu h2 {
     display: none; }
-  /* line 20, ../sass/abstractions/_header.scss */
+  /* line 25, ../sass/abstractions/_header.scss */
   .header .om-menu li {
     border-left: 1px solid #d7f0ff; }
 
-/* line 26, ../sass/abstractions/_header.scss */
+/* line 31, ../sass/abstractions/_header.scss */
 .advert-bar {
   width: 100%;
   float: right;

@@ -6,10 +6,15 @@ header.header{padding-top: 0;}
 	border-top: 1px solid $border-grey;
 	background: #fff;
 	padding: 1.5em 0;
+
+	.l-region--header &{
+		padding-top:1.5em;
+	}
+
 	.l-constrained {
 		@include grid-span(10, 2);
 	}
-	.site-branding {
+	.pane-logo-block-logo {
 		float: left;
 		margin-right: 0.50em;
 	}
