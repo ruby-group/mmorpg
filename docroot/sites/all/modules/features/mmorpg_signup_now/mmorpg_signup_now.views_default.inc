@@ -121,7 +121,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_target_url']['alter']['text'] = '[title]';
   $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-clickmeter_link]';
+  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-link_url]';
   $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_default';
@@ -206,6 +206,15 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['field'] = 'field_psnl_schedule_value2';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Area (field_psnl_area) */
+  $handler->display->display_options['filters']['field_psnl_area_tid']['id'] = 'field_psnl_area_tid';
+  $handler->display->display_options['filters']['field_psnl_area_tid']['table'] = 'field_data_field_psnl_area';
+  $handler->display->display_options['filters']['field_psnl_area_tid']['field'] = 'field_psnl_area_tid';
+  $handler->display->display_options['filters']['field_psnl_area_tid']['value'] = array(
+    12685 => '12685',
+  );
+  $handler->display->display_options['filters']['field_psnl_area_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_psnl_area_tid']['vocabulary'] = 'area_games_to_play_';
 
   /* Display: Home Page */
   $handler = $view->new_display('panel_pane', 'Home Page', 'panel_pane_2');
@@ -244,6 +253,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['filters']['field_psnl_area_tid']['field'] = 'field_psnl_area_tid';
   $handler->display->display_options['filters']['field_psnl_area_tid']['value'] = array(
     12686 => '12686',
+    12685 => '12685',
   );
   $handler->display->display_options['filters']['field_psnl_area_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_psnl_area_tid']['vocabulary'] = 'area_games_to_play_';
