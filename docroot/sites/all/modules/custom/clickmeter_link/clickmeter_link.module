@@ -59,8 +59,8 @@ function clickmeter_link_menu() {
   return $items;
 }
 
-function clickmeter_link_render_item_as_link($html, $entity) {
-  return l($html, $entity[LANGUAGE_NONE][0]['link_url']) . "
+function clickmeter_link_render_item_as_link($html, $suffix, $entity) {
+  return l($html, $entity[LANGUAGE_NONE][0]['link_url']) . $suffix . "
 <script type='text/javascript'>var ClickMeter_pixel_url = '{$entity[LANGUAGE_NONE][0]['pixel_url']}';</script>
 <script type='text/javascript' src='//s3.amazonaws.com/scripts-clickmeter-com/js/pixelNew.js'></script>
 <noscript>
