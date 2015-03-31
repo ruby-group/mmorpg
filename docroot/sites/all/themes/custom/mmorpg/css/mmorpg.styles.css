@@ -372,16 +372,48 @@ li.leaf-user-name .om-maximenu-middle {
         height: 128px;
         width: 160px; }
 
-/* line 2, ../sass/components/_rightsidebar.scss */
-.rightsidebar h2.block__title {
-  font-size: 18px;
-  font-weight: normal;
-  border-bottom: 3px solid #bce6ff;
-  margin-bottom: 0.50em;
-  padding-bottom: 0.50em; }
-/* line 9, ../sass/components/_rightsidebar.scss */
-.rightsidebar .block__content {
-  line-height: 18px; }
+/* line 1, ../sass/components/_rightsidebar.scss */
+.rightsidebar {
+  padding: 0 10px; }
+  /* line 3, ../sass/components/_rightsidebar.scss */
+  .rightsidebar h2.block__title,
+  .rightsidebar h2.pane-title {
+    font-size: 18px;
+    font-weight: normal;
+    border-bottom: 3px solid #bce6ff;
+    margin-bottom: 0;
+    padding-bottom: 0.50em; }
+  /* line 11, ../sass/components/_rightsidebar.scss */
+  .rightsidebar .block__content {
+    line-height: 18px; }
+  /* line 15, ../sass/components/_rightsidebar.scss */
+  .rightsidebar .views-row {
+    line-height: 40px;
+    font-size: 14px;
+    height: 40px;
+    border-bottom: 1px solid #cecece; }
+    /* line 21, ../sass/components/_rightsidebar.scss */
+    .rightsidebar .views-row:hover {
+      background: #e9f8ff; }
+    /* line 25, ../sass/components/_rightsidebar.scss */
+    .rightsidebar .views-row .views-field-field-game-hero-image,
+    .rightsidebar .views-row .views-field-field-target-url {
+      display: inline-block;
+      vertical-align: top;
+      padding-right: 0.25em; }
+      /* line 31, ../sass/components/_rightsidebar.scss */
+      .rightsidebar .views-row .views-field-field-game-hero-image img,
+      .rightsidebar .views-row .views-field-field-target-url img {
+        padding-top: 0.5em; }
+  /* line 37, ../sass/components/_rightsidebar.scss */
+  .rightsidebar .view-footer p,
+  .rightsidebar .view-footer a {
+    display: block;
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    color: #000;
+    margin: 0;
+    line-height: 18px; }
 
 /* line 1, ../sass/components/_trending.scss */
 .trending {
