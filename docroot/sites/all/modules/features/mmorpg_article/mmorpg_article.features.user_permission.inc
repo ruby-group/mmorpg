@@ -13,90 +13,70 @@ function mmorpg_article_user_default_permissions() {
   // Exported permission: 'create article_news_post content'.
   $permissions['create article_news_post content'] = array(
     'name' => 'create article_news_post content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'create mmorpg_article content'.
   $permissions['create mmorpg_article content'] = array(
     'name' => 'create mmorpg_article content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any article_news_post content'.
   $permissions['delete any article_news_post content'] = array(
     'name' => 'delete any article_news_post content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any mmorpg_article content'.
   $permissions['delete any mmorpg_article content'] = array(
     'name' => 'delete any mmorpg_article content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own article_news_post content'.
   $permissions['delete own article_news_post content'] = array(
     'name' => 'delete own article_news_post content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own mmorpg_article content'.
   $permissions['delete own mmorpg_article content'] = array(
     'name' => 'delete own mmorpg_article content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any article_news_post content'.
   $permissions['edit any article_news_post content'] = array(
     'name' => 'edit any article_news_post content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any mmorpg_article content'.
   $permissions['edit any mmorpg_article content'] = array(
     'name' => 'edit any mmorpg_article content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own article_news_post content'.
   $permissions['edit own article_news_post content'] = array(
     'name' => 'edit own article_news_post content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own mmorpg_article content'.
   $permissions['edit own mmorpg_article content'] = array(
     'name' => 'edit own mmorpg_article content',
-    'roles' => array(
-      'subadmin' => 'subadmin',
-    ),
+    'roles' => array(),
     'module' => 'node',
   );
 

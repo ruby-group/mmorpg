@@ -33,6 +33,58 @@ function mmorpg_customer_views_default_views() {
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
     ),
+    'field_customer_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_game_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'date_filter' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
   );
   $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
@@ -55,15 +107,6 @@ function mmorpg_customer_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_customer_target_id']['id'] = 'field_customer_target_id';
-  $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
-  $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
-  $handler->display->display_options['relationships']['field_customer_target_id']['required'] = TRUE;
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
-  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
-  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
   /* Field: Content: Customer */
   $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
   $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
@@ -80,15 +123,69 @@ function mmorpg_customer_views_default_views() {
 
   /* Display: Articles */
   $handler = $view->new_display('page', 'Articles', 'articles');
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+    ),
+    'field_customer_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_game_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'date_filter' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+  );
+  $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_customer_target_id']['id'] = 'field_customer_target_id';
-  $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
-  $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
-  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
-  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
@@ -188,6 +285,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'mmorpg_article' => 'mmorpg_article',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: This Article is Sponsored (field_article_sponsored) */
   $handler->display->display_options['filters']['field_article_sponsored_value']['id'] = 'field_article_sponsored_value';
   $handler->display->display_options['filters']['field_article_sponsored_value']['table'] = 'field_data_field_article_sponsored';
@@ -195,43 +293,34 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['field_article_sponsored_value']['value'] = array(
     1 => '1',
   );
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['relationship'] = 'field_customer_target_id';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Customer';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['field_article_sponsored_value']['group'] = 1;
+  /* Filter criterion: Content: Customer (field_customer) */
+  $handler->display->display_options['filters']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_customer_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator_id'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['label'] = 'Customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['identifier'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
     4 => 0,
   );
-  $handler->display->display_options['filters']['title']['group_info']['label'] = 'Title';
-  $handler->display->display_options['filters']['title']['group_info']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['group_info']['remember'] = FALSE;
-  $handler->display->display_options['filters']['title']['group_info']['group_items'] = array(
-    1 => array(),
-    2 => array(),
-    3 => array(),
-  );
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['filters']['title_1']['table'] = 'node';
-  $handler->display->display_options['filters']['title_1']['field'] = 'title';
-  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
-  $handler->display->display_options['filters']['title_1']['expose']['label'] = 'Game';
-  $handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
-  $handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
-  $handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Game (field_game) */
+  $handler->display->display_options['filters']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['filters']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_game_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['operator_id'] = 'field_game_target_id_op';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['label'] = 'Game';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['operator'] = 'field_game_target_id_op';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['identifier'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -242,6 +331,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['table'] = 'views';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
   $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
   $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date between';
@@ -262,6 +352,68 @@ function mmorpg_customer_views_default_views() {
 
   /* Display: Promoted Signup Now Links */
   $handler = $view->new_display('page', 'Promoted Signup Now Links', 'promoted_signup_now_links');
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+    ),
+    'field_customer_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_game_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'date_filter' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+  );
+  $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
@@ -361,35 +513,34 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'promoted_signup_now_link' => 'promoted_signup_now_link',
   );
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['relationship'] = 'field_customer_target_id';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Customer';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Customer (field_customer) */
+  $handler->display->display_options['filters']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_customer_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator_id'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['label'] = 'Customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['identifier'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['filters']['title_1']['table'] = 'node';
-  $handler->display->display_options['filters']['title_1']['field'] = 'title';
-  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
-  $handler->display->display_options['filters']['title_1']['expose']['label'] = 'Game';
-  $handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
-  $handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
-  $handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Game (field_game) */
+  $handler->display->display_options['filters']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['filters']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_game_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['operator_id'] = 'field_game_target_id_op';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['label'] = 'Game';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['operator'] = 'field_game_target_id_op';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['identifier'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -400,6 +551,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['table'] = 'views';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
   $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
   $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date between';
@@ -420,17 +572,69 @@ function mmorpg_customer_views_default_views() {
 
   /* Display: Signup Now Links */
   $handler = $view->new_display('page', 'Signup Now Links', 'signup_now_links');
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+    ),
+    'field_customer_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_game_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'date_filter' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+  );
+  $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_customer_contents_target_id']['id'] = 'field_customer_contents_target_id';
-  $handler->display->display_options['relationships']['field_customer_contents_target_id']['table'] = 'field_data_field_customer_contents';
-  $handler->display->display_options['relationships']['field_customer_contents_target_id']['field'] = 'field_customer_contents_target_id';
-  $handler->display->display_options['relationships']['field_customer_contents_target_id']['required'] = TRUE;
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
-  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
-  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
-  $handler->display->display_options['relationships']['field_game_target_id']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
@@ -457,20 +661,22 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['fields']['title_1']['table'] = 'node';
-  $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_customer_contents_target_id';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Provider';
-  $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
-  $handler->display->display_options['fields']['title_2']['table'] = 'node';
-  $handler->display->display_options['fields']['title_2']['field'] = 'title';
-  $handler->display->display_options['fields']['title_2']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['fields']['title_2']['label'] = 'Game';
-  $handler->display->display_options['fields']['title_2']['link_to_node'] = FALSE;
+  /* Field: Content: Customer */
+  $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['fields']['field_customer']['field'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['label'] = 'Provider';
+  $handler->display->display_options['fields']['field_customer']['type'] = 'entityreference_entity_id';
+  $handler->display->display_options['fields']['field_customer']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Game */
+  $handler->display->display_options['fields']['field_game']['id'] = 'field_game';
+  $handler->display->display_options['fields']['field_game']['table'] = 'field_data_field_game';
+  $handler->display->display_options['fields']['field_game']['field'] = 'field_game';
+  $handler->display->display_options['fields']['field_game']['settings'] = array(
+    'link' => 0,
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -519,35 +725,34 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'signup_now_link' => 'signup_now_link',
   );
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['relationship'] = 'field_customer_contents_target_id';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Provider';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Customer (field_customer) */
+  $handler->display->display_options['filters']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_customer_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator_id'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['label'] = 'Provider';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['identifier'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['filters']['title_1']['table'] = 'node';
-  $handler->display->display_options['filters']['title_1']['field'] = 'title';
-  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
-  $handler->display->display_options['filters']['title_1']['expose']['label'] = 'Game';
-  $handler->display->display_options['filters']['title_1']['expose']['operator'] = 'title_1_op';
-  $handler->display->display_options['filters']['title_1']['expose']['identifier'] = 'title_1';
-  $handler->display->display_options['filters']['title_1']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Game (field_game) */
+  $handler->display->display_options['filters']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['filters']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_game_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['operator_id'] = 'field_game_target_id_op';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['label'] = 'Game';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['operator'] = 'field_game_target_id_op';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['identifier'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['field_game_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -558,6 +763,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['table'] = 'views';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
   $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
   $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date between';
@@ -578,6 +784,69 @@ function mmorpg_customer_views_default_views() {
 
   /* Display: Siteskins */
   $handler = $view->new_display('page', 'Siteskins', 'siteskins');
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+    ),
+    'field_customer_target_id' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'date_filter' => array(
+      'bef_format' => 'default',
+      'more_options' => array(
+        'is_secondary' => 0,
+        'any_label' => '',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => '',
+        ),
+      ),
+    ),
+    'field_siteskin_remnant_pool_value' => array(
+      'bef_format' => 'bef',
+      'more_options' => array(
+        'bef_select_all_none' => 0,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'Yes',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => 'Off|No
+On|Yes',
+        ),
+      ),
+    ),
+  );
+  $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Content: Sub Skin (field_siteskin_subskin) */
   $handler->display->display_options['relationships']['field_siteskin_subskin_value']['id'] = 'field_siteskin_subskin_value';
@@ -585,11 +854,6 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['relationships']['field_siteskin_subskin_value']['field'] = 'field_siteskin_subskin_value';
   $handler->display->display_options['relationships']['field_siteskin_subskin_value']['required'] = TRUE;
   $handler->display->display_options['relationships']['field_siteskin_subskin_value']['delta'] = '-1';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_customer_target_id']['id'] = 'field_customer_target_id';
-  $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
-  $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
-  $handler->display->display_options['relationships']['field_customer_target_id']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
@@ -709,18 +973,18 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'siteskin' => 'siteskin',
   );
-  /* Filter criterion: Content: Title */
-  $handler->display->display_options['filters']['title']['id'] = 'title';
-  $handler->display->display_options['filters']['title']['table'] = 'node';
-  $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['relationship'] = 'field_customer_target_id';
-  $handler->display->display_options['filters']['title']['operator'] = 'contains';
-  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Customer';
-  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Customer (field_customer) */
+  $handler->display->display_options['filters']['field_customer_target_id']['id'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['field'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['group'] = 1;
+  $handler->display->display_options['filters']['field_customer_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator_id'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['label'] = 'Customer';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['operator'] = 'field_customer_target_id_op';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['identifier'] = 'field_customer_target_id';
+  $handler->display->display_options['filters']['field_customer_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -731,6 +995,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['table'] = 'views';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['operator'] = 'between';
+  $handler->display->display_options['filters']['date_filter']['group'] = 1;
   $handler->display->display_options['filters']['date_filter']['exposed'] = TRUE;
   $handler->display->display_options['filters']['date_filter']['expose']['operator_id'] = 'date_filter_op';
   $handler->display->display_options['filters']['date_filter']['expose']['label'] = 'Date between';
@@ -742,6 +1007,25 @@ function mmorpg_customer_views_default_views() {
     3 => 0,
     4 => 0,
   );
+  /* Filter criterion: Content: Remnant Pool (field_siteskin_remnant_pool) */
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['id'] = 'field_siteskin_remnant_pool_value';
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['table'] = 'field_data_field_siteskin_remnant_pool';
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['field'] = 'field_siteskin_remnant_pool_value';
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['value'] = array(
+    0 => '0',
+  );
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['expose']['operator_id'] = 'field_siteskin_remnant_pool_value_op';
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['expose']['label'] = 'Show Remnant Pool?';
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['expose']['operator'] = 'field_siteskin_remnant_pool_value_op';
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['expose']['identifier'] = 'field_siteskin_remnant_pool_value';
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_siteskin_remnant_pool_value']['expose']['reduce'] = TRUE;
   $handler->display->display_options['path'] = 'admin/mmorpg/reports/siteskins';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Siteskins';
@@ -765,8 +1049,6 @@ function mmorpg_customer_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Content entity referenced from field_customer'),
-    t('Content entity referenced from field_game'),
     t('Company'),
     t('Articles'),
     t('impressions'),
@@ -785,7 +1067,6 @@ function mmorpg_customer_views_default_views() {
     t('Tier'),
     t('Area'),
     t('Signup Now Links'),
-    t('Content entity referenced from field_customer_contents'),
     t('Provider'),
     t('Siteskins'),
     t('field collection item from field_siteskin_subskin'),
@@ -795,6 +1076,7 @@ function mmorpg_customer_views_default_views() {
     t(','),
     t('Location'),
     t('Start'),
+    t('Show Remnant Pool?'),
   );
   $export['ad_reports'] = $view;
 
