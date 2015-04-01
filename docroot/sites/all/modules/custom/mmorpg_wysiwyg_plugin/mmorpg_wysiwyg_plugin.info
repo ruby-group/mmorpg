@@ -1,5 +1,0 @@
-name = MMORPG WYSIWYG Plugins
-description = Shortcodes for WYSIWYG editor.
-core = 7.x
-package = MMORPG
-dependencies[] = shortcode

@@ -6,7 +6,6 @@ dependencies[] = ctools
 dependencies[] = features
 dependencies[] = filter
 dependencies[] = fitvids
-dependencies[] = mmorpg_wysiwyg_plugin
 dependencies[] = shortcode
 dependencies[] = shortcode_basic_tags
 dependencies[] = shortcode_embed_content
