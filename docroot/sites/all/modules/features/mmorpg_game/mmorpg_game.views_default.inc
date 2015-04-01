@@ -53,15 +53,6 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Game (field_screenshot_game) */
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['id'] = 'field_screenshot_game_target_id';
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['table'] = 'field_data_field_screenshot_game';
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['field'] = 'field_screenshot_game_target_id';
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_screenshot_game_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -104,7 +95,6 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),
   );
@@ -136,6 +126,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_video_url']['id'] = 'field_video_url';
   $handler->display->display_options['fields']['field_video_url']['table'] = 'field_data_field_video_url';
   $handler->display->display_options['fields']['field_video_url']['field'] = 'field_video_url';
+  $handler->display->display_options['fields']['field_video_url']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['fields']['field_video_url']['label'] = '';
   $handler->display->display_options['fields']['field_video_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_url']['click_sort_column'] = 'url';
@@ -158,15 +149,15 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Game (field_video_game) */
-  $handler->display->display_options['arguments']['field_video_game_target_id']['id'] = 'field_video_game_target_id';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['table'] = 'field_data_field_video_game';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['field'] = 'field_video_game_target_id';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Game (field_game) */
+  $handler->display->display_options['arguments']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['arguments']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -188,6 +179,11 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['filters']['field_video_game_overview_value']['value'] = array(
     1 => '1',
   );
+  /* Filter criterion: Content: Promoted to front page */
+  $handler->display->display_options['filters']['promote']['id'] = 'promote';
+  $handler->display->display_options['filters']['promote']['table'] = 'node';
+  $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = '1';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -275,15 +271,15 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Game (field_video_game) */
-  $handler->display->display_options['arguments']['field_video_game_target_id']['id'] = 'field_video_game_target_id';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['table'] = 'field_data_field_video_game';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['field'] = 'field_video_game_target_id';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_video_game_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Game (field_game) */
+  $handler->display->display_options['arguments']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['arguments']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
