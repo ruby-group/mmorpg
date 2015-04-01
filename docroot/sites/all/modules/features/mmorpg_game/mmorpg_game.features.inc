@@ -24,6 +24,45 @@ function mmorpg_game_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function mmorpg_game_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: overview_articles__200x155_.
+  $styles['overview_articles__200x155_'] = array(
+    'label' => 'Overview Articles (200x155)',
+    'effects' => array(
+      3 => array(
+        'name' => 'image_resize',
+        'data' => array(
+          'width' => 200,
+          'height' => 155,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: screenshot_gallery__228_x_150_.
+  $styles['screenshot_gallery__228_x_150_'] = array(
+    'label' => 'Screenshot Gallery (228 X 150)',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_resize',
+        'data' => array(
+          'width' => 228,
+          'height' => 150,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function mmorpg_game_node_info() {

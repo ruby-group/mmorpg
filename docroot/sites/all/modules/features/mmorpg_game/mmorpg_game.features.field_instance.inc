@@ -87,7 +87,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -144,7 +144,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 21,
+      'weight' => 20,
     ),
   );
 
@@ -181,7 +181,44 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 16,
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_dev_status'
+  $field_instances['node-game-field_dev_status'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 23,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_dev_status',
+    'label' => 'Development Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 22,
     ),
   );
 
@@ -218,7 +255,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -255,7 +292,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 19,
+      'weight' => 18,
     ),
   );
 
@@ -292,7 +329,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 20,
+      'weight' => 19,
     ),
   );
 
@@ -329,7 +366,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -368,7 +405,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -455,7 +492,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -542,7 +579,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 12,
+      'weight' => 11,
     ),
   );
 
@@ -599,7 +636,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -636,7 +673,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 13,
     ),
   );
 
@@ -673,7 +710,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -710,7 +747,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 10,
     ),
   );
 
@@ -804,7 +841,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 22,
+      'weight' => 21,
     ),
   );
 
@@ -881,7 +918,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 18,
+      'weight' => 17,
     ),
   );
 
@@ -918,7 +955,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 16,
     ),
   );
 
@@ -1546,6 +1583,7 @@ function mmorpg_game_field_default_field_instances() {
   t('Category');
   t('Classification');
   t('Description');
+  t('Development Status');
   t('Distribution Types');
   t('Duration');
   t('ESRB');
