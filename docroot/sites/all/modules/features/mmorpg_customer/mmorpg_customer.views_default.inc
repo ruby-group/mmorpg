@@ -61,9 +61,9 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
   $handler->display->display_options['relationships']['field_customer_target_id']['required'] = TRUE;
   /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['id'] = 'field_psnl_game_target_id';
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['table'] = 'field_data_field_psnl_game';
-  $handler->display->display_options['relationships']['field_psnl_game_target_id']['field'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
   /* Field: Content: Customer */
   $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
   $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
@@ -260,10 +260,10 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['relationships']['field_customer_contents_target_id']['field'] = 'field_customer_contents_target_id';
   $handler->display->display_options['relationships']['field_customer_contents_target_id']['required'] = TRUE;
   /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_game_contents_target_id']['id'] = 'field_game_contents_target_id';
-  $handler->display->display_options['relationships']['field_game_contents_target_id']['table'] = 'field_data_field_game_contents';
-  $handler->display->display_options['relationships']['field_game_contents_target_id']['field'] = 'field_game_contents_target_id';
-  $handler->display->display_options['relationships']['field_game_contents_target_id']['required'] = TRUE;
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
@@ -301,7 +301,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
   $handler->display->display_options['fields']['title_2']['table'] = 'node';
   $handler->display->display_options['fields']['title_2']['field'] = 'title';
-  $handler->display->display_options['fields']['title_2']['relationship'] = 'field_game_contents_target_id';
+  $handler->display->display_options['fields']['title_2']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['fields']['title_2']['label'] = 'Game';
   $handler->display->display_options['fields']['title_2']['link_to_node'] = FALSE;
   /* Field: Content: Title */
@@ -373,7 +373,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
   $handler->display->display_options['filters']['title_1']['table'] = 'node';
   $handler->display->display_options['filters']['title_1']['field'] = 'title';
-  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_game_contents_target_id';
+  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
   $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
@@ -446,10 +446,10 @@ function mmorpg_customer_views_default_views() {
     'link' => 0,
   );
   /* Field: Content: Game */
-  $handler->display->display_options['fields']['field_psnl_game']['id'] = 'field_psnl_game';
-  $handler->display->display_options['fields']['field_psnl_game']['table'] = 'field_data_field_psnl_game';
-  $handler->display->display_options['fields']['field_psnl_game']['field'] = 'field_psnl_game';
-  $handler->display->display_options['fields']['field_psnl_game']['settings'] = array(
+  $handler->display->display_options['fields']['field_game']['id'] = 'field_game';
+  $handler->display->display_options['fields']['field_game']['table'] = 'field_data_field_game';
+  $handler->display->display_options['fields']['field_game']['field'] = 'field_game';
+  $handler->display->display_options['fields']['field_game']['settings'] = array(
     'link' => 0,
   );
   /* Field: Content: Title */
@@ -531,7 +531,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
   $handler->display->display_options['filters']['title_1']['table'] = 'node';
   $handler->display->display_options['filters']['title_1']['field'] = 'title';
-  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_psnl_game_target_id';
+  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
   $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
@@ -575,9 +575,9 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['relationships']['field_customer_target_id']['table'] = 'field_data_field_customer';
   $handler->display->display_options['relationships']['field_customer_target_id']['field'] = 'field_customer_target_id';
   /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_article_game_target_id']['id'] = 'field_article_game_target_id';
-  $handler->display->display_options['relationships']['field_article_game_target_id']['table'] = 'field_data_field_article_game';
-  $handler->display->display_options['relationships']['field_article_game_target_id']['field'] = 'field_article_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
@@ -713,7 +713,7 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['filters']['title_1']['id'] = 'title_1';
   $handler->display->display_options['filters']['title_1']['table'] = 'node';
   $handler->display->display_options['filters']['title_1']['field'] = 'title';
-  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_article_game_target_id';
+  $handler->display->display_options['filters']['title_1']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['filters']['title_1']['operator'] = 'contains';
   $handler->display->display_options['filters']['title_1']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title_1']['expose']['operator_id'] = 'title_1_op';
@@ -766,7 +766,7 @@ function mmorpg_customer_views_default_views() {
     t('next ›'),
     t('last »'),
     t('Content entity referenced from field_customer'),
-    t('Content entity referenced from field_psnl_game'),
+    t('Content entity referenced from field_game'),
     t('Company'),
     t('Siteskins'),
     t('field collection item from field_siteskin_subskin'),
@@ -787,7 +787,7 @@ function mmorpg_customer_views_default_views() {
     t('Date between'),
     t('Signup Now Links'),
     t('Content entity referenced from field_customer_contents'),
-    t('Content entity referenced from field_game_contents'),
+    t('Content entity referenced from field_game'),
     t('Provider'),
     t('Game'),
     t('Title'),
@@ -795,7 +795,7 @@ function mmorpg_customer_views_default_views() {
     t('Tier'),
     t('Area'),
     t('Articles'),
-    t('Content entity referenced from field_article_game'),
+    t('Content entity referenced from field_game'),
     t('Published'),
   );
   $export['ad_reports'] = $view;

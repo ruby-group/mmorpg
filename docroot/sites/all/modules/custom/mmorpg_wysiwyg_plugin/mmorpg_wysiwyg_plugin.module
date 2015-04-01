@@ -42,7 +42,7 @@ function mmorpg_wysiwyg_plugin_shortcode_info() {
   $shortcodes['play-now'] = array(
     'title' => t('Play Now'),
     'description' => t('Add play now.'),
-    'process callback' => 'mmorpg_wysiwyg_plugin_sortcode_play_now',
+    'process callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now',
     'tips callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now_tips',
     'default settings' => array(),
 //    'attributes callback' => 'mmorpg_wysiwyg_plugin_shortcode_play_now_attributes',
@@ -126,7 +126,7 @@ function mmorpg_wysiwyg_plugin_shortcode_related_content_attributes($form, $form
 /*============================================================================================*/
 /* Embed Play Now
 /*============================================================================================*/
-function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
+function mmorpg_wysiwyg_plugin_shortcode_play_now($attrs, $text) {
   return '';
   $content = '';
   if (arg(0) == 'node' && is_numeric(arg(1))) {
@@ -134,7 +134,7 @@ function mmorpg_wysiwyg_plugin_sortcode_play_now($attrs, $text) {
     $node_id = arg(1);
 
     $query_play_now = db_select('field_data_field_article_game', 'fdag');
-    $query_play_now->join('field_data_field_game_contents', 'fdgc', 'fdgc.field_game_contents_target_id = fdag.field_article_game_target_id');
+    $query_play_now->join('field_data_field_game', 'fdgc', 'fdgc.field_game_contents_target_id = fdag.field_article_game_target_id');
     $query_play_now->join('field_data_field_target_url', 'fdtu', 'fdtu.entity_id = fdgc.entity_id');
     $result_play_now = $query_play_now
       ->fields('fdtu', array('field_target_url_title', 'field_target_url_clickmeter_link'))
