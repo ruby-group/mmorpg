@@ -53,6 +53,15 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Game (field_game) */
+  $handler->display->display_options['arguments']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['arguments']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -71,13 +80,13 @@ function mmorpg_game_views_default_views() {
   /* Display: Screenshot Gallery Grid */
   $handler = $view->new_display('panel_pane', 'Screenshot Gallery Grid', 'panel_pane_1');
   $handler->display->display_options['argument_input'] = array(
-    'field_screenshot_game_target_id' => array(
+    'field_game_target_id' => array(
       'type' => 'user',
-      'context' => 'entity:field_collection_item.archived',
+      'context' => 'entity:comment.author',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Content: Game (field_screenshot_game)',
+      'label' => 'Content: Game (field_game)',
     ),
   );
   $translatables['screenshot_gallery_grid'] = array(
@@ -95,6 +104,7 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),
   );
@@ -188,13 +198,13 @@ function mmorpg_game_views_default_views() {
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['argument_input'] = array(
-    'field_video_game_target_id' => array(
+    'field_game_target_id' => array(
       'type' => 'user',
-      'context' => 'entity:field_collection_item.archived',
+      'context' => 'entity:comment.author',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Content: Game (field_video_game)',
+      'label' => 'Content: Game (field_game)',
     ),
   );
   $translatables['video_exclusive'] = array(
@@ -298,13 +308,13 @@ function mmorpg_game_views_default_views() {
   /* Display: Video Gallery Grid */
   $handler = $view->new_display('panel_pane', 'Video Gallery Grid', 'panel_pane_1');
   $handler->display->display_options['argument_input'] = array(
-    'field_video_game_target_id' => array(
+    'field_game_target_id' => array(
       'type' => 'user',
-      'context' => 'entity:field_collection_item.archived',
+      'context' => 'entity:comment.author',
       'context_optional' => 0,
       'panel' => '0',
       'fixed' => '',
-      'label' => 'Content: Game (field_video_game)',
+      'label' => 'Content: Game (field_game)',
     ),
   );
   $translatables['video_gallery_grid'] = array(
