@@ -365,7 +365,10 @@ li.leaf-user-name .om-maximenu-middle {
         top: 0;
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
         z-index: 1; }
-      /* line 79, ../sass/components/_navigation.scss */
+        /* line 78, ../sass/components/_navigation.scss */
+        li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_type a {
+          color: #bfcad1; }
+      /* line 83, ../sass/components/_navigation.scss */
       li.leaf-user-name .om-maximenu-middle .views-row .updates_text a.content_link {
         display: block;
         z-index: 2;
