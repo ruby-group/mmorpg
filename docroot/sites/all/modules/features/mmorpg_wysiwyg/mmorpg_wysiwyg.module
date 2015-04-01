@@ -89,7 +89,7 @@ function mmorpg_wysiwyg_plugin_shortcode_play_now($attrs, $text) {
     return $content;
   }
   // we have the article id.
-  $article_id = 399;
+  $article_id = arg(1);
 
   //now get the game & official link.
   $result = db_select('field_data_field_game', 'game');
