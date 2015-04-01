@@ -108,10 +108,19 @@ class ClickmeterLinkHandlerDateFilter extends views_handler_filter_date {
     parent::value_form($form, $form_state);
 
     if (isset($form['value']['min']) and isset($form['value']['max'])) {
+      $data = drupal_get_query_parameters();
+      if (array_key_exists($this->field, $data)) {
+        $data = $data[$this->field];
+      }
+      else {
+        $data['min'] = date('Y-m-d', time() - 7 * 24 * 60 * 60);
+        $data['max'] = date('Y-m-d');
+      }
+      $form['value']['min']['#value'] = $data['min'];
+      $form['value']['max']['#value'] = $data['max'];
 
       $form['value']['min']['#attributes']['class'][] = 'datepicker';
       $form['value']['max']['#attributes']['class'][] = 'datepicker';
-
       drupal_add_library('system', 'ui.datepicker');
       drupal_add_js("jQuery('.datepicker').datepicker({ dateFormat: 'yy-mm-dd' });", array(
         'type' => 'inline',
