@@ -6,7 +6,7 @@
 
 #Put all of your actions before #EOF.
 
-cd /home/mmorpg/www/prod/docroot && drush updb -y && drush rr && drush fra -y && drush cc all && drush aa --html --bootstrap --detail --skip=insights > sites/default/files/report.html
+cd /home/mmorpg/www/prod/docroot && drush updb -y && drush rr && drush cc drush && drush fra -y && drush cc all && drush aa --html --bootstrap --detail --skip=insights > sites/default/files/report.html
 
 #EOF
 
