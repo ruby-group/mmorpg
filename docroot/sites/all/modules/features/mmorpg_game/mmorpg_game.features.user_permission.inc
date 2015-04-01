@@ -13,7 +13,8 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'create game content'.
   $permissions['create game content'] = array(
     'name' => 'create game content',
-    'roles' => array(),
+    'roles' => array(
+    ),
     'module' => 'node',
   );
 
@@ -36,7 +37,9 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'create video content'.
   $permissions['create video content'] = array(
     'name' => 'create video content',
-    'roles' => array(),
+    'roles' => array(
+      'authenticated user' => 'authenticated user',
+    ),
     'module' => 'node',
   );
 
