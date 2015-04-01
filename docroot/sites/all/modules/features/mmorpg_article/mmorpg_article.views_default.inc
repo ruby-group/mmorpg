@@ -223,7 +223,6 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['field_article_type']['label'] = '';
   $handler->display->display_options['fields']['field_article_type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
