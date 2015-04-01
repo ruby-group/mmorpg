@@ -71,13 +71,13 @@ header.header {
   z-index: 2; }
 
 /* line 5, ../sass/abstractions/_siteskin.scss */
-.block--mmorpg-siteskins {
+.pane-siteskins-rendering {
   position: absolute;
   z-index: 1;
   width: 100%;
   top: 16em; }
   /* line 10, ../sass/abstractions/_siteskin.scss */
-  .block--mmorpg-siteskins .skin-tracking-link {
+  .pane-siteskins-rendering .skin-tracking-link {
     height: 100vh;
     width: 100%; }
 
