@@ -311,14 +311,14 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['style_plugin'] = 'grid';
-  $handler->display->display_options['style_options']['columns'] = '3';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_screenshot_image']['id'] = 'field_screenshot_image';
   $handler->display->display_options['fields']['field_screenshot_image']['table'] = 'field_data_field_screenshot_image';
   $handler->display->display_options['fields']['field_screenshot_image']['field'] = 'field_screenshot_image';
   $handler->display->display_options['fields']['field_screenshot_image']['label'] = '';
+  $handler->display->display_options['fields']['field_screenshot_image']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_screenshot_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_screenshot_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_screenshot_image']['settings'] = array(
@@ -327,6 +327,14 @@ function mmorpg_game_views_default_views() {
   );
   $handler->display->display_options['fields']['field_screenshot_image']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_screenshot_image']['delta_offset'] = '0';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="screenshot_image">[field_screenshot_image]</div>
+<div class="screenshot_hover"></div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -368,6 +376,10 @@ function mmorpg_game_views_default_views() {
       'label' => 'Content: Game (field_game)',
     ),
   );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['path'] = 'game/%/screenshots';
   $translatables['screenshot_gallery_grid'] = array(
     t('Master'),
     t('more'),
@@ -383,9 +395,12 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('<div class="screenshot_image">[field_screenshot_image]</div>
+<div class="screenshot_hover"></div>'),
     t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),
+    t('Page'),
   );
   $export['screenshot_gallery_grid'] = $view;
 
