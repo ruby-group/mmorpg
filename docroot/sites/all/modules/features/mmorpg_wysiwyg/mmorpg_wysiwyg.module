@@ -86,23 +86,37 @@ function mmorpg_wysiwyg_plugin_shortcode_related_content($attrs, $text) {
 
 function mmorpg_wysiwyg_plugin_shortcode_play_now($attrs, $text) {
   $content = '';
-  if (arg(0) != 'node' or !is_numeric(arg(1))) {
+
+  if (arg(0) == 'node' and is_numeric(arg(1))) {
+    // we have the article id.
+    //now get the game & official link.
+    $result = db_select('field_data_field_game', 'game');
+    $result->leftJoin('field_data_field_link', 'link', 'game.field_game_target_id = link.entity_id');
+    $result = $result
+      ->fields('game', array('field_game_target_id',))
+      ->fields('link', array('field_link_url'))
+      ->condition('game.entity_id', arg(1))
+      ->execute()
+      ->fetchAssoc();
+    $game_id = $result['field_game_target_id'];
+    $official_url = $result['field_link_url'];
+  }
+  elseif(arg(0) == 'node' and arg(1) == 'add') {
+    $game_id = $_POST['field_game']['und'];
+    // we have the game id.
+    //now get the official link.
+    $result = db_select('field_data_field_game', 'game');
+    $result->leftJoin('field_data_field_link', 'link', 'game.field_game_target_id = link.entity_id');
+    $result = $result
+      ->fields('link', array('field_link_url'))
+      ->condition('field_game_target_id', $game_id)
+      ->execute()
+      ->fetchAssoc();
+    $official_url = $result['field_link_url'];
+  }
+  else {
     return $content;
   }
-  // we have the article id.
-  $article_id = arg(1);
-
-  //now get the game & official link.
-  $result = db_select('field_data_field_game', 'game');
-  $result->leftJoin('field_data_field_link', 'link', 'game.field_game_target_id = link.entity_id');
-  $result = $result
-    ->fields('game', array('field_game_target_id',))
-    ->fields('link', array('field_link_url'))
-    ->condition('game.entity_id', $article_id)
-    ->execute()
-    ->fetchAssoc();
-  $game_id = $result['field_game_target_id'];
-  $official_url = $result['field_link_url'];
 
   //now get the list of sign up links.
   $result = db_select('node', 'node');
