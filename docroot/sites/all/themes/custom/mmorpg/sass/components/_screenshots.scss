@@ -1,0 +1,25 @@
+.pane-screenshot-gallery-grid{
+	.views-row{
+		display: inline-block;
+		float: left;
+		padding: 0 5px;
+		margin-bottom: 10px;
+		position: relative;
+		cursor: pointer;
+	}
+
+	.screenshot_hover{
+		position: absolute;
+		top: 0;
+		width: 228px;
+		height: 150px;
+		background: url('../images/updates_bg.png');
+
+		&:hover{
+			background: transparent;
+		}
+
+	}
+
+
+}
