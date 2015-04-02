@@ -8,6 +8,9 @@
     padding-top: 160px;
 }
 .main-inner {
-    @include grid-span(10, 2);
+    @include grid-span(12);
     background-color:$white;
+    @include breakpoint(1024px){
+    	@include grid-span(10, 2);
+    }
 }
