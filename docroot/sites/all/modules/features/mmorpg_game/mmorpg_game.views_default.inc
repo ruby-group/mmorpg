@@ -109,6 +109,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -210,6 +211,14 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['path'] = 'game/[nid]/overview';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Type */
+  $handler->display->display_options['sorts']['type']['id'] = 'type';
+  $handler->display->display_options['sorts']['type']['table'] = 'node';
+  $handler->display->display_options['sorts']['type']['field'] = 'type';
+  /* Sort criterion: Content: Tier (field_psnl_tier) */
+  $handler->display->display_options['sorts']['field_psnl_tier_tid']['id'] = 'field_psnl_tier_tid';
+  $handler->display->display_options['sorts']['field_psnl_tier_tid']['table'] = 'field_data_field_psnl_tier';
+  $handler->display->display_options['sorts']['field_psnl_tier_tid']['field'] = 'field_psnl_tier_tid';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -229,6 +238,23 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'promoted_signup_now_link' => 'promoted_signup_now_link',
     'signup_now_link' => 'signup_now_link',
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['filters']['title']['operator'] = 'allwords';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
   );
 
   /* Display: Page */
@@ -258,6 +284,7 @@ function mmorpg_game_views_default_views() {
     t('Show More'),
     t('Screenshots'),
     t('More info, videos, forums...'),
+    t('Title'),
     t('Page'),
   );
   $export['play_now'] = $view;
