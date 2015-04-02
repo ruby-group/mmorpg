@@ -11,6 +11,258 @@ function mmorpg_game_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'game_overview_articles';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Game Overview Articles';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Hero Image */
+  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
+    'image_style' => 'overview_articles__200x155_',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Overview */
+  $handler->display->display_options['fields']['field_article_overview']['id'] = 'field_article_overview';
+  $handler->display->display_options['fields']['field_article_overview']['table'] = 'field_data_field_article_overview';
+  $handler->display->display_options['fields']['field_article_overview']['field'] = 'field_article_overview';
+  $handler->display->display_options['fields']['field_article_overview']['label'] = '';
+  $handler->display->display_options['fields']['field_article_overview']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'mmorpg_article' => 'mmorpg_article',
+  );
+  $translatables['game_overview_articles'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+  );
+  $export['game_overview_articles'] = $view;
+
+  $view = new view();
+  $view->name = 'play_now';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Play Now';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Play Now';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_game_node']['id'] = 'reverse_field_game_node';
+  $handler->display->display_options['relationships']['reverse_field_game_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_game_node']['field'] = 'reverse_field_game_node';
+  $handler->display->display_options['relationships']['reverse_field_game_node']['relationship'] = 'field_game_target_id';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Platforms */
+  $handler->display->display_options['fields']['field_platforms']['id'] = 'field_platforms';
+  $handler->display->display_options['fields']['field_platforms']['table'] = 'field_data_field_platforms';
+  $handler->display->display_options['fields']['field_platforms']['field'] = 'field_platforms';
+  $handler->display->display_options['fields']['field_platforms']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_platforms']['label'] = '';
+  $handler->display->display_options['fields']['field_platforms']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_platforms']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Payment Methods */
+  $handler->display->display_options['fields']['field_payment_methods_1']['id'] = 'field_payment_methods_1';
+  $handler->display->display_options['fields']['field_payment_methods_1']['table'] = 'field_data_field_payment_methods';
+  $handler->display->display_options['fields']['field_payment_methods_1']['field'] = 'field_payment_methods';
+  $handler->display->display_options['fields']['field_payment_methods_1']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_payment_methods_1']['label'] = 'Payment Types';
+  $handler->display->display_options['fields']['field_payment_methods_1']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: MMO Genre */
+  $handler->display->display_options['fields']['field_mmo_genre']['id'] = 'field_mmo_genre';
+  $handler->display->display_options['fields']['field_mmo_genre']['table'] = 'field_data_field_mmo_genre';
+  $handler->display->display_options['fields']['field_mmo_genre']['field'] = 'field_mmo_genre';
+  $handler->display->display_options['fields']['field_mmo_genre']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_mmo_genre']['label'] = 'Genre';
+  $handler->display->display_options['fields']['field_mmo_genre']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Development Status */
+  $handler->display->display_options['fields']['field_dev_status']['id'] = 'field_dev_status';
+  $handler->display->display_options['fields']['field_dev_status']['table'] = 'field_data_field_dev_status';
+  $handler->display->display_options['fields']['field_dev_status']['field'] = 'field_dev_status';
+  $handler->display->display_options['fields']['field_dev_status']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_dev_status']['label'] = 'Status';
+  $handler->display->display_options['fields']['field_dev_status']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '600';
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['more_link_text'] = 'Show More';
+  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '600',
+  );
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_screenshot_image']['id'] = 'field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['table'] = 'field_data_field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['field'] = 'field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['relationship'] = 'reverse_field_game_node';
+  $handler->display->display_options['fields']['field_screenshot_image']['label'] = 'Screenshots';
+  $handler->display->display_options['fields']['field_screenshot_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_screenshot_image']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_screenshot_image']['delta_limit'] = '4';
+  $handler->display->display_options['fields']['field_screenshot_image']['delta_offset'] = '0';
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['text'] = 'Play Now';
+  $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-link_url]';
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_default';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'More info, videos, forums...';
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'game/[nid]/overview';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'promoted_signup_now_link' => 'promoted_signup_now_link',
+    'signup_now_link' => 'signup_now_link',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'play-now';
+  $translatables['play_now'] = array(
+    t('Master'),
+    t('Play Now'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Content entity referenced from field_game'),
+    t('Content referencing Content from field_game'),
+    t('Payment Types'),
+    t('Genre'),
+    t('Status'),
+    t('Show More'),
+    t('Screenshots'),
+    t('More info, videos, forums...'),
+    t('Page'),
+  );
+  $export['play_now'] = $view;
+
+  $view = new view();
   $view->name = 'screenshot_gallery_grid';
   $view->description = '';
   $view->tag = 'default';
