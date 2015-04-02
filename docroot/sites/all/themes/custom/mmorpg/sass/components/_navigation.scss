@@ -89,3 +89,17 @@ li.leaf-user-name .om-maximenu-middle{
 		}
 	}
 }
+
+.game-sub-menu {
+  background: $darkbg;
+  padding: 1em;
+  margin-bottom: 1em;
+  a {
+  padding: 0.50em;
+  border: 1px solid transparent;
+  color: $white;
+  &:hover, &.active {
+    color: $btn-blue;
+  }
+  }
+}

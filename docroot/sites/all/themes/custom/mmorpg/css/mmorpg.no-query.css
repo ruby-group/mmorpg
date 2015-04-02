@@ -335,6 +335,20 @@ li.leaf-user-name .om-maximenu-middle {
         height: 128px;
         width: 160px; }
 
+/* line 93, ../sass/components/_navigation.scss */
+.game-sub-menu {
+  background: #333333;
+  padding: 1em;
+  margin-bottom: 1em; }
+  /* line 97, ../sass/components/_navigation.scss */
+  .game-sub-menu a {
+    padding: 0.50em;
+    border: 1px solid transparent;
+    color: #ffffff; }
+    /* line 101, ../sass/components/_navigation.scss */
+    .game-sub-menu a:hover, .game-sub-menu a.active {
+      color: #2186d4; }
+
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
   padding: 0 10px; }
