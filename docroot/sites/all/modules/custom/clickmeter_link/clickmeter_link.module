@@ -437,10 +437,10 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
       }
     }
     //TODO this should go
-    $parent->type = substr(str_replace('mmorpg_', NULL, $parent->type), 0, 6);
+    $type = substr(str_replace('mmorpg_', NULL, $parent->type), 0, 6);
     //end
-    $parent->title = substr(str_replace(' ', '_', $parent->title), 0, 25);
-    $name = $parent->type . '-' . $parent->title . '-' . $parent->nid . '-' . $position;
+    $title = substr(str_replace(' ', '_', $parent->title), 0, 25);
+    $name = $type . '-' . $title . '-' . $parent->nid . '-' . $position;
 
     try {
       $group_id = $item['clickmeter_fieldset']['group'];
