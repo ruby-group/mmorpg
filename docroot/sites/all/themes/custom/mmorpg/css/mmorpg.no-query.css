@@ -452,3 +452,33 @@ li.leaf-user-name .om-maximenu-middle {
       /* line 32, ../sass/components/_trending.scss */
       .trending .l-region--trending .trending_links li:last-child span {
         display: none; }
+
+/* line 1, ../sass/components/_videos.scss */
+.pane-video-exclusive {
+  margin-bottom: 5em; }
+  /* line 3, ../sass/components/_videos.scss */
+  .pane-video-exclusive .views-row {
+    padding: 1em;
+    background: #242121; }
+    /* line 7, ../sass/components/_videos.scss */
+    .pane-video-exclusive .views-row .views-field-body .field-content {
+      background: #ffffff;
+      border-top: 4px solid #bce6ff;
+      font-size: 14px;
+      line-height: 1.6em;
+      margin: 0 auto;
+      margin-bottom: -20px;
+      padding: 20px;
+      position: relative;
+      width: 92%; }
+
+/* line 22, ../sass/components/_videos.scss */
+.views-field-title {
+  padding-top: 0.50em; }
+  /* line 24, ../sass/components/_videos.scss */
+  .views-field-title a {
+    font-size: 16px;
+    padding-bottom: 10px;
+    text-shadow: none;
+    color: #000000;
+    border-bottom: 0px !important; }
