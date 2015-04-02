@@ -427,10 +427,20 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 /*custom code*/
   if (!empty($item['url'])) {
     $parent = $entity; // we assume $entity instanceof stdClass
+    $position = $delta;
     if ($entity instanceof FieldCollectionItemEntity) {
       $parent = $entity->hostEntity();
+      foreach ($parent->{$entity->field_name}[LANGUAGE_NONE] as $id => $child) {
+        if ($entity->item_id == $child['entity']->item_id) {
+          $position = $id;
+        }
+      }
     }
-    $name = $parent->type . '-' . str_replace(' ', '_', $parent->title) . '-' . $parent->nid . '-' . $delta;
+    //TODO this should go
+    $parent->type = substr(str_replace('mmorpg_', NULL, $parent->type), 0, 6);
+    //end
+    $parent->title = substr(str_replace(' ', '_', $parent->title), 0, 25);
+    $name = $parent->type . '-' . $parent->title . '-' . $parent->nid . '-' . $position;
 
     try {
       $group_id = $item['clickmeter_fieldset']['group'];
@@ -440,15 +450,17 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 
       $item['group'] = $group_id;
       $item['domain'] = $domain_id;
-      $item['pixel_id'] = $pixel_details->id;
-      $item['pixel_url'] = $pixel_details->trackingCode;
       $item['link_id'] = $link_details->id;
+      $item['pixel_id'] = $pixel_details->id;
       $item['link_url'] = $link_details->trackingCode;
+      $item['pixel_url'] = $pixel_details->trackingCode;
     } catch (Exception $e) {
-      $item['pixel_id'] = $item['clickmeter_fieldset']['pixel_id'];
-      $item['pixel_url'] = $item['clickmeter_fieldset']['pixel_url'];
+      $item['group'] = $item['clickmeter_fieldset']['group'];
+      $item['domain'] = $item['clickmeter_fieldset']['domain'];
       $item['link_id'] = $item['clickmeter_fieldset']['link_id'];
+      $item['pixel_id'] = $item['clickmeter_fieldset']['pixel_id'];
       $item['link_url'] = $item['clickmeter_fieldset']['link_url'];
+      $item['pixel_url'] = $item['clickmeter_fieldset']['pixel_url'];
     }
   }
 /*end custom code*/
