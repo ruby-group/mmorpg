@@ -439,7 +439,8 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
     //TODO this should go
     $type = substr(str_replace('mmorpg_', NULL, $parent->type), 0, 6);
     //end
-    $title = substr(str_replace(' ', '_', $parent->title), 0, 25);
+    $title = preg_replace("/[^A-Za-z0-9 ]/", '', $parent->title);
+    $title = substr(str_replace(' ', '_', $title), 0, 25);
     $name = $type . '-' . $title . '-' . $parent->nid . '-' . $position;
 
     try {
