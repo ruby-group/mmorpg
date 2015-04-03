@@ -1043,45 +1043,6 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-game_link-field_game_link_game'
-  $field_instances['node-game_link-field_game_link_game'] = array(
-    'bundle' => 'game_link',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_game_link_game',
-    'label' => 'Game',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 0,
-    ),
-  );
-
   // Exported field_instance: 'node-game_link-field_game_link_link'
   $field_instances['node-game_link-field_game_link_link'] = array(
     'bundle' => 'game_link',
