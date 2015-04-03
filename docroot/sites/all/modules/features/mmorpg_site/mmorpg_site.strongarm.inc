@@ -365,7 +365,7 @@ function mmorpg_site_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'sharethis_publisherID';
-  $strongarm->value = 'dr-448b2cb9-97b3-3867-e715-88b39eae8ca4';
+  $strongarm->value = 'dr-fe21f839-12e2-e6cf-9b5f-6956d458cfb5';
   $export['sharethis_publisherID'] = $strongarm;
 
   $strongarm = new stdClass();

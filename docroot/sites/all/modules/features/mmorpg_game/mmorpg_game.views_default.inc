@@ -556,6 +556,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_video_url']['table'] = 'field_data_field_video_url';
   $handler->display->display_options['fields']['field_video_url']['field'] = 'field_video_url';
   $handler->display->display_options['fields']['field_video_url']['label'] = '';
+  $handler->display->display_options['fields']['field_video_url']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_video_url']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_video_url']['alter']['path'] = 'game/!1/video/[nid]';
   $handler->display->display_options['fields']['field_video_url']['element_label_colon'] = FALSE;
@@ -569,12 +570,22 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = 'game/!1/video/[nid]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="video_hover"><span>Video</span></div>
+<div class="video_image">[field_video_url] </div>
+<div class="video_title">[title]</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -631,6 +642,9 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('<div class="video_hover"><span>Video</span></div>
+<div class="video_image">[field_video_url] </div>
+<div class="video_title">[title]</div>'),
     t('All'),
     t('Video Gallery Grid'),
     t('View panes'),
