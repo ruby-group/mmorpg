@@ -147,4 +147,7 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['use text format filtered_html'])) {
     $data['use text format filtered_html']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
+  if (isset($data['view any unpublished customer content'])) {
+    $data['view any unpublished customer content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
 }

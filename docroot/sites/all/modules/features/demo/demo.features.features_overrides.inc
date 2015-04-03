@@ -56,6 +56,7 @@ function demo_features_override_default_overrides() {
   $overrides["user_permission.edit own siteskin content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.edit own video content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.use text format filtered_html.roles|subadmin"] = 'subadmin';
+  $overrides["user_permission.view any unpublished customer content.roles|subadmin"] = 'subadmin';
 
  return $overrides;
 }
