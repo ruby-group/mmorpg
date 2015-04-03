@@ -16,5 +16,10 @@ function mmorpg_site_menu() {
     'access callback' => TRUE,
     'type' => MENU_LOCAL_TASK,
   );
+  $items['admin/mmorpg/reports/blank'] = array(
+    'title' => 'Reports',
+    'access callback' => TRUE,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
   return $items;
 }
