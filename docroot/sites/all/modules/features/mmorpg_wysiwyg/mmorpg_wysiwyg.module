@@ -80,39 +80,57 @@ function mmorpg_wysiwyg_plugin_shortcode_poll($attrs, $text) {
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_related_content($attrs, $text) {
+  // see mmorpg_article_node_view for the implementation.
   return '[related-content][/related-content]';
 }
 
 function mmorpg_wysiwyg_plugin_shortcode_play_now($attrs, $text) {
   $content = '';
-  if (arg(0) == 'node' && is_numeric(arg(1))) {
+
+  if (arg(0) == 'node' and is_numeric(arg(1))) {
+    // we have the article id.
+    //now get the game & official link.
+    $result = db_select('field_data_field_game', 'game');
+    $result->leftJoin('field_data_field_link', 'link', 'game.field_game_target_id = link.entity_id');
+    $result = $result
+      ->fields('game', array('field_game_target_id',))
+      ->fields('link', array('field_link_url'))
+      ->condition('game.entity_id', arg(1))
+      ->execute()
+      ->fetchAssoc();
+    $game_id = $result['field_game_target_id'];
+    $official_url = $result['field_link_url'];
+  }
+  elseif(arg(0) == 'node' and arg(1) == 'add') {
+    $game_id = $_POST['field_game']['und'];
+    // we have the game id.
+    //now get the official link.
+    $result = db_select('field_data_field_game', 'game');
+    $result->leftJoin('field_data_field_link', 'link', 'game.field_game_target_id = link.entity_id');
+    $result = $result
+      ->fields('link', array('field_link_url'))
+      ->condition('field_game_target_id', $game_id)
+      ->execute()
+      ->fetchAssoc();
+    $official_url = $result['field_link_url'];
+  }
+  else {
     return $content;
   }
-  // we have the article id.
-  $article_id = arg(1);
-
-  //now get the game & official link.
-  $result = db_select('field_data_field_game', 'game');
-  $result->leftJoin('field_data_field_link', 'link', 'game.field_game_target_id = link.entity_id');
-  $result = $result
-    ->fields('game', array('field_game_target_id',))
-    ->fields('link', array('field_link_url'))
-    ->condition('game.entity_id', $article_id)
-    ->execute()
-    ->fetchAssoc();
-  $game_id = $result['field_game_target_id'];
-  $official_url = $result['field_link_url'];
-  $official_text = 'Play Now';
 
   //now get the list of sign up links.
   $result = db_select('node', 'node');
   $result->join('field_data_field_target_url', 'url', 'node.nid = url.entity_id');
   $result->join('field_data_field_game', 'game', 'node.nid = game.entity_id');
+  $result->join('field_data_field_link_type', 'link', 'node.nid = link.entity_id');
   $result = $result
     ->fields('url', array(
       'field_target_url_title',
       'field_target_url_pixel_url',
-      'field_target_url_link_url'
+      'field_target_url_link_url',
+    ))
+    ->fields('link', array(
+      'field_link_type_value',
     ))
     ->condition('status', NODE_PUBLISHED)
     ->condition('type', 'signup_now_link')
@@ -121,9 +139,24 @@ function mmorpg_wysiwyg_plugin_shortcode_play_now($attrs, $text) {
     ->range(0, 1)
     ->execute()
     ->fetchAssoc();
-  if (!$result) {
-    $official_url = $result['field_target_url_link_url'];
-    $official_text = $result['field_target_url_title'];
+  if ($result) {
+    switch ($result['field_link_type_value']) {
+      case 'playnow':
+        $official_text = 'Play Now';
+        break;
+      case 'buynow':
+        $official_text = 'Buy Now';
+        break;
+      case 'preorder':
+        $official_text = 'Pre-Order Now';
+        break;
+    }
+    return clickmeter_link_render_item_as_link(
+      $official_text,
+      null,
+      $result['field_target_url_link_url'],
+      $result['field_target_url_pixel_url']
+      );
   }
-  return l($official_text, $official_url, array('target' => '_blank'));
+  return l('Play Now', $official_url, array('target' => '_blank'));
 }

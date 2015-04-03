@@ -313,6 +313,10 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_screenshot_image']['id'] = 'field_screenshot_image';
   $handler->display->display_options['fields']['field_screenshot_image']['table'] = 'field_data_field_screenshot_image';
@@ -327,13 +331,29 @@ function mmorpg_game_views_default_views() {
   );
   $handler->display->display_options['fields']['field_screenshot_image']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_screenshot_image']['delta_offset'] = '0';
+<<<<<<< HEAD
+=======
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+>>>>>>> caa8f5abe64d2c5df9606d282f67d19ce91f4152
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="screenshot_image">[field_screenshot_image]</div>
+<<<<<<< HEAD
 <div class="screenshot_hover"></div>';
+=======
+<div class="screenshot_hover">[title]</div>';
+>>>>>>> caa8f5abe64d2c5df9606d282f67d19ce91f4152
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -395,8 +415,14 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+<<<<<<< HEAD
     t('<div class="screenshot_image">[field_screenshot_image]</div>
 <div class="screenshot_hover"></div>'),
+=======
+    t('Content entity referenced from field_game'),
+    t('<div class="screenshot_image">[field_screenshot_image]</div>
+<div class="screenshot_hover">[title]</div>'),
+>>>>>>> caa8f5abe64d2c5df9606d282f67d19ce91f4152
     t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),

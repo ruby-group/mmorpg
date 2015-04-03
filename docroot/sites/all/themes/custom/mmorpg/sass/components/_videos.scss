@@ -1,0 +1,31 @@
+.pane-video-exclusive {
+  margin-bottom: 5em;
+  .views-row {
+    padding: 1em;
+    background: #242121;
+    .views-field-body {
+      .field-content {
+          background: $white;
+          border-top: 4px solid $light-blue;
+          font-size: 14px;
+          line-height: 1.6em;
+          margin: 0 auto;
+          margin-bottom: -20px;
+          padding: 20px;
+          position: relative;
+          width: 92%;
+      }
+    }
+  }
+}
+
+.views-field-title {
+  padding-top: 0.50em;
+  a {
+    font-size: 16px;
+    padding-bottom: 10px;
+    text-shadow: none;
+    color: #000000;
+    border-bottom: 0px !important;
+  }
+}

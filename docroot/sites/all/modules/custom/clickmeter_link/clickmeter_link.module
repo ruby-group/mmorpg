@@ -59,12 +59,12 @@ function clickmeter_link_menu() {
   return $items;
 }
 
-function clickmeter_link_render_item_as_link($html, $suffix, $entity) {
-  return l($html, $entity[LANGUAGE_NONE][0]['link_url']) . $suffix . "
-<script type='text/javascript'>var ClickMeter_pixel_url = '{$entity[LANGUAGE_NONE][0]['pixel_url']}';</script>
+function clickmeter_link_render_item_as_link($html, $suffix, $link_url, $pixel_url) {
+  return l($html, $link_url) . $suffix . "
+<script type='text/javascript'>var ClickMeter_pixel_url = '{$pixel_url}';</script>
 <script type='text/javascript' src='//s3.amazonaws.com/scripts-clickmeter-com/js/pixelNew.js'></script>
 <noscript>
-<img height='0' width='0' alt='' src='{$entity[LANGUAGE_NONE][0]['link_url']}' />
+<img height='0' width='0' alt='' src='{$link_url}' />
 </noscript>
 ";
 }
@@ -427,10 +427,21 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 /*custom code*/
   if (!empty($item['url'])) {
     $parent = $entity; // we assume $entity instanceof stdClass
+    $position = $delta;
     if ($entity instanceof FieldCollectionItemEntity) {
       $parent = $entity->hostEntity();
+      foreach ($parent->{$entity->field_name}[LANGUAGE_NONE] as $id => $child) {
+        if ($entity->item_id == $child['entity']->item_id) {
+          $position = $id;
+        }
+      }
     }
-    $name = $parent->type . '-' . str_replace(' ', '_', $parent->title) . '-' . $parent->nid . '-' . $delta;
+    //TODO this should go
+    $type = substr(str_replace('mmorpg_', NULL, $parent->type), 0, 6);
+    //end
+    $title = preg_replace("/[^A-Za-z0-9 ]/", '', $parent->title);
+    $title = substr(str_replace(' ', '_', $title), 0, 25);
+    $name = $type . '-' . $title . '-' . $parent->nid . '-' . $position;
 
     try {
       $group_id = $item['clickmeter_fieldset']['group'];
@@ -440,15 +451,17 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 
       $item['group'] = $group_id;
       $item['domain'] = $domain_id;
-      $item['pixel_id'] = $pixel_details->id;
-      $item['pixel_url'] = $pixel_details->trackingCode;
       $item['link_id'] = $link_details->id;
+      $item['pixel_id'] = $pixel_details->id;
       $item['link_url'] = $link_details->trackingCode;
+      $item['pixel_url'] = $pixel_details->trackingCode;
     } catch (Exception $e) {
-      $item['pixel_id'] = $item['clickmeter_fieldset']['pixel_id'];
-      $item['pixel_url'] = $item['clickmeter_fieldset']['pixel_url'];
+      $item['group'] = $item['clickmeter_fieldset']['group'];
+      $item['domain'] = $item['clickmeter_fieldset']['domain'];
       $item['link_id'] = $item['clickmeter_fieldset']['link_id'];
+      $item['pixel_id'] = $item['clickmeter_fieldset']['pixel_id'];
       $item['link_url'] = $item['clickmeter_fieldset']['link_url'];
+      $item['pixel_url'] = $item['clickmeter_fieldset']['pixel_url'];
     }
   }
 /*end custom code*/
