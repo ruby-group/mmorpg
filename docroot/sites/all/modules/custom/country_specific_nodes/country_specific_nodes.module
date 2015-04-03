@@ -26,6 +26,10 @@ function country_specific_nodes_permission() {
       'title'       => t('Administer country specific nodes settings'),
       'description' => t('Configure countries specific settings.'),
     ),
+    'bypass country restriction' => array(
+      'title'       => t('Bypass country specific restrictions'),
+      'description' => t('Bypass country specific restrictions and administer nodes.'),
+    ),
   );
 }
 
@@ -92,6 +96,10 @@ function country_specific_nodes_menu() {
 function country_specific_nodes_node_access($node, $op, $account) {
   // Check if $node is object as in some cases it returns string.
   if (is_object($node)) {
+
+    if(user_access('bypass country restriction')) {
+      return NODE_ACCESS_IGNORE;
+    }
 
     //get the list of types for which the functionality must be inverted
     $include_list_string = variable_get('country_specific_nodes_include_list','');
