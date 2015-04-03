@@ -22,7 +22,9 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'create game_link content'.
   $permissions['create game_link content'] = array(
     'name' => 'create game_link content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
@@ -56,21 +58,27 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'delete any game_link content'.
   $permissions['delete any game_link content'] = array(
     'name' => 'delete any game_link content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any screenshot_gallery content'.
   $permissions['delete any screenshot_gallery content'] = array(
     'name' => 'delete any screenshot_gallery content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete any video content'.
   $permissions['delete any video content'] = array(
     'name' => 'delete any video content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
@@ -86,21 +94,27 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'delete own game_link content'.
   $permissions['delete own game_link content'] = array(
     'name' => 'delete own game_link content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own screenshot_gallery content'.
   $permissions['delete own screenshot_gallery content'] = array(
     'name' => 'delete own screenshot_gallery content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'delete own video content'.
   $permissions['delete own video content'] = array(
     'name' => 'delete own video content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
@@ -116,21 +130,27 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'edit any game_link content'.
   $permissions['edit any game_link content'] = array(
     'name' => 'edit any game_link content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any screenshot_gallery content'.
   $permissions['edit any screenshot_gallery content'] = array(
     'name' => 'edit any screenshot_gallery content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit any video content'.
   $permissions['edit any video content'] = array(
     'name' => 'edit any video content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
@@ -146,21 +166,27 @@ function mmorpg_game_user_default_permissions() {
   // Exported permission: 'edit own game_link content'.
   $permissions['edit own game_link content'] = array(
     'name' => 'edit own game_link content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own screenshot_gallery content'.
   $permissions['edit own screenshot_gallery content'] = array(
     'name' => 'edit own screenshot_gallery content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: 'edit own video content'.
   $permissions['edit own video content'] = array(
     'name' => 'edit own video content',
-    'roles' => array(),
+    'roles' => array(
+      'subadmin' => 'subadmin',
+    ),
     'module' => 'node',
   );
 
