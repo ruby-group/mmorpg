@@ -440,14 +440,17 @@ li.leaf-user-name .om-maximenu-middle {
   margin-bottom: 10px;
   position: relative;
   cursor: pointer; }
-/* line 11, ../sass/components/_screenshots.scss */
+/* line 10, ../sass/components/_screenshots.scss */
 .pane-screenshot-gallery-grid .screenshot_hover {
+  color: #bfcad1;
   position: absolute;
   top: 0;
   width: 228px;
   height: 150px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+  padding: 1em;
   background: url("../images/updates_bg.png"); }
-  /* line 18, ../sass/components/_screenshots.scss */
+  /* line 19, ../sass/components/_screenshots.scss */
   .pane-screenshot-gallery-grid .screenshot_hover:hover {
     background: transparent; }
 

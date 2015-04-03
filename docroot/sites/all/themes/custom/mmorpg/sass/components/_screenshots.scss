@@ -7,19 +7,17 @@
 		position: relative;
 		cursor: pointer;
 	}
-
 	.screenshot_hover{
+             color: $light-gray;
 		position: absolute;
 		top: 0;
 		width: 228px;
 		height: 150px;
+             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+             padding: 1em;
 		background: url('../images/updates_bg.png');
-
 		&:hover{
 			background: transparent;
 		}
-
 	}
-
-
 }
