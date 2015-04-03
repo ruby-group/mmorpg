@@ -73,6 +73,14 @@
   margin-left: 0;
   margin-right: 0;
   clear: none; }
+  @media (min-width: 768px) {
+    /* line 56, ../../sass/abstractions/style-guide.scss */
+    .center-content {
+      width: 100%;
+      float: left;
+      margin-right: -100%;
+      margin-left: -8.47458%;
+      clear: none; } }
   @media (min-width: 1024px) {
     /* line 56, ../../sass/abstractions/style-guide.scss */
     .center-content {
@@ -82,11 +90,11 @@
       margin-left: 16.94915%;
       clear: none; } }
 
-/* line 62, ../../sass/abstractions/style-guide.scss */
+/* line 65, ../../sass/abstractions/style-guide.scss */
 .rightsidebar {
   display: none; }
   @media (min-width: 1024px) {
-    /* line 62, ../../sass/abstractions/style-guide.scss */
+    /* line 65, ../../sass/abstractions/style-guide.scss */
     .rightsidebar {
       width: 32.20339%;
       float: right;

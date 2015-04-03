@@ -2,24 +2,36 @@
 	.views-row{
 		display: inline-block;
 		float: left;
-		padding: 0 5px;
+		margin: 0 5px;
 		margin-bottom: 10px;
 		position: relative;
 		cursor: pointer;
+		max-width: 109px;
+		width: 100%;
+		height: auto;
+		@include breakpoint(768px){
+			max-width: 243px;
+		}
 	}
 
 	.screenshot_hover{
+		color: $light-gray;
 		position: absolute;
 		top: 0;
-		width: 228px;
-		height: 150px;
+		max-width: 109px;
+		width: 100%;
+		height: 96%;
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+       padding: 1em;
 		background: url('../images/updates_bg.png');
+		@include breakpoint(768px){
+			max-width: 228px;		
+			height: 98%;	
+		}
 
 		&:hover{
 			background: transparent;
 		}
-
 	}
-
-
 }
+
