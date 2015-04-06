@@ -14,22 +14,22 @@ function mmorpg_game_block_info() {
   $blocks['game_menu_block'] = array(
     'info' => t('Game Menu Block'),
   );
-  
+
   return $blocks;
 }
 
 /**
  * Implements hook_block_view().
  */
-function mmorpg_game_block_view($delta='') {
+function mmorpg_game_block_view($delta = '') {
   $block = array();
-  
-  switch($delta) {
+
+  switch ($delta) {
     case 'game_menu_block' :
       $block['content'] = mmorpg_game_menu_content();
       break;
   }
-  
+
   return $block;
 }
 
@@ -39,7 +39,7 @@ function mmorpg_game_menu_content() {
 
   $active_attribute = array('class' => array('active'));
   $overview_attributes = $forum_attributes = $ratings_attributes = $reviews_attributes
-  = $screenshots_attributes = $videos_attributes = array();
+    = $screenshots_attributes = $videos_attributes = array();
 
   switch ($current) {
     case 'overview':

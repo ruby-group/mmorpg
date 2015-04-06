@@ -101,7 +101,7 @@ function mmorpg_wysiwyg_plugin_shortcode_play_now($attrs, $text) {
     $game_id = $result['field_game_target_id'];
     $official_url = $result['field_link_url'];
   }
-  elseif(arg(0) == 'node' and arg(1) == 'add') {
+  elseif (arg(0) == 'node' and arg(1) == 'add') {
     $game_id = $_POST['field_game']['und'];
     // we have the game id.
     //now get the official link.
@@ -153,10 +153,10 @@ function mmorpg_wysiwyg_plugin_shortcode_play_now($attrs, $text) {
     }
     return clickmeter_link_render_item_as_link(
       $official_text,
-      null,
+      NULL,
       $result['field_target_url_link_url'],
       $result['field_target_url_pixel_url']
-      );
+    );
   }
   return l('Play Now', $official_url, array('target' => '_blank'));
 }
