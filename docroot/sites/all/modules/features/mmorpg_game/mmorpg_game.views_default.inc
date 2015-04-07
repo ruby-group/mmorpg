@@ -54,11 +54,28 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_article_overview']['field'] = 'field_article_overview';
   $handler->display->display_options['fields']['field_article_overview']['label'] = '';
   $handler->display->display_options['fields']['field_article_overview']['element_label_colon'] = FALSE;
+  /* Field: Content: Promoted to front page */
+  $handler->display->display_options['fields']['promote']['id'] = 'promote';
+  $handler->display->display_options['fields']['promote']['table'] = 'node';
+  $handler->display->display_options['fields']['promote']['field'] = 'promote';
+  $handler->display->display_options['fields']['promote']['type'] = 'custom';
+  $handler->display->display_options['fields']['promote']['type_custom_true'] = '<div>true</div>';
+  $handler->display->display_options['fields']['promote']['type_custom_false'] = '<div>false</div>';
+  $handler->display->display_options['fields']['promote']['not'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Game (field_game) */
+  $handler->display->display_options['arguments']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['arguments']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -72,6 +89,19 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'mmorpg_article' => 'mmorpg_article',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'field_game_target_id' => array(
+      'type' => 'user',
+      'context' => 'entity:comment.author',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Game (field_game)',
+    ),
   );
   $translatables['game_overview_articles'] = array(
     t('Master'),
@@ -88,6 +118,12 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('Promoted to front page'),
+    t('<div>true</div>'),
+    t('<div>false</div>'),
+    t('All'),
+    t('Content pane'),
+    t('View panes'),
   );
   $export['game_overview_articles'] = $view;
 
