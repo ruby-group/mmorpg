@@ -224,9 +224,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => NULL,
+        'module' => 'clickmeter_link',
         'settings' => array(),
-        'type' => 'clickmeter_link_field',
+        'type' => 'clickmeter_link_default',
         'weight' => 7,
       ),
       'teaser' => array(
