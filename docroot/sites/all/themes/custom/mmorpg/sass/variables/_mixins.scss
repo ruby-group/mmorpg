@@ -1,28 +1,41 @@
 /* ==========================================================================
-   Gallery pages commin styles
+   Gallery pages common styles
    ========================================================================== */
 %gallery_rows{
-	display: inline-block;
-    float: left;
-    margin: 0 5px;
-    margin-bottom: 10px;
-    position: relative;
-    cursor: pointer;
-    width: 100%;
-    height: auto;
+  display: inline-block;
+  float: left;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
 }
 
 %gallery_overlay{
-	color: $light-gray;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
-   padding: 1em;
-	background: url('../images/updates_bg.png');
+  color: $light-gray;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+  background: url('../images/updates_bg.png');
 }
 
 %gallery_hover{
-	background: transparent;
+  background: none;
 }
 
+/* ==========================================================================
+   Node pages common styles
+   ========================================================================== */
+%node_body{
+  background: $white;
+  border-top: 4px solid $light-blue;
+  font-size: 14px;
+  line-height: 1.6em;
+  margin: 0 auto;
+  margin-bottom: -20px;
+  padding: 20px;
+  position: relative;
+  width: 92%;
+}

@@ -11,6 +11,7 @@
 		@extend %gallery_overlay;
 		max-width: 109px;
 		height: 96%;
+		padding: 1em;
 		@include breakpoint(768px){
 			max-width: 228px;		
 			height: 98%;	
