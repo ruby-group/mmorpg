@@ -10,7 +10,6 @@ dependencies[] = email
 dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_group
-dependencies[] = mmorpg_game
 dependencies[] = node
 dependencies[] = number
 dependencies[] = strongarm

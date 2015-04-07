@@ -1,6 +1,7 @@
 name = Demo
 core = 7.x
 package = MMORPG
+dependencies[] = country_specific_nodes
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = mmorpg_article
@@ -60,4 +61,3 @@ features[features_overrides][] = user_permission.view any unpublished customer c
 features[user_permission][] = bypass country restriction
 features[user_role][] = subadmin
 features[views_view][] = radioactivity
-features_exclude[dependencies][country_specific_nodes] = country_specific_nodes
