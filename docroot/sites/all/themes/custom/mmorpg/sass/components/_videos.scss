@@ -33,15 +33,8 @@
 .pane-video-gallery-grid{
   
   .views-row{
-    display: inline-block;
-    float: left;
-    margin: 0 5px;
-    margin-bottom: 10px;
-    position: relative;
-    cursor: pointer;
+    @extend %gallery_rows;
     max-width: 150px;
-    width: 100%;
-    height: auto;
   }
 
   .video_image a{
@@ -50,14 +43,9 @@
   }
 
   .video_hover{
-    color: $light-gray;
-    position: absolute;
-    top: 0;
+    @extend %gallery_overlay;
     max-width: 150px;
-    width: 100%;
     height: 120px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
-    background: url('../images/updates_bg.png');
 
     span{
       display: block;
@@ -67,10 +55,10 @@
     }
 
     &:hover{
-      background: transparent;
+        @extend %gallery_hover;
     }
     
-    &:hover + .video_image {
+    &:hover + .video_image > a {
       border-bottom: 4px solid #1879cd;
     }
   }
