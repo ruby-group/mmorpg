@@ -31,7 +31,7 @@
 
   .video_image a{
     display: block;
-    border-bottom: 4px solid #bce6ff;
+    border-bottom: 4px solid $light-blue;
   }
 
   .video_hover{
@@ -51,17 +51,25 @@
     }
     
     &:hover + .video_image > a {
-      border-bottom: 4px solid #1879cd;
+      border-bottom: 4px solid $hover-dblue;
+    }
+
+    &:hover + .video_title > a{
+      color: $hover-dblue;
     }
   }
 
   .video_title a{
+    color: $black;
     font-size: 16px;
     padding: 10px 0 15px 0;
     text-shadow: none;
-    color: $black;
     border-bottom: 0px !important;
     display: block;
     font-weight: 400;
+
+    &:hover{
+      color: $hover-dblue;
+    }
   }
 }
