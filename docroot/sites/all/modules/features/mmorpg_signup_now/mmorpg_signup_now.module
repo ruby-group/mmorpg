@@ -7,6 +7,38 @@
 include_once 'mmorpg_signup_now.features.inc';
 
 function mmorpg_signup_now_init() {
-  $mmo_limit = variable_get('mmorpg_signup_now_mmo_limit', 5);
+  $mmo_limit = variable_get('mmorpg_signup_now_mmo_limit', 10);
   drupal_add_js(array('mmorpg_signup_now' => array('mmo_limit' => $mmo_limit)), array('type' => 'setting'));
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mmorpg_signup_now_menu() {
+  $items = array();
+
+  $items['admin/config/signupnow'] = array(
+    'title' => 'Signup Now',
+    'description' => 'Signup Now Link config page.',
+    'position' => 'right',
+    'weight' => -5,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mmorpg_signup_now_config_form'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    );
+
+  return $items;
+}
+
+//returns a form to get the limits
+function mmorpg_signup_now_config_form() {
+  return system_settings_form(array(
+    'mmorpg_signup_now_mmo_limit' => array(
+      '#type' => 'textfield',
+      '#title' => t('Max count of links on MMO block'),
+      '#maxlength' => 60,
+      '#default_value' => variable_get('mmorpg_signup_now_mmo_limit', 10),
+      )
+    ));
 }

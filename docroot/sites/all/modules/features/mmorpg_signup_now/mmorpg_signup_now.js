@@ -19,21 +19,13 @@ Drupal.behaviors.mmorpgGameToDisplayBehavior = {
       jQuery(element).html(displayRows);
     });
 
-    //calculate no of promoted links
-    var promoCount = jQuery(".view-promoted-signup-now-link .view-content .tier .views-row").length;
-
     //get the limit set on total mmo block
     var requiredLimit = Drupal.settings.mmorpg_signup_now.mmo_limit;
 
-    //get count of no of signupnow links to display
-    signupNowLimit = requiredLimit - promoCount;
-
     //hide the other signup now links
-    if (signupNowLimit > 0) {
-      jQuery(".view-promoted-signup-now-link .view-content > .views-row:gt(" + 
-        (Number(signupNowLimit) - 1) +")").each(function (index, element) {
-          jQuery(this).hide();
-      });
+    jQuery(".view-promoted-signup-now-link .view-content .views-row:gt(" + 
+      (requiredLimit - 1) + ")").each(function (index, element) {
+      jQuery(this).hide();
+    });
     }
-  }
-};
+  };
