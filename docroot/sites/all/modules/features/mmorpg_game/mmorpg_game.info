@@ -14,6 +14,7 @@ dependencies[] = link
 dependencies[] = list
 dependencies[] = mmorpg_article
 dependencies[] = mmorpg_vocabularies
+dependencies[] = multiupload_imagefield_widget
 dependencies[] = node
 dependencies[] = options
 dependencies[] = page_manager
