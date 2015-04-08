@@ -5,3 +5,8 @@
  */
 
 include_once 'mmorpg_signup_now.features.inc';
+
+function mmorpg_signup_now_init() {
+  $mmo_limit = variable_get('mmorpg_signup_now_mmo_limit', 5);
+  drupal_add_js(array('mmorpg_signup_now' => array('mmo_limit' => $mmo_limit)), array('type' => 'setting'));
+}

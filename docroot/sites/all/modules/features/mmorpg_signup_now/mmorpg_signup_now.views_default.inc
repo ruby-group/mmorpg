@@ -28,11 +28,12 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
-      'field' => 'field_gtp_tier',
+      'field' => 'field_psnl_tier',
       'rendered' => 0,
       'rendered_strip' => 0,
     ),
@@ -144,10 +145,19 @@ function mmorpg_signup_now_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
+  /* Sort criterion: Content: Type */
+  $handler->display->display_options['sorts']['type']['id'] = 'type';
+  $handler->display->display_options['sorts']['type']['table'] = 'node';
+  $handler->display->display_options['sorts']['type']['field'] = 'type';
   /* Sort criterion: Content: Tier (field_psnl_tier) */
   $handler->display->display_options['sorts']['field_psnl_tier_tid']['id'] = 'field_psnl_tier_tid';
   $handler->display->display_options['sorts']['field_psnl_tier_tid']['table'] = 'field_data_field_psnl_tier';
   $handler->display->display_options['sorts']['field_psnl_tier_tid']['field'] = 'field_psnl_tier_tid';
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -162,23 +172,45 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'promoted_signup_now_link' => 'promoted_signup_now_link',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Schedule -  start date (field_psnl_schedule) */
   $handler->display->display_options['filters']['field_psnl_schedule_value']['id'] = 'field_psnl_schedule_value';
   $handler->display->display_options['filters']['field_psnl_schedule_value']['table'] = 'field_data_field_psnl_schedule';
   $handler->display->display_options['filters']['field_psnl_schedule_value']['field'] = 'field_psnl_schedule_value';
   $handler->display->display_options['filters']['field_psnl_schedule_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['group'] = 1;
   $handler->display->display_options['filters']['field_psnl_schedule_value']['default_date'] = 'now';
   /* Filter criterion: Content: Schedule - end date (field_psnl_schedule:value2) */
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['id'] = 'field_psnl_schedule_value2';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['table'] = 'field_data_field_psnl_schedule';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['field'] = 'field_psnl_schedule_value2';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['group'] = 1;
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'node';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['value'] = '1';
+  $handler->display->display_options['filters']['status_1']['group'] = 2;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'signup_now_link' => 'signup_now_link',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 2;
 
   /* Display: Sitewide */
   $handler = $view->new_display('panel_pane', 'Sitewide', 'panel_pane_1');
   $handler->display->display_options['display_description'] = 'A content pane for sitewide promoted links';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -194,18 +226,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'promoted_signup_now_link' => 'promoted_signup_now_link',
   );
-  /* Filter criterion: Content: Schedule -  start date (field_psnl_schedule) */
-  $handler->display->display_options['filters']['field_psnl_schedule_value']['id'] = 'field_psnl_schedule_value';
-  $handler->display->display_options['filters']['field_psnl_schedule_value']['table'] = 'field_data_field_psnl_schedule';
-  $handler->display->display_options['filters']['field_psnl_schedule_value']['field'] = 'field_psnl_schedule_value';
-  $handler->display->display_options['filters']['field_psnl_schedule_value']['operator'] = '<=';
-  $handler->display->display_options['filters']['field_psnl_schedule_value']['default_date'] = 'now';
-  /* Filter criterion: Content: Schedule - end date (field_psnl_schedule:value2) */
-  $handler->display->display_options['filters']['field_psnl_schedule_value2']['id'] = 'field_psnl_schedule_value2';
-  $handler->display->display_options['filters']['field_psnl_schedule_value2']['table'] = 'field_data_field_psnl_schedule';
-  $handler->display->display_options['filters']['field_psnl_schedule_value2']['field'] = 'field_psnl_schedule_value2';
-  $handler->display->display_options['filters']['field_psnl_schedule_value2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_psnl_schedule_value2']['default_date'] = 'now';
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Area (field_psnl_area) */
   $handler->display->display_options['filters']['field_psnl_area_tid']['id'] = 'field_psnl_area_tid';
   $handler->display->display_options['filters']['field_psnl_area_tid']['table'] = 'field_data_field_psnl_area';
@@ -213,13 +234,48 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['filters']['field_psnl_area_tid']['value'] = array(
     12685 => '12685',
   );
+  $handler->display->display_options['filters']['field_psnl_area_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_psnl_area_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_psnl_area_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_psnl_area_tid']['vocabulary'] = 'area_games_to_play_';
+  /* Filter criterion: Content: Schedule -  start date (field_psnl_schedule) */
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['id'] = 'field_psnl_schedule_value';
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['table'] = 'field_data_field_psnl_schedule';
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['field'] = 'field_psnl_schedule_value';
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Schedule - end date (field_psnl_schedule:value2) */
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['id'] = 'field_psnl_schedule_value2';
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['table'] = 'field_data_field_psnl_schedule';
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['field'] = 'field_psnl_schedule_value2';
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['group'] = 1;
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['default_date'] = 'now';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'node';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['value'] = '1';
+  $handler->display->display_options['filters']['status_1']['group'] = 2;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'signup_now_link' => 'signup_now_link',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 2;
 
   /* Display: Home Page */
   $handler = $view->new_display('panel_pane', 'Home Page', 'panel_pane_2');
   $handler->display->display_options['display_description'] = 'A content pane to display promoted links on home page';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['filter_groups']['operator'] = 'OR';
+  $handler->display->display_options['filter_groups']['groups'] = array(
+    1 => 'AND',
+    2 => 'AND',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -235,17 +291,20 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'promoted_signup_now_link' => 'promoted_signup_now_link',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Schedule -  start date (field_psnl_schedule) */
   $handler->display->display_options['filters']['field_psnl_schedule_value']['id'] = 'field_psnl_schedule_value';
   $handler->display->display_options['filters']['field_psnl_schedule_value']['table'] = 'field_data_field_psnl_schedule';
   $handler->display->display_options['filters']['field_psnl_schedule_value']['field'] = 'field_psnl_schedule_value';
   $handler->display->display_options['filters']['field_psnl_schedule_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_psnl_schedule_value']['group'] = 1;
   $handler->display->display_options['filters']['field_psnl_schedule_value']['default_date'] = 'now';
   /* Filter criterion: Content: Schedule - end date (field_psnl_schedule:value2) */
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['id'] = 'field_psnl_schedule_value2';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['table'] = 'field_data_field_psnl_schedule';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['field'] = 'field_psnl_schedule_value2';
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_psnl_schedule_value2']['group'] = 1;
   $handler->display->display_options['filters']['field_psnl_schedule_value2']['default_date'] = 'now';
   /* Filter criterion: Content: Area (field_psnl_area) */
   $handler->display->display_options['filters']['field_psnl_area_tid']['id'] = 'field_psnl_area_tid';
@@ -255,8 +314,24 @@ function mmorpg_signup_now_views_default_views() {
     12686 => '12686',
     12685 => '12685',
   );
+  $handler->display->display_options['filters']['field_psnl_area_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_psnl_area_tid']['reduce_duplicates'] = TRUE;
   $handler->display->display_options['filters']['field_psnl_area_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_psnl_area_tid']['vocabulary'] = 'area_games_to_play_';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status_1']['id'] = 'status_1';
+  $handler->display->display_options['filters']['status_1']['table'] = 'node';
+  $handler->display->display_options['filters']['status_1']['field'] = 'status';
+  $handler->display->display_options['filters']['status_1']['value'] = '1';
+  $handler->display->display_options['filters']['status_1']['group'] = 2;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'signup_now_link' => 'signup_now_link',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 2;
   $translatables['promoted_signup_now_link'] = array(
     t('Master'),
     t('MMOs to Play, Download or Pre-Order Now!'),
@@ -266,13 +341,6 @@ function mmorpg_signup_now_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
     t('Checkout our complete list of free to play, signup for, pre-order and download now MMORPGs!'),
     t('term'),
     t('Content entity referenced from field_game'),
