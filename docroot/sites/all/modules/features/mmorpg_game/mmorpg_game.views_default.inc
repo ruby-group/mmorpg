@@ -587,7 +587,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -626,9 +626,10 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = 'Video';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="screenshot_image">[field_video_url]</div>
-<div class="screenshot_hover">[title]</div>';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="video_hover"><span>Video</span></div>
+<div class="video_image">[field_video_url]</div>
+<div class="video_title">[title]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -686,9 +687,9 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Video'),
-    t('<div class="screenshot_image">[field_video_url]</div>
-<div class="screenshot_hover">[title]</div>'),
+    t('<div class="video_hover"><span>Video</span></div>
+<div class="video_image">[field_video_url]</div>
+<div class="video_title">[title]</div>'),
     t('All'),
     t('Video Gallery Grid'),
     t('View panes'),
