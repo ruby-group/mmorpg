@@ -11,6 +11,92 @@ function mmorpg_signup_now_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'play_now_slider';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Play Now Slider';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'link';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Hero Image */
+  $handler->display->display_options['fields']['field_game_hero_image']['id'] = 'field_game_hero_image';
+  $handler->display->display_options['fields']['field_game_hero_image']['table'] = 'field_data_field_game_hero_image';
+  $handler->display->display_options['fields']['field_game_hero_image']['field'] = 'field_game_hero_image';
+  $handler->display->display_options['fields']['field_game_hero_image']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_game_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_game_hero_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_game_hero_image']['alter']['path'] = 'game/[nid]/overview';
+  $handler->display->display_options['fields']['field_game_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_game_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_game_hero_image']['settings'] = array(
+    'image_style' => 'plaw_now_slider',
+    'image_link' => '',
+  );
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'promoted_signup_now_link' => 'promoted_signup_now_link',
+    'signup_now_link' => 'signup_now_link',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $translatables['play_now_slider'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Content entity referenced from field_game'),
+    t('link'),
+    t('Content pane'),
+    t('View panes'),
+  );
+  $export['play_now_slider'] = $view;
+
+  $view = new view();
   $view->name = 'promoted_signup_now_link';
   $view->description = '';
   $view->tag = 'default';

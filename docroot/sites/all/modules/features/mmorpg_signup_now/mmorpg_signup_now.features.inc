@@ -26,6 +26,21 @@ function mmorpg_signup_now_views_api($module = NULL, $api = NULL) {
 function mmorpg_signup_now_image_default_styles() {
   $styles = array();
 
+  // Exported image style: plaw_now_slider.
+  $styles['plaw_now_slider'] = array(
+    'label' => 'Plaw Now Slider',
+    'effects' => array(
+      4 => array(
+        'name' => 'image_resize',
+        'data' => array(
+          'width' => 192,
+          'height' => 128,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: promoted_signup_now_links__26_x_26_.
   $styles['promoted_signup_now_links__26_x_26_'] = array(
     'label' => 'Promoted Signup Now Links (26 X 26)',
