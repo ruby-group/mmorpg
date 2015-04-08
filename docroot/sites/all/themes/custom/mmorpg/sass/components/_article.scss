@@ -39,16 +39,8 @@
 	}
 
 	.field--name-field-article-news-post{
-		font-size: 14px;
-		line-height: 1.6em;
-		margin: 0 auto;
+		@extend %node_body;
 		top: -20px;
-		margin-bottom: -20px;
-		padding: 20px;
-		background: $white;
-		border-top: 4px solid $light-blue;
-		position: relative;
-		width: 92%;
 		@include breakpoint(1024px){
 			top: -40px;
 			margin-bottom: -40px;
