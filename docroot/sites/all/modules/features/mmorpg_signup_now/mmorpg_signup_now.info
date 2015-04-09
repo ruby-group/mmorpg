@@ -79,6 +79,7 @@ features[variable][] = node_preview_promoted_signup_now_link
 features[variable][] = node_preview_signup_now_link
 features[variable][] = node_submitted_promoted_signup_now_link
 features[variable][] = node_submitted_signup_now_link
+features[views_view][] = play_now
 features[views_view][] = play_now_slider
 features[views_view][] = promoted_signup_now_link
 features[views_view][] = promoted_signup_now_links_admin
