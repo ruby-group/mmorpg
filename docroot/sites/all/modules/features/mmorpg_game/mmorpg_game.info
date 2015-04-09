@@ -174,7 +174,6 @@ features[variable][] = node_submitted_game_link
 features[variable][] = node_submitted_screenshot_gallery
 features[variable][] = node_submitted_video
 features[views_view][] = game_overview_articles
-features[views_view][] = play_now
 features[views_view][] = screenshot_gallery_grid
 features[views_view][] = video_exclusive
 features[views_view][] = video_gallery_grid

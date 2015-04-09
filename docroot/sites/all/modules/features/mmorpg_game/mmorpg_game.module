@@ -14,7 +14,6 @@ function mmorpg_game_block_info() {
   $blocks['game_menu_block'] = array(
     'info' => t('Game Menu Block'),
   );
-
   return $blocks;
 }
 
@@ -72,5 +71,4 @@ function mmorpg_game_menu_content() {
   $links = '<div class="game-sub-menu">' . $overview . $forum . $reviews . $screenshots . $videos . '</div>';
 
   return $links;
-
 }

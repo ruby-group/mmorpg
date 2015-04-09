@@ -42,3 +42,46 @@ function mmorpg_signup_now_config_form() {
       )
     ));
 }
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_signup_now_block_info() {
+  $blocks = array();
+  $blocks['play_now_page_filters'] = array(
+    'info' => t('Play Now Page Filters'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_signup_now_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'play_now_page_filters' :
+      $block['content'] = mmorpg_signup_now_play_now_filter();
+      break;
+  }
+  
+  return $block;
+}
+
+function mmorpg_signup_now_play_now_filter() {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('platforms');
+  $terms = taxonomy_get_tree($vocabulary->vid);
+  
+  $content = '';
+  $active_attribute = array('class' => array('active'));
+  $current = arg(1);
+
+  foreach ($terms as $term) {
+    if ($current == $term->tid) {
+      $content .= l(t($term->name), 'playnow/' . $term->tid, array('attributes' => $active_attribute));
+    } else {
+      $content .= l(t($term->name), 'playnow/' . $term->tid);
+    }
+  }
+  return $content;
+}
