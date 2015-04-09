@@ -78,15 +78,15 @@ function mmorpg_signup_now_play_now_filter() {
 
   $content .= '<div>Filter</div>';
   if($current == "") {
-      $content .= l(t('All Games'), 'playnow', array('attributes' => $active_attribute));
+      $content .= l(t('All Games'), 'play-now', array('attributes' => $active_attribute));
     } else {
-    $content .= l(t('All Games'), 'playnow');
+    $content .= l(t('All Games'), 'play-now');
   }
   foreach ($terms as $term) {
     if ($current == $term->tid) {
-      $content .= l(t($term->name), 'playnow/' . $term->tid, array('attributes' => $active_attribute));
+      $content .= l(t($term->name), 'play-now/' . $term->tid, array('attributes' => $active_attribute));
     } else {
-      $content .= l(t($term->name), 'playnow/' . $term->tid);
+      $content .= l(t($term->name), 'play-now/' . $term->tid);
     }
   }
   return $content;
