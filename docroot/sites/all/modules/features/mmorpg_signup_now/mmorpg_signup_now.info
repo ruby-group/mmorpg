@@ -52,6 +52,7 @@ features[field_instance][] = node-signup_now_link-field_traffic_source
 features[image][] = promoted_signup_now_links__26_x_26_
 features[node][] = promoted_signup_now_link
 features[node][] = signup_now_link
+features[user_permission][] = bypass country restriction
 features[user_permission][] = create promoted_signup_now_link content
 features[user_permission][] = delete any promoted_signup_now_link content
 features[user_permission][] = delete own promoted_signup_now_link content

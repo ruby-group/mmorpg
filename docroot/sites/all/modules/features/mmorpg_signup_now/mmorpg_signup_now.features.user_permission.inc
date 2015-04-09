@@ -10,6 +10,13 @@
 function mmorpg_signup_now_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'bypass country restriction'.
+  $permissions['bypass country restriction'] = array(
+    'name' => 'bypass country restriction',
+    'roles' => array(),
+    'module' => 'country_specific_nodes',
+  );
+
   // Exported permission: 'create promoted_signup_now_link content'.
   $permissions['create promoted_signup_now_link content'] = array(
     'name' => 'create promoted_signup_now_link content',

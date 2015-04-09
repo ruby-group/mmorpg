@@ -5,6 +5,15 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_api().
+ */
+function demo_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
+}
+
+/**
  * Implements hook_views_api().
  */
 function demo_views_api($module = NULL, $api = NULL) {
@@ -15,6 +24,9 @@ function demo_views_api($module = NULL, $api = NULL) {
  * Implements hook_user_default_permissions_alter().
  */
 function demo_user_default_permissions_alter(&$data) {
+  if (isset($data['bypass country restriction'])) {
+    $data['bypass country restriction']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
   if (isset($data['create article_news_post content'])) {
     $data['create article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }

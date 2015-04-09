@@ -12,6 +12,7 @@ function demo_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: user_permission
+  $overrides["user_permission.bypass country restriction.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.create article_news_post content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.create customer content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.create game content.roles|subadmin"] = 'subadmin';
