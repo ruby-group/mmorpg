@@ -64,6 +64,14 @@ function mmorpg_signup_now_image_default_styles() {
  */
 function mmorpg_signup_now_node_info() {
   $items = array(
+    'play_now_promoted_game' => array(
+      'name' => t('Play Now Promoted Game'),
+      'base' => 'node_content',
+      'description' => t('A content type to create play now promoted game.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'promoted_signup_now_link' => array(
       'name' => t('Promoted Signup Link'),
       'base' => 'node_content',

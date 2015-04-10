@@ -13,6 +13,7 @@ dependencies[] = isfield
 dependencies[] = link
 dependencies[] = list
 dependencies[] = mmorpg_article
+dependencies[] = mmorpg_signup_now
 dependencies[] = mmorpg_vocabularies
 dependencies[] = multiupload_imagefield_widget
 dependencies[] = node
