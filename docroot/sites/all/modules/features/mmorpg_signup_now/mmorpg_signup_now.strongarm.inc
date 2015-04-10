@@ -27,6 +27,55 @@ function mmorpg_signup_now_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_play_now_promoted_game';
+  $strongarm->value = 0;
+  $export['comment_anonymous_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_play_now_promoted_game';
+  $strongarm->value = 1;
+  $export['comment_default_mode_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_play_now_promoted_game';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_play_now_promoted_game';
+  $strongarm->value = 1;
+  $export['comment_form_location_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_play_now_promoted_game';
+  $strongarm->value = '1';
+  $export['comment_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_play_now_promoted_game';
+  $strongarm->value = '1';
+  $export['comment_preview_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_play_now_promoted_game';
+  $strongarm->value = 1;
+  $export['comment_subject_field_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'country_specific_nodes_def_cn';
   $strongarm->value = 'US';
   $export['country_specific_nodes_def_cn'] = $strongarm;
@@ -37,6 +86,23 @@ function mmorpg_signup_now_strongarm() {
   $strongarm->name = 'country_specific_nodes_include_list';
   $strongarm->value = 'signup_now_link,0,0,0,0,0,0';
   $export['country_specific_nodes_include_list'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__play_now_promoted_game';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__play_now_promoted_game'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -125,9 +191,25 @@ function mmorpg_signup_now_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_play_now_promoted_game';
+  $strongarm->value = '0';
+  $export['language_content_type_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_promoted_signup_now_link';
   $strongarm->value = '0';
   $export['language_content_type_promoted_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_play_now_promoted_game';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_play_now_promoted_game'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -148,6 +230,13 @@ function mmorpg_signup_now_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_play_now_promoted_game';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_promoted_signup_now_link';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_promoted_signup_now_link'] = $strongarm;
@@ -158,6 +247,15 @@ function mmorpg_signup_now_strongarm() {
   $strongarm->name = 'menu_parent_signup_now_link';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_play_now_promoted_game';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_play_now_promoted_game'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -180,6 +278,13 @@ function mmorpg_signup_now_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_play_now_promoted_game';
+  $strongarm->value = '1';
+  $export['node_preview_play_now_promoted_game'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_promoted_signup_now_link';
   $strongarm->value = '1';
   $export['node_preview_promoted_signup_now_link'] = $strongarm;
@@ -190,6 +295,13 @@ function mmorpg_signup_now_strongarm() {
   $strongarm->name = 'node_preview_signup_now_link';
   $strongarm->value = '1';
   $export['node_preview_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_play_now_promoted_game';
+  $strongarm->value = 1;
+  $export['node_submitted_play_now_promoted_game'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
