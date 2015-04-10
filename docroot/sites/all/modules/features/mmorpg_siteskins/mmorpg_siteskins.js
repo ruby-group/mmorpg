@@ -18,7 +18,10 @@ jQuery(document).ready(function () {
     history[key] = (history[key] + 1) % Drupal.settings.siteskins.data.length;
     jQuery.cookie('siteskins', JSON.stringify(history));
     var data = Drupal.settings.siteskins.data[history[key]];
-    jQuery('#skin-tracking-area').attr('href', data.link).append(jQuery(tracking_js(data.pixel)));
+    jQuery('#skin-tracking-area')
+      .attr('href', data.link)
+      .append(jQuery(tracking_js(data.pixel)))
+      .append(data.thirdPartyPixel);
     jQuery('.main').css({
       "background-color": data.color,
       "background-image": 'url(' + data.image + ')',
