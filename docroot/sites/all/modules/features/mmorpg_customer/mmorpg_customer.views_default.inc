@@ -1021,11 +1021,11 @@ function mmorpg_customer_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['label'] = '';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
-  /* Field: Content: Provider */
-  $handler->display->display_options['fields']['field_customer_contents']['id'] = 'field_customer_contents';
-  $handler->display->display_options['fields']['field_customer_contents']['table'] = 'field_data_field_customer_contents';
-  $handler->display->display_options['fields']['field_customer_contents']['field'] = 'field_customer_contents';
-  $handler->display->display_options['fields']['field_customer_contents']['settings'] = array(
+  /* Field: Content: Customer */
+  $handler->display->display_options['fields']['field_customer']['id'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['table'] = 'field_data_field_customer';
+  $handler->display->display_options['fields']['field_customer']['field'] = 'field_customer';
+  $handler->display->display_options['fields']['field_customer']['settings'] = array(
     'link' => 0,
   );
   /* Field: Content: Game */

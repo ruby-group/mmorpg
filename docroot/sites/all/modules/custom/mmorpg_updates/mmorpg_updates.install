@@ -325,3 +325,10 @@ function mmorpg_updates_update_7037() {
   field_delete_instance(field_info_instance('node', 'field_article_game', 'mmorpg_article'));
   field_delete_instance(field_info_instance('node', 'field_screenshot_game', 'screenshot_gallery'));
 }
+
+/**
+ * Removing field_customer_contents field.
+ */
+function mmorpg_updates_update_7038() {
+  field_delete_instance(field_info_instance('node', 'field_customer_contents', 'signup_now_link'));
+}

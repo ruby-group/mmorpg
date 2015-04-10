@@ -490,8 +490,8 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-signup_now_link-field_customer_contents'
-  $field_instances['node-signup_now_link-field_customer_contents'] = array(
+  // Exported field_instance: 'node-signup_now_link-field_customer'
+  $field_instances['node-signup_now_link-field_customer'] = array(
     'bundle' => 'signup_now_link',
     'default_value' => NULL,
     'deleted' => 0,
@@ -504,17 +504,11 @@ function mmorpg_signup_now_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 7,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_customer_contents',
+    'field_name' => 'field_customer',
     'label' => 'Provider',
     'required' => 1,
     'settings' => array(

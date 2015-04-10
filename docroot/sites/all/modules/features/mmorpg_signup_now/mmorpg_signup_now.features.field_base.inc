@@ -36,44 +36,6 @@ function mmorpg_signup_now_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_customer_contents'
-  $field_bases['field_customer_contents'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_customer_contents',
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-autocomplete' => array(
-            'status' => 1,
-          ),
-          'views-select-list' => array(
-            'status' => 1,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'customer' => 'customer',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
-  );
-
   // Exported field_base: 'field_link_type'
   $field_bases['field_link_type'] = array(
     'active' => 1,
