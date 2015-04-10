@@ -15,6 +15,7 @@ function clickmeter_link_views_data() {
     'help' => t("count of link views"),
     'field' => array(
       'handler' => 'ClickmeterLinkHandlerImpressions',
+      'click sortable' => TRUE,
     ),
   );
   $data['views']['clicks'] = array(
@@ -22,6 +23,7 @@ function clickmeter_link_views_data() {
     'help' => t("count of link clicks"),
     'field' => array(
       'handler' => 'ClickmeterLinkHandlerClicks',
+      'click sortable' => TRUE,
     ),
   );
   $data['views']['date_filter'] = array(
@@ -34,7 +36,8 @@ function clickmeter_link_views_data() {
   return $data;
 }
 
-class ClickmeterLinkHandlerImpressions extends views_handler_field {
+class ClickmeterLinkHandlerParent extends views_handler_field {
+
   public function query() {
   }
 
@@ -58,7 +61,14 @@ class ClickmeterLinkHandlerImpressions extends views_handler_field {
     $min = date('Ymd', strtotime($this->view->filter['date_filter']->value['min']));
     $max = date('Ymd', strtotime($this->view->filter['date_filter']->value['max']));
 
-    $response = ClickmeterService::get_datapoint_stats($id, $min, $max);
+    return ClickmeterService::get_datapoint_stats($id, $min, $max);
+  }
+}
+
+class ClickmeterLinkHandlerImpressions extends ClickmeterLinkHandlerParent {
+
+  public function render($values) {
+    $response = parent::render($values);
     $output = '--';
     if (property_exists($response, 'totalViews') and property_exists($response, 'uniqueViews')) {
       $output = "$response->totalViews ($response->uniqueViews)";
@@ -67,31 +77,10 @@ class ClickmeterLinkHandlerImpressions extends views_handler_field {
   }
 }
 
-class ClickmeterLinkHandlerClicks extends views_handler_field {
-  public function query() {
-  }
-
-  function option_definition() {
-    $options = parent::option_definition();
-    $options['datapoint_id'] = array('default' => '');
-    return $options;
-  }
-
-  function options_form(&$form, &$form_state) {
-    $form['datapoint_id'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Datapoint Id (replacement token)'),
-      '#default_value' => $this->options['datapoint_id'],
-    );
-    parent::options_form($form, $form_state);
-  }
+class ClickmeterLinkHandlerClicks extends ClickmeterLinkHandlerParent {
 
   public function render($values) {
-    $id = $this->tokenize_value($this->options['datapoint_id']);
-    $min = date('Ymd', strtotime($this->view->filter['date_filter']->value['min']));
-    $max = date('Ymd', strtotime($this->view->filter['date_filter']->value['max']));
-
-    $response = ClickmeterService::get_datapoint_stats($id, $min, $max);
+    $response = parent::render($values);
     $output = '--';
     if (property_exists($response, 'totalClicks') and property_exists($response, 'uniqueClicks')) {
       $output = "$response->totalClicks ($response->uniqueClicks)";
