@@ -136,6 +136,40 @@ function mmorpg_siteskins_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'field_collection_item-field_siteskin_subskin-field_third_party_tracking_pixel'
+  $field_instances['field_collection_item-field_siteskin_subskin-field_third_party_tracking_pixel'] = array(
+    'bundle' => 'field_siteskin_subskin',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_third_party_tracking_pixel',
+    'label' => 'Third Party Tracking Pixel',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-siteskin-field_customer'
   $field_instances['node-siteskin-field_customer'] = array(
     'bundle' => 'siteskin',
@@ -334,6 +368,7 @@ function mmorpg_siteskins_field_default_field_instances() {
   t('Siteskin Active');
   t('Sub Skin');
   t('Target URL');
+  t('Third Party Tracking Pixel');
 
   return $field_instances;
 }
