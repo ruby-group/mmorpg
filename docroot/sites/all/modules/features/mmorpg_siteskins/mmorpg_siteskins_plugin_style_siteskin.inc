@@ -31,7 +31,7 @@ class mmorpg_siteskins_plugin_style_siteskin extends views_plugin_style {
         'link' => $collection->field_target_url[LANGUAGE_NONE][0]['link_url'],
         'color' => $collection->field_siteskin_bg_color[LANGUAGE_NONE][0]['rgb'],
         'pixel' => $collection->field_target_url[LANGUAGE_NONE][0]['pixel_url'],
-        'thirdPartyPixel' => $collection->field_third_party_tracking_pixel[LANGUAGE_NONE][0]['value'],
+        'thirdPartyPixel' => property_exists($collection, 'field_third_party_tracking_pixel') ? $collection->field_third_party_tracking_pixel[LANGUAGE_NONE][0]['value'] : NULL,
       );
     }
     return $details;
