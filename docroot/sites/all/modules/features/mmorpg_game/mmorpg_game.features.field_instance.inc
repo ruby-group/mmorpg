@@ -1067,7 +1067,7 @@ function mmorpg_game_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_game_link_link',
     'label' => 'Link',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'absolute_url' => 1,
       'attributes' => array(
