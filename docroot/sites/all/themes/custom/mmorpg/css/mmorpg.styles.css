@@ -40,6 +40,24 @@
   position: relative;
   width: 92%; }
 
+/* ==========================================================================
+   Play Now Buttons
+   ========================================================================== */
+/* line 46, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_url a, .view-play-now .play_now_more a {
+  color: #ffffff;
+  display: inline-block;
+  padding: 6px 7px;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  white-space: nowrap;
+  margin-right: 3px;
+  margin-bottom: 6px; }
+
 /* line 1, ../sass/abstractions/_global.scss */
 .hidden {
   display: none; }
@@ -459,6 +477,52 @@ ul.pager {
     ul.pager li.pager__item--first, ul.pager li.pager__item--previous, ul.pager li.pager__item--next, ul.pager li.pager__item--last {
       display: none; }
 
+/* line 3, ../sass/components/_play-now.scss */
+.view-play-now .views-row {
+  padding: 10px; }
+/* line 8, ../sass/components/_play-now.scss */
+.view-play-now .play_now_row_header .play_now_title {
+  display: inline-block; }
+  /* line 10, ../sass/components/_play-now.scss */
+  .view-play-now .play_now_row_header .play_now_title a {
+    color: #70b9ed;
+    padding-bottom: 10px;
+    font-size: 32px;
+    display: block;
+    box-sizing: border-box;
+    font-weight: 400; }
+/* line 20, ../sass/components/_play-now.scss */
+.view-play-now .play_now_row_header .play_now_platforms {
+  display: inline-block; }
+/* line 26, ../sass/components/_play-now.scss */
+.view-play-now .play_now_row_details .play_now_details {
+  display: inline-block; }
+/* line 30, ../sass/components/_play-now.scss */
+.view-play-now .play_now_row_details span.content {
+  font-weight: 600; }
+/* line 35, ../sass/components/_play-now.scss */
+.view-play-now .play_now_body {
+  line-height: 1.55em; }
+/* line 40, ../sass/components/_play-now.scss */
+.view-play-now .play_now_screenshots img {
+  max-width: 120px; }
+  /* line 43, ../sass/components/_play-now.scss */
+  .view-play-now .play_now_screenshots img:first-child {
+    max-width: 160px; }
+/* line 49, ../sass/components/_play-now.scss */
+.view-play-now .play_now_row_footer {
+  padding-top: 8px; }
+  /* line 52, ../sass/components/_play-now.scss */
+  .view-play-now .play_now_row_footer .play_now_url,
+  .view-play-now .play_now_row_footer .play_now_more {
+    display: inline-block; }
+/* line 59, ../sass/components/_play-now.scss */
+.view-play-now .play_now_url a {
+  background: #65c015; }
+/* line 64, ../sass/components/_play-now.scss */
+.view-play-now .play_now_more a {
+  background: #707070; }
+
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
   padding: 0 10px; }
@@ -574,41 +638,30 @@ ul.pager {
     padding: 1em;
     background: #242121; }
 
-/* line 14, ../sass/components/_videos.scss */
-.views-field-title {
-  padding-top: 0.50em; }
-  /* line 16, ../sass/components/_videos.scss */
-  .views-field-title a {
-    font-size: 16px;
-    padding-bottom: 10px;
-    text-shadow: none;
-    color: #000000;
-    border-bottom: 0px !important; }
-
-/* line 27, ../sass/components/_videos.scss */
+/* line 16, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .views-row {
   max-width: 150px; }
-/* line 32, ../sass/components/_videos.scss */
+/* line 21, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_image a {
   display: block;
   border-bottom: 4px solid #bce6ff; }
-/* line 37, ../sass/components/_videos.scss */
+/* line 26, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_hover {
   max-width: 150px;
   height: 120px; }
-  /* line 42, ../sass/components/_videos.scss */
+  /* line 31, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover span {
     display: block;
     padding: 0.75em 1.75em;
     margin-left: 0.5em;
     background: url("../images/video_icon.png") no-repeat transparent 2px 10px; }
-  /* line 53, ../sass/components/_videos.scss */
+  /* line 42, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover:hover + .video_image > a {
     border-bottom: 4px solid #1879cd; }
-  /* line 57, ../sass/components/_videos.scss */
+  /* line 46, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover:hover + .video_title > a {
     color: #1879cd; }
-/* line 62, ../sass/components/_videos.scss */
+/* line 51, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_title a {
   color: #000;
   font-size: 16px;
@@ -617,6 +670,6 @@ ul.pager {
   border-bottom: 0px !important;
   display: block;
   font-weight: 400; }
-  /* line 71, ../sass/components/_videos.scss */
+  /* line 60, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_title a:hover {
     color: #1879cd; }

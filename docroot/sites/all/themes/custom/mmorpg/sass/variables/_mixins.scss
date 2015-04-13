@@ -39,3 +39,24 @@
   position: relative;
   width: 92%;
 }
+
+/* ==========================================================================
+   Play Now Buttons
+   ========================================================================== */
+%play_now_buttons{
+  color: $white;
+  display: inline-block;
+  padding: 6px 7px;
+  margin-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  white-space: nowrap;
+  margin-right: 3px;
+  margin-bottom: 6px;
+}
+
+
+
