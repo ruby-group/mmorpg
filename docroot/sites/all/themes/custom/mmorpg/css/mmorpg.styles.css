@@ -565,11 +565,19 @@ ul.pager {
   /* line 87, ../sass/components/_play-now.scss */
   .pane-play-now-slider .views-row {
     float: left;
-    margin-right: 0.75em; }
-    /* line 91, ../sass/components/_play-now.scss */
+    margin-right: 0.75em;
+    position: relative; }
+    /* line 92, ../sass/components/_play-now.scss */
+    .pane-play-now-slider .views-row .views-field-nothing {
+      color: #bfcad1;
+      position: absolute;
+      padding: 10px;
+      top: 0;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); }
+    /* line 100, ../sass/components/_play-now.scss */
     .pane-play-now-slider .views-row img {
       border-bottom: 4px solid #bce6ff; }
-      /* line 94, ../sass/components/_play-now.scss */
+      /* line 103, ../sass/components/_play-now.scss */
       .pane-play-now-slider .views-row img:hover {
         border-bottom: 4px solid #1879cd; }
 

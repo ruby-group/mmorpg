@@ -73,7 +73,7 @@
 		@include grid-span(10, 2);
 		float: none;
 	}
-	overflow: hidden;
+	overflow: hidden; 
 	overflow-x: auto;
   	max-height: 172px !important;
   	padding: 20px;
@@ -87,6 +87,15 @@
 	.views-row{
 		float: left;
 		margin-right: 0.75em;
+		position: relative;
+
+		.views-field-nothing{
+			color: $light-gray;
+			position: absolute;
+			padding: 10px;
+			top: 0;
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+		}
 
 		img{
 			border-bottom: 4px solid $light-blue;
