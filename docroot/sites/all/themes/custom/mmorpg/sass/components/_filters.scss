@@ -1,7 +1,9 @@
 .pane-mmorpg-signup-now-play-now-page-filters{
-	@include grid-span(10, 2);
-	float: none;
-	padding-bottom: 10px;
+	@include breakpoint(900px){
+		@include grid-span(10, 2);
+		float: none;
+		padding-bottom: 10px;
+	}
 
 	div:nth-child(2){
 		@extend %play_now_buttons;
