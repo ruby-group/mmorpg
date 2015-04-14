@@ -58,7 +58,7 @@
 
 	.play_now_url a{
 		@extend %play_now_buttons;
-		background: #65c015;
+		background: $green;
 	}
 
 	.play_now_more a{

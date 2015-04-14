@@ -1,0 +1,15 @@
+.pane-mmorpg-signup-now-play-now-page-filters{
+	div:nth-child(2){
+		@extend %play_now_buttons;
+		background: $green;
+
+		& + a{
+			background: $btn-blue;
+		}
+	}
+
+	a{
+		@extend %play_now_buttons;
+		background: $dark-gray;
+	}
+}

@@ -41,21 +41,20 @@
   width: 92%; }
 
 /* ==========================================================================
-   Play Now Buttons
+   Play Now Buttons and filters
    ========================================================================== */
 /* line 46, ../sass/variables/_mixins.scss */
-.view-play-now .play_now_url a, .view-play-now .play_now_more a {
-  color: #ffffff;
+.pane-mmorpg-signup-now-play-now-page-filters div:nth-child(2), .pane-mmorpg-signup-now-play-now-page-filters a, .view-play-now .play_now_url a, .view-play-now .play_now_more a {
+  color: #ffffff !important;
   display: inline-block;
   padding: 6px 7px;
-  margin-bottom: 0;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 1px;
   white-space: nowrap;
-  margin-right: 3px;
+  margin-right: 6px;
   margin-bottom: 6px; }
 
 /* line 1, ../sass/abstractions/_global.scss */
@@ -353,6 +352,16 @@ body {
 /* line 69, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .view-footer a {
   color: #ffffff; }
+
+/* line 2, ../sass/components/_filters.scss */
+.pane-mmorpg-signup-now-play-now-page-filters div:nth-child(2) {
+  background: #65c015; }
+  /* line 6, ../sass/components/_filters.scss */
+  .pane-mmorpg-signup-now-play-now-page-filters div:nth-child(2) + a {
+    background: #2186d4; }
+/* line 11, ../sass/components/_filters.scss */
+.pane-mmorpg-signup-now-play-now-page-filters a {
+  background: #707070; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
