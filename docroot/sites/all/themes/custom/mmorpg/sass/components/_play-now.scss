@@ -78,8 +78,14 @@
   	padding: 20px;
   	background: #342D44;
 
+  	.view-play-now-slider{
+  		width: 150%;
+  		overflow-x: auto;
+  	}
+
 	.views-row{
-		display: inline-block;
+		float: left;
+		margin-right: 0.75em;
 
 		img{
 			border-bottom: 4px solid $light-blue;
