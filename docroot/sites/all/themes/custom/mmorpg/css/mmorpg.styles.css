@@ -353,15 +353,24 @@ body {
 .block-views-id-latest_updates-block .view-footer a {
   color: #ffffff; }
 
-/* line 2, ../sass/components/_filters.scss */
-.pane-mmorpg-signup-now-play-now-page-filters div:nth-child(2) {
-  background: #65c015; }
+/* line 1, ../sass/components/_filters.scss */
+.pane-mmorpg-signup-now-play-now-page-filters {
+  width: 83.05085%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 8.47458%;
+  clear: none;
+  float: none;
+  padding-bottom: 10px; }
   /* line 6, ../sass/components/_filters.scss */
-  .pane-mmorpg-signup-now-play-now-page-filters div:nth-child(2) + a {
-    background: #2186d4; }
-/* line 11, ../sass/components/_filters.scss */
-.pane-mmorpg-signup-now-play-now-page-filters a {
-  background: #707070; }
+  .pane-mmorpg-signup-now-play-now-page-filters div:nth-child(2) {
+    background: #65c015; }
+    /* line 10, ../sass/components/_filters.scss */
+    .pane-mmorpg-signup-now-play-now-page-filters div:nth-child(2) + a {
+      background: #2186d4; }
+  /* line 15, ../sass/components/_filters.scss */
+  .pane-mmorpg-signup-now-play-now-page-filters a {
+    background: #707070; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
