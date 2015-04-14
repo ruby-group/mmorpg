@@ -38,11 +38,6 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
   $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
   $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
-  /* Relationship: Entity Reference: Referencing entity */
-  $handler->display->display_options['relationships']['reverse_field_game_node']['id'] = 'reverse_field_game_node';
-  $handler->display->display_options['relationships']['reverse_field_game_node']['table'] = 'node';
-  $handler->display->display_options['relationships']['reverse_field_game_node']['field'] = 'reverse_field_game_node';
-  $handler->display->display_options['relationships']['reverse_field_game_node']['relationship'] = 'field_game_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -103,22 +98,15 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Image */
-  $handler->display->display_options['fields']['field_screenshot_image']['id'] = 'field_screenshot_image';
-  $handler->display->display_options['fields']['field_screenshot_image']['table'] = 'field_data_field_screenshot_image';
-  $handler->display->display_options['fields']['field_screenshot_image']['field'] = 'field_screenshot_image';
-  $handler->display->display_options['fields']['field_screenshot_image']['relationship'] = 'reverse_field_game_node';
-  $handler->display->display_options['fields']['field_screenshot_image']['label'] = '';
-  $handler->display->display_options['fields']['field_screenshot_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_screenshot_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_screenshot_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_screenshot_image']['settings'] = array(
-    'image_style' => 'play_now_screenshots__160x100_',
-    'image_link' => '',
-  );
-  $handler->display->display_options['fields']['field_screenshot_image']['delta_limit'] = '4';
-  $handler->display->display_options['fields']['field_screenshot_image']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_screenshot_image']['separator'] = ' ';
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view']['id'] = 'view';
+  $handler->display->display_options['fields']['view']['table'] = 'views';
+  $handler->display->display_options['fields']['view']['field'] = 'view';
+  $handler->display->display_options['fields']['view']['label'] = '';
+  $handler->display->display_options['fields']['view']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view']['view'] = 'play_now_screenshots';
+  $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
   $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
@@ -160,7 +148,7 @@ function mmorpg_signup_now_views_default_views() {
 </div>
 <div class="play_now_row_content">
 <div class="play_now_body">[body]</div>
-<div class="play_now_screenshots">[field_screenshot_image]</div>
+<div class="play_now_screenshots">[view]</div>
 </div>
 <div class="play_now_row_footer">
 <div class="play_now_url">[field_target_url]</div>
@@ -214,15 +202,6 @@ function mmorpg_signup_now_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
-  $handler->display->display_options['filters']['type_1']['table'] = 'node';
-  $handler->display->display_options['filters']['type_1']['field'] = 'type';
-  $handler->display->display_options['filters']['type_1']['relationship'] = 'reverse_field_game_node';
-  $handler->display->display_options['filters']['type_1']['value'] = array(
-    'screenshot_gallery' => 'screenshot_gallery',
-  );
-  $handler->display->display_options['filters']['type_1']['group'] = 1;
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -376,7 +355,6 @@ function mmorpg_signup_now_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('Content entity referenced from field_game'),
-    t('Content referencing Content from field_game'),
     t('Payment Types'),
     t('Genre'),
     t('Status'),
@@ -393,7 +371,7 @@ function mmorpg_signup_now_views_default_views() {
 </div>
 <div class="play_now_row_content">
 <div class="play_now_body">[body]</div>
-<div class="play_now_screenshots">[field_screenshot_image]</div>
+<div class="play_now_screenshots">[view]</div>
 </div>
 <div class="play_now_row_footer">
 <div class="play_now_url">[field_target_url]</div>
@@ -408,6 +386,88 @@ function mmorpg_signup_now_views_default_views() {
     t('View panes'),
   );
   $export['play_now'] = $view;
+
+  $view = new view();
+  $view->name = 'play_now_screenshots';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Play Now Screenshots';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['relationships']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['relationships']['field_game_target_id']['field'] = 'field_game_target_id';
+  /* Field: Content: Image */
+  $handler->display->display_options['fields']['field_screenshot_image']['id'] = 'field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['table'] = 'field_data_field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['field'] = 'field_screenshot_image';
+  $handler->display->display_options['fields']['field_screenshot_image']['label'] = '';
+  $handler->display->display_options['fields']['field_screenshot_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_screenshot_image']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_screenshot_image']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot_image']['delta_offset'] = '0';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'screenshot_gallery' => 'screenshot_gallery',
+  );
+  $translatables['play_now_screenshots'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Content entity referenced from field_game'),
+    t('All'),
+  );
+  $export['play_now_screenshots'] = $view;
 
   $view = new view();
   $view->name = 'play_now_slider';
