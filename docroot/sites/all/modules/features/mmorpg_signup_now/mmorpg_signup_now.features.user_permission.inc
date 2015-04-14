@@ -31,6 +31,13 @@ function mmorpg_signup_now_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create signup_now_link content'.
+  $permissions['create signup_now_link content'] = array(
+    'name' => 'create signup_now_link content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any play_now_promoted_game content'.
   $permissions['delete any play_now_promoted_game content'] = array(
     'name' => 'delete any play_now_promoted_game content',
@@ -41,6 +48,13 @@ function mmorpg_signup_now_user_default_permissions() {
   // Exported permission: 'delete any promoted_signup_now_link content'.
   $permissions['delete any promoted_signup_now_link content'] = array(
     'name' => 'delete any promoted_signup_now_link content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any signup_now_link content'.
+  $permissions['delete any signup_now_link content'] = array(
+    'name' => 'delete any signup_now_link content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -59,6 +73,13 @@ function mmorpg_signup_now_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own signup_now_link content'.
+  $permissions['delete own signup_now_link content'] = array(
+    'name' => 'delete own signup_now_link content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any play_now_promoted_game content'.
   $permissions['edit any play_now_promoted_game content'] = array(
     'name' => 'edit any play_now_promoted_game content',
@@ -69,6 +90,13 @@ function mmorpg_signup_now_user_default_permissions() {
   // Exported permission: 'edit any promoted_signup_now_link content'.
   $permissions['edit any promoted_signup_now_link content'] = array(
     'name' => 'edit any promoted_signup_now_link content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any signup_now_link content'.
+  $permissions['edit any signup_now_link content'] = array(
+    'name' => 'edit any signup_now_link content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -87,6 +115,13 @@ function mmorpg_signup_now_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own signup_now_link content'.
+  $permissions['edit own signup_now_link content'] = array(
+    'name' => 'edit own signup_now_link content',
+    'roles' => array(),
+    'module' => 'node',
+  );
+
   // Exported permission: 'set play_now_promoted_game published on date'.
   $permissions['set play_now_promoted_game published on date'] = array(
     'name' => 'set play_now_promoted_game published on date',
@@ -101,6 +136,13 @@ function mmorpg_signup_now_user_default_permissions() {
     'module' => 'publication_date',
   );
 
+  // Exported permission: 'set signup_now_link published on date'.
+  $permissions['set signup_now_link published on date'] = array(
+    'name' => 'set signup_now_link published on date',
+    'roles' => array(),
+    'module' => 'publication_date',
+  );
+
   // Exported permission: 'view any unpublished play_now_promoted_game content'.
   $permissions['view any unpublished play_now_promoted_game content'] = array(
     'name' => 'view any unpublished play_now_promoted_game content',
@@ -111,6 +153,13 @@ function mmorpg_signup_now_user_default_permissions() {
   // Exported permission: 'view any unpublished promoted_signup_now_link content'.
   $permissions['view any unpublished promoted_signup_now_link content'] = array(
     'name' => 'view any unpublished promoted_signup_now_link content',
+    'roles' => array(),
+    'module' => 'view_unpublished',
+  );
+
+  // Exported permission: 'view any unpublished signup_now_link content'.
+  $permissions['view any unpublished signup_now_link content'] = array(
+    'name' => 'view any unpublished signup_now_link content',
     'roles' => array(),
     'module' => 'view_unpublished',
   );

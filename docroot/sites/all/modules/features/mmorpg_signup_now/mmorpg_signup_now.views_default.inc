@@ -375,22 +375,13 @@ function mmorpg_signup_now_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t(' All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
     t('Content entity referenced from field_game'),
     t('Content referencing Content from field_game'),
     t('Payment Types'),
     t('Genre'),
     t('Status'),
     t('Show More'),
-    t('Screenshots'),
     t('More info, videos, forums...'),
-    t('All'),
     t('<div class="play_now_row_header">
 <div class="play_now_title">[title]</div>
 <div class="play_now_platforms">[field_platforms]</div>
@@ -408,10 +399,12 @@ function mmorpg_signup_now_views_default_views() {
 <div class="play_now_url">[field_target_url]</div>
 <div class="play_now_more">[nid]</div>
 </div>'),
+    t('All'),
     t('Title'),
     t('Page'),
     t('Feed'),
     t('Promoted Play Now'),
+    t('Screenshots'),
     t('View panes'),
   );
   $export['play_now'] = $view;

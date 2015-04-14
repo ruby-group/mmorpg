@@ -183,5 +183,3 @@ features[views_view][] = play_now
 features[views_view][] = play_now_slider
 features[views_view][] = promoted_signup_now_link
 features[views_view][] = promoted_signup_now_links_admin
-features_exclude[field_base][field_customer_contents] = field_customer_contents
-features_exclude[field_instance][node-signup_now_link-field_customer_contents] = node-signup_now_link-field_customer_contents
