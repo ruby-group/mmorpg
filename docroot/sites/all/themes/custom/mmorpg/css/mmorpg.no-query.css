@@ -484,6 +484,22 @@ ul.pager {
 .view-play-now .play_now_more a {
   background: #707070; }
 
+/* line 71, ../sass/components/_play-now.scss */
+.pane-play-now-slider {
+  overflow: hidden;
+  max-height: 172px !important;
+  padding: 20px;
+  background: #342D44; }
+  /* line 81, ../sass/components/_play-now.scss */
+  .pane-play-now-slider .views-row {
+    display: inline-block; }
+    /* line 84, ../sass/components/_play-now.scss */
+    .pane-play-now-slider .views-row img {
+      border-bottom: 4px solid #bce6ff; }
+      /* line 87, ../sass/components/_play-now.scss */
+      .pane-play-now-slider .views-row img:hover {
+        border-bottom: 4px solid #1879cd; }
+
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
   padding: 0 10px; }
