@@ -60,7 +60,7 @@ class MMORPGArticleMigrate extends MMORPGCommon {
     $this->addFieldMapping('created', 'FeatureDate')
       ->callBacks(array($this, 'formatDate'));
     $this->addFieldMapping('published_at', 'FeatureDate')
-      ->callBacks(array($this, 'formatDate'));
+      ->callBacks(array($this, 'formatDateToInt'));
     $this->addFieldMapping('uid')
       ->defaultValue('1');
     $this->addFieldMapping('status', 'Enabled');
