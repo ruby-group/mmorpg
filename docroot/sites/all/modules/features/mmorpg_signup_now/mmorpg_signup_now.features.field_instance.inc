@@ -191,6 +191,57 @@ function mmorpg_signup_now_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-play_now_promoted_game-field_target_url'
+  $field_instances['node-play_now_promoted_game-field_target_url'] = array(
+    'bundle' => 'play_now_promoted_game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => NULL,
+        'settings' => array(),
+        'type' => 'clickmeter_link_field',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_target_url',
+    'label' => 'Target URL',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'clickmeter_link',
+      'settings' => array(),
+      'type' => 'clickmeter_link_field',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-promoted_signup_now_link-field_customer'
   $field_instances['node-promoted_signup_now_link-field_customer'] = array(
     'bundle' => 'promoted_signup_now_link',

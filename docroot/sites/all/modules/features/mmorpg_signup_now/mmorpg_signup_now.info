@@ -44,6 +44,7 @@ features[field_instance][] = node-play_now_promoted_game-field_customer
 features[field_instance][] = node-play_now_promoted_game-field_game
 features[field_instance][] = node-play_now_promoted_game-field_pnpg_background_image
 features[field_instance][] = node-play_now_promoted_game-field_pnpg_schedule
+features[field_instance][] = node-play_now_promoted_game-field_target_url
 features[field_instance][] = node-promoted_signup_now_link-field_customer
 features[field_instance][] = node-promoted_signup_now_link-field_game
 features[field_instance][] = node-promoted_signup_now_link-field_psnl_area
