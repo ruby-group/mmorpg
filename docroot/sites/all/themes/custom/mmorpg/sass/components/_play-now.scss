@@ -19,6 +19,88 @@
 
 		.play_now_platforms{
 			display: inline-block;
+			vertical-align: bottom;
+			ul{
+				padding: 0;
+				list-style: none;
+				li{
+					@extend %platforms;
+					display: inline-block;
+					height: 18px;
+					width:18px;
+
+					&.android{
+						@extend %android;
+					}
+
+					&.dreamcast{
+						@extend %dreamcast;
+						width: 24px;
+					}
+
+					&.ios{
+						@extend %ios;
+						width: 34px;
+					}
+
+					&.linux{
+						@extend %linux;
+					}
+
+					&.mac{
+						@extend %mac;
+					}
+
+					&.mobiledevices{
+						@extend %mobile;
+					}
+
+					&.pc{
+						@extend %pc;
+					}
+
+					&.playstation2{
+						@extend %ps2;
+						width: 52px;
+					}
+
+					&.ps3{
+						@extend %ps3;
+						width: 44px;
+					}
+
+					&.playstation4{
+						@extend %ps4;
+						width: 50px;
+					}
+
+					&.wii{
+						@extend %wii;
+						width: 30px;
+					}
+
+					&.wiiu{
+						@extend %wiiu;
+						width: 57px;
+					}
+
+					&.xbox{
+						@extend %xbox;
+						width: 24px;
+					}
+
+					&.xbox360{
+						@extend %xbox360;
+						width: 30px;
+					}
+
+					&.xboxone{
+						@extend %xboxone;
+						width: 30px;
+					}
+
+				}
+			}
 		}
 	}
 

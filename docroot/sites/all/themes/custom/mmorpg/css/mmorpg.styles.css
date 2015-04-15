@@ -57,6 +57,75 @@
   margin-right: 6px;
   margin-bottom: 6px; }
 
+/* ==========================================================================
+   Platforms
+   ========================================================================== */
+/* line 64, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li {
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-color: transparent; }
+
+/* line 70, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.android {
+  background-image: url("../images/android.gif"); }
+
+/* line 74, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.dreamcast {
+  background-image: url("../images/dreamcast.png"); }
+
+/* line 78, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.ios {
+  background-image: url("../images/ios.png"); }
+
+/* line 82, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.linux {
+  background-image: url("../images/linux.gif"); }
+
+/* line 86, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.mac {
+  background-image: url("../images/mac.gif"); }
+
+/* line 90, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.mobiledevices {
+  background-image: url("../images/mobile.png"); }
+
+/* line 94, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.pc {
+  background-image: url("../images/pc.gif"); }
+
+/* line 98, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.playstation2 {
+  background-image: url("../images/ps2.jpg"); }
+
+/* line 102, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.ps3 {
+  background-image: url("../images/ps3.jpg"); }
+
+/* line 106, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.playstation4 {
+  background-image: url("../images/ps4.jpg"); }
+
+/* line 110, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.wii {
+  background-image: url("../images/wii.jpg"); }
+
+/* line 114, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.wiiu {
+  background-image: url("../images/wiiu.png"); }
+
+/* line 118, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.xbox {
+  background-image: url("../images/xbox.jpg"); }
+
+/* line 122, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.xbox360 {
+  background-image: url("../images/xbox360.jpg"); }
+
+/* line 126, ../sass/variables/_mixins.scss */
+.view-play-now .play_now_row_header .play_now_platforms ul li.xboxone {
+  background-image: url("../images/xboxone.png"); }
+
 /* line 1, ../sass/abstractions/_global.scss */
 .hidden {
   display: none; }
@@ -519,40 +588,80 @@ ul.pager {
     font-weight: 400; }
 /* line 20, ../sass/components/_play-now.scss */
 .view-play-now .play_now_row_header .play_now_platforms {
-  display: inline-block; }
-/* line 26, ../sass/components/_play-now.scss */
+  display: inline-block;
+  vertical-align: bottom; }
+  /* line 23, ../sass/components/_play-now.scss */
+  .view-play-now .play_now_row_header .play_now_platforms ul {
+    padding: 0;
+    list-style: none; }
+    /* line 26, ../sass/components/_play-now.scss */
+    .view-play-now .play_now_row_header .play_now_platforms ul li {
+      display: inline-block;
+      height: 18px;
+      width: 18px; }
+      /* line 36, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.dreamcast {
+        width: 24px; }
+      /* line 41, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.ios {
+        width: 34px; }
+      /* line 62, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.playstation2 {
+        width: 52px; }
+      /* line 67, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.ps3 {
+        width: 44px; }
+      /* line 72, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.playstation4 {
+        width: 50px; }
+      /* line 77, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.wii {
+        width: 30px; }
+      /* line 82, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.wiiu {
+        width: 57px; }
+      /* line 87, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.xbox {
+        width: 24px; }
+      /* line 92, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.xbox360 {
+        width: 30px; }
+      /* line 97, ../sass/components/_play-now.scss */
+      .view-play-now .play_now_row_header .play_now_platforms ul li.xboxone {
+        width: 30px; }
+/* line 108, ../sass/components/_play-now.scss */
 .view-play-now .play_now_row_details .play_now_details {
   display: inline-block; }
-/* line 30, ../sass/components/_play-now.scss */
+/* line 112, ../sass/components/_play-now.scss */
 .view-play-now .play_now_row_details span.content {
   font-weight: 600; }
-/* line 35, ../sass/components/_play-now.scss */
+/* line 117, ../sass/components/_play-now.scss */
 .view-play-now .play_now_body {
   line-height: 1.55em; }
-/* line 40, ../sass/components/_play-now.scss */
+/* line 122, ../sass/components/_play-now.scss */
 .view-play-now .play_now_screenshots .views-row {
   max-width: 120px;
   padding: 0;
   display: inline-block;
   margin-right: 3px; }
-  /* line 46, ../sass/components/_play-now.scss */
+  /* line 128, ../sass/components/_play-now.scss */
   .view-play-now .play_now_screenshots .views-row:first-child {
     max-width: 160px; }
-/* line 52, ../sass/components/_play-now.scss */
+/* line 134, ../sass/components/_play-now.scss */
 .view-play-now .play_now_row_footer {
   padding-top: 8px; }
-  /* line 55, ../sass/components/_play-now.scss */
+  /* line 137, ../sass/components/_play-now.scss */
   .view-play-now .play_now_row_footer .play_now_url,
   .view-play-now .play_now_row_footer .play_now_more {
     display: inline-block; }
-/* line 62, ../sass/components/_play-now.scss */
+/* line 144, ../sass/components/_play-now.scss */
 .view-play-now .play_now_url a {
   background: #65c015; }
-/* line 67, ../sass/components/_play-now.scss */
+/* line 149, ../sass/components/_play-now.scss */
 .view-play-now .play_now_more a {
   background: #707070; }
 
-/* line 74, ../sass/components/_play-now.scss */
+/* line 156, ../sass/components/_play-now.scss */
 .pane-play-now-slider {
   overflow: hidden;
   overflow-x: auto;
@@ -560,7 +669,7 @@ ul.pager {
   padding: 20px;
   background: #342D44; }
   @media (min-width: 900px) {
-    /* line 74, ../sass/components/_play-now.scss */
+    /* line 156, ../sass/components/_play-now.scss */
     .pane-play-now-slider {
       width: 83.05085%;
       float: left;
@@ -568,26 +677,26 @@ ul.pager {
       margin-left: 8.47458%;
       clear: none;
       float: none; } }
-  /* line 85, ../sass/components/_play-now.scss */
+  /* line 167, ../sass/components/_play-now.scss */
   .pane-play-now-slider .view-play-now-slider {
     width: 150%;
     position: static; }
-  /* line 90, ../sass/components/_play-now.scss */
+  /* line 172, ../sass/components/_play-now.scss */
   .pane-play-now-slider .views-row {
     float: left;
     margin-right: 0.75em;
     position: relative; }
-    /* line 95, ../sass/components/_play-now.scss */
+    /* line 177, ../sass/components/_play-now.scss */
     .pane-play-now-slider .views-row .views-field-nothing {
       color: #bfcad1;
       position: absolute;
       padding: 10px;
       top: 0;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); }
-    /* line 103, ../sass/components/_play-now.scss */
+    /* line 185, ../sass/components/_play-now.scss */
     .pane-play-now-slider .views-row img {
       border-bottom: 4px solid #bce6ff; }
-      /* line 106, ../sass/components/_play-now.scss */
+      /* line 188, ../sass/components/_play-now.scss */
       .pane-play-now-slider .views-row img:hover {
         border-bottom: 4px solid #1879cd; }
 

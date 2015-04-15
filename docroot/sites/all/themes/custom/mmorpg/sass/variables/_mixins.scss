@@ -57,5 +57,72 @@
   margin-bottom: 6px;
 }
 
+/* ==========================================================================
+   Platforms
+   ========================================================================== */
 
+%platforms{
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
 
+%android{
+  background-image: url('../images/android.gif') ;
+}
+
+%dreamcast{
+  background-image: url('../images/dreamcast.png') ;
+}
+
+%ios{
+  background-image: url('../images/ios.png') ;
+}
+
+%linux{
+  background-image: url('../images/linux.gif') ;
+}
+
+%mac{
+  background-image: url('../images/mac.gif') ;
+}
+
+%mobile{
+  background-image: url('../images/mobile.png') ;
+}
+
+%pc{
+  background-image: url('../images/pc.gif') ;
+}
+
+%ps2{
+  background-image: url('../images/ps2.jpg') ;
+}
+
+%ps3{
+  background-image: url('../images/ps3.jpg') ;
+}
+
+%ps4{
+  background-image: url('../images/ps4.jpg') ;
+}
+
+%wii{
+  background-image: url('../images/wii.jpg') ;
+}
+
+%wiiu{
+  background-image: url('../images/wiiu.png') ;
+}
+
+%xbox{
+  background-image: url('../images/xbox.jpg') ;
+}
+
+%xbox360{
+  background-image: url('../images/xbox360.jpg') ;
+}
+
+%xboxone{
+  background-image: url('../images/xboxone.png') ;
+}

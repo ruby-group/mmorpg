@@ -69,6 +69,8 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_platforms']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_platforms']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_platforms']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_platforms']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_platforms']['multi_type'] = 'ul';
   /* Field: Content: Payment Methods */
   $handler->display->display_options['fields']['field_payment_methods_1']['id'] = 'field_payment_methods_1';
   $handler->display->display_options['fields']['field_payment_methods_1']['table'] = 'field_data_field_payment_methods';
