@@ -46,6 +46,20 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url_1']['id'] = 'field_target_url_1';
+  $handler->display->display_options['fields']['field_target_url_1']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url_1']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url_1']['alter']['text'] = '[title]';
+  $handler->display->display_options['fields']['field_target_url_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url_1']['alter']['path'] = '[field_target_url_1-link_url]';
+  $handler->display->display_options['fields']['field_target_url_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url_1']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url_1']['type'] = 'clickmeter_link_default';
   /* Field: Content: Platforms */
   $handler->display->display_options['fields']['field_platforms']['id'] = 'field_platforms';
   $handler->display->display_options['fields']['field_platforms']['table'] = 'field_data_field_platforms';
@@ -63,6 +77,18 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_payment_methods_1']['label'] = 'Payment Types';
   $handler->display->display_options['fields']['field_payment_methods_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_payment_methods_1']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Game Development Status */
+  $handler->display->display_options['fields']['field_game_development_status']['id'] = 'field_game_development_status';
+  $handler->display->display_options['fields']['field_game_development_status']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['fields']['field_game_development_status']['field'] = 'field_game_development_status';
+  $handler->display->display_options['fields']['field_game_development_status']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_game_development_status']['label'] = '';
+  $handler->display->display_options['fields']['field_game_development_status']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_game_development_status']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_game_development_status']['type'] = 'field_collection_fields';
+  $handler->display->display_options['fields']['field_game_development_status']['settings'] = array(
+    'view_mode' => 'token',
+  );
   /* Field: Content: MMO Genre */
   $handler->display->display_options['fields']['field_mmo_genre']['id'] = 'field_mmo_genre';
   $handler->display->display_options['fields']['field_mmo_genre']['table'] = 'field_data_field_mmo_genre';
@@ -71,14 +97,6 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_mmo_genre']['label'] = 'Genre';
   $handler->display->display_options['fields']['field_mmo_genre']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_mmo_genre']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Development Status */
-  $handler->display->display_options['fields']['field_dev_status']['id'] = 'field_dev_status';
-  $handler->display->display_options['fields']['field_dev_status']['table'] = 'field_data_field_dev_status';
-  $handler->display->display_options['fields']['field_dev_status']['field'] = 'field_dev_status';
-  $handler->display->display_options['fields']['field_dev_status']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['fields']['field_dev_status']['label'] = 'Status';
-  $handler->display->display_options['fields']['field_dev_status']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_dev_status']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -138,13 +156,13 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="play_now_row_header">
-<div class="play_now_title">[title]</div>
+<div class="play_now_title">[field_target_url_1]</div>
 <div class="play_now_platforms">[field_platforms]</div>
 </div>
 <div class="play_now_row_details">
 <div class="play_now_details play_now_payment"><span class="label">Payment Types: </span><span class="content payment_content">[field_payment_methods_1],</span></div>
 <div class="play_now_details play_now_genre"><span class="label">Genre: </span><span class="content genre_content">[field_mmo_genre],</span></div>
-<div class="play_now_details play_now_status"><span class="label">Status: </span><span class="content status_content">[field_dev_status]</span></div>
+<div class="play_now_details play_now_status"><span class="label">Status: </span><span class="content status_content">[field_game_development_status]</span></div>
 </div>
 <div class="play_now_row_content">
 <div class="play_now_body">[body]</div>
@@ -250,12 +268,11 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_mmo_genre']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['fields']['field_mmo_genre']['label'] = 'Genre';
   $handler->display->display_options['fields']['field_mmo_genre']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Development Status */
+  /* Field: Field collection item: Status */
   $handler->display->display_options['fields']['field_dev_status']['id'] = 'field_dev_status';
   $handler->display->display_options['fields']['field_dev_status']['table'] = 'field_data_field_dev_status';
   $handler->display->display_options['fields']['field_dev_status']['field'] = 'field_dev_status';
   $handler->display->display_options['fields']['field_dev_status']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['fields']['field_dev_status']['label'] = 'Status';
   $handler->display->display_options['fields']['field_dev_status']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -346,19 +363,19 @@ function mmorpg_signup_now_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('Content entity referenced from field_game'),
+    t('[title]'),
     t('Payment Types'),
     t('Genre'),
-    t('Status'),
     t('Show More'),
     t('More info, videos, forums...'),
     t('<div class="play_now_row_header">
-<div class="play_now_title">[title]</div>
+<div class="play_now_title">[field_target_url_1]</div>
 <div class="play_now_platforms">[field_platforms]</div>
 </div>
 <div class="play_now_row_details">
 <div class="play_now_details play_now_payment"><span class="label">Payment Types: </span><span class="content payment_content">[field_payment_methods_1],</span></div>
 <div class="play_now_details play_now_genre"><span class="label">Genre: </span><span class="content genre_content">[field_mmo_genre],</span></div>
-<div class="play_now_details play_now_status"><span class="label">Status: </span><span class="content status_content">[field_dev_status]</span></div>
+<div class="play_now_details play_now_status"><span class="label">Status: </span><span class="content status_content">[field_game_development_status]</span></div>
 </div>
 <div class="play_now_row_content">
 <div class="play_now_body">[body]</div>
@@ -373,6 +390,7 @@ function mmorpg_signup_now_views_default_views() {
     t('Page'),
     t('Feed'),
     t('Promoted Play Now'),
+    t('Status'),
     t('Screenshots'),
     t('View panes'),
   );

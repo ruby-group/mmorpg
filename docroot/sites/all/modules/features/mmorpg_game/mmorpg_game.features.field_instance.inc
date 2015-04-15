@@ -10,6 +10,269 @@
 function mmorpg_game_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'field_collection_item-field_game_cancel-field_cancel_news_link'
+  $field_instances['field_collection_item-field_game_cancel-field_cancel_news_link'] = array(
+    'bundle' => 'field_game_cancel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_cancel_news_link',
+    'label' => 'Cancel News Link',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_game_cancel-field_cancel_reason'
+  $field_instances['field_collection_item-field_game_cancel-field_cancel_reason'] = array(
+    'bundle' => 'field_game_cancel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_cancel_reason',
+    'label' => 'Cancel Reason',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_game_cancel-field_game_cancel_date'
+  $field_instances['field_collection_item-field_game_cancel-field_game_cancel_date'] = array(
+    'bundle' => 'field_game_cancel',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_game_cancel_date',
+    'label' => 'Cancel Date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_game_development_status-field_dev_status'
+  $field_instances['field_collection_item-field_game_development_status-field_dev_status'] = array(
+    'bundle' => 'field_game_development_status',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_dev_status',
+    'label' => 'Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_game_development_status-field_status_date'
+  $field_instances['field_collection_item-field_game_development_status-field_status_date'] = array(
+    'bundle' => 'field_game_development_status',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 1,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_status_date',
+    'label' => 'Status Date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_game_development_status-field_status_date_display'
+  $field_instances['field_collection_item-field_game_development_status-field_status_date_display'] = array(
+    'bundle' => 'field_game_development_status',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_status_date_display',
+    'label' => 'Display Date',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-game-body'
   $field_instances['node-game-body'] = array(
     'bundle' => 'game',
@@ -185,8 +448,8 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-game-field_dev_status'
-  $field_instances['node-game-field_dev_status'] = array(
+  // Exported field_instance: 'node-game-field_contact_name'
+  $field_instances['node-game-field_contact_name'] = array(
     'bundle' => 'game',
     'default_value' => NULL,
     'deleted' => 0,
@@ -194,21 +457,51 @@ function mmorpg_game_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 23,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 27,
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_dev_status',
-    'label' => 'Development Status',
+    'field_name' => 'field_contact_name',
+    'label' => 'Contact Name',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 27,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_developer'
+  $field_instances['node-game-field_developer'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 25,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_developer',
+    'label' => 'Developer',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -218,7 +511,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 25,
     ),
   );
 
@@ -409,6 +702,147 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-game-field_game_acronym'
+  $field_instances['node-game-field_game_acronym'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 24,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_acronym',
+    'label' => 'Acronym',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 24,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_game_cancel'
+  $field_instances['node-game-field_game_cancel'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 32,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_cancel',
+    'label' => 'Cancel',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 32,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_game_contact_email'
+  $field_instances['node-game-field_game_contact_email'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 28,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_contact_email',
+    'label' => 'Contact Email',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 28,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_game_development_status'
+  $field_instances['node-game-field_game_development_status'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 33,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_development_status',
+    'label' => 'Game Development Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 33,
+    ),
+  );
+
   // Exported field_instance: 'node-game-field_game_hero_image'
   $field_instances['node-game-field_game_hero_image'] = array(
     'bundle' => 'game',
@@ -456,6 +890,157 @@ function mmorpg_game_field_default_field_instances() {
       ),
       'type' => 'image_image',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_game_monthly_fee'
+  $field_instances['node-game-field_game_monthly_fee'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 31,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_monthly_fee',
+    'label' => 'Monthly Fee',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '$',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_game_overview'
+  $field_instances['node-game-field_game_overview'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 34,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_overview',
+    'label' => 'Overview',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 34,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_game_pvp'
+  $field_instances['node-game-field_game_pvp'] = array(
+    'bundle' => 'game',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 29,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_pvp',
+    'label' => 'PVP',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 29,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_game_retail_price'
+  $field_instances['node-game-field_game_retail_price'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 30,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_game_retail_price',
+    'label' => 'Retail Price',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '$',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 30,
     ),
   );
 
@@ -785,6 +1370,39 @@ function mmorpg_game_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 23,
+    ),
+  );
+
+  // Exported field_instance: 'node-game-field_publisher'
+  $field_instances['node-game-field_publisher'] = array(
+    'bundle' => 'game',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 26,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_publisher',
+    'label' => 'Publisher',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 26,
     ),
   );
 
@@ -1567,13 +2185,21 @@ function mmorpg_game_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Acronym');
   t('Body');
   t('Business Model');
   t('Buy Link');
+  t('Cancel');
+  t('Cancel Date');
+  t('Cancel News Link');
+  t('Cancel Reason');
   t('Category');
   t('Classification');
+  t('Contact Email');
+  t('Contact Name');
   t('Description');
-  t('Development Status');
+  t('Developer');
+  t('Display Date');
   t('Distribution Types');
   t('Duration');
   t('ESRB');
@@ -1581,6 +2207,7 @@ function mmorpg_game_field_default_field_instances() {
   t('Exclusive');
   t('Expansion Type');
   t('Game');
+  t('Game Development Status');
   t('Game Overview');
   t('GameGravity Download Link');
   t('Hero Image');
@@ -1590,15 +2217,21 @@ function mmorpg_game_field_default_field_instances() {
   t('Link');
   t('Logo');
   t('MMO Genre');
+  t('Monthly Fee');
   t('Official Site');
   t('Origin');
   t('Overview');
+  t('PVP');
   t('Parent Game');
   t('Payment Methods');
   t('Platforms');
+  t('Publisher');
+  t('Retail Price');
   t('Setting/Theme');
   t('Short Title');
   t('Show');
+  t('Status');
+  t('Status Date');
   t('Style');
   t('Video Mode');
   t('Video URL');
