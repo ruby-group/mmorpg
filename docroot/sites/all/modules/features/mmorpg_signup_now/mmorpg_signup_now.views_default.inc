@@ -336,15 +336,6 @@ function mmorpg_signup_now_views_default_views() {
     'play_now_promoted_game' => 'play_now_promoted_game',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
-  $handler->display->display_options['filters']['type_1']['table'] = 'node';
-  $handler->display->display_options['filters']['type_1']['field'] = 'type';
-  $handler->display->display_options['filters']['type_1']['relationship'] = 'reverse_field_game_node';
-  $handler->display->display_options['filters']['type_1']['value'] = array(
-    'screenshot_gallery' => 'screenshot_gallery',
-  );
-  $handler->display->display_options['filters']['type_1']['group'] = 1;
   $translatables['play_now'] = array(
     t('Master'),
     t('Play Now'),
