@@ -18,3 +18,62 @@ function mmorpg_site_ctools_plugin_api($module = NULL, $api = NULL) {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function mmorpg_site_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: play_now_promoted.
+  $styles['play_now_promoted'] = array(
+    'label' => 'Play Now promoted',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 880,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+      3 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 880,
+          'height' => 360,
+          'anchor' => 'left-top',
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: play_now_screenshots__160x100_.
+  $styles['play_now_screenshots__160x100_'] = array(
+    'label' => 'Play Now Screenshots [160x100]',
+    'effects' => array(
+      4 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 160,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+      5 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 160,
+          'height' => 100,
+          'anchor' => 'left-top',
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  return $styles;
+}
