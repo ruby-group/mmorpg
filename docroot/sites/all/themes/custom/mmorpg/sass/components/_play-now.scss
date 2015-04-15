@@ -37,8 +37,11 @@
 	}
 
 	.play_now_screenshots{
-		img{
+		.views-row{
 			max-width: 120px;
+			padding: 0;
+			display: inline-block;
+			margin-right: 3px;
 
 			&:first-child{
 				max-width: 160px;

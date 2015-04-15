@@ -472,52 +472,55 @@ ul.pager {
 .view-play-now .play_now_body {
   line-height: 1.55em; }
 /* line 40, ../sass/components/_play-now.scss */
-.view-play-now .play_now_screenshots img {
-  max-width: 120px; }
-  /* line 43, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_screenshots img:first-child {
+.view-play-now .play_now_screenshots .views-row {
+  max-width: 120px;
+  padding: 0;
+  display: inline-block;
+  margin-right: 3px; }
+  /* line 46, ../sass/components/_play-now.scss */
+  .view-play-now .play_now_screenshots .views-row:first-child {
     max-width: 160px; }
-/* line 49, ../sass/components/_play-now.scss */
+/* line 52, ../sass/components/_play-now.scss */
 .view-play-now .play_now_row_footer {
   padding-top: 8px; }
-  /* line 52, ../sass/components/_play-now.scss */
+  /* line 55, ../sass/components/_play-now.scss */
   .view-play-now .play_now_row_footer .play_now_url,
   .view-play-now .play_now_row_footer .play_now_more {
     display: inline-block; }
-/* line 59, ../sass/components/_play-now.scss */
+/* line 62, ../sass/components/_play-now.scss */
 .view-play-now .play_now_url a {
   background: #65c015; }
-/* line 64, ../sass/components/_play-now.scss */
+/* line 67, ../sass/components/_play-now.scss */
 .view-play-now .play_now_more a {
   background: #707070; }
 
-/* line 71, ../sass/components/_play-now.scss */
+/* line 74, ../sass/components/_play-now.scss */
 .pane-play-now-slider {
   overflow: hidden;
   overflow-x: auto;
   max-height: 172px !important;
   padding: 20px;
   background: #342D44; }
-  /* line 82, ../sass/components/_play-now.scss */
+  /* line 85, ../sass/components/_play-now.scss */
   .pane-play-now-slider .view-play-now-slider {
     width: 150%;
     position: static; }
-  /* line 87, ../sass/components/_play-now.scss */
+  /* line 90, ../sass/components/_play-now.scss */
   .pane-play-now-slider .views-row {
     float: left;
     margin-right: 0.75em;
     position: relative; }
-    /* line 92, ../sass/components/_play-now.scss */
+    /* line 95, ../sass/components/_play-now.scss */
     .pane-play-now-slider .views-row .views-field-nothing {
       color: #bfcad1;
       position: absolute;
       padding: 10px;
       top: 0;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); }
-    /* line 100, ../sass/components/_play-now.scss */
+    /* line 103, ../sass/components/_play-now.scss */
     .pane-play-now-slider .views-row img {
       border-bottom: 4px solid #bce6ff; }
-      /* line 103, ../sass/components/_play-now.scss */
+      /* line 106, ../sass/components/_play-now.scss */
       .pane-play-now-slider .views-row img:hover {
         border-bottom: 4px solid #1879cd; }
 
