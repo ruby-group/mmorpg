@@ -17,6 +17,7 @@ stylesheets[all][] = css/mmorpg.no-query.css
 ; Scripts
 ; ========================================
 scripts[] = js/mmorpg.behaviors.js
+scripts[] = js/scripts.js
 
 ; ========================================
 ; Regions

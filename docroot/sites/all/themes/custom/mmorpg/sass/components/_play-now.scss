@@ -19,11 +19,97 @@
 
 		.play_now_platforms{
 			display: inline-block;
+			vertical-align: bottom;
+			ul{
+				padding: 0;
+				list-style: none;
+				li{
+					@extend %platforms;
+					display: inline-block;
+					height: 18px;
+					width:18px;
+
+					&.android{
+						@extend %android;
+					}
+
+					&.dreamcast{
+						@extend %dreamcast;
+						width: 24px;
+					}
+
+					&.ios{
+						@extend %ios;
+						width: 34px;
+					}
+
+					&.linux{
+						@extend %linux;
+					}
+
+					&.mac{
+						@extend %mac;
+					}
+
+					&.mobiledevices{
+						@extend %mobile;
+					}
+
+					&.pc{
+						@extend %pc;
+					}
+
+					&.playstation2{
+						@extend %ps2;
+						width: 52px;
+					}
+
+					&.ps3{
+						@extend %ps3;
+						width: 44px;
+					}
+
+					&.playstation4{
+						@extend %ps4;
+						width: 50px;
+					}
+
+					&.wii{
+						@extend %wii;
+						width: 30px;
+					}
+
+					&.wiiu{
+						@extend %wiiu;
+						width: 57px;
+					}
+
+					&.xbox{
+						@extend %xbox;
+						width: 24px;
+					}
+
+					&.xbox360{
+						@extend %xbox360;
+						width: 30px;
+					}
+
+					&.xboxone{
+						@extend %xboxone;
+						width: 30px;
+					}
+
+				}
+			}
 		}
 	}
 
 	.play_now_row_details{
 		.play_now_details{
+			display: inline-block;
+		}
+
+		.play_now_status > span{
 			display: inline-block;
 		}
 
@@ -37,8 +123,11 @@
 	}
 
 	.play_now_screenshots{
-		img{
+		.views-row{
 			max-width: 120px;
+			padding: 0;
+			display: inline-block;
+			margin-right: 3px;
 
 			&:first-child{
 				max-width: 160px;
@@ -58,12 +147,51 @@
 
 	.play_now_url a{
 		@extend %play_now_buttons;
-		background: #65c015;
+		background: $green;
 	}
 
 	.play_now_more a{
 		@extend %play_now_buttons;
 	  	background: $dark-gray;
 		
+	}
+}
+
+.pane-play-now-slider{
+	@include breakpoint(900px){
+		@include grid-span(10, 2);
+		float: none;
+	}
+	overflow: hidden; 
+	overflow-x: auto;
+  	max-height: 172px !important;
+  	padding: 20px;
+  	background: #342D44;
+
+  	.view-play-now-slider{
+  		width: 150%;
+  		position: static;
+  	}
+
+	.views-row{
+		float: left;
+		margin-right: 0.75em;
+		position: relative;
+
+		.views-field-nothing{
+			color: $light-gray;
+			position: absolute;
+			padding: 10px;
+			top: 0;
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+		}
+
+		img{
+			border-bottom: 4px solid $light-blue;
+
+			&:hover{
+				border-bottom: 4px solid $hover-dblue;
+			}
+		}
 	}
 }

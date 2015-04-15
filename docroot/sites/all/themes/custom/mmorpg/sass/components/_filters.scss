@@ -1,0 +1,29 @@
+.pane-mmorpg-signup-now-play-now-page-filters{
+	@include breakpoint(900px){
+		@include grid-span(10, 2);
+		float: none;
+		padding-bottom: 10px;
+	}
+
+	h2.pane-title{
+		padding: 10px 15px 5px 0px;
+	  	margin: 0px;
+	  	font-size: 35px;
+	  	font-weight: normal;
+	  	line-height: 1.2em;
+	}
+
+	h2.pane-title + div{
+		@extend %play_now_buttons;
+		background: $green;
+
+		& + a{
+			background: $btn-blue;
+		}
+	}
+
+	a{
+		@extend %play_now_buttons;
+		background: $dark-gray;
+	}
+}
