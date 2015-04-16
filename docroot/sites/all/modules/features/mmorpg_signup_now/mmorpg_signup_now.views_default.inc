@@ -429,6 +429,18 @@ function mmorpg_signup_now_views_default_views() {
     'play_now_promoted_game' => 'play_now_promoted_game',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Schedule -  start date (field_pnpg_schedule) */
+  $handler->display->display_options['filters']['field_pnpg_schedule_value']['id'] = 'field_pnpg_schedule_value';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value']['table'] = 'field_data_field_pnpg_schedule';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value']['field'] = 'field_pnpg_schedule_value';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value']['operator'] = '<=';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Schedule - end date (field_pnpg_schedule:value2) */
+  $handler->display->display_options['filters']['field_pnpg_schedule_value2']['id'] = 'field_pnpg_schedule_value2';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value2']['table'] = 'field_data_field_pnpg_schedule';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value2']['field'] = 'field_pnpg_schedule_value2';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_pnpg_schedule_value2']['default_date'] = 'now';
   $translatables['play_now'] = array(
     t('Master'),
     t('Play Now'),
