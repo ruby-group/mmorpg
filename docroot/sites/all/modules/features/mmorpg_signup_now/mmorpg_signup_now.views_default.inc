@@ -127,6 +127,13 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view']['view'] = 'play_now_screenshots';
   $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
+  /* Field: Content: Link Type */
+  $handler->display->display_options['fields']['field_link_type']['id'] = 'field_link_type';
+  $handler->display->display_options['fields']['field_link_type']['table'] = 'field_data_field_link_type';
+  $handler->display->display_options['fields']['field_link_type']['field'] = 'field_link_type';
+  $handler->display->display_options['fields']['field_link_type']['label'] = '';
+  $handler->display->display_options['fields']['field_link_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_link_type']['element_label_colon'] = FALSE;
   /* Field: Field: Target URL */
   $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
   $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
@@ -134,7 +141,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_target_url']['label'] = '';
   $handler->display->display_options['fields']['field_target_url']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_target_url']['alter']['text'] = 'Play Now';
+  $handler->display->display_options['fields']['field_target_url']['alter']['text'] = '[field_link_type]';
   $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-link_url]';
   $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
@@ -282,6 +289,7 @@ function mmorpg_signup_now_views_default_views() {
     t('Payment Types'),
     t('Genre'),
     t('Show More'),
+    t('[field_link_type]'),
     t('More info, videos, forums...'),
     t('<div class="play_now_row_header">
 <div class="play_now_title">[field_target_url_1]</div>
