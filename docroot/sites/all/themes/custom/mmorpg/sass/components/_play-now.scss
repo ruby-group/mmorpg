@@ -1,11 +1,53 @@
+.pane-play-now-slider{
+	@include breakpoint(900px){
+		@include grid-span(10, 2);
+		float: none;
+	}
+	overflow: hidden; 
+	overflow-x: auto;
+  	max-height: 172px !important;
+  	padding: 20px;
+  	background: #342D44;
+
+  	.view-play-now-slider{
+  		width: 150%;
+  		position: static;
+  	}
+
+	.views-row{
+		float: left;
+		margin-right: 0.75em;
+		position: relative;
+
+		.views-field-nothing{
+			color: $light-gray;
+			position: absolute;
+			padding: 10px;
+			top: 0;
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+		}
+
+		img{
+			border-bottom: 4px solid $light-blue;
+
+			&:hover{
+				border-bottom: 4px solid $hover-dblue;
+			}
+		}
+	}
+}
+
+
 .view-play-now{
 
 	.views-row{
 		padding: 10px;
 	}
 
-	.play_now_row_header{
-		.play_now_title {
+	.play_now_row_header,
+	.promoted_play_now_row_header{
+		.play_now_title,
+		.promoted_play_now_title {
 			display: inline-block;
 			a{
 				color: $title-blue;
@@ -17,7 +59,8 @@
 			}
 		}
 
-		.play_now_platforms{
+		.play_now_platforms,
+		.promoted_play_now_platforms{
 			display: inline-block;
 			vertical-align: bottom;
 			ul{
@@ -104,12 +147,15 @@
 		}
 	}
 
-	.play_now_row_details{
-		.play_now_details{
+	.play_now_row_details,
+	.promoted_play_now_row_details{
+		.play_now_details,
+		.promoted_play_now_details{
 			display: inline-block;
 		}
 
-		.play_now_status > span{
+		.play_now_status > span,
+		.promoted_play_now_status > span{
 			display: inline-block;
 		}
 
@@ -118,11 +164,13 @@
 		}
 	}
 
-	.play_now_body{
+	.play_now_body,
+	.promoted_play_now_body{
 		line-height: 1.55em;
 	}
 
-	.play_now_screenshots{
+	.play_now_screenshots,
+	.promoted_play_now_screenshots{
 		.views-row{
 			max-width: 120px;
 			padding: 0;
@@ -135,63 +183,70 @@
 		}
 	}
 
-	.play_now_row_footer{
+	.play_now_row_footer,
+	.promoted_play_now_row_footer{
 		padding-top: 8px;
 		
 		.play_now_url,
-		.play_now_more{
+		.promoted_play_now_url,
+		.play_now_more,
+		.promoted_play_now_more{
 			display: inline-block;
 		}
 	}
 
 
-	.play_now_url a{
+	.play_now_url a,
+	.promoted_play_now_url a{
 		@extend %play_now_buttons;
 		background: $green;
 	}
 
-	.play_now_more a{
+	.play_now_more a,
+	.promoted_play_now_more a{
 		@extend %play_now_buttons;
 	  	background: $dark-gray;
-		
 	}
-}
 
-.pane-play-now-slider{
-	@include breakpoint(900px){
-		@include grid-span(10, 2);
-		float: none;
-	}
-	overflow: hidden; 
-	overflow-x: auto;
-  	max-height: 172px !important;
-  	padding: 20px;
-  	background: #342D44;
-
-  	.view-play-now-slider{
-  		width: 150%;
-  		position: static;
-  	}
-
-	.views-row{
-		float: left;
-		margin-right: 0.75em;
+	.promoted_play_now_block{
+		margin-bottom: 20px;
+		color: $white;
 		position: relative;
+		height: 360px;
+		width: 880px;
 
-		.views-field-nothing{
-			color: $light-gray;
+		.promoted_play_now_background{
 			position: absolute;
-			padding: 10px;
-			top: 0;
-			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+			z-index: -1;
 		}
 
-		img{
-			border-bottom: 4px solid $light-blue;
+		.promoted_play_now_content{
+			padding: 20px 20px 15px 20px;
+			text-shadow: 0 1px 3px #000000;
 
-			&:hover{
-				border-bottom: 4px solid $hover-dblue;
+			.promoted_play_now_url a{
+				@extend %play_now_buttons;
+				background: $green;
+				padding-left: 20px;
+			   padding-right: 20px;
+			   font-size: 1.4em;
+			   border-radius: 3px;
+			   line-height: 40px;
+			}
+
+			.promoted_play_now_more a{
+				@extend %play_now_buttons;
+	  			background: transparent;
+			}
+
+			.promoted_play_now_screenshots img{
+				border: 1px solid #636363 !important;
 			}
 		}
 	}
 }
+
+
+
+
+
