@@ -16,14 +16,14 @@
 	h2.pane-title + div{
 		@extend %play_now_buttons;
 		background: $green;
-
-		& + a{
-			background: $btn-blue;
-		}
 	}
 
 	a{
 		@extend %play_now_buttons;
 		background: $dark-gray;
+
+		&.active{
+			background: $btn-blue;
+		}
 	}
 }

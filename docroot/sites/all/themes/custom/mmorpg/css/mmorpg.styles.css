@@ -492,12 +492,12 @@ body {
 /* line 16, ../sass/components/_filters.scss */
 .pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div {
   background: #65c015; }
-  /* line 20, ../sass/components/_filters.scss */
-  .pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div + a {
-    background: #2186d4; }
-/* line 25, ../sass/components/_filters.scss */
+/* line 21, ../sass/components/_filters.scss */
 .pane-mmorpg-signup-now-play-now-page-filters a {
   background: #707070; }
+  /* line 25, ../sass/components/_filters.scss */
+  .pane-mmorpg-signup-now-play-now-page-filters a.active {
+    background: #2186d4; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
