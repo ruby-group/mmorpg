@@ -506,10 +506,10 @@ function mmorpg_site_default_page_manager_handlers() {
           'settings' => array(
             'visibility_setting' => '1',
             'paths' => 'play-now/*',
-          ),
+      ),
           'context' => 'alias',
           'not' => FALSE,
-        ),
+    ),
       ),
       'logic' => 'or',
     ),

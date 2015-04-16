@@ -50,6 +50,9 @@ function mmorpg_signup_now_block_info() {
   $blocks['play_now_page_filters'] = array(
     'info' => t('Play Now Page Filters'),
   );
+  $blocks['play_now_menu_link'] = array(
+    'info' => t('Play Now Menu Link'),
+  );
   return $blocks;
 }
 
@@ -62,6 +65,9 @@ function mmorpg_signup_now_block_view($delta = '') {
   switch ($delta) {
     case 'play_now_page_filters' :
       $block['content'] = mmorpg_signup_now_play_now_filter();
+      break;
+    case 'play_now_menu_link' :
+      $block['content'] = mmorpg_signup_now_menu_link();
       break;
   }
   
@@ -90,4 +96,17 @@ function mmorpg_signup_now_play_now_filter() {
     }
   }
   return $content;
+}
+
+function mmorpg_signup_now_menu_link() {
+  return '
+<div class="block block-views block-views-id-latest_updates-block first last">
+    <div class="content">
+        <div class="view view-latest-updates view-id-latest_updates view-display-id-block view-dom-id-40ce8da78d185c83880dc10892c4a943">
+            <div class="view-footer">
+                <a class="om-autoscroll" href="' . base_path() . '/play-now">Play Now Games</a>
+            </div>
+        </div>
+    </div>
+</div>';
 }
