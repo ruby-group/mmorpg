@@ -2,11 +2,8 @@ Drupal.behaviors.mmorpgGameToDisplayBehavior = {
   attach: function (context, settings) {
     var date = new Date();
     var minute = date.getMinutes();
-
-    //hide the promoted Signup now links from tiers
-    jQuery(".view-promoted-signup-now-link .view-content .tier").each(function (index, element) {
-      var tierLimit = jQuery(element).find("div .views-field-field-tiers-max-links-to-display .field-content").html();
-      var rows = jQuery(element).find(".views-row");
+    var rotate = function(element, minute) {
+      var rows = jQuery(element).find("> .views-row");
       var rowsArray = jQuery.map(rows, function (value, index) {
         return value;
       });
@@ -15,6 +12,14 @@ Drupal.behaviors.mmorpgGameToDisplayBehavior = {
         var temp = rowsArray.shift();
         rowsArray.push(temp);
       }
+      return rowsArray;
+    };
+
+    if (jQuery(".view-promoted-signup-now-link").length > 0) {
+    //hide the promoted Signup now links from tiers
+    jQuery(".view-promoted-signup-now-link .view-content .tier").each(function (index, element) {
+      var tierLimit = jQuery(element).find("div .views-field-field-tiers-max-links-to-display .field-content").html();
+      var rowsArray = rotate(element,minute);
       var displayRows = rowsArray.slice(0, tierLimit);
       jQuery(element).html(displayRows);
     });
@@ -28,4 +33,13 @@ Drupal.behaviors.mmorpgGameToDisplayBehavior = {
       jQuery(this).hide();
     });
     }
-  };
+
+    if (jQuery(".view-display-id-panel_pane_1").length > 0) {
+    //hide the promoted playnow
+    jQuery(".view-display-id-panel_pane_1 .view-content").each(function (index, element) {
+      var rowsArray = rotate(element,minute);
+      jQuery(element).html(rowsArray);
+    });
+  }
+}
+};
