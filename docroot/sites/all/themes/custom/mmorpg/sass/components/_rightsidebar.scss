@@ -22,14 +22,18 @@
       background: $hover-lblue;
     }
 
-      .views-field-field-game-hero-image,
+      .views-field-field-image,
       .views-field-field-target-url{
         display: inline-block;
         vertical-align: top;
         padding-right: 0.25em;
 
+        .field-content{
+          display: table-cell;
+        }
+
         img{
-          padding-top: 0.5em;
+          vertical-align: middle;
         }
       }
   }
