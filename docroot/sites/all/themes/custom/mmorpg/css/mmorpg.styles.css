@@ -870,16 +870,20 @@ ul.pager {
     .rightsidebar .views-row:hover {
       background: #e9f8ff; }
     /* line 25, ../sass/components/_rightsidebar.scss */
-    .rightsidebar .views-row .views-field-field-game-hero-image,
+    .rightsidebar .views-row .views-field-field-image,
     .rightsidebar .views-row .views-field-field-target-url {
       display: inline-block;
       vertical-align: top;
       padding-right: 0.25em; }
       /* line 31, ../sass/components/_rightsidebar.scss */
-      .rightsidebar .views-row .views-field-field-game-hero-image img,
+      .rightsidebar .views-row .views-field-field-image .field-content,
+      .rightsidebar .views-row .views-field-field-target-url .field-content {
+        display: table-cell; }
+      /* line 35, ../sass/components/_rightsidebar.scss */
+      .rightsidebar .views-row .views-field-field-image img,
       .rightsidebar .views-row .views-field-field-target-url img {
-        padding-top: 0.5em; }
-  /* line 37, ../sass/components/_rightsidebar.scss */
+        vertical-align: middle; }
+  /* line 41, ../sass/components/_rightsidebar.scss */
   .rightsidebar .view-footer p,
   .rightsidebar .view-footer a {
     display: block;
