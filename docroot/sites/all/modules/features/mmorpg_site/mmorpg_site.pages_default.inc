@@ -434,8 +434,17 @@ function mmorpg_site_default_page_manager_handlers() {
           'context' => 'alias',
           'not' => FALSE,
         ),
+        1 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'play-now/*',
+          ),
+          'context' => 'alias',
+          'not' => FALSE,
+        ),
       ),
-      'logic' => 'and',
+      'logic' => 'or',
     ),
   );
   $display = new panels_display();
@@ -541,7 +550,21 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->type = 'block';
     $pane->subtype = 'mmorpg_signup_now-play_now_page_filters';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'play-now
+play-now/*',
+          ),
+          'context' => 'alias',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    );
     $pane->configuration = array(
       'override_title' => 1,
       'override_title_text' => 'Games / Play Now',
