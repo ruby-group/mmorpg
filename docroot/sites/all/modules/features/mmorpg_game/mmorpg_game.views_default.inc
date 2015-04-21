@@ -410,7 +410,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_video_url']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_video_url']['type'] = 'isfield_thumbnail';
   $handler->display->display_options['fields']['field_video_url']['settings'] = array(
-    'dimensions' => '140x105',
+    'dimensions' => '150x120',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
