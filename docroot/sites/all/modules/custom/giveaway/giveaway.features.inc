@@ -25,7 +25,7 @@ function giveaway_ctools_plugin_api($module = NULL, $api = NULL) {
 function giveaway_node_info() {
   $items = array(
     'giveaway' => array(
-      'name' => t('Giveaway'),
+      'name' => t('Key Giveaway'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
