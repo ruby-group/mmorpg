@@ -480,6 +480,27 @@ return render($block[\'content\']);',
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'panels_everywhere_override_theme_mmorpg';
+  $strongarm->value = 0;
+  $export['panels_everywhere_override_theme_mmorpg'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panels_everywhere_site_template_enabled';
+  $strongarm->value = TRUE;
+  $export['panels_everywhere_site_template_enabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'panels_everywhere_site_template_per_theme';
+  $strongarm->value = 0;
+  $export['panels_everywhere_site_template_per_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'radioactivity_checksum_salt';
   $strongarm->value = '6Pqik8ZUKGqqLHRx5936';
   $export['radioactivity_checksum_salt'] = $strongarm;
@@ -517,7 +538,7 @@ return render($block[\'content\']);',
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'sharethis_button_option';
-  $strongarm->value = 'stbc_large';
+  $strongarm->value = 'stbc_custom';
   $export['sharethis_button_option'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -612,6 +633,8 @@ return render($block[\'content\']);',
     'customer' => 0,
     'game' => 0,
     'game_link' => 0,
+    'panel' => 0,
+    'play_now_promoted_game' => 0,
     'promoted_signup_now_link' => 0,
     'screenshot_gallery' => 0,
     'signup_now_link' => 0,
@@ -649,6 +672,21 @@ return render($block[\'content\']);',
   $strongarm->name = 'sharethis_option_shorten';
   $strongarm->value = 1;
   $export['sharethis_option_shorten'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'sharethis_panel_options';
+  $strongarm->value = array(
+    'full' => 0,
+    'teaser' => 0,
+    'rss' => 0,
+    'search_index' => 0,
+    'search_result' => 0,
+    'diff_standard' => 0,
+    'token' => 0,
+  );
+  $export['sharethis_panel_options'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
