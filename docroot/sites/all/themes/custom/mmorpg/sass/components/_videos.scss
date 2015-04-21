@@ -16,11 +16,18 @@
   .views-row{
     @extend %gallery_rows;
     max-width: 150px;
+    float: none;
+    vertical-align: top;
   }
 
   .video_image a{
     display: block;
     border-bottom: 4px solid $light-blue;
+    height: 124px;
+
+    img{
+      height: 120px;
+    }
   }
 
   .video_hover{
