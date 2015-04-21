@@ -117,7 +117,7 @@ function mmorpg_game_field_default_field_instances() {
     'label' => 'Cancel Date',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -208,7 +208,7 @@ function mmorpg_game_field_default_field_instances() {
     'label' => 'Status Date',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -300,13 +300,14 @@ function mmorpg_game_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'body',
     'label' => 'Body',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
-      'display_summary' => TRUE,
+      'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'rows' => 20,
@@ -623,82 +624,6 @@ function mmorpg_game_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 19,
-    ),
-  );
-
-  // Exported field_instance: 'node-game-field_expansion_type'
-  $field_instances['node-game-field_expansion_type'] = array(
-    'bundle' => 'game',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_expansion_type',
-    'label' => 'Expansion Type',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance: 'node-game-field_game'
-  $field_instances['node-game-field_game'] = array(
-    'bundle' => 'game',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 22,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_game',
-    'label' => 'Parent Game',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 5,
     ),
   );
 
@@ -2205,7 +2130,6 @@ function mmorpg_game_field_default_field_instances() {
   t('ESRB');
   t('Engine');
   t('Exclusive');
-  t('Expansion Type');
   t('Game');
   t('Game Development Status');
   t('Game Overview');
@@ -2222,7 +2146,6 @@ function mmorpg_game_field_default_field_instances() {
   t('Origin');
   t('Overview');
   t('PVP');
-  t('Parent Game');
   t('Payment Methods');
   t('Platforms');
   t('Publisher');
