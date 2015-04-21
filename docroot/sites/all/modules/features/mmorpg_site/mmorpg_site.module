@@ -21,5 +21,63 @@ function mmorpg_site_menu() {
     'access callback' => TRUE,
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
+
+  $items['personalization'] = array(
+    'page callback' => 'mmorpg_site_personalization_endpoint',
+    'access arguments' => array('access content'),
+  );
+
   return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_site_block_info() {
+  $blocks['invisible_block'] = array(
+    'info' => t('Invisible Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_site_block_view($delta = '') {
+  $block = array();
+  if ($delta == 'invisible_block') {
+    $block['content'] = "<div class='placeholder'></div>";
+  }
+  return $block;
+}
+
+function mmorpg_site_personalization_endpoint($node) {
+  global $user;
+  $play_now_block = module_invoke('mmorpg_signup_now', 'block_view', 'play_now_menu_link');
+  $latest_updates_block = module_invoke('views', 'block_view', 'latest_updates-block');
+
+  $output = array(
+    'games' => render($play_now_block['content']),
+    'reviews' => '',
+    'updates' => render($latest_updates_block['content']),
+    'videos' => '',
+    'commmunity' => '',
+    'blogs' => '',
+    'tgn' => '',
+    'store' => '',
+    'username' => '',
+  );
+  if ($user->uid > 0) {
+    $latest_news_block = module_invoke('views', 'block_view', 'trending-latest_news');
+
+    $output['tgn'] = 'Not Implemented';
+    $output['blogs'] = 'Not Implemented';
+    $output['store'] = 'Not Implemented';
+    $output['videos'] = 'Not Implemented';
+    $output['reviews'] = 'Not Implemented';
+    $output['username'] = render($latest_news_block['content']);
+    $output['commmunity'] = 'Not Implemented';
+  }
+  drupal_json_output($output);
 }

@@ -79,7 +79,13 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -102,7 +108,13 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -125,7 +137,13 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -144,7 +162,13 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -222,7 +246,13 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -234,30 +264,24 @@ function mmorpg_site_default_page_manager_handlers() {
     $display->content['new-2f04bf28-e72e-4e5a-b807-cb9688c2bcd2'] = $pane;
     $display->panels['header'][0] = 'new-2f04bf28-e72e-4e5a-b807-cb9688c2bcd2';
     $pane = new stdClass();
-    $pane->pid = 'new-f9393c76-9f0b-4ce5-b231-9e6575ba7ed0';
+    $pane->pid = 'new-8948bcd2-b7ec-46ef-a4b7-7f7f2f5a7ee4';
     $pane->panel = 'highlighted';
-    $pane->type = 'views';
-    $pane->subtype = 'siteskins_rendering';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '0',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'active_siteskin',
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -265,9 +289,9 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'f9393c76-9f0b-4ce5-b231-9e6575ba7ed0';
-    $display->content['new-f9393c76-9f0b-4ce5-b231-9e6575ba7ed0'] = $pane;
-    $display->panels['highlighted'][0] = 'new-f9393c76-9f0b-4ce5-b231-9e6575ba7ed0';
+    $pane->uuid = '8948bcd2-b7ec-46ef-a4b7-7f7f2f5a7ee4';
+    $display->content['new-8948bcd2-b7ec-46ef-a4b7-7f7f2f5a7ee4'] = $pane;
+    $display->panels['highlighted'][0] = 'new-8948bcd2-b7ec-46ef-a4b7-7f7f2f5a7ee4';
     $pane = new stdClass();
     $pane->pid = 'new-afeb6bb9-06a4-4e1b-9c5a-3f7ff30f8660';
     $pane->panel = 'sidebar_second';
@@ -276,7 +300,13 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -287,7 +317,7 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->uuid = 'afeb6bb9-06a4-4e1b-9c5a-3f7ff30f8660';
     $display->content['new-afeb6bb9-06a4-4e1b-9c5a-3f7ff30f8660'] = $pane;
     $display->panels['sidebar_second'][0] = 'new-afeb6bb9-06a4-4e1b-9c5a-3f7ff30f8660';
-  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['site_template__homepage'] = $handler;
@@ -348,24 +378,26 @@ function mmorpg_site_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-640a8f4c-361c-4aff-b1a5-734cdf197e10';
+    $pane->pid = 'new-71b6079b-c0eb-42fc-83ea-36ee32c6f533';
     $pane->panel = 'content';
-    $pane->type = 'node';
+    $pane->type = 'entity_view';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '%1',
-      'links' => 1,
-      'leave_node_title' => 0,
-      'identifier' => '',
-      'build_mode' => 'full',
-      'link_node_title' => 0,
+      'view_mode' => 'full',
+      'context' => 'node',
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -373,9 +405,9 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '640a8f4c-361c-4aff-b1a5-734cdf197e10';
-    $display->content['new-640a8f4c-361c-4aff-b1a5-734cdf197e10'] = $pane;
-    $display->panels['content'][0] = 'new-640a8f4c-361c-4aff-b1a5-734cdf197e10';
+    $pane->uuid = '71b6079b-c0eb-42fc-83ea-36ee32c6f533';
+    $display->content['new-71b6079b-c0eb-42fc-83ea-36ee32c6f533'] = $pane;
+    $display->panels['content'][0] = 'new-71b6079b-c0eb-42fc-83ea-36ee32c6f533';
     $pane = new stdClass();
     $pane->pid = 'new-c237bda8-9688-4624-aa4b-bad1006f4b82';
     $pane->panel = 'header';
@@ -388,7 +420,13 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -399,7 +437,36 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->uuid = 'c237bda8-9688-4624-aa4b-bad1006f4b82';
     $display->content['new-c237bda8-9688-4624-aa4b-bad1006f4b82'] = $pane;
     $display->panels['header'][0] = 'new-c237bda8-9688-4624-aa4b-bad1006f4b82';
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $pane = new stdClass();
+    $pane->pid = 'new-8898c07d-0ebb-4238-9a5d-a455ae5c16c3';
+    $pane->panel = 'highlighted';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8898c07d-0ebb-4238-9a5d-a455ae5c16c3';
+    $display->content['new-8898c07d-0ebb-4238-9a5d-a455ae5c16c3'] = $pane;
+    $display->panels['highlighted'][0] = 'new-8898c07d-0ebb-4238-9a5d-a455ae5c16c3';
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-c237bda8-9688-4624-aa4b-bad1006f4b82';
   $handler->conf['display'] = $display;
   $export['site_template__node'] = $handler;
@@ -439,10 +506,10 @@ function mmorpg_site_default_page_manager_handlers() {
           'settings' => array(
             'visibility_setting' => '1',
             'paths' => 'play-now/*',
-          ),
+      ),
           'context' => 'alias',
           'not' => FALSE,
-        ),
+    ),
       ),
       'logic' => 'or',
     ),
@@ -475,7 +542,13 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array();
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -510,7 +583,13 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -533,7 +612,13 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -570,7 +655,13 @@ play-now/*',
       'override_title_text' => 'Games / Play Now',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -605,7 +696,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -616,7 +713,36 @@ play-now/*',
     $pane->uuid = '3f14db0b-a913-4eeb-9ba5-04a8833dd171';
     $display->content['new-3f14db0b-a913-4eeb-9ba5-04a8833dd171'] = $pane;
     $display->panels['header'][2] = 'new-3f14db0b-a913-4eeb-9ba5-04a8833dd171';
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $pane = new stdClass();
+    $pane->pid = 'new-e809eee7-513d-4014-bcc2-49dc42d7f0a7';
+    $pane->panel = 'highlighted';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e809eee7-513d-4014-bcc2-49dc42d7f0a7';
+    $display->content['new-e809eee7-513d-4014-bcc2-49dc42d7f0a7'] = $pane;
+    $display->panels['highlighted'][0] = 'new-e809eee7-513d-4014-bcc2-49dc42d7f0a7';
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['site_template__play_now'] = $handler;
@@ -687,7 +813,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -725,7 +857,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -748,7 +886,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -759,7 +903,36 @@ play-now/*',
     $pane->uuid = 'e9b33dd0-2810-4ea8-a97b-506ee998d33e';
     $display->content['new-e9b33dd0-2810-4ea8-a97b-506ee998d33e'] = $pane;
     $display->panels['header'][0] = 'new-e9b33dd0-2810-4ea8-a97b-506ee998d33e';
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $pane = new stdClass();
+    $pane->pid = 'new-52f7829d-0d47-47c1-8d84-4afd8ad39aad';
+    $pane->panel = 'highlighted';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '52f7829d-0d47-47c1-8d84-4afd8ad39aad';
+    $display->content['new-52f7829d-0d47-47c1-8d84-4afd8ad39aad'] = $pane;
+    $display->panels['highlighted'][0] = 'new-52f7829d-0d47-47c1-8d84-4afd8ad39aad';
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-e9b33dd0-2810-4ea8-a97b-506ee998d33e';
   $handler->conf['display'] = $display;
   $export['site_template__screenshot_gallery_'] = $handler;
@@ -830,7 +1003,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -868,7 +1047,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -906,7 +1091,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -929,7 +1120,13 @@ play-now/*',
       'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );
@@ -940,7 +1137,36 @@ play-now/*',
     $pane->uuid = '00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
     $display->content['new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9'] = $pane;
     $display->panels['header'][0] = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
-  $display->hide_title = PANELS_TITLE_FIXED;
+    $pane = new stdClass();
+    $pane->pid = 'new-3c407aa2-ca1c-4ed3-bd57-472c0b627219';
+    $pane->panel = 'highlighted';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3c407aa2-ca1c-4ed3-bd57-472c0b627219';
+    $display->content['new-3c407aa2-ca1c-4ed3-bd57-472c0b627219'] = $pane;
+    $display->panels['highlighted'][0] = 'new-3c407aa2-ca1c-4ed3-bd57-472c0b627219';
+  $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
   $handler->conf['display'] = $display;
   $export['site_template__video_listing_'] = $handler;
@@ -952,7 +1178,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Sample variant',
     'no_blocks' => 1,
