@@ -28,7 +28,7 @@ function mmorpg_signup_now_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_signup_now_link';
-  $strongarm->value = 'edit-comment';
+  $strongarm->value = 'edit-unique-field';
   $export['additional_settings__active_tab_signup_now_link'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -800,6 +800,40 @@ function mmorpg_signup_now_strongarm() {
   $strongarm->name = 'scheduler_use_vertical_tabs_signup_now_link';
   $strongarm->value = '1';
   $export['scheduler_use_vertical_tabs_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_comp_signup_now_link';
+  $strongarm->value = 'all';
+  $export['unique_field_comp_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_fields_signup_now_link';
+  $strongarm->value = array(
+    0 => 'field_countries_cce',
+    1 => 'field_game',
+    2 => 'field_customer',
+  );
+  $export['unique_field_fields_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_scope_signup_now_link';
+  $strongarm->value = 'type';
+  $export['unique_field_scope_signup_now_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_show_matches_signup_now_link';
+  $strongarm->value = array(
+    0 => 'show_matches',
+  );
+  $export['unique_field_show_matches_signup_now_link'] = $strongarm;
 
   return $export;
 }

@@ -98,22 +98,20 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_mmo_genre']['label'] = 'Genre';
   $handler->display->display_options['fields']['field_mmo_genre']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_mmo_genre']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['max_length'] = '400';
-  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['body']['alter']['more_link_text'] = 'Show More';
-  $handler->display->display_options['fields']['body']['alter']['more_link_path'] = '[nid]';
-  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
+  /* Field: Content: Overview */
+  $handler->display->display_options['fields']['field_game_overview']['id'] = 'field_game_overview';
+  $handler->display->display_options['fields']['field_game_overview']['table'] = 'field_data_field_game_overview';
+  $handler->display->display_options['fields']['field_game_overview']['field'] = 'field_game_overview';
+  $handler->display->display_options['fields']['field_game_overview']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_game_overview']['label'] = '';
+  $handler->display->display_options['fields']['field_game_overview']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_game_overview']['alter']['max_length'] = '400';
+  $handler->display->display_options['fields']['field_game_overview']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['field_game_overview']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_game_overview']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['field_game_overview']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_game_overview']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['field_game_overview']['settings'] = array(
     'trim_length' => '400',
   );
   /* Field: Global: View */
@@ -172,7 +170,7 @@ function mmorpg_signup_now_views_default_views() {
 <div class="play_now_details play_now_status"><span class="label">Status: </span><span class="content status_content">[field_game_development_status]</span></div>
 </div>
 <div class="play_now_row_content">
-<div class="play_now_body">[body]</div>
+<div class="play_now_body">[field_game_overview]</div>
 <div class="play_now_screenshots">[view]</div>
 </div>
 <div class="play_now_row_footer">
@@ -320,23 +318,20 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_mmo_genre']['label'] = 'Genre';
   $handler->display->display_options['fields']['field_mmo_genre']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_mmo_genre']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['max_length'] = '200';
-  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['body']['alter']['more_link'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['more_link_text'] = 'Show More';
-  $handler->display->display_options['fields']['body']['alter']['more_link_path'] = '[nid]';
-  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
+  /* Field: Content: Overview */
+  $handler->display->display_options['fields']['field_game_overview']['id'] = 'field_game_overview';
+  $handler->display->display_options['fields']['field_game_overview']['table'] = 'field_data_field_game_overview';
+  $handler->display->display_options['fields']['field_game_overview']['field'] = 'field_game_overview';
+  $handler->display->display_options['fields']['field_game_overview']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_game_overview']['label'] = '';
+  $handler->display->display_options['fields']['field_game_overview']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_game_overview']['alter']['max_length'] = '400';
+  $handler->display->display_options['fields']['field_game_overview']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['field_game_overview']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_game_overview']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['field_game_overview']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_game_overview']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['field_game_overview']['settings'] = array(
     'trim_length' => '400',
   );
   /* Field: Global: View */
@@ -403,7 +398,7 @@ function mmorpg_signup_now_views_default_views() {
 <div class="promoted_play_now_details promoted_play_now_status"><span class="label">Status: </span><span class="content status_content">[field_game_development_status]</span></div>
 </div>
 <div class="promoted_play_now_row_content">
-<div class="promoted_play_now_body">[body]</div>
+<div class="promoted_play_now_body">[field_game_overview]</div>
 <div class="promoted_play_now_screenshots">[view]</div>
 </div>
 <div class="promoted_play_now_row_footer">
@@ -454,7 +449,6 @@ function mmorpg_signup_now_views_default_views() {
     t('[title]'),
     t('Payment Types'),
     t('Genre'),
-    t('Show More'),
     t('[field_link_type]'),
     t('More info, videos, forums...'),
     t('<div class="play_now_row_header">
@@ -467,7 +461,7 @@ function mmorpg_signup_now_views_default_views() {
 <div class="play_now_details play_now_status"><span class="label">Status: </span><span class="content status_content">[field_game_development_status]</span></div>
 </div>
 <div class="play_now_row_content">
-<div class="play_now_body">[body]</div>
+<div class="play_now_body">[field_game_overview]</div>
 <div class="play_now_screenshots">[view]</div>
 </div>
 <div class="play_now_row_footer">
@@ -493,7 +487,7 @@ function mmorpg_signup_now_views_default_views() {
 <div class="promoted_play_now_details promoted_play_now_status"><span class="label">Status: </span><span class="content status_content">[field_game_development_status]</span></div>
 </div>
 <div class="promoted_play_now_row_content">
-<div class="promoted_play_now_body">[body]</div>
+<div class="promoted_play_now_body">[field_game_overview]</div>
 <div class="promoted_play_now_screenshots">[view]</div>
 </div>
 <div class="promoted_play_now_row_footer">
