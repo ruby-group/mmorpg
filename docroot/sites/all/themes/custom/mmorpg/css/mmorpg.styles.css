@@ -382,6 +382,16 @@ header.header {
   .btn:hover, .view-footer .om-autoscroll:hover {
     background: #2b94e4; }
 
+/* line 17, ../sass/base/_forms.scss */
+.btn.green, .view-footer .green.om-autoscroll {
+  background: #65c015; }
+
+/* line 20, ../sass/base/_forms.scss */
+.btn.large, .view-footer .large.om-autoscroll {
+  border: 0;
+  display: block;
+  text-align: center; }
+
 /* line 2, ../sass/base/_lists.scss */
 .sidebar-listing .view-content {
   line-height: 28px; }
@@ -499,6 +509,20 @@ body {
   /* line 25, ../sass/components/_filters.scss */
   .pane-mmorpg-signup-now-play-now-page-filters a.active {
     background: #2186d4; }
+
+/* line 1, ../sass/components/_keygiveaway.scss */
+.remainingkeys {
+  display: block;
+  padding: 10px;
+  font-size: 40px !important;
+  color: #14adff;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.50em; }
+
+/* line 12, ../sass/components/_keygiveaway.scss */
+.node--giveaway p, .node--giveaway strong, .node--giveaway span {
+  font-size: 14px !important; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
