@@ -725,8 +725,8 @@ ul.pager {
     .view-play-now .promoted_play_now_body p:first-child {
       display: block !important; }
   /* line 179, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_body #play_now_body_more,
-  .view-play-now .promoted_play_now_body #play_now_body_more {
+  .view-play-now .play_now_body .play_now_body_more,
+  .view-play-now .promoted_play_now_body .play_now_body_more {
     cursor: pointer;
     margin-left: 0.75em; }
 /* line 187, ../sass/components/_play-now.scss */
