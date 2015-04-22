@@ -167,6 +167,19 @@
 	.play_now_body,
 	.promoted_play_now_body{
 		line-height: 1.55em;
+
+      p{
+        display: none;
+
+        &:first-child{
+          display: block !important;
+        }
+      }
+
+      #play_now_body_more{
+        cursor: pointer;
+        margin-left: 0.75em;
+      }
 	}
 
 	.play_now_screenshots,
