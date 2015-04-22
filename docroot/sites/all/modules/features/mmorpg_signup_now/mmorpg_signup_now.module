@@ -12,19 +12,31 @@ function mmorpg_signup_now_init() {
 }
 
 /**
+ * Implements hook_permission().
+ */
+function mmorpg_signup_now_permission() {
+  return array(
+    'administer signupnow settings' => array(
+      'title' => t('Administer signupnow settings'),
+      'description' => t('Administer signup now content related settings.'),
+    ),
+  );
+}
+
+/**
  * Implements hook_menu().
  */
 function mmorpg_signup_now_menu() {
   $items = array();
 
-  $items['admin/config/signupnow'] = array(
+  $items['admin/mmorpg/signupnow-settings'] = array(
     'title' => 'Signup Now',
     'description' => 'Signup Now Link config page.',
     'position' => 'right',
     'weight' => -5,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('mmorpg_signup_now_config_form'),
-    'access arguments' => array('administer site configuration'),
+    'access arguments' => array('administer signupnow settings'),
     'type' => MENU_NORMAL_ITEM,
     );
 
