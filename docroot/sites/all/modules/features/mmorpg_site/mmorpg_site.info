@@ -27,6 +27,7 @@ features[features_api][] = api:2
 features[image][] = play_now_promoted
 features[image][] = play_now_screenshots__160x100_
 features[page_manager_handlers][] = site_template__article_page
+features[page_manager_handlers][] = site_template__giveaway
 features[page_manager_handlers][] = site_template__homepage
 features[page_manager_handlers][] = site_template__node
 features[page_manager_handlers][] = site_template__play_now
