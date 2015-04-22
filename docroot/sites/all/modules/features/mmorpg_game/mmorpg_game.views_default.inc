@@ -229,13 +229,24 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Category */
+  $handler->display->display_options['fields']['field_screenshot_category']['id'] = 'field_screenshot_category';
+  $handler->display->display_options['fields']['field_screenshot_category']['table'] = 'field_data_field_screenshot_category';
+  $handler->display->display_options['fields']['field_screenshot_category']['field'] = 'field_screenshot_category';
+  $handler->display->display_options['fields']['field_screenshot_category']['label'] = '';
+  $handler->display->display_options['fields']['field_screenshot_category']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_screenshot_category']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_screenshot_category']['alter']['text'] = '[field_screenshot_category-tid]
+';
+  $handler->display->display_options['fields']['field_screenshot_category']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot_category']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="screenshot_image">[field_screenshot_image]</div>
-<div class="screenshot_hover">[title]</div>';
+<div class="screenshot_hover tid_[field_screenshot_category]"></div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -298,8 +309,10 @@ function mmorpg_game_views_default_views() {
     t('next ›'),
     t('last »'),
     t('Content entity referenced from field_game'),
+    t('[field_screenshot_category-tid]
+'),
     t('<div class="screenshot_image">[field_screenshot_image]</div>
-<div class="screenshot_hover">[title]</div>'),
+<div class="screenshot_hover tid_[field_screenshot_category]"></div>'),
     t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),

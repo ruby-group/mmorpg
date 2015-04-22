@@ -33,4 +33,13 @@ Drupal.behaviors.play_now = {
         //code ends
     }
 };
+
+Drupal.behaviors.screenshots = {
+    attach: function (context, settings) {
+        //code starts
+        $(".screenshot_hover.tid_378").html("<span>User Photo</span>");
+        $(".screenshot_hover.tid_377").html("<span>Photo</span>");
+        //code ends
+    }
+};
 })(jQuery);
