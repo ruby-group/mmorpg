@@ -783,22 +783,35 @@ ul.pager {
 .view-play-now .play_now_body,
 .view-play-now .promoted_play_now_body {
   line-height: 1.55em; }
-/* line 174, ../sass/components/_play-now.scss */
+  /* line 171, ../sass/components/_play-now.scss */
+  .view-play-now .play_now_body p,
+  .view-play-now .promoted_play_now_body p {
+    display: none; }
+    /* line 174, ../sass/components/_play-now.scss */
+    .view-play-now .play_now_body p:first-child,
+    .view-play-now .promoted_play_now_body p:first-child {
+      display: block !important; }
+  /* line 179, ../sass/components/_play-now.scss */
+  .view-play-now .play_now_body #play_now_body_more,
+  .view-play-now .promoted_play_now_body #play_now_body_more {
+    cursor: pointer;
+    margin-left: 0.75em; }
+/* line 187, ../sass/components/_play-now.scss */
 .view-play-now .play_now_screenshots .views-row,
 .view-play-now .promoted_play_now_screenshots .views-row {
   max-width: 120px;
   padding: 0;
   display: inline-block;
   margin-right: 3px; }
-  /* line 180, ../sass/components/_play-now.scss */
+  /* line 193, ../sass/components/_play-now.scss */
   .view-play-now .play_now_screenshots .views-row:first-child,
   .view-play-now .promoted_play_now_screenshots .views-row:first-child {
     max-width: 160px; }
-/* line 186, ../sass/components/_play-now.scss */
+/* line 199, ../sass/components/_play-now.scss */
 .view-play-now .play_now_row_footer,
 .view-play-now .promoted_play_now_row_footer {
   padding-top: 8px; }
-  /* line 190, ../sass/components/_play-now.scss */
+  /* line 203, ../sass/components/_play-now.scss */
   .view-play-now .play_now_row_footer .play_now_url,
   .view-play-now .play_now_row_footer .promoted_play_now_url,
   .view-play-now .play_now_row_footer .play_now_more,
@@ -808,30 +821,30 @@ ul.pager {
   .view-play-now .promoted_play_now_row_footer .play_now_more,
   .view-play-now .promoted_play_now_row_footer .promoted_play_now_more {
     display: inline-block; }
-/* line 199, ../sass/components/_play-now.scss */
+/* line 212, ../sass/components/_play-now.scss */
 .view-play-now .play_now_url a,
 .view-play-now .promoted_play_now_url a {
   background: #65c015; }
-/* line 205, ../sass/components/_play-now.scss */
+/* line 218, ../sass/components/_play-now.scss */
 .view-play-now .play_now_more a,
 .view-play-now .promoted_play_now_more a {
   background: #707070; }
-/* line 211, ../sass/components/_play-now.scss */
+/* line 224, ../sass/components/_play-now.scss */
 .view-play-now .promoted_play_now_block {
   margin-bottom: 20px;
   color: #ffffff;
   position: relative;
   height: 360px;
   width: 880px; }
-  /* line 218, ../sass/components/_play-now.scss */
+  /* line 231, ../sass/components/_play-now.scss */
   .view-play-now .promoted_play_now_block .promoted_play_now_background {
     position: absolute;
     z-index: -1; }
-  /* line 223, ../sass/components/_play-now.scss */
+  /* line 236, ../sass/components/_play-now.scss */
   .view-play-now .promoted_play_now_block .promoted_play_now_content {
     padding: 20px 20px 15px 20px;
     text-shadow: 0 1px 3px #000000; }
-    /* line 227, ../sass/components/_play-now.scss */
+    /* line 240, ../sass/components/_play-now.scss */
     .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_url a {
       background: #65c015;
       padding-left: 20px;
@@ -839,10 +852,10 @@ ul.pager {
       font-size: 1.4em;
       border-radius: 3px;
       line-height: 40px; }
-    /* line 237, ../sass/components/_play-now.scss */
+    /* line 250, ../sass/components/_play-now.scss */
     .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_more a {
       background: transparent; }
-    /* line 242, ../sass/components/_play-now.scss */
+    /* line 255, ../sass/components/_play-now.scss */
     .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_screenshots img {
       border: 1px solid #636363 !important; }
 
