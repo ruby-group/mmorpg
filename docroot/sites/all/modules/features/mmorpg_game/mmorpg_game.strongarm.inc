@@ -549,6 +549,25 @@ function mmorpg_game_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'isfield_thumbnail_dimensions';
+  $strongarm->value = '140x105
+120x90
+150x120';
+  $export['isfield_thumbnail_dimensions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'isfield_video_dimensions';
+  $strongarm->value = '420x315
+480x360
+640x480
+960x720';
+  $export['isfield_video_dimensions'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_game';
   $strongarm->value = '0';
   $export['language_content_type_game'] = $strongarm;
