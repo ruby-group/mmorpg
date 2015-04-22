@@ -176,7 +176,7 @@
         }
       }
 
-      #play_now_body_more{
+      .play_now_body_more{
         cursor: pointer;
         margin-left: 0.75em;
       }
@@ -257,6 +257,26 @@
 			}
 		}
 	}
+
+    .views-widget-filter-title{
+
+      width: 100%;
+
+      label {
+          display: none;
+      }
+
+      input{
+          margin: 0px 0px 20px 0px;
+          padding: 9px 5px;
+          border-radius: 2px;
+          border: 1px solid #cecece;
+          background: #EEFBFF;
+          width: 100%;
+          color: #000;
+          box-sizing: border-box;
+      }
+    }
 }
 
 
