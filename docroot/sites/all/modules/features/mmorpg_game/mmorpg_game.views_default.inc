@@ -30,6 +30,10 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Content: Author */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
@@ -58,10 +62,43 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['promote']['id'] = 'promote';
   $handler->display->display_options['fields']['promote']['table'] = 'node';
   $handler->display->display_options['fields']['promote']['field'] = 'promote';
+  $handler->display->display_options['fields']['promote']['label'] = '';
+  $handler->display->display_options['fields']['promote']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['promote']['type'] = 'custom';
   $handler->display->display_options['fields']['promote']['type_custom_true'] = '<div>true</div>';
   $handler->display->display_options['fields']['promote']['type_custom_false'] = '<div>false</div>';
   $handler->display->display_options['fields']['promote']['not'] = 0;
+  /* Field: Content: ShareThis Link */
+  $handler->display->display_options['fields']['sharethis']['id'] = 'sharethis';
+  $handler->display->display_options['fields']['sharethis']['table'] = 'node';
+  $handler->display->display_options['fields']['sharethis']['field'] = 'sharethis';
+  $handler->display->display_options['fields']['sharethis']['label'] = '';
+  $handler->display->display_options['fields']['sharethis']['element_label_colon'] = FALSE;
+  /* Field: Content: Article Type */
+  $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['table'] = 'field_data_field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['field'] = 'field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['label'] = '';
+  $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'Keep Reading';
+  $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -118,9 +155,10 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Promoted to front page'),
+    t('author'),
     t('<div>true</div>'),
     t('<div>false</div>'),
+    t('Keep Reading'),
     t('All'),
     t('Content pane'),
     t('View panes'),
