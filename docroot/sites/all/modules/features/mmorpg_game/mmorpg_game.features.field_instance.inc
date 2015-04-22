@@ -449,40 +449,6 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-game-field_contact_name'
-  $field_instances['node-game-field_contact_name'] = array(
-    'bundle' => 'game',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 27,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_contact_name',
-    'label' => 'Contact Name',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 27,
-    ),
-  );
-
   // Exported field_instance: 'node-game-field_developer'
   $field_instances['node-game-field_developer'] = array(
     'bundle' => 'game',
@@ -698,39 +664,6 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-game-field_game_contact_email'
-  $field_instances['node-game-field_game_contact_email'] = array(
-    'bundle' => 'game',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'email',
-        'settings' => array(),
-        'type' => 'email_default',
-        'weight' => 28,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_game_contact_email',
-    'label' => 'Contact Email',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'email',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'email_textfield',
-      'weight' => 28,
-    ),
-  );
-
   // Exported field_instance: 'node-game-field_game_development_status'
   $field_instances['node-game-field_game_development_status'] = array(
     'bundle' => 'game',
@@ -878,7 +811,7 @@ function mmorpg_game_field_default_field_instances() {
     'label' => 'Overview',
     'required' => 1,
     'settings' => array(
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1385,46 +1318,6 @@ function mmorpg_game_field_default_field_instances() {
       'settings' => array(),
       'type' => 'link_field',
       'weight' => 21,
-    ),
-  );
-
-  // Exported field_instance: 'node-game-field_short_title'
-  $field_instances['node-game-field_short_title'] = array(
-    'bundle' => 'game',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_short_title',
-    'label' => 'Short Title',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 2,
     ),
   );
 
@@ -2120,8 +2013,6 @@ function mmorpg_game_field_default_field_instances() {
   t('Cancel Reason');
   t('Category');
   t('Classification');
-  t('Contact Email');
-  t('Contact Name');
   t('Description');
   t('Developer');
   t('Display Date');
@@ -2151,7 +2042,6 @@ function mmorpg_game_field_default_field_instances() {
   t('Publisher');
   t('Retail Price');
   t('Setting/Theme');
-  t('Short Title');
   t('Show');
   t('Status');
   t('Status Date');

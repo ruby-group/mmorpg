@@ -107,10 +107,8 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_game_overview']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_game_overview']['alter']['max_length'] = '400';
   $handler->display->display_options['fields']['field_game_overview']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['field_game_overview']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_game_overview']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['field_game_overview']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_game_overview']['type'] = 'text_trimmed';
   $handler->display->display_options['fields']['field_game_overview']['settings'] = array(
     'trim_length' => '400',
   );
@@ -327,10 +325,8 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_game_overview']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_game_overview']['alter']['max_length'] = '400';
   $handler->display->display_options['fields']['field_game_overview']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['field_game_overview']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_game_overview']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['field_game_overview']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_game_overview']['type'] = 'text_trimmed';
   $handler->display->display_options['fields']['field_game_overview']['settings'] = array(
     'trim_length' => '400',
   );
