@@ -24,7 +24,7 @@ function giveaway_user_has_claimed_ctools_access_check($conf, $context) {
     return FALSE;
   }
 
-  return !db_select('giveaway_keys')
+  return db_select('giveaway_keys')
     ->fields(NULL, array('gkid'))
     ->condition('gid', $context[1]->data->nid)
     ->condition('uid', $context[0]->data->uid)

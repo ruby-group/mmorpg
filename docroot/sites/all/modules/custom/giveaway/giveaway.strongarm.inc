@@ -149,10 +149,10 @@ function giveaway_strongarm() {
           'weight' => '2',
         ),
         'path' => array(
-          'weight' => '12',
+          'weight' => '13',
         ),
         'feeds' => array(
-          'weight' => '14',
+          'weight' => '15',
         ),
       ),
       'display' => array(),

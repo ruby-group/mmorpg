@@ -40,6 +40,10 @@ function giveaway_block_info() {
     'info' => t('Giveaway Keys Left Block'),
     'cache' => DRUPAL_NO_CACHE,
   );
+  $blocks['giveaway_user_claimed_key_block'] = array(
+    'info' => t('Giveaway User Claimed Key Block'),
+    'cache' => DRUPAL_CACHE_PER_USER,
+  );
   return $blocks;
 }
 
@@ -49,11 +53,14 @@ function giveaway_block_info() {
 function giveaway_block_view($delta = '') {
   $block = array();
   switch ($delta) {
-    case 'claim_block':
+    case 'giveaway_claim_block':
       $block['content'] = drupal_get_form('_giveaway_show_claim_button');
       break;
     case 'giveaway_keys_left_block':
       $block['content'] = _giveaway_show_keys_left();
+      break;
+    case 'giveaway_user_claimed_key_block':
+      $block['content'] = _giveaway_show_user_claimed_key();
       break;
   }
   return $block;
@@ -69,7 +76,7 @@ function _giveaway_show_claim_button() {
       '#type' => 'submit',
       '#value' => t('Click Here To Get Your Beta Key Information!'),
       '#attributes' => array(
-        'class' => array('btn large full cta'),
+        'class' => array('btn large green'),
       )
     ),
   );
@@ -83,4 +90,15 @@ function _giveaway_show_keys_left() {
     ->execute()
     ->rowCount();
   return "<div class='remainingkeys'>" . t('@count Keys Left', array('@count' => number_format($count))) . "</div>";
+}
+
+function _giveaway_show_user_claimed_key() {
+  global $user;
+  $key = db_select('giveaway_keys')
+    ->fields(NULL, array('game_key'))
+    ->condition('uid', $user->uid)
+    ->condition('gid', @end(arg()))
+    ->execute()
+    ->fetchField();
+  return "<div class='yourkey'>" . t('Your key is: @key', array('@key' => $key)) . "</div>";
 }
