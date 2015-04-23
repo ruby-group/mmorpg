@@ -56,6 +56,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_target_url_1']['alter']['text'] = '[title]';
   $handler->display->display_options['fields']['field_target_url_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_target_url_1']['alter']['path'] = '[field_target_url_1-link_url]';
+  $handler->display->display_options['fields']['field_target_url_1']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['field_target_url_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_target_url_1']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_target_url_1']['type'] = 'clickmeter_link_default';
@@ -138,6 +139,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_target_url']['alter']['text'] = '[field_link_type]';
   $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-link_url]';
+  $handler->display->display_options['fields']['field_target_url']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_default';
@@ -274,6 +276,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_target_url_1']['alter']['text'] = '[title]';
   $handler->display->display_options['fields']['field_target_url_1']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_target_url_1']['alter']['path'] = '[field_target_url_1-link_url]';
+  $handler->display->display_options['fields']['field_target_url_1']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['field_target_url_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_target_url_1']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_target_url_1']['type'] = 'clickmeter_link_default';
@@ -349,6 +352,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_target_url']['alter']['text'] = 'Play Now';
   $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-link_url]';
+  $handler->display->display_options['fields']['field_target_url']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_default';
