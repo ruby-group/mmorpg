@@ -80,13 +80,14 @@
       float: left;
       margin-right: -100%;
       margin-left: 16.94915%;
-      clear: none; } }
+      clear: none;
+      padding-top: 1.7em; } }
 
-/* line 62, ../../sass/abstractions/style-guide.scss */
+/* line 63, ../../sass/abstractions/style-guide.scss */
 .rightsidebar {
   display: none; }
   @media (min-width: 1024px) {
-    /* line 62, ../../sass/abstractions/style-guide.scss */
+    /* line 63, ../../sass/abstractions/style-guide.scss */
     .rightsidebar {
       width: 32.20339%;
       float: right;

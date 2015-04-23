@@ -57,6 +57,7 @@
 	@include grid-span(12, 1);
 	@include breakpoint(1024px) {
 		@include grid-span(6,3);
+		padding-top: 1.7em;
 	}
 }
 .rightsidebar {

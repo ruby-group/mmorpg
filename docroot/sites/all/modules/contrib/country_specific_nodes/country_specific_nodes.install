@@ -19,7 +19,7 @@ function country_specific_nodes_install() {
       'cardinality' => -1,
       'settings' => array(
         'label' => 'Countries',
-        'description' => 'Provides country list to be included for nodes.',
+        'description' => 'Provides country list to be excluded/included for nodes.',
         'type' => 'list_text',
         'default_widget' => 'options_select',
         'allowed_values_function' => 'country_get_list',
@@ -47,5 +47,4 @@ function country_specific_nodes_uninstall() {
 
   // Delete the type include variable.
   variable_del('country_specific_nodes_include_list');
-
 }
