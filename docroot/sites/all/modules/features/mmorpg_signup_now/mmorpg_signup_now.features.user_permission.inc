@@ -10,6 +10,13 @@
 function mmorpg_signup_now_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'administer signupnow settings'.
+  $permissions['administer signupnow settings'] = array(
+    'name' => 'administer signupnow settings',
+    'roles' => array(),
+    'module' => 'mmorpg_signup_now',
+  );
+
   // Exported permission: 'bypass country restriction'.
   $permissions['bypass country restriction'] = array(
     'name' => 'bypass country restriction',

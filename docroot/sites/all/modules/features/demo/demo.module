@@ -5,21 +5,3 @@
  */
 
 include_once 'demo.features.inc';
-
-/*
-  $element['#attached']['library'][] = array('system', 'farbtastic');
-  $element['#attached']['js'] = array(
-    array(
-      'type' => 'inline',
-      'data' => "
-      (function($) {
-      Drupal.behaviors.colorpicker = {
-        attach: function (context, settings) {
-          jQuery('.colorpicker_widget').farbtastic('#{$element['#id']}-alt');
-        }
-      }
-      })(jQuery);
-      ",
-    ),
-  );
- */

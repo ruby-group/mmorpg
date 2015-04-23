@@ -24,6 +24,9 @@ function demo_views_api($module = NULL, $api = NULL) {
  * Implements hook_user_default_permissions_alter().
  */
 function demo_user_default_permissions_alter(&$data) {
+  if (isset($data['administer signupnow settings'])) {
+    $data['administer signupnow settings']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
   if (isset($data['bypass country restriction'])) {
     $data['bypass country restriction']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }

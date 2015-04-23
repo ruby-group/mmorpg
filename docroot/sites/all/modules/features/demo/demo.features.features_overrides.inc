@@ -12,6 +12,7 @@ function demo_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: user_permission
+  $overrides["user_permission.administer signupnow settings.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.bypass country restriction.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.clone node.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.clone own nodes.roles|subadmin"] = 'subadmin';
