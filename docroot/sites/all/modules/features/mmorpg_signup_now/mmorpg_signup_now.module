@@ -116,7 +116,7 @@ function mmorpg_signup_now_menu_link() {
     <div class="content">
         <div class="view view-latest-updates view-id-latest_updates view-display-id-block view-dom-id-40ce8da78d185c83880dc10892c4a943">
             <div class="view-footer">
-                <a class="om-autoscroll" href="' . base_path() . '/play-now">Play Now Games</a>
+                <a class="om-autoscroll" href="' . base_path() . 'play-now">Play Now Games</a>
             </div>
         </div>
     </div>
