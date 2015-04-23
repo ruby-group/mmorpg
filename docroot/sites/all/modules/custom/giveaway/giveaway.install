@@ -33,14 +33,6 @@ function giveaway_schema() {
                 'not null' => FALSE,
                 'description' => '',
               ),
-            'available' =>
-              array(
-                'type' => 'int',
-                'size' => 'normal',
-                'unsigned' => TRUE,
-                'not null' => FALSE,
-                'description' => '',
-              ),
             'uid' =>
               array(
                 'type' => 'int',
@@ -57,13 +49,18 @@ function giveaway_schema() {
                 'not null' => FALSE,
                 'description' => '',
               ),
+            'claimed_on' =>
+              array(
+                'type' => 'int',
+                'size' => 'normal',
+                'unsigned' => TRUE,
+                'not null' => FALSE,
+                'default' => 0,
+                'description' => '',
+              ),
           ),
         'indexes' =>
           array(
-            'available' =>
-              array(
-                0 => 'available',
-              ),
             'ip_address' =>
               array(
                 0 => 'ip_address',

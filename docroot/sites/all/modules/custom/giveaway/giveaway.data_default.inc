@@ -40,7 +40,7 @@ function giveaway_data_default() {
         'not null' => FALSE,
         'description' => '',
       ),
-      'available' => array(
+      'uid' => array(
         'type' => 'int',
         'size' => 'normal',
         'unsigned' => TRUE,
@@ -54,12 +54,17 @@ function giveaway_data_default() {
         'not null' => FALSE,
         'description' => '',
       ),
+      'claimed_on' => array(
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+        'default' => 0,
+        'description' => '',
+      ),
     ),
     'name' => 'giveaway_keys',
     'indexes' => array(
-      'available' => array(
-        0 => 'available',
-      ),
       'ip_address' => array(
         0 => 'ip_address',
       ),

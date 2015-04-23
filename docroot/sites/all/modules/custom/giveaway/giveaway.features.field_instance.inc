@@ -268,7 +268,7 @@ function giveaway_field_default_field_instances() {
     'bundle' => 'giveaway',
     'default_value' => array(
       0 => array(
-        'value' => 1,
+        'value' => 2,
       ),
     ),
     'deleted' => 0,

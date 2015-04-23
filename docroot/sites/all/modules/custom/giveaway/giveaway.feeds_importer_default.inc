@@ -56,10 +56,12 @@ function giveaway_feeds_importer_default() {
         'skip_hash_check' => 0,
         'bundle' => 'data_giveaway_keys',
         'values' => array(
+          'gkid' => '0',
           'gid' => '',
           'game_key' => '',
-          'available' => '1',
+          'uid' => '',
           'ip_address' => '0',
+          'claimed_on' => '',
         ),
       ),
     ),

@@ -1,7 +1,7 @@
 <?php
 
 $plugin = array(
-  'title' => t('User: has claimed this giveaway'),
+  'title' => t('Giveaway: user has claimed this giveaway'),
   'description' => t('Controls access by whether the user has already claimed this giveaway'),
   'callback' => 'giveaway_user_has_claimed_ctools_access_check',
   'summary' => 'giveaway_user_has_claimed_ctools_summary',
