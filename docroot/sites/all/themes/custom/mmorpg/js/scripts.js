@@ -33,4 +33,5 @@ Drupal.behaviors.play_now = {
         //code ends
     }
 };
+
 })(jQuery);

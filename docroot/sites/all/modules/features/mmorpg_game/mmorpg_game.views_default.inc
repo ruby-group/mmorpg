@@ -229,13 +229,37 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Category */
+  $handler->display->display_options['fields']['field_screenshot_category']['id'] = 'field_screenshot_category';
+  $handler->display->display_options['fields']['field_screenshot_category']['table'] = 'field_data_field_screenshot_category';
+  $handler->display->display_options['fields']['field_screenshot_category']['field'] = 'field_screenshot_category';
+  $handler->display->display_options['fields']['field_screenshot_category']['label'] = '';
+  $handler->display->display_options['fields']['field_screenshot_category']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_screenshot_category']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_screenshot_category']['alter']['text'] = '[field_screenshot_category-tid]
+';
+  $handler->display->display_options['fields']['field_screenshot_category']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_screenshot_category']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'field_screenshot_category';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '378';
+  $handler->display->display_options['fields']['views_conditional']['then'] = '<div class="screenshot_hover user_submitted"><span>User Photo</span></div>';
+  $handler->display->display_options['fields']['views_conditional']['or'] = '<div class="screenshot_hover house_submitted"><span>Photo</span></div>';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="screenshot_image">[field_screenshot_image]</div>
-<div class="screenshot_hover">[title]</div>';
+[views_conditional]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -298,8 +322,10 @@ function mmorpg_game_views_default_views() {
     t('next ›'),
     t('last »'),
     t('Content entity referenced from field_game'),
+    t('[field_screenshot_category-tid]
+'),
     t('<div class="screenshot_image">[field_screenshot_image]</div>
-<div class="screenshot_hover">[title]</div>'),
+[views_conditional]'),
     t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),

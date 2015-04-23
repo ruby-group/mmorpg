@@ -863,6 +863,10 @@ ul.pager {
   max-width: 109px;
   height: 96%;
   padding: 1em; }
+  /* line 20, ../sass/components/_screenshots.scss */
+  .pane-screenshot-gallery-grid .screenshot_hover.house_submitted span {
+    background: transparent url("../images/mmorpg_screenshot.png") no-repeat left;
+    padding-left: 1.75em; }
 
 /* line 2, ../sass/components/_social.scss */
 .sharethis-wrapper span {

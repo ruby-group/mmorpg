@@ -17,6 +17,11 @@
 			height: 98%;	
 		}
 
+        &.house_submitted span{
+          background: transparent url('../images/mmorpg_screenshot.png') no-repeat left;
+          padding-left: 1.75em;
+        }
+
 		&:hover{
 			@extend %gallery_hover;
 		}
