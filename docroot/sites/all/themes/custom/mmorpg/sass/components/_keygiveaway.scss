@@ -8,8 +8,11 @@
   margin: 0.50em 0;
 }
 
-.node--giveaway {
+.node-type-giveaway {
 	p, strong, span {
 		font-size: 14px !important;
 	}
+  .-giveaway-show-claim-button {
+    text-align: center;
+  }
 }

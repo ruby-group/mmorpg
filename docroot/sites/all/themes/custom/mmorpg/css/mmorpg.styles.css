@@ -186,7 +186,7 @@
 
 /* line 7, ../sass/abstractions/_global.scss */
 .main {
-  padding-top: 160px; }
+  padding-top: 140px; }
 
 /* line 10, ../sass/abstractions/_global.scss */
 .main-inner {
@@ -350,13 +350,14 @@ header.header {
       float: left;
       margin-right: -100%;
       margin-left: 16.94915%;
-      clear: none; } }
+      clear: none;
+      padding-top: 1.7em; } }
 
-/* line 62, ../sass/abstractions/style-guide.scss */
+/* line 63, ../sass/abstractions/style-guide.scss */
 .rightsidebar {
   display: none; }
   @media (min-width: 1024px) {
-    /* line 62, ../sass/abstractions/style-guide.scss */
+    /* line 63, ../sass/abstractions/style-guide.scss */
     .rightsidebar {
       width: 32.20339%;
       float: right;
@@ -388,9 +389,7 @@ header.header {
 
 /* line 20, ../sass/base/_forms.scss */
 .btn.large, .view-footer .large.om-autoscroll {
-  border: 0;
-  display: block;
-  text-align: center; }
+  border: 0; }
 
 /* line 2, ../sass/base/_lists.scss */
 .sidebar-listing .view-content {
@@ -518,11 +517,14 @@ body {
   color: #14adff;
   font-weight: bold;
   text-align: center;
-  margin-top: 0.50em; }
+  margin: 0.50em 0; }
 
 /* line 12, ../sass/components/_keygiveaway.scss */
-.node--giveaway p, .node--giveaway strong, .node--giveaway span {
+.node-type-giveaway p, .node-type-giveaway strong, .node-type-giveaway span {
   font-size: 14px !important; }
+/* line 15, ../sass/components/_keygiveaway.scss */
+.node-type-giveaway .-giveaway-show-claim-button {
+  text-align: center; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
