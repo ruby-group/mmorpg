@@ -10,6 +10,7 @@ dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = feeds
 dependencies[] = field_ipaddress
+dependencies[] = image
 dependencies[] = list
 dependencies[] = mmorpg_game
 dependencies[] = multiselect

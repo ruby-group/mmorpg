@@ -501,7 +501,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -23;
+  $handler->weight = -22;
   $handler->conf = array(
     'title' => 'Giveaway',
     'no_blocks' => 0,
@@ -907,6 +907,167 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'site_template__giveaway_listing';
+  $handler->task = 'site_template';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -23;
+  $handler->conf = array(
+    'title' => 'Giveaway Listing ',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'giveaway_listing',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'giveaways',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'omega:mm3col';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'header' => NULL,
+      'highlighted' => NULL,
+      'help' => NULL,
+      'content' => NULL,
+      'sidebar_first' => NULL,
+      'sidebar_second' => NULL,
+      'footer' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '9981227f-b807-4b3b-934a-e8b6ccd98043';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-11a9df9c-84e5-432b-a1f9-c72cb0a21a88';
+    $pane->panel = 'content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'giveaway_listing-panel_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '11a9df9c-84e5-432b-a1f9-c72cb0a21a88';
+    $display->content['new-11a9df9c-84e5-432b-a1f9-c72cb0a21a88'] = $pane;
+    $display->panels['content'][0] = 'new-11a9df9c-84e5-432b-a1f9-c72cb0a21a88';
+    $pane = new stdClass();
+    $pane->pid = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
+    $pane->panel = 'header';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'header';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
+    $display->content['new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9'] = $pane;
+    $display->panels['header'][0] = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
+    $pane = new stdClass();
+    $pane->pid = 'new-3c407aa2-ca1c-4ed3-bd57-472c0b627219';
+    $pane->panel = 'highlighted';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3c407aa2-ca1c-4ed3-bd57-472c0b627219';
+    $display->content['new-3c407aa2-ca1c-4ed3-bd57-472c0b627219'] = $pane;
+    $display->panels['highlighted'][0] = 'new-3c407aa2-ca1c-4ed3-bd57-472c0b627219';
+    $pane = new stdClass();
+    $pane->pid = 'new-3f64300a-7232-483c-bd90-6312fd0cb729';
+    $pane->panel = 'sidebar_second';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'promoted_signup_now_link-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3f64300a-7232-483c-bd90-6312fd0cb729';
+    $display->content['new-3f64300a-7232-483c-bd90-6312fd0cb729'] = $pane;
+    $display->panels['sidebar_second'][0] = 'new-3f64300a-7232-483c-bd90-6312fd0cb729';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
+  $handler->conf['display'] = $display;
+  $export['site_template__giveaway_listing'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'site_template__homepage';
   $handler->task = 'site_template';
   $handler->subtask = '';
@@ -1041,6 +1202,51 @@ function mmorpg_site_default_page_manager_handlers() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['site_template__homepage'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'site_template__invisible_content';
+  $handler->task = 'site_template';
+  $handler->subtask = '';
+  $handler->handler = 'http_response';
+  $handler->weight = -21;
+  $handler->conf = array(
+    'title' => 'invisible content',
+    'contexts' => array(),
+    'relationships' => array(),
+    'code' => '301',
+    'destination' => '<front>',
+    'name' => 'invisible_content',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'promoted_signup_now_link' => 'promoted_signup_now_link',
+              'signup_now_link' => 'signup_now_link',
+              'siteskin' => 'siteskin',
+            ),
+          ),
+          'context' => 'node',
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'role',
+          'settings' => array(
+            'rids' => array(
+              0 => 1,
+            ),
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $export['site_template__invisible_content'] = $handler;
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
@@ -2301,7 +2507,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -21;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'Sample variant',
     'no_blocks' => 1,
