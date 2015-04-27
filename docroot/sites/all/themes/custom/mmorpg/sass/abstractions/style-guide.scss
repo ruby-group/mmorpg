@@ -19,51 +19,59 @@
 //////////////////////////////
 // @import 'compass/reset';
 // @import 'normalize';
+
 .main {
-	@include grid-span(12,1);
-	@include breakpoint(1024px) {
-		@include grid-span(12, 1);
-		clear: both;
-	}
-	border: 1px solid green;
+  @include grid-span(12,1);
+  @include breakpoint(1024px) {
+    @include grid-span(12, 1);
+    clear: both;
+  }
+  border: 1px solid green;
 }
 .ads-section{
-	@include grid-span(12, 1);
-	height: 100px;
-	border: 1px solid red;
+  @include grid-span(12, 1);
+  height: 100px;
+  border: 1px solid red;
 }
 .ad1 {
-	@include grid-span(5,2);
-	background: red;
-	height: 100px;
+  @include grid-span(5,2);
+  background: red;
+  height: 100px;
 }
 .ad2 {
-	@include grid-span(5,7);
-	background: orange;
-	height: 100px;
+  @include grid-span(5,7);
+  background: orange;
+  height: 100px;
 }
+
+.leftsidebar,
+.center-content,
+.rightsidebar {
+  float: left;
+}
+
 .leftsidebar {
-	display: none;
-	@include grid-span(12,1);
-	@include breakpoint(1024px) {
-		@include grid-span(2,1);
-		display: block;
-	}
-	background: #333;
-	height: 100vh;
+  @include breakpoint(1024px) {
+    width: 180px;
+    margin-right: 20px;
+    display: block;
+  }
+  display: none;
+  background: #333;
+  height: 100vh;
 }
 
 .center-content {
-	@include grid-span(12, 1);
-	@include breakpoint(1024px) {
-		@include grid-span(6,3);
-		padding-top: 1.7em;
-	}
+  @include breakpoint(1024px) {
+    width: 700px;
+    margin-right: 20px;
+    padding-top: 1.7em;
+  }
 }
 .rightsidebar {
-	display: none;
-	@include breakpoint(1024px) {
-		@include grid-span(4,9);
-		display: block;
-	}
+  display: none;
+  @include breakpoint(1024px) {
+    width: 330px;
+    display: block;
+  }
 }
