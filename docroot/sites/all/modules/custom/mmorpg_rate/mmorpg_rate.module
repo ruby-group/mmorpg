@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * Implements hook_rate_templates().
+ */
+function mmorpg_rate_rate_templates() {
+  $templates = array();
+
+  $templates['mmorpg'] = new stdClass();
+  $templates['mmorpg']->value_type = 'percent';
+  $options = array();
+  foreach (range(0,10,0.1) as $option) {
+    $options["$option"] = "$option";
+  }
+  $templates['mmorpg']->options = $options;
+  $templates['mmorpg']->theme = 'rate_template_mmorpg';
+  $templates['mmorpg']->css = drupal_get_path('module', 'mmorpg_rate') . '/templates/mmorpg_rate/mmorpg.css';
+  $templates['mmorpg']->js = drupal_get_path('module', 'mmorpg_rate') . '/templates/mmorpg_rate/mmorpg.js';
+  $templates['mmorpg']->customizable = FALSE;
+  $templates['mmorpg']->translate = FALSE;
+  $templates['mmorpg']->template_title = t('mmorpg_rate');
+
+  return $templates;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mmorpg_rate_theme() {
+  return array(
+    'rate_template_mmorpg' => array(
+      'arguments' => array('links' => NULL, 'results' => NULL, 'mode' => NULL, 'just_voted' => FALSE, 'content_type' => NULL, 'content_id' => NULL, 'display_options' => NULL),
+      'template' => 'mmorpg',
+      'path' => drupal_get_path('module', 'mmorpg_rate') . '/templates/mmorpg_rate',
+    ),
+  );
+}
+
+/**
+ * Preprocess function for the mmorpg_rate template.
+ */
+function mmorpg_rate_preprocess_rate_template_mmorpg(&$variables) {
+  extract($variables);
+
+  drupal_add_library('system', 'ui.slider');
+
+  // Calculate start value for slider.
+  if (isset($variables['results']['user_vote'])) {
+    $variables['value'] = $variables['results']['user_vote'];
+  }
+  else {
+    $variables['value'] = 5;
+  }
+
+  $buttons = array();
+  $id = 1;
+  foreach ($links as $link) {
+    $button = theme('rate_button', array('text' => $link['text'], 'href' => $link['href'], 'class' => '', 'id' => $id));
+    $buttons[] = $button;
+    $id++;
+  }
+  $variables['buttons'] = $buttons;
+
+  $info = array();
+  if ($mode == RATE_CLOSED) {
+    $info[] = t('Rating is closed.');
+  }
+
+  if ($mode != RATE_COMPACT && $mode != RATE_COMPACT_DISABLED) {
+    if (isset($results['user_vote'])) {
+      $vote = $results['user_vote'];
+      $info[] = t('!vote', array('!vote' => $vote));
+    }
+  }
+  $variables['info'] = implode(' ', $info);
+}
