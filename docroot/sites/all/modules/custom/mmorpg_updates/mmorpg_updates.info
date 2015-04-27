@@ -2,6 +2,7 @@ name = MMORG Updates Module
 description = Module to hold all CI hooks and small functions.
 core = 7.x
 package = MMORPG
+dependencies[] = giveaway
 dependencies[] = mmorpg_article
 dependencies[] = mmorpg_game
 dependencies[] = mmorpg_customer

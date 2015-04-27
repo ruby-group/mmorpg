@@ -356,3 +356,10 @@ function mmorpg_updates_update_7041() {
   field_delete_instance(field_info_instance('node', 'field_game_contact_email', 'game'));
   field_delete_instance(field_info_instance('node', 'field_short_title', 'game'));
 }
+
+/**
+ * Enabling Giveaways.
+ */
+function mmorpg_updates_update_7042() {
+  module_enable(array('giveaway'));
+}
