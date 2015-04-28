@@ -250,7 +250,7 @@ function giveaway_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_keys_per_day_spread',
     'label' => 'Keys per day spread',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -452,7 +452,7 @@ function giveaway_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_successfuly_giveaway_body',
-    'label' => 'Successfuly Giveaway Body',
+    'label' => 'Successful Giveaway Body',
     'required' => 1,
     'settings' => array(
       'text_processing' => 0,
@@ -484,7 +484,7 @@ function giveaway_field_default_field_instances() {
   t('Private Giveaway?');
   t('Related Giveaways');
   t('Select countries to filter the node based on user country.');
-  t('Successfuly Giveaway Body');
+  t('Successful Giveaway Body');
 
   return $field_instances;
 }
