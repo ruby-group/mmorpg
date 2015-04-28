@@ -33,6 +33,12 @@ function mmorpg_site_menu() {
     'page callback' => 'mmorpg_site_blank',
   );
 
+  $items['game/%/overview'] = array(
+    'title' => 'Overview',
+    'access callback' => TRUE,
+    'page callback' => 'mmorpg_site_blank',
+  );
+
   return $items;
 }
 

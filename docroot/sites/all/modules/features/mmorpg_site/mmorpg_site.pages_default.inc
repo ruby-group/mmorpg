@@ -212,7 +212,7 @@ function mmorpg_site_default_page_manager_handlers() {
             'visibility_setting' => '1',
             'paths' => 'game/*/overview',
           ),
-          'context' => 'empty',
+          'context' => 'alias',
           'not' => FALSE,
         ),
       ),
@@ -238,6 +238,67 @@ function mmorpg_site_default_page_manager_handlers() {
   $display->uuid = '4a7fb93b-76b6-4706-a315-07a586cb45bc';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-343e9fe5-bac9-411a-a776-fe6fe6f429eb';
+    $pane->panel = 'content';
+    $pane->type = 'views';
+    $pane->subtype = 'nodetitleview';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '1',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'default',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '343e9fe5-bac9-411a-a776-fe6fe6f429eb';
+    $display->content['new-343e9fe5-bac9-411a-a776-fe6fe6f429eb'] = $pane;
+    $display->panels['content'][0] = 'new-343e9fe5-bac9-411a-a776-fe6fe6f429eb';
+    $pane = new stdClass();
+    $pane->pid = 'new-718dc336-91be-4446-83ba-6138dcca3841';
+    $pane->panel = 'content';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_game-game_menu_block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '718dc336-91be-4446-83ba-6138dcca3841';
+    $display->content['new-718dc336-91be-4446-83ba-6138dcca3841'] = $pane;
+    $display->panels['content'][1] = 'new-718dc336-91be-4446-83ba-6138dcca3841';
     $pane = new stdClass();
     $pane->pid = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
     $pane->panel = 'content';
@@ -271,11 +332,34 @@ function mmorpg_site_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '7b400639-bb8b-4544-8866-d9598aad6d4a';
     $display->content['new-7b400639-bb8b-4544-8866-d9598aad6d4a'] = $pane;
-    $display->panels['content'][0] = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
+    $display->panels['content'][2] = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
+    $pane = new stdClass();
+    $pane->pid = 'new-0e5e0dfc-7b03-454b-8de8-204a6f4e52c8';
+    $pane->panel = 'header';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'header';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '0e5e0dfc-7b03-454b-8de8-204a6f4e52c8';
+    $display->content['new-0e5e0dfc-7b03-454b-8de8-204a6f4e52c8'] = $pane;
+    $display->panels['header'][0] = 'new-0e5e0dfc-7b03-454b-8de8-204a6f4e52c8';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
   $handler->conf['display'] = $display;
