@@ -14,6 +14,9 @@ function mmorpg_game_block_info() {
   $blocks['game_menu_block'] = array(
     'info' => t('Game Menu Block'),
   );
+  $blocks['game_rss_link_block'] = array(
+    'info' => t('Game RSS Link Block'),
+  );
   return $blocks;
 }
 
@@ -27,9 +30,17 @@ function mmorpg_game_block_view($delta = '') {
     case 'game_menu_block' :
       $block['content'] = mmorpg_game_menu_content();
       break;
+    case 'game_rss_link_block' :
+      $block['content'] = mmorpg_game_rss_link_block();
+      break;
   }
 
   return $block;
+}
+
+function mmorpg_game_rss_link_block() {
+  $game_id = arg(1);
+  return l(t('RSS'),arg(0) . '/' . arg(1) . '/' . arg(2) . '/rss.xml');
 }
 
 function mmorpg_game_menu_content() {

@@ -152,6 +152,13 @@ function mmorpg_game_views_default_views() {
       'label' => 'Content: Game (field_game)',
     ),
   );
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'overview_feed');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'game/%/overview/rss.xml';
   $translatables['game_overview_articles'] = array(
     t('Master'),
     t('more'),
@@ -175,6 +182,7 @@ function mmorpg_game_views_default_views() {
     t('All'),
     t('Content pane'),
     t('View panes'),
+    t('Feed'),
   );
   $export['game_overview_articles'] = $view;
 
@@ -673,7 +681,6 @@ User Submitted|User Uploaded Only',
   $handler->display->display_options['filters']['field_screenshot_category_tid']['field'] = 'field_screenshot_category_tid';
   $handler->display->display_options['filters']['field_screenshot_category_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['operator_id'] = 'field_screenshot_category_tid_op';
-  $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['label'] = 'Category (field_screenshot_category)';
   $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['operator'] = 'field_screenshot_category_tid_op';
   $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['identifier'] = 'field_screenshot_category_tid';
   $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['remember_roles'] = array(
@@ -701,6 +708,13 @@ User Submitted|User Uploaded Only',
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['path'] = 'game/%/screenshots';
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'game/%/screenshots/rss.xml';
   $translatables['screenshot_gallery_grid'] = array(
     t('Master'),
     t('more'),
@@ -723,10 +737,10 @@ User Submitted|User Uploaded Only',
     t('<div class="screenshot_image">[field_screenshot_image]</div>
 [views_conditional]'),
     t('All'),
-    t('Category (field_screenshot_category)'),
     t('Screenshot Gallery Grid'),
     t('View panes'),
     t('Page'),
+    t('Feed'),
   );
   $export['screenshot_gallery_grid'] = $view;
 
@@ -1036,6 +1050,13 @@ User Submitted|User Uploaded Only',
       'label' => 'Content: Game (field_game)',
     ),
   );
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'game/%/videos/rss.xml';
   $translatables['video_gallery_grid'] = array(
     t('Master'),
     t('more'),
@@ -1057,6 +1078,7 @@ User Submitted|User Uploaded Only',
     t('All'),
     t('Video Gallery Grid'),
     t('View panes'),
+    t('Feed'),
   );
   $export['video_gallery_grid'] = $view;
 
