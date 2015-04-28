@@ -187,6 +187,198 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'site_template__game_overview';
+  $handler->task = 'site_template';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -19;
+  $handler->conf = array(
+    'title' => 'Game Overview',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'game_overview',
+    'access' => array(
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'omega:mm3col';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'header' => NULL,
+      'highlighted' => NULL,
+      'help' => NULL,
+      'content' => NULL,
+      'sidebar_first' => NULL,
+      'sidebar_second' => NULL,
+      'footer' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '4a7fb93b-76b6-4706-a315-07a586cb45bc';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
+    $pane->panel = 'content';
+    $pane->type = 'views';
+    $pane->subtype = 'game_overview_articles';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 1,
+      'nodes_per_page' => '0',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'default',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '7b400639-bb8b-4544-8866-d9598aad6d4a';
+    $display->content['new-7b400639-bb8b-4544-8866-d9598aad6d4a'] = $pane;
+    $display->panels['content'][0] = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
+  $handler->conf['display'] = $display;
+  $export['site_template__game_overview'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'site_template__game_ratings';
+  $handler->task = 'site_template';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -20;
+  $handler->conf = array(
+    'title' => 'Game Ratings',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'game_ratings',
+    'access' => array(
+      'logic' => 'and',
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'game/*/ratings',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'omega:mm3col';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'center' => NULL,
+      'header' => NULL,
+      'highlighted' => NULL,
+      'help' => NULL,
+      'content' => NULL,
+      'sidebar_first' => NULL,
+      'sidebar_second' => NULL,
+      'footer' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '02ea9666-92cb-4cb4-95ca-8c43cacd6699';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-59d38d80-12c0-4df9-b1f8-66aab7d427d2';
+    $pane->panel = 'content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'game_ratings-ainactive_ratings';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'nid' => '',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '59d38d80-12c0-4df9-b1f8-66aab7d427d2';
+    $display->content['new-59d38d80-12c0-4df9-b1f8-66aab7d427d2'] = $pane;
+    $display->panels['content'][0] = 'new-59d38d80-12c0-4df9-b1f8-66aab7d427d2';
+    $pane = new stdClass();
+    $pane->pid = 'new-5a1f1ffe-a401-483b-b44f-8086a8dcc192';
+    $pane->panel = 'content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'game_ratings-active_ratings';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'nid' => '',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '5a1f1ffe-a401-483b-b44f-8086a8dcc192';
+    $display->content['new-5a1f1ffe-a401-483b-b44f-8086a8dcc192'] = $pane;
+    $display->panels['content'][1] = 'new-5a1f1ffe-a401-483b-b44f-8086a8dcc192';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['site_template__game_ratings'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'site_template__giveaway';
   $handler->task = 'site_template';
   $handler->subtask = '';
@@ -1426,10 +1618,10 @@ play-now/*',
     $display->content['new-0544883b-c5ce-4f86-9b04-70bcacf61ed3'] = $pane;
     $display->panels['content'][0] = 'new-0544883b-c5ce-4f86-9b04-70bcacf61ed3';
     $pane = new stdClass();
-    $pane->pid = 'new-c9ecadef-7bfc-4ec6-a6b8-938e81713d6e';
+    $pane->pid = 'new-2bb2f150-96cd-4574-882d-996e11239b17';
     $pane->panel = 'content';
     $pane->type = 'views';
-    $pane->subtype = 'video_exclusive';
+    $pane->subtype = 'video_details_player';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -1442,7 +1634,7 @@ play-now/*',
       'feed_icons' => 0,
       'panel_args' => 0,
       'link_to_view' => 0,
-      'args' => '%1',
+      'args' => '%3',
       'url' => '',
       'display' => 'default',
       'context' => array(
@@ -1460,9 +1652,9 @@ play-now/*',
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'c9ecadef-7bfc-4ec6-a6b8-938e81713d6e';
-    $display->content['new-c9ecadef-7bfc-4ec6-a6b8-938e81713d6e'] = $pane;
-    $display->panels['content'][1] = 'new-c9ecadef-7bfc-4ec6-a6b8-938e81713d6e';
+    $pane->uuid = '2bb2f150-96cd-4574-882d-996e11239b17';
+    $display->content['new-2bb2f150-96cd-4574-882d-996e11239b17'] = $pane;
+    $display->panels['content'][1] = 'new-2bb2f150-96cd-4574-882d-996e11239b17';
     $pane = new stdClass();
     $pane->pid = 'new-71b3b4e9-f7e4-469d-9459-9e189db385a8';
     $pane->panel = 'content';
@@ -1622,6 +1814,44 @@ play-now/*',
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-332c1339-34e9-434c-be47-b68dd8b3160f';
+    $pane->panel = 'content';
+    $pane->type = 'views';
+    $pane->subtype = 'nodetitleview';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '1',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'default',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '332c1339-34e9-434c-be47-b68dd8b3160f';
+    $display->content['new-332c1339-34e9-434c-be47-b68dd8b3160f'] = $pane;
+    $display->panels['content'][0] = 'new-332c1339-34e9-434c-be47-b68dd8b3160f';
+    $pane = new stdClass();
     $pane->pid = 'new-d3ed0033-3f91-40b7-ab77-6ef07f65638b';
     $pane->panel = 'content';
     $pane->type = 'block';
@@ -1645,11 +1875,11 @@ play-now/*',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'd3ed0033-3f91-40b7-ab77-6ef07f65638b';
     $display->content['new-d3ed0033-3f91-40b7-ab77-6ef07f65638b'] = $pane;
-    $display->panels['content'][0] = 'new-d3ed0033-3f91-40b7-ab77-6ef07f65638b';
+    $display->panels['content'][1] = 'new-d3ed0033-3f91-40b7-ab77-6ef07f65638b';
     $pane = new stdClass();
     $pane->pid = 'new-1dabaf04-d8eb-493c-8db4-faed841b29eb';
     $pane->panel = 'content';
@@ -1689,11 +1919,11 @@ play-now/*',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '1dabaf04-d8eb-493c-8db4-faed841b29eb';
     $display->content['new-1dabaf04-d8eb-493c-8db4-faed841b29eb'] = $pane;
-    $display->panels['content'][1] = 'new-1dabaf04-d8eb-493c-8db4-faed841b29eb';
+    $display->panels['content'][2] = 'new-1dabaf04-d8eb-493c-8db4-faed841b29eb';
     $pane = new stdClass();
     $pane->pid = 'new-973b3525-2ec5-4e58-b916-669fcbb907b1';
     $pane->panel = 'content';
@@ -1733,11 +1963,11 @@ play-now/*',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->locks = array();
     $pane->uuid = '973b3525-2ec5-4e58-b916-669fcbb907b1';
     $display->content['new-973b3525-2ec5-4e58-b916-669fcbb907b1'] = $pane;
-    $display->panels['content'][2] = 'new-973b3525-2ec5-4e58-b916-669fcbb907b1';
+    $display->panels['content'][3] = 'new-973b3525-2ec5-4e58-b916-669fcbb907b1';
     $pane = new stdClass();
     $pane->pid = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
     $pane->panel = 'header';
