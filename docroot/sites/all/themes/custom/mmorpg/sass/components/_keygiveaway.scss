@@ -16,3 +16,49 @@
     text-align: center;
   }
 }
+
+.view-giveaway-listing{
+
+  .views-row{
+    margin: 1em 0;
+  }
+
+  .giveaway_details{
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .giveaway_details_top{
+    position: relative;
+
+    .giveaway_type{
+      @extend %gallery_overlay;
+      background: none;
+      padding: 0.75em;
+    }
+  }
+
+  .giveaway_details_bottom{
+    max-width: 68%;
+    margin-left: 1em;
+  }
+
+  .giveaway_title a{
+    color: $black;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .giveaway_body p{
+    line-height: 1.4em;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .giveaway_remaining{
+    color: $link;
+    font-weight: bold;
+  }
+}
