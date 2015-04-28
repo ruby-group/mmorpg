@@ -24,6 +24,11 @@ function giveaway_user_has_claimed_ctools_access_check($conf, $context) {
     return FALSE;
   }
 
+  //if the user is anonymous, we assume he hasn't claimed.
+  if ($context[0]->data->uid === 0) {
+    return FALSE;
+  }
+
   return db_select('giveaway_keys')
     ->fields(NULL, array('gkid'))
     ->condition('gid', $context[1]->data->nid)
