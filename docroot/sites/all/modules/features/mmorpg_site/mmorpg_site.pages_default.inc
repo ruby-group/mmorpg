@@ -205,6 +205,17 @@ function mmorpg_site_default_page_manager_handlers() {
     'name' => 'game_overview',
     'access' => array(
       'logic' => 'and',
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'game/*/overview',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
     ),
   );
   $display = new panels_display();
