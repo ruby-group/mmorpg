@@ -68,7 +68,7 @@ function mmorpg_game_menu_content() {
   $screenshots = l(t('Screenshots'), 'game/' . $game_nid . '/screenshots', array('attributes' => $screenshots_attributes));
   $videos = l(t('Videos'), 'game/' . $game_nid . '/videos', array('attributes' => $videos_attributes));
 
-  $links = '<div class="game-sub-menu">' . $overview . $forum . $reviews . $screenshots . $videos . '</div>';
+  $links = '<div class="game-sub-menu">' . $overview . $forum . $ratings . $reviews . $screenshots . $videos . '</div>';
 
   return $links;
 }
