@@ -539,11 +539,40 @@ function mmorpg_game_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['type'] = 'better_exposed_filters';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['exposed_form']['options']['bef'] = array(
+    'general' => array(
+      'allow_secondary' => 0,
+      'secondary_label' => 'Advanced options',
+    ),
+    'field_screenshot_category_tid' => array(
+      'bef_format' => 'bef_links',
+      'more_options' => array(
+        'bef_select_all_none' => FALSE,
+        'bef_collapsible' => 0,
+        'is_secondary' => 0,
+        'any_label' => 'Show All',
+        'bef_filter_description' => '',
+        'tokens' => array(
+          'available' => array(
+            0 => 'global_types',
+          ),
+        ),
+        'rewrite' => array(
+          'filter_rewrite_values' => 'House Submitted|Official Only
+User Submitted|User Uploaded Only',
+        ),
+      ),
+    ),
+  );
+  $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
+  $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '18';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -638,6 +667,23 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'screenshot_gallery' => 'screenshot_gallery',
   );
+  /* Filter criterion: Content: Category (field_screenshot_category) */
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['id'] = 'field_screenshot_category_tid';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['table'] = 'field_data_field_screenshot_category';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['field'] = 'field_screenshot_category_tid';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['operator_id'] = 'field_screenshot_category_tid_op';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['label'] = 'Category (field_screenshot_category)';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['operator'] = 'field_screenshot_category_tid_op';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['identifier'] = 'field_screenshot_category_tid';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_screenshot_category_tid']['vocabulary'] = 'screenshot_type';
 
   /* Display: Screenshot Gallery Grid */
   $handler = $view->new_display('panel_pane', 'Screenshot Gallery Grid', 'panel_pane_1');
@@ -663,6 +709,7 @@ function mmorpg_game_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Select any filter and click on Apply to see results'),
     t('Items per page'),
     t('- All -'),
     t('Offset'),
@@ -676,6 +723,7 @@ function mmorpg_game_views_default_views() {
     t('<div class="screenshot_image">[field_screenshot_image]</div>
 [views_conditional]'),
     t('All'),
+    t('Category (field_screenshot_category)'),
     t('Screenshot Gallery Grid'),
     t('View panes'),
     t('Page'),
