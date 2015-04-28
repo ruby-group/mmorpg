@@ -39,6 +39,37 @@ function mmorpg_site_menu() {
     'page callback' => 'mmorpg_site_blank',
   );
 
+  $items['game/%/videos'] = array(
+    'title' => 'Videos',
+    'access callback' => TRUE,
+    'page callback' => 'mmorpg_site_blank',
+  );
+
+  $items['game/%/forum'] = array(
+    'title' => 'Forum',
+    'access callback' => TRUE,
+    'page callback' => 'mmorpg_site_blank',
+  );
+
+  $items['game/%/ratings'] = array(
+    'title' => 'Ratings',
+    'access callback' => TRUE,
+    'page callback' => 'mmorpg_site_blank',
+  );
+
+  $items['game/%/reviews'] = array(
+    'title' => 'Reviews',
+    'access callback' => TRUE,
+    'page callback' => 'mmorpg_site_blank',
+  );
+
+  $items['game/%/screenshots'] = array(
+    'title' => 'Screenshots',
+    'access callback' => TRUE,
+    'page callback' => 'mmorpg_site_blank',
+  );
+
+
   return $items;
 }
 
