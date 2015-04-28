@@ -1,0 +1,55 @@
+diff --git a/rate.module b/rate.module
+index 5329e2c..c86789a 100644
+--- a/rate.module
++++ b/rate.module
+@@ -851,7 +851,7 @@ function rate_vote_ahah() {
+     // Validate the token against the general widget token (found in the widget classes).
+     $id = "rate-$widget_id-$content_type-$content_id";
+     $token = _rate_get_token($id);
+-    $value = (int) $_GET['value'];
++    $value = $_GET['value'];
+ 
+     if (isset($_GET['token']) && $_GET['token'] == $token && $value >= 0 && $value <= 100) {
+       rate_save_vote($widget, $content_type, $content_id, $value, TRUE);
+@@ -1409,6 +1409,9 @@ function theme_rate_button($variables) {
+   static $id = 0;
+   $id++;
+ 
++  if(isset($variables['id'])) {
++    $id = $variables['id'];
++  }
+   $classes = 'rate-button';
+   if ($class) {
+     $classes .= ' ' . $class;
+diff --git a/slider/rate_slider.module b/slider/rate_slider.module
+index d13bee9..c600ff6 100644
+--- a/slider/rate_slider.module
++++ b/slider/rate_slider.module
+@@ -58,11 +58,12 @@ function rate_slider_preprocess_rate_template_slider(&$variables) {
+   else {
+     $variables['value'] = (int) $variables['results']['rating'];
+   }
+-
+   $buttons = array();
++  $id = 1;
+   foreach ($links as $link) {
+-    $button = theme('rate_button', array('text' => $link['text'], 'href' => $link['href'], 'class' => ''));
++    $button = theme('rate_button', array('text' => $link['text'], 'href' => $link['href'], 'class' => '', 'id' => $id));
+     $buttons[] = $button;
++    $id++;
+   }
+   $variables['buttons'] = $buttons;
+ 
+diff --git a/slider/templates/slider/slider.js b/slider/templates/slider/slider.js
+index 02d3fd6..c388a8e 100644
+--- a/slider/templates/slider/slider.js
++++ b/slider/templates/slider/slider.js
+@@ -3,7 +3,7 @@
+     attach: function (context) {
+       $('.rate-widget-slider:not(.rate-slider-processed)',context).addClass('rate-slider-processed').each(function() {
+         var widget = $(this);
+-        var ids = widget.attr('id').match(/^rate\-([a-z]+)\-([0-9]+)\-([0-9]+)\-([0-9])$/);
++        var ids = widget.attr('id').match(/^rate\-([a-z]+)\-([0-9]+)\-([0-9]+)\-([0-9])\-\-([0-9])$/);
+         var data = {
+           content_type: ids[1],
+           content_id: ids[2],

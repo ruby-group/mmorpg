@@ -177,6 +177,49 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'field_collection_item-field_game_development_status-field_game_cancel'
+  $field_instances['field_collection_item-field_game_development_status-field_game_cancel'] = array(
+    'bundle' => 'field_game_development_status',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 3,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_game_cancel',
+    'label' => 'Cancel',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'field_collection_item-field_game_development_status-field_status_date'
   $field_instances['field_collection_item-field_game_development_status-field_status_date'] = array(
     'bundle' => 'field_game_development_status',
