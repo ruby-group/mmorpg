@@ -813,9 +813,10 @@ function mmorpg_signup_now_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'unique_field_fields_signup_now_link';
   $strongarm->value = array(
-    0 => 'field_countries_cce',
-    1 => 'field_game',
-    2 => 'field_customer',
+    0 => 'field_traffic_source',
+    1 => 'field_countries_cce',
+    2 => 'field_game',
+    3 => 'field_customer',
   );
   $export['unique_field_fields_signup_now_link'] = $strongarm;
 

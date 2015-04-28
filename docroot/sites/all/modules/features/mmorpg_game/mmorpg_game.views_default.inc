@@ -34,7 +34,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Header Image */
+  /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -514,7 +514,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="game/!1/video/[nid]"><div class="video_hover"><span>Video</span></div></a>
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/game/!1/video/[nid]"><div class="video_hover"><span>Video</span></div></a>
 <div class="video_image">[field_video_url]</div>
 <div class="video_title">[title]</div>';
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'game/!1/video/[nid]';
@@ -575,7 +575,7 @@ function mmorpg_game_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('<a href="game/!1/video/[nid]"><div class="video_hover"><span>Video</span></div></a>
+    t('<a href="/game/!1/video/[nid]"><div class="video_hover"><span>Video</span></div></a>
 <div class="video_image">[field_video_url]</div>
 <div class="video_title">[title]</div>'),
     t('All'),
