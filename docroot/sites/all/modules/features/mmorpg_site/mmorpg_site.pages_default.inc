@@ -423,6 +423,16 @@ function mmorpg_site_default_page_manager_handlers() {
           ),
           'not' => FALSE,
         ),
+        1 => array(
+          'name' => 'role',
+          'settings' => array(
+            'rids' => array(
+              0 => 2,
+            ),
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
       ),
     );
     $pane->configuration = array(
@@ -459,6 +469,16 @@ function mmorpg_site_default_page_manager_handlers() {
             0 => 'logged-in-user',
             1 => 'node',
           ),
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'role',
+          'settings' => array(
+            'rids' => array(
+              0 => 2,
+            ),
+          ),
+          'context' => 'logged-in-user',
           'not' => FALSE,
         ),
       ),
