@@ -27,6 +27,12 @@ function mmorpg_site_menu() {
     'access arguments' => array('access content'),
   );
 
+  $items['game/%/video/%'] = array(
+    'title' => 'Video',
+    'access callback' => TRUE,
+    'page callback' => 'mmorpg_site_blank',
+  );
+
   return $items;
 }
 
@@ -50,6 +56,10 @@ function mmorpg_site_block_view($delta = '') {
     $block['content'] = "<div class='placeholder'></div>";
   }
   return $block;
+}
+
+function mmorpg_site_blank() {
+  return '';
 }
 
 function mmorpg_site_personalization_endpoint($node) {
