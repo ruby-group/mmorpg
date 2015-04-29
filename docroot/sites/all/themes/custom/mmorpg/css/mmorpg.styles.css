@@ -29,7 +29,8 @@
    Node pages common styles
    ========================================================================== */
 /* line 31, ../sass/variables/_mixins.scss */
-.node-type-mmorpg-article .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .pane-video-exclusive .views-row .views-field-body .field-content {
+.node-type-mmorpg-article .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .pane-video-exclusive .views-row .views-field-body .field-content,
+.pane-video-details-player .views-row .views-field-body .field-content {
   background: #ffffff;
   border-top: 4px solid #bce6ff;
   font-size: 14px;
@@ -175,6 +176,17 @@
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xboxone,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xboxone {
   background-image: url("../images/xboxone.png"); }
+
+/* ==========================================================================
+   Platforms
+   ========================================================================== */
+/* line 133, ../sass/variables/_mixins.scss */
+.page-giveaways h2.pane-title {
+  padding: 10px 15px 5px 0px;
+  margin: 0px;
+  font-size: 35px;
+  font-weight: normal;
+  line-height: 1.2em; }
 
 /* line 1, ../sass/abstractions/_global.scss */
 .hidden {
@@ -685,6 +697,10 @@ body {
       font-weight: bold;
       text-transform: capitalize;
       -webkit-font-smoothing: antialiased; }
+
+/* line 136, ../sass/components/_keygiveaway.scss */
+.page-giveaways h2.pane-title {
+  padding-top: 0; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
@@ -1217,14 +1233,21 @@ ul.pager {
         display: none; }
 
 /* line 1, ../sass/components/_videos.scss */
-.pane-video-exclusive {
-  margin-bottom: 5em; }
-  /* line 3, ../sass/components/_videos.scss */
-  .pane-video-exclusive .views-row {
+.pane-video-exclusive,
+.pane-video-details-player {
+  margin-bottom: 1em; }
+  /* line 4, ../sass/components/_videos.scss */
+  .pane-video-exclusive .views-row,
+  .pane-video-details-player .views-row {
     padding: 1em;
     position: relative; }
     /* line 12, ../sass/components/_videos.scss */
-    .pane-video-exclusive .views-row .promoted_bg {
+    .pane-video-exclusive .views-row .views-field-body p,
+    .pane-video-details-player .views-row .views-field-body p {
+      margin-top: 0; }
+    /* line 17, ../sass/components/_videos.scss */
+    .pane-video-exclusive .views-row .promoted_bg,
+    .pane-video-details-player .views-row .promoted_bg {
       background: #000;
       max-height: 450px;
       position: absolute;
@@ -1234,38 +1257,38 @@ ul.pager {
       height: 100%;
       left: 0; }
 
-/* line 27, ../sass/components/_videos.scss */
+/* line 32, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .views-row {
   max-width: 150px;
   float: none;
   vertical-align: top;
   margin: 0px 3px;
   margin-bottom: 10px; }
-/* line 36, ../sass/components/_videos.scss */
+/* line 41, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_image a {
   display: block;
   border-bottom: 4px solid #bce6ff;
   height: 124px; }
-  /* line 41, ../sass/components/_videos.scss */
+  /* line 46, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_image a img {
     height: 120px; }
-/* line 46, ../sass/components/_videos.scss */
+/* line 51, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_hover {
   max-width: 150px;
   height: 120px; }
-  /* line 51, ../sass/components/_videos.scss */
+  /* line 56, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover span {
     display: block;
     padding: 0.75em 1.75em;
     margin-left: 0.5em;
     background: url("../images/video_icon.png") no-repeat transparent 2px 10px; }
-  /* line 62, ../sass/components/_videos.scss */
+  /* line 67, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover:hover + .video_image > a {
     border-bottom: 4px solid #1879cd; }
-  /* line 66, ../sass/components/_videos.scss */
+  /* line 71, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover:hover + .video_title > a {
     color: #1879cd; }
-/* line 71, ../sass/components/_videos.scss */
+/* line 76, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_title a {
   color: #000;
   font-size: 16px;
@@ -1274,6 +1297,6 @@ ul.pager {
   border-bottom: 0px !important;
   display: block;
   font-weight: 400; }
-  /* line 80, ../sass/components/_videos.scss */
+  /* line 85, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_title a:hover {
     color: #1879cd; }

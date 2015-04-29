@@ -1,11 +1,16 @@
-.pane-video-exclusive {
-  margin-bottom: 5em;
+.pane-video-exclusive,
+.pane-video-details-player{
+  margin-bottom: 1em;
   .views-row {
     padding: 1em;
     position: relative;
     .views-field-body {
       .field-content {
         @extend %node_body;
+      }
+
+      p{
+        margin-top: 0;
       }
     }
 

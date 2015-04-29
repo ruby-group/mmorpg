@@ -132,3 +132,8 @@
     }
   }
 }
+
+.page-giveaways h2.pane-title{
+  @extend %title;
+  padding-top: 0;
+}
