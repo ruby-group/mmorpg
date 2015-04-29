@@ -38,7 +38,7 @@ class Youtube extends Wrapper {
   }
 
   function thumbnail($absolute = TRUE) {
-  return ($absolute ? 'http:' : '') . '//img.youtube.com/vi/'. $this->info['id'] .'/maxresdefault.jpg';
+  return ($absolute ? 'http:' : '') . '//img.youtube.com/vi/'. $this->info['id'] .'/hqdefault.jpg';
   }
 
   function player(array $options = array()) {
