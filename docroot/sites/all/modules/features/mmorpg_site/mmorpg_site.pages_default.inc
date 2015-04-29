@@ -948,7 +948,7 @@ function mmorpg_site_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Special Offers & Giveaways';
   $display->uuid = '9981227f-b807-4b3b-934a-e8b6ccd98043';
   $display->content = array();
   $display->panels = array();
@@ -961,8 +961,8 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'inherit_path' => 1,
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Special Offers & Giveaways',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();

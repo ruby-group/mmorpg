@@ -250,6 +250,81 @@ function giveaway_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '400',
+  );
+  /* Field: Content: Header Image */
+  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_article_hero_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
+    'image_style' => 'overview_articles__200x155_',
+    'image_link' => 'content',
+  );
+  /* Field: Global: Giveaway Keys left */
+  $handler->display->display_options['fields']['keys_left']['id'] = 'keys_left';
+  $handler->display->display_options['fields']['keys_left']['table'] = 'views';
+  $handler->display->display_options['fields']['keys_left']['field'] = 'keys_left';
+  $handler->display->display_options['fields']['keys_left']['label'] = '';
+  $handler->display->display_options['fields']['keys_left']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['keys_left']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['keys_left']['gid'] = '[nid]';
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'keys_left';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '0';
+  $handler->display->display_options['fields']['views_conditional']['or'] = '[keys_left] Keys Remaining';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 1;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="giveaway_details giveaway_details_top">
+<div class="giveaway_image">[field_article_hero_image]</div>
+<div class="giveaway_type">Giveaway</div>
+</div>
+<div class="giveaway_details giveaway_details_bottom">
+<div class="giveaway_title">[title]</div>
+<div class="giveaway_body">[body]</div>
+<div class="giveaway_remaining">[views_conditional]</div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 
   /* Display: Promoted Content pane */
   $handler = $view->new_display('panel_pane', 'Promoted Content pane', 'panel_pane_1');

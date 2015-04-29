@@ -177,6 +177,17 @@
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xboxone {
   background-image: url("../images/xboxone.png"); }
 
+/* ==========================================================================
+   Platforms
+   ========================================================================== */
+/* line 133, ../sass/variables/_mixins.scss */
+.page-giveaways h2.pane-title {
+  padding: 10px 15px 5px 0px;
+  margin: 0px;
+  font-size: 35px;
+  font-weight: normal;
+  line-height: 1.2em; }
+
 /* line 1, ../sass/abstractions/_global.scss */
 .hidden {
   display: none; }
@@ -686,6 +697,10 @@ body {
       font-weight: bold;
       text-transform: capitalize;
       -webkit-font-smoothing: antialiased; }
+
+/* line 136, ../sass/components/_keygiveaway.scss */
+.page-giveaways h2.pane-title {
+  padding-top: 0; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
