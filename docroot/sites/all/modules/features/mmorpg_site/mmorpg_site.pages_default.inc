@@ -591,11 +591,8 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_heading' => 'h2',
     );
     $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '300',
-        'granularity' => 'args',
-      ),
+      'method' => '0',
+      'settings' => array(),
     );
     $pane->style = array(
       'settings' => NULL,
@@ -627,11 +624,8 @@ function mmorpg_site_default_page_manager_handlers() {
       'override_title_heading' => 'h2',
     );
     $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '300',
-        'granularity' => 'args',
-      ),
+      'method' => '0',
+      'settings' => array(),
     );
     $pane->style = array(
       'settings' => NULL,
