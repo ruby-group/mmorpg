@@ -58,7 +58,7 @@ function mmorpg_site_menu() {
   );
 
   $items['giveaways'] = array(
-    'page callback' => 'mmorpg_site_personalization_endpoint',
+    'page callback' => 'mmorpg_site_blank',
     'access arguments' => array('access content'),
   );
 
