@@ -70,6 +70,9 @@ function mmorpg_game_menu_content() {
     case 'videos':
       $videos_attributes = $active_attribute;
       break;
+    case 'video':
+      $videos_attributes = $active_attribute;
+      break;
 
   }
   $overview = l(t('Overview'), 'game/' . $game_nid . '/overview', array('attributes' => $overview_attributes));
