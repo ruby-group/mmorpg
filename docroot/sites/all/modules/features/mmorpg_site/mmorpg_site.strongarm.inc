@@ -210,7 +210,7 @@ function mmorpg_site_strongarm() {
       ),
       'links' => array(
         3 => array(
-          'link_title' => 'Games',
+          'link_title' => 'Games<span class="pill"></span>',
           'link_title_option' => 'title',
           'path_icon' => '',
           'icon_option' => 0,
@@ -245,7 +245,7 @@ function mmorpg_site_strongarm() {
           ),
         ),
         4 => array(
-          'link_title' => 'Reviews',
+          'link_title' => 'Reviews<span class="pill"></span>',
           'link_title_option' => 'title',
           'path_icon' => '',
           'icon_option' => 0,
@@ -280,7 +280,7 @@ function mmorpg_site_strongarm() {
           ),
         ),
         2 => array(
-          'link_title' => 'Updates',
+          'link_title' => 'Updates<span class="pill"></span>',
           'link_title_option' => 'title',
           'path_icon' => '',
           'icon_option' => 0,
@@ -315,7 +315,7 @@ function mmorpg_site_strongarm() {
           ),
         ),
         5 => array(
-          'link_title' => 'Videos',
+          'link_title' => 'Videos<span class="pill"></span>',
           'link_title_option' => 'title',
           'path_icon' => '',
           'icon_option' => 0,
@@ -350,7 +350,7 @@ function mmorpg_site_strongarm() {
           ),
         ),
         6 => array(
-          'link_title' => 'Community',
+          'link_title' => 'Community<span class="pill"></span>',
           'link_title_option' => 'title',
           'path_icon' => '',
           'icon_option' => 0,
@@ -359,8 +359,8 @@ function mmorpg_site_strongarm() {
           'path_query' => '',
           'path_fragment' => '',
           'weight' => '-46',
-          'id' => '',
-          'class' => 'mmorpg_menu_community',
+          'id' => 'mmorpg_menu_community',
+          'class' => '',
           'rel' => '',
           'target' => '_self',
           'description' => '',
@@ -385,7 +385,7 @@ function mmorpg_site_strongarm() {
           ),
         ),
         7 => array(
-          'link_title' => 'Blogs',
+          'link_title' => 'Blogs<span class="pill"></span>',
           'link_title_option' => 'title',
           'path_icon' => '',
           'icon_option' => 0,
@@ -420,7 +420,7 @@ function mmorpg_site_strongarm() {
           ),
         ),
         8 => array(
-          'link_title' => 'TGN',
+          'link_title' => 'TGN<span class="pill"></span>',
           'link_title_option' => 'title',
           'path_icon' => '',
           'icon_option' => 0,
