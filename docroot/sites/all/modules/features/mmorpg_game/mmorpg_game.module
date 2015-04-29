@@ -40,12 +40,25 @@ function mmorpg_game_block_view($delta = '') {
 
 function mmorpg_game_rss_link_block() {
   $game_id = arg(1);
-  return l(t('RSS'),arg(0) . '/' . arg(1) . '/' . arg(2) . '/rss.xml');
+  return l(t('RSS'), arg(0) . '/' . arg(1) . '/' . arg(2) . '/rss.xml');
 }
 
 function mmorpg_game_menu_content() {
-  $game_nid = arg(1);
+  $game_nid = intval(arg(1));
   $current = arg(2);
+
+  if ($game_nid == 0 or !in_array($current, array(
+      'overview',
+      'forum',
+      'ratings',
+      'reviews',
+      'screenshots',
+      'videos',
+      'video',
+    ))
+  ) {
+    drupal_access_denied();
+  }
 
   $active_attribute = array('class' => array('active'));
   $overview_attributes = $forum_attributes = $ratings_attributes = $reviews_attributes
