@@ -150,6 +150,8 @@ function _giveaway_user_is_logged_in() {
 }
 
 function _giveaway_user_is_confirmed() {
+  //@todo this logic is meaningless as user registration & confirmation is not handled yet.
+  return TRUE;
   global $user;
   if ($user->data['email_confirmed'] != 0) {
     drupal_set_message(t("You have not yet activated your MMORPG.COM account. You can do this !link", array('!link' => l('at this link', ''))), 'error');
