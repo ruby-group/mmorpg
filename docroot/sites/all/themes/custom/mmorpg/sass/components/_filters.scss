@@ -124,3 +124,22 @@
     }
   }
 }
+
+//Screenshots gallery filters
+
+.view-screenshot-gallery-grid{
+
+  .form-type-bef-link{
+    display: inline-block;
+
+    a{
+      @extend %play_now_buttons;
+      background: $dark-gray;
+      margin-right: 3px;
+    }
+  }
+
+  .selected a{
+    background: $green;
+  }
+}
