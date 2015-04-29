@@ -16,11 +16,11 @@ Feature: Create Site skin content type
     And I fill in "field_target_url[und][0][url]" with "http://www.mmorpg.com/adServer/signupLinkClick.cfm?gameId=191&src=playnow_playnow_box"
     And I select "alan" from "field_target_url[und][0][clickmeter_fieldset][group]"
     And I select "s87.eu" from "field_target_url[und][0][clickmeter_fieldset][domain]"
-    And I click "Publishing options"
     And I check the box "status"
     And I click "Save"
     Then I should see the link "Site Skin Site Skin 1 has been created."
 
+  @api
   Scenario: Create a site skin with multiple images
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/siteskin"
@@ -36,11 +36,11 @@ Feature: Create Site skin content type
     And I fill in "field_target_url[und][0][url]" with "http://www.mmorpg.com/adServer/signupLinkClick.cfm?gameId=555&src=playnow_playnow_box"
     And I select "alan" from "field_target_url[und][0][clickmeter_fieldset][group]"
     And I select "s87.eu" from "field_target_url[und][0][clickmeter_fieldset][domain]"
-    And I click "Publishing options"
     And I check the box "status"
     And I click "Save"
     Then I should see the link "Site Skin Site Skin 2 has been created."
 
+  @api
   Scenario: Create a site skin to be added to the remnant pool
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/siteskin"
@@ -57,12 +57,6 @@ Feature: Create Site skin content type
     And I fill in "field_target_url[und][0][url]" with "http://www.mmorpg.com/adServer/signupLinkClick.cfm?gameId=730&src=playnow_playnow_box"
     And I select "alan" from "field_target_url[und][0][clickmeter_fieldset][group]"
     And I select "s87.eu" from "field_target_url[und][0][clickmeter_fieldset][domain]"
-    And I click "Publishing options"
     And I check the box "status"
     And I click "Save"
     Then I should see the link "Site Skin Site Skin 3 has been created."
-
-  Scenario: Site skin added using Preload option
-
-
-

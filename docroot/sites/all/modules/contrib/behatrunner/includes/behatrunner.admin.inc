@@ -25,4 +25,3 @@ function behatrunner_admin_form($form_state) {
 
   return system_settings_form($form);
 }
-

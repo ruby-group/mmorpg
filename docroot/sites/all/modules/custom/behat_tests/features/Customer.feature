@@ -10,11 +10,11 @@ Feature: Create Customer content type
     When I fill in "title" with "Company 1"
     And I fill in "field_cust_contact_name[und][0][value]" with "Joe Hayes"
     And I fill in "field_cust_email[und][0][email]" with "Joe.Hayes@gmail.com"
-    And I click "Publishing options"
     And I check the box "status"
     And I click "Save"
     Then I should see the link "Company 1"
 
+  @api
   Scenario: Create a customer with all the fields in
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/customer"
@@ -31,11 +31,11 @@ Feature: Create Customer content type
     And I fill in "field_cust_discount[und][0][value]" with "10"
     And I fill in "field_cust_password[und][0][value]" with "Password"
     And I fill in "field_cust_notes[und][0][value]" with "Notes added"
-    And I click "Publishing options"
     And I check the box "status"
     And I click "Save"
     Then I should see the link "Company 2"
 
+  @api
   Scenario: Validate mandatory fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/customer"
