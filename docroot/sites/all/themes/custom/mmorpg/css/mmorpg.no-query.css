@@ -44,7 +44,7 @@
    Play Now Buttons and filters
    ========================================================================== */
 /* line 46, ../sass/variables/_mixins.scss */
-.pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div, .pane-mmorpg-signup-now-play-now-page-filters a, .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .views-more-link, .view-play-now .play_now_url a,
+.pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div, .pane-mmorpg-signup-now-play-now-page-filters a, .view-screenshot-gallery-grid .form-type-bef-link a, .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .views-more-link, .view-play-now .play_now_url a,
 .view-play-now .promoted_play_now_url a, .view-play-now .play_now_more a,
 .view-play-now .promoted_play_now_more a, .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_url a, .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_more a {
   color: #ffffff !important;
@@ -528,6 +528,17 @@ body {
       .views-exposed-form-giveaway-listing-panel-pane .chosen-container ul.chosen-results li.highlighted {
         background: #bbb;
         trasitiion: 0.3s; }
+
+/* line 132, ../sass/components/_filters.scss */
+.view-screenshot-gallery-grid .form-type-bef-link {
+  display: inline-block; }
+  /* line 135, ../sass/components/_filters.scss */
+  .view-screenshot-gallery-grid .form-type-bef-link a {
+    background: #707070;
+    margin-right: 3px; }
+/* line 142, ../sass/components/_filters.scss */
+.view-screenshot-gallery-grid .selected a {
+  background: #65c015; }
 
 /* line 1, ../sass/components/_keygiveaway.scss */
 .remainingkeys {
