@@ -32,6 +32,21 @@ function mmorpg_site_views_api($module = NULL, $api = NULL) {
 function mmorpg_site_image_default_styles() {
   $styles = array();
 
+  // Exported image style: giveaway_promoted__700x400_.
+  $styles['giveaway_promoted__700x400_'] = array(
+    'label' => 'Giveaway Promoted (700x400)',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_resize',
+        'data' => array(
+          'width' => 700,
+          'height' => 400,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: play_now_promoted.
   $styles['play_now_promoted'] = array(
     'label' => 'Play Now promoted',
