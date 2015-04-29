@@ -13,7 +13,7 @@
   height: auto; }
 
 /* line 15, ../sass/variables/_mixins.scss */
-.view-giveaway-listing .giveaway_details_top .giveaway_type, .pane-screenshot-gallery-grid .screenshot_hover, .pane-video-gallery-grid .video_hover {
+.view-giveaway-listing .giveaway_details_top .giveaway_type, .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type, .pane-screenshot-gallery-grid .screenshot_hover, .pane-video-gallery-grid .video_hover {
   color: #bfcad1;
   position: absolute;
   top: 0;
@@ -29,7 +29,7 @@
    Node pages common styles
    ========================================================================== */
 /* line 31, ../sass/variables/_mixins.scss */
-.node-type-mmorpg-article .field--name-field-article-news-post, .pane-video-exclusive .views-row .views-field-body .field-content {
+.node-type-mmorpg-article .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .pane-video-exclusive .views-row .views-field-body .field-content {
   background: #ffffff;
   border-top: 4px solid #bce6ff;
   font-size: 14px;
@@ -44,7 +44,7 @@
    Play Now Buttons and filters
    ========================================================================== */
 /* line 46, ../sass/variables/_mixins.scss */
-.pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div, .pane-mmorpg-signup-now-play-now-page-filters a, .view-play-now .play_now_url a,
+.pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div, .pane-mmorpg-signup-now-play-now-page-filters a, .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .views-more-link, .view-play-now .play_now_url a,
 .view-play-now .promoted_play_now_url a, .view-play-now .play_now_more a,
 .view-play-now .promoted_play_now_more a, .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_url a, .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_more a {
   color: #ffffff !important;
@@ -622,6 +622,58 @@ body {
 .view-giveaway-listing .giveaway_remaining {
   color: #31b4ff;
   font-weight: bold; }
+
+/* line 67, ../sass/components/_keygiveaway.scss */
+.promoted-giveaway .promoted_giveaway_details_top {
+  position: relative; }
+  /* line 70, ../sass/components/_keygiveaway.scss */
+  .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type {
+    background: none;
+    padding: 0.75em; }
+/* line 77, ../sass/components/_keygiveaway.scss */
+.promoted-giveaway .promoted_giveaway_details_bottom {
+  width: 95%;
+  top: -40px; }
+  /* line 82, ../sass/components/_keygiveaway.scss */
+  .promoted-giveaway .promoted_giveaway_details_bottom:hover {
+    background: #e9f8ff;
+    border-color: #1879cd; }
+    /* line 86, ../sass/components/_keygiveaway.scss */
+    .promoted-giveaway .promoted_giveaway_details_bottom:hover .promoted_giveaway_title a {
+      color: #1879cd; }
+  /* line 91, ../sass/components/_keygiveaway.scss */
+  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_title a {
+    color: #000;
+    font-size: 30px;
+    font-weight: 400; }
+  /* line 98, ../sass/components/_keygiveaway.scss */
+  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .views-more-link {
+    background: #2186d4; }
+  /* line 103, ../sass/components/_keygiveaway.scss */
+  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body span.comments {
+    font-size: 1.2em;
+    line-height: 1.3em;
+    display: inline-block; }
+    /* line 108, ../sass/components/_keygiveaway.scss */
+    .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body span.comments span.comment_icon {
+      background: url("../images/bg_icns_dark.png") no-repeat transparent left;
+      background-position: -63px -96px;
+      padding-left: 1.5em; }
+  /* line 115, ../sass/components/_keygiveaway.scss */
+  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .sharethis-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3em; }
+  /* line 122, ../sass/components/_keygiveaway.scss */
+  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_author {
+    color: #a2a2a2; }
+    /* line 125, ../sass/components/_keygiveaway.scss */
+    .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_author a {
+      color: #cecece;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: capitalize;
+      -webkit-font-smoothing: antialiased; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {

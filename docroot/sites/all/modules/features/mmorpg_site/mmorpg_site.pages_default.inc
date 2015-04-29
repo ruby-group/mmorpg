@@ -959,6 +959,49 @@ function mmorpg_site_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-bc0ac0ce-75c6-4954-b6b9-a1b03eb05a09';
+    $pane->panel = 'content';
+    $pane->type = 'block';
+    $pane->subtype = 'views-9b140173c25d0bcb9547caefc717b04f';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'inherit_path' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'bc0ac0ce-75c6-4954-b6b9-a1b03eb05a09';
+    $display->content['new-bc0ac0ce-75c6-4954-b6b9-a1b03eb05a09'] = $pane;
+    $display->panels['content'][0] = 'new-bc0ac0ce-75c6-4954-b6b9-a1b03eb05a09';
+    $pane = new stdClass();
+    $pane->pid = 'new-2f087762-5a3f-425e-a744-9f5c55b9dd9d';
+    $pane->panel = 'content';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'giveaway_listing-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '2f087762-5a3f-425e-a744-9f5c55b9dd9d';
+    $display->content['new-2f087762-5a3f-425e-a744-9f5c55b9dd9d'] = $pane;
+    $display->panels['content'][1] = 'new-2f087762-5a3f-425e-a744-9f5c55b9dd9d';
+    $pane = new stdClass();
     $pane->pid = 'new-11a9df9c-84e5-432b-a1f9-c72cb0a21a88';
     $pane->panel = 'content';
     $pane->type = 'views_panes';
@@ -978,11 +1021,11 @@ function mmorpg_site_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '11a9df9c-84e5-432b-a1f9-c72cb0a21a88';
     $display->content['new-11a9df9c-84e5-432b-a1f9-c72cb0a21a88'] = $pane;
-    $display->panels['content'][0] = 'new-11a9df9c-84e5-432b-a1f9-c72cb0a21a88';
+    $display->panels['content'][2] = 'new-11a9df9c-84e5-432b-a1f9-c72cb0a21a88';
     $pane = new stdClass();
     $pane->pid = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
     $pane->panel = 'header';

@@ -91,7 +91,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Hero Image */
+  /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -243,6 +243,136 @@ function giveaway_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '1';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['exposed_block'] = TRUE;
+
+  /* Display: Promoted Content pane */
+  $handler = $view->new_display('panel_pane', 'Promoted Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'promoted-giveaway';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Author */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '200';
+  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['more_link_text'] = 'Keep Reading';
+  $handler->display->display_options['fields']['body']['alter']['more_link_path'] = '[title]';
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '400',
+  );
+  /* Field: Content: Header Image */
+  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
+  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_article_hero_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
+    'image_style' => 'giveaway_promoted__700x400_',
+    'image_link' => 'content',
+  );
+  /* Field: Global: Giveaway Keys left */
+  $handler->display->display_options['fields']['keys_left']['id'] = 'keys_left';
+  $handler->display->display_options['fields']['keys_left']['table'] = 'views';
+  $handler->display->display_options['fields']['keys_left']['field'] = 'keys_left';
+  $handler->display->display_options['fields']['keys_left']['label'] = '';
+  $handler->display->display_options['fields']['keys_left']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['keys_left']['element_label_colon'] = FALSE;
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'keys_left';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '0';
+  $handler->display->display_options['fields']['views_conditional']['or'] = '[keys_left] Keys Remaining';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 1;
+  /* Field: Content: Comment count */
+  $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+  $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['label'] = '';
+  $handler->display->display_options['fields']['comment_count']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<span class="comment_icon"></span><strong>[comment_count]</strong> comments';
+  $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['created']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['created']['custom_date_format'] = 'F j';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Content: ShareThis Link */
+  $handler->display->display_options['fields']['sharethis']['id'] = 'sharethis';
+  $handler->display->display_options['fields']['sharethis']['table'] = 'node';
+  $handler->display->display_options['fields']['sharethis']['field'] = 'sharethis';
+  $handler->display->display_options['fields']['sharethis']['label'] = '';
+  $handler->display->display_options['fields']['sharethis']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['sharethis']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="promoted_giveaway_details promoted_giveaway_details_top">
+<div class="promoted_giveaway_image">[field_article_hero_image]</div>
+<div class="promoted_giveaway_type">Giveaway</div>
+</div>
+<div class="promoted_giveaway_details promoted_giveaway_details_bottom">
+<div class="promoted_giveaway_title">[title]</div>
+<div class="promoted_giveaway_body">[body]<span class="comments">[comment_count]</span>[sharethis]</div>
+<div class="promoted_giveaway_author">Posted by [name] on [created]th</div>
+
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $translatables['giveaway_listing'] = array(
     t('Master'),
     t('more'),
@@ -275,6 +405,22 @@ function giveaway_views_default_views() {
     t('Post date'),
     t('Content pane'),
     t('View panes'),
+    t('Promoted Content pane'),
+    t('author'),
+    t('Keep Reading'),
+    t('<span class="comment_icon"></span><strong>[comment_count]</strong> comments'),
+    t('.'),
+    t(','),
+    t('<div class="promoted_giveaway_details promoted_giveaway_details_top">
+<div class="promoted_giveaway_image">[field_article_hero_image]</div>
+<div class="promoted_giveaway_type">Giveaway</div>
+</div>
+<div class="promoted_giveaway_details promoted_giveaway_details_bottom">
+<div class="promoted_giveaway_title">[title]</div>
+<div class="promoted_giveaway_body">[body]<span class="comments">[comment_count]</span>[sharethis]</div>
+<div class="promoted_giveaway_author">Posted by [name] on [created]th</div>
+
+</div>'),
   );
   $export['giveaway_listing'] = $view;
 
