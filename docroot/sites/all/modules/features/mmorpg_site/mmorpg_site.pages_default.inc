@@ -2152,7 +2152,7 @@ play-now/*',
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'path' => 'global',
+      'path' => 'current',
       'path-external' => '',
       'override_title' => 0,
       'override_title_text' => '',
