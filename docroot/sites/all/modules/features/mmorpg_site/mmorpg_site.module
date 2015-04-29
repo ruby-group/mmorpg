@@ -7,15 +7,40 @@
 include_once 'mmorpg_site.features.inc';
 
 /**
+ * Implements hook_init().
+ */
+function mmorpg_site_init() {
+  $categories = array(
+    'game' => 'games',
+  );
+
+  $node = menu_get_object();
+  if (!node) {
+    return;
+  }
+  if (array_key_exists($node->type, $categories)) {
+    drupal_add_js(array(
+      'MMORPG_page_viewed' => array(
+        'type' => 'single',
+        'section' => $categories[$node->type],
+        'id' => $node->nid,
+      )
+    ), 'setting');
+  }
+}
+
+/**
  * Implements hook_menu().
  */
 function mmorpg_site_menu() {
+
   $items['admin/mmorpg/reports'] = array(
     'title' => 'Reports',
     'description' => 'Access various advt. reports',
     'access callback' => TRUE,
     'type' => MENU_LOCAL_TASK,
   );
+
   $items['admin/mmorpg/reports/blank'] = array(
     'title' => 'Reports',
     'access callback' => TRUE,
@@ -24,6 +49,11 @@ function mmorpg_site_menu() {
 
   $items['personalization'] = array(
     'page callback' => 'mmorpg_site_personalization_endpoint',
+    'access arguments' => array('access content'),
+  );
+
+  $items['update_counts'] = array(
+    'page callback' => 'mmorpg_site_update_count_endpoint',
     'access arguments' => array('access content'),
   );
 
@@ -95,11 +125,22 @@ function mmorpg_site_block_view($delta = '') {
   return $block;
 }
 
+/**
+ * We have a lot of panel variants where the selection rules depend on urls.
+ * Since these urls are not defined, the page title ends up being "page not found"
+ * The purpose of this is to create blank pages so that drupal does not return 404.
+ *
+ * @return string
+ */
 function mmorpg_site_blank() {
   return '';
 }
 
-function mmorpg_site_personalization_endpoint($node) {
+/**
+ * All the navigation content that is personal to the user is to be loaded after
+ * the initial page load via ajax.
+ */
+function mmorpg_site_personalization_endpoint() {
   global $user;
   $play_now_block = module_invoke('mmorpg_signup_now', 'block_view', 'play_now_menu_link');
   $latest_updates_block = module_invoke('views', 'block_view', 'latest_updates-block');
@@ -109,7 +150,7 @@ function mmorpg_site_personalization_endpoint($node) {
     'reviews' => '',
     'updates' => render($latest_updates_block['content']),
     'videos' => '',
-    'commmunity' => '',
+    'community' => '',
     'blogs' => '',
     'tgn' => '',
     'store' => '',
@@ -124,7 +165,29 @@ function mmorpg_site_personalization_endpoint($node) {
     $output['videos'] = 'Not Implemented';
     $output['reviews'] = 'Not Implemented';
     $output['username'] = render($latest_news_block['content']);
-    $output['commmunity'] = 'Not Implemented';
+    $output['community'] = 'Not Implemented';
   }
   drupal_json_output($output);
+}
+
+/**
+ * This returns a list of the recent node ids in various categories
+ * so that the browser can compute new content counts.
+ */
+function mmorpg_site_update_count_endpoint() {
+  $dummy_ids = range(1, 20);
+
+  drupal_json_output(array(
+    'expires' => time() + 5 * 60 * 60,
+    'data' => array(
+      'games' => $dummy_ids,
+      'reviews' => $dummy_ids,
+      'updates' => $dummy_ids,
+      'videos' => $dummy_ids,
+      'community' => $dummy_ids,
+      'blogs' => $dummy_ids,
+      'tgn' => $dummy_ids,
+      'store' => $dummy_ids,
+    ),
+  ));
 }
