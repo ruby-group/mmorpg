@@ -27,3 +27,100 @@
 		}
 	}
 }
+
+.views-exposed-form-giveaway-listing-panel-pane {
+  label{
+    display: none;
+  }
+
+  .views-exposed-widget{
+    padding: 0;
+    float: none;
+    display: inline-block;
+  }
+
+  .form-submit{
+    margin-top: 0 !important;
+    position: relative;
+    border: 1px solid #2186d4;
+    cursor: pointer;
+    background: #2186d4;
+    font-size: 14px;
+    height: 35px;
+    color: #fff;
+    padding: 9px 9px 8px 9px !important;
+    border-radius: 2px;
+    top: 1px;
+  }
+
+  .chosen-container {
+
+    width: 100% !important;
+
+    .chosen-single{
+      height: auto;
+      border: none;
+      padding: 0;
+      border-radius: 0;
+    }
+    span {
+      position: relative;
+      border: 1px solid #2186d4;
+      cursor: pointer;
+      background: #2186d4;
+      font-size: 14px;
+      height: 35px;
+      width: 100%;
+      color: #fff;
+      margin-right: 15px;
+      border-radius: 2px;
+      -webkit-appearance: none;
+      padding: 0 2em 0 1em;;
+      line-height: 35px;
+
+      & + div{
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid #fff;
+        top: 40%;
+        right: 12px;
+        -webkit-transition: all 50ms ease-in-out; /* Safari */
+        -moz-transition: all 50ms ease-in-out; /* Firefox */
+        transition: all 50ms ease-in-out;
+
+        b{
+          display: none;
+        }
+      }
+    }
+
+    &.chosen-with-drop span + div{
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 8px solid white;
+      border-top: 0;
+    }
+
+    ul.chosen-results{
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 8px 12px;
+        -webkit-transition: all 150ms ease-in-out; /* Safari */
+        -moz-transition: all 150ms ease-in-out; /* Firefox */
+        transition: all 150ms ease-in-out;
+
+        &.highlighted {
+          background: #bbb;
+          trasitiion: 0.3s;
+
+        }
+      }
+    }
+  }
+}

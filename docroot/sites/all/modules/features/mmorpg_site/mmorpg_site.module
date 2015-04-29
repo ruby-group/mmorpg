@@ -57,6 +57,11 @@ function mmorpg_site_menu() {
     'access arguments' => array('access content'),
   );
 
+  $items['giveaways'] = array(
+    'page callback' => 'mmorpg_site_blank',
+    'access arguments' => array('access content'),
+  );
+
   $items['game/%/video/%'] = array(
     'title' => 'Video',
     'access callback' => TRUE,
@@ -98,7 +103,6 @@ function mmorpg_site_menu() {
     'access callback' => TRUE,
     'page callback' => 'mmorpg_site_blank',
   );
-
 
   return $items;
 }
