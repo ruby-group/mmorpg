@@ -594,7 +594,7 @@ function mmorpg_site_default_page_manager_handlers() {
       'method' => 'simple',
       'settings' => array(
         'lifetime' => '300',
-        'granularity' => 'none',
+        'granularity' => 'args',
       ),
     );
     $pane->style = array(
@@ -630,7 +630,7 @@ function mmorpg_site_default_page_manager_handlers() {
       'method' => 'simple',
       'settings' => array(
         'lifetime' => '300',
-        'granularity' => 'none',
+        'granularity' => 'args',
       ),
     );
     $pane->style = array(
