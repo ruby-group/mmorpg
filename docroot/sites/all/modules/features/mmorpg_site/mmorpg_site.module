@@ -15,7 +15,7 @@ function mmorpg_site_init() {
   );
 
   $node = menu_get_object();
-  if (!node) {
+  if (!$node) {
     return;
   }
   if (array_key_exists($node->type, $categories)) {
