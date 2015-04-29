@@ -26,20 +26,6 @@ function mmorpg_util_features_revert($modules) {
   }
 }
 
-/**
- * Simulation of `drush rr`
- */
-function mmorpg_drush_rr() {
-  if (!function_exists('registry_rebuild_drush_help')
-    and !function_exists('registry_rebuild_drush_command')
-    and !function_exists('drush_registry_rebuild')
-    and !function_exists('drush_registry_rebuild_cc_all')
-  ) {
-    include __FILE__ . '/registry_rebuild/registry_rebuild.drush.inc';
-  }
-  drush_registry_rebuild();
-  return 1;
-}
 
 /**
  * Simulation of `drush fra -y`
@@ -62,5 +48,5 @@ function mmorpg_drush_cc_all() {
  * This is a convenient deploy shortcut.
  */
 function mmorpg_deploy() {
-  mmorpg_drush_rr() and mmorpg_drush_fra() and mmorpg_drush_cc_all();
+  mmorpg_drush_fra() and mmorpg_drush_cc_all();
 }
