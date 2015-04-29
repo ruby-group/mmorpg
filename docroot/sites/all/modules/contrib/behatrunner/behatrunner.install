@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Installation file for Behat Runner module.
+ */
+
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\Yaml\Dumper;
 
@@ -7,16 +12,15 @@ use Symfony\Component\Yaml\Dumper;
  * Implements hook_install().
  */
 function behatrunner_install() {
-  if (drupal_is_cli()) {
-    ini_set('memory_limit', '768M');
-  }
+
 }
 
 
 /**
  * Implements hook_composer_dependencies_install().
- *   This will get called on install, but after composer_manager
- *   has finished installing all composer dependencies.
+ *
+ * This will get called on install, but after composer_manager
+ * has finished installing all composer dependencies.
  */
 function behatrunner_composer_dependencies_install() {
   module_load_include('inc', 'behatrunner', 'includes/behatrunner');
