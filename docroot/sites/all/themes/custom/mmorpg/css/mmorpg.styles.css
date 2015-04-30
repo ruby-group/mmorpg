@@ -730,7 +730,8 @@ body {
 
 /* line 136, ../sass/components/_keygiveaway.scss */
 .page-giveaways h2.pane-title {
-  padding-top: 0; }
+  padding-top: 0;
+  padding-bottom: 20px; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
