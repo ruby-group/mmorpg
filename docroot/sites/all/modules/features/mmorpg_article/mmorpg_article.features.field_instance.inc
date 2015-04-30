@@ -84,7 +84,9 @@ function mmorpg_article_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 3,
     ),
@@ -298,7 +300,9 @@ function mmorpg_article_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 8,
     ),
@@ -334,7 +338,9 @@ function mmorpg_article_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 7,
     ),
@@ -382,7 +388,8 @@ function mmorpg_article_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-mmorpg_article-field_article_sponsored_untill'
+  // Exported field_instance:
+  // 'node-mmorpg_article-field_article_sponsored_untill'
   $field_instances['node-mmorpg_article-field_article_sponsored_untill'] = array(
     'bundle' => 'mmorpg_article',
     'deleted' => 0,
@@ -458,7 +465,9 @@ function mmorpg_article_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 6,
     ),
@@ -494,7 +503,9 @@ function mmorpg_article_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 1,
     ),
@@ -527,7 +538,9 @@ function mmorpg_article_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 12,
     ),
@@ -560,7 +573,9 @@ function mmorpg_article_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 5,
     ),

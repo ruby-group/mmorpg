@@ -34,6 +34,12 @@ function giveaway_views_default_views() {
     'general' => array(
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+      'bef_filter_description' => NULL,
+      'any_label' => NULL,
+      'filter_rewrite_values' => NULL,
     ),
     'sort' => array(
       'bef_format' => 'default',
@@ -45,7 +51,18 @@ function giveaway_views_default_views() {
         'reset' => 0,
         'reset_label' => '',
         'is_secondary' => 0,
+        'secondary_label' => NULL,
+        'bef_filter_description' => NULL,
+        'any_label' => NULL,
+        'filter_rewrite_values' => NULL,
       ),
+      'secondary_label' => NULL,
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+      'bef_filter_description' => NULL,
+      'any_label' => NULL,
+      'filter_rewrite_values' => NULL,
     ),
     'created' => array(
       'bef_format' => 'default',
@@ -58,13 +75,52 @@ function giveaway_views_default_views() {
         'tokens' => array(
           'available' => array(
             0 => 'global_types',
+            'secondary_label' => NULL,
+            'collapsible_label' => NULL,
+            'combine_rewrite' => NULL,
+            'reset_label' => NULL,
+            'bef_filter_description' => NULL,
+            'any_label' => NULL,
+            'filter_rewrite_values' => NULL,
           ),
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+          'bef_filter_description' => NULL,
+          'any_label' => NULL,
+          'filter_rewrite_values' => NULL,
         ),
         'rewrite' => array(
           'filter_rewrite_values' => '',
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+          'bef_filter_description' => NULL,
+          'any_label' => NULL,
         ),
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+        'filter_rewrite_values' => NULL,
       ),
+      'secondary_label' => NULL,
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+      'bef_filter_description' => NULL,
+      'any_label' => NULL,
+      'filter_rewrite_values' => NULL,
     ),
+    'secondary_label' => NULL,
+    'collapsible_label' => NULL,
+    'combine_rewrite' => NULL,
+    'reset_label' => NULL,
+    'bef_filter_description' => NULL,
+    'any_label' => NULL,
+    'filter_rewrite_values' => NULL,
   );
   $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
@@ -91,7 +147,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Hero Image */
+  /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -278,7 +334,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Hero Image */
+  /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -374,7 +430,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Hero Image */
+  /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -463,6 +519,9 @@ function giveaway_views_default_views() {
     t('Sort by'),
     t('Ascending'),
     t('Descending'),
+    t('Advanced options'),
+    t('Sort options'),
+    t('All Time'),
     t('Select any filter and click on Apply to see results'),
     t('Items per page'),
     t('- All -'),

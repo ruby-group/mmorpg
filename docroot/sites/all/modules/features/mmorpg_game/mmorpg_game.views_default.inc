@@ -34,7 +34,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Hero Image */
+  /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -530,6 +530,12 @@ function mmorpg_game_views_default_views() {
     'general' => array(
       'allow_secondary' => 0,
       'secondary_label' => 'Advanced options',
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+      'bef_filter_description' => NULL,
+      'any_label' => NULL,
+      'filter_rewrite_values' => NULL,
     ),
     'field_screenshot_category_tid' => array(
       'bef_format' => 'bef_links',
@@ -542,14 +548,53 @@ function mmorpg_game_views_default_views() {
         'tokens' => array(
           'available' => array(
             0 => 'global_types',
+            'secondary_label' => NULL,
+            'collapsible_label' => NULL,
+            'combine_rewrite' => NULL,
+            'reset_label' => NULL,
+            'bef_filter_description' => NULL,
+            'any_label' => NULL,
+            'filter_rewrite_values' => NULL,
           ),
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+          'bef_filter_description' => NULL,
+          'any_label' => NULL,
+          'filter_rewrite_values' => NULL,
         ),
         'rewrite' => array(
           'filter_rewrite_values' => 'House Submitted|Official Only
 User Submitted|User Uploaded Only',
+          'secondary_label' => NULL,
+          'collapsible_label' => NULL,
+          'combine_rewrite' => NULL,
+          'reset_label' => NULL,
+          'bef_filter_description' => NULL,
+          'any_label' => NULL,
         ),
+        'secondary_label' => NULL,
+        'collapsible_label' => NULL,
+        'combine_rewrite' => NULL,
+        'reset_label' => NULL,
+        'filter_rewrite_values' => NULL,
       ),
+      'secondary_label' => NULL,
+      'collapsible_label' => NULL,
+      'combine_rewrite' => NULL,
+      'reset_label' => NULL,
+      'bef_filter_description' => NULL,
+      'any_label' => NULL,
+      'filter_rewrite_values' => NULL,
     ),
+    'secondary_label' => NULL,
+    'collapsible_label' => NULL,
+    'combine_rewrite' => NULL,
+    'reset_label' => NULL,
+    'bef_filter_description' => NULL,
+    'any_label' => NULL,
+    'filter_rewrite_values' => NULL,
   );
   $handler->display->display_options['exposed_form']['options']['input_required'] = 0;
   $handler->display->display_options['exposed_form']['options']['text_input_required_format'] = 'filtered_html';
@@ -695,6 +740,10 @@ User Submitted|User Uploaded Only',
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Advanced options'),
+    t('Show All'),
+    t('House Submitted|Official Only
+User Submitted|User Uploaded Only'),
     t('Select any filter and click on Apply to see results'),
     t('Items per page'),
     t('- All -'),
