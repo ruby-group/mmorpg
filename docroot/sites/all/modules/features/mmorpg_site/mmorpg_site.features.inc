@@ -32,6 +32,31 @@ function mmorpg_site_views_api($module = NULL, $api = NULL) {
 function mmorpg_site_image_default_styles() {
   $styles = array();
 
+  // Exported image style: giveaway_node__700x305_.
+  $styles['giveaway_node__700x305_'] = array(
+    'label' => 'Giveaway Node (700x305)',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 700,
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => 1,
+      ),
+      3 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 700,
+          'height' => 305,
+          'anchor' => 'left-top',
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: giveaway_promoted__700x400_.
   $styles['giveaway_promoted__700x400_'] = array(
     'label' => 'Giveaway Promoted (700x400)',
