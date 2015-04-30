@@ -719,7 +719,7 @@ function mmorpg_site_default_page_manager_handlers() {
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'image_style' => '',
+        'image_style' => 'giveaway_node__700x305_',
         'image_link' => '',
       ),
       'context' => 'node',
