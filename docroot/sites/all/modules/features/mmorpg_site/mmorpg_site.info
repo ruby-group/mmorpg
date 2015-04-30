@@ -41,7 +41,6 @@ features[page_manager_handlers][] = site_template__play_now
 features[page_manager_handlers][] = site_template__screenshot_gallery
 features[page_manager_handlers][] = site_template__video_detail_page
 features[page_manager_handlers][] = site_template__video_listing
-features[page_manager_handlers][] = site_template_panel_context_basic
 features[panels_mini][] = header
 features[user_permission][] = access content
 features[user_permission][] = search content

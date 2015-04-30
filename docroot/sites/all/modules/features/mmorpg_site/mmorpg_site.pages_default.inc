@@ -17,7 +17,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'Article page',
     'no_blocks' => 0,
@@ -191,7 +191,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Game Overview',
     'no_blocks' => 0,
@@ -418,7 +418,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -23;
+  $handler->weight = -24;
   $handler->conf = array(
     'title' => 'Game Ratings',
     'no_blocks' => 0,
@@ -661,7 +661,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -18;
+  $handler->weight = -19;
   $handler->conf = array(
     'title' => 'Giveaway',
     'no_blocks' => 0,
@@ -1095,7 +1095,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -19;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'Giveaway Listing ',
     'no_blocks' => 0,
@@ -1299,7 +1299,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Homepage',
     'no_blocks' => 0,
@@ -1437,7 +1437,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'http_response';
-  $handler->weight = -29;
+  $handler->weight = -30;
   $handler->conf = array(
     'title' => 'invisible content',
     'contexts' => array(),
@@ -1482,7 +1482,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'Game',
     'no_blocks' => 0,
@@ -1631,7 +1631,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -21;
+  $handler->weight = -22;
   $handler->conf = array(
     'title' => 'Play Now',
     'no_blocks' => 0,
@@ -1907,7 +1907,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -25;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'Screenshot Gallery ',
     'no_blocks' => 0,
@@ -2158,7 +2158,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -20;
+  $handler->weight = -21;
   $handler->conf = array(
     'title' => 'Video Detail Page',
     'no_blocks' => 0,
@@ -2460,7 +2460,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -24;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'Video Listing ',
     'no_blocks' => 0,
@@ -2747,253 +2747,6 @@ play-now/*',
   $display->title_pane = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
   $handler->conf['display'] = $display;
   $export['site_template__video_listing'] = $handler;
-
-  $handler = new stdClass();
-  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
-  $handler->api_version = 1;
-  $handler->name = 'site_template_panel_context_basic';
-  $handler->task = 'site_template';
-  $handler->subtask = '';
-  $handler->handler = 'panel_context';
-  $handler->weight = -30;
-  $handler->conf = array(
-    'title' => 'Sample variant',
-    'no_blocks' => 1,
-    'css_id' => 'page-wrapper',
-    'css' => '/* set a fixed overall width */
-  #page-wrapper > .panel-flexible-inside {
-    width: 1020px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Add some margin to the main content row. This class was set in the layout designer. */
-  #page-wrapper .main-content {
-    padding: 0 10px;
-  }',
-    'contexts' => array(),
-    'relationships' => array(),
-    'access' => array(
-      'plugins' => array(),
-      'logic' => 'and',
-    ),
-    'pipeline' => 'standard',
-  );
-  $display = new panels_display();
-  $display->layout = 'flexible';
-  $display->layout_settings = array(
-    'items' => array(
-      'canvas' => array(
-        'type' => 'row',
-        'contains' => 'column',
-        'children' => array(
-          0 => 'main',
-        ),
-        'parent' => NULL,
-        'class' => '',
-        'column_class' => '',
-        'row_class' => '',
-        'region_class' => '',
-        'no_scale' => FALSE,
-        'fixed_width' => '',
-        'column_separation' => '0.5em',
-        'region_separation' => '0.5em',
-        'row_separation' => '0.5em',
-      ),
-      'main' => array(
-        'type' => 'column',
-        'width' => 100,
-        'width_type' => '%',
-        'children' => array(
-          0 => 1,
-          1 => 'main-row',
-        ),
-        'parent' => 'canvas',
-      ),
-      'main-row' => array(
-        'type' => 'row',
-        'contains' => 'region',
-        'children' => array(
-          0 => 'content',
-          1 => 'sidebar',
-        ),
-        'parent' => 'main',
-        'class' => 'main-content',
-      ),
-      'content' => array(
-        'type' => 'region',
-        'title' => 'Content',
-        'width' => '100',
-        'width_type' => '%',
-        'parent' => 'main-row',
-        'class' => '',
-      ),
-      'sidebar' => array(
-        'type' => 'region',
-        'title' => 'Sidebar',
-        'width' => '200',
-        'width_type' => 'px',
-        'parent' => 'main-row',
-      ),
-      1 => array(
-        'type' => 'row',
-        'contains' => 'region',
-        'children' => array(
-          0 => 'header',
-        ),
-        'parent' => 'main',
-        'class' => 'header',
-      ),
-      'header' => array(
-        'type' => 'region',
-        'title' => 'Header',
-        'width' => 100,
-        'width_type' => '%',
-        'parent' => '1',
-      ),
-    ),
-  );
-  $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'content' => NULL,
-      'sidebar' => NULL,
-      'header' => NULL,
-    ),
-  );
-  $display->cache = array();
-  $display->title = '';
-  $display->uuid = '3d221633-6362-4ddd-b6fa-1f3fef45080f';
-  $display->content = array();
-  $display->panels = array();
-    $pane = new stdClass();
-    $pane->pid = 'new-d462a364-32b1-4097-aeaa-0a3ed87602f5';
-    $pane->panel = 'content';
-    $pane->type = 'pane_messages';
-    $pane->subtype = 'pane_messages';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = '';
-    $pane->uuid = 'd462a364-32b1-4097-aeaa-0a3ed87602f5';
-    $display->content['new-d462a364-32b1-4097-aeaa-0a3ed87602f5'] = $pane;
-    $display->panels['content'][0] = 'new-d462a364-32b1-4097-aeaa-0a3ed87602f5';
-    $pane = new stdClass();
-    $pane->pid = 'new-f590b0e9-79b7-4589-a806-d64e438dab83';
-    $pane->panel = 'content';
-    $pane->type = 'page_content';
-    $pane->subtype = 'page_content';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'argument_page_content_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = '';
-    $pane->uuid = 'f590b0e9-79b7-4589-a806-d64e438dab83';
-    $display->content['new-f590b0e9-79b7-4589-a806-d64e438dab83'] = $pane;
-    $display->panels['content'][1] = 'new-f590b0e9-79b7-4589-a806-d64e438dab83';
-    $pane = new stdClass();
-    $pane->pid = 'new-2fa90c01-38ba-4791-b327-d1ad17a7b725';
-    $pane->panel = 'header';
-    $pane->type = 'pane_header';
-    $pane->subtype = 'pane_header';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = '';
-    $pane->uuid = '2fa90c01-38ba-4791-b327-d1ad17a7b725';
-    $display->content['new-2fa90c01-38ba-4791-b327-d1ad17a7b725'] = $pane;
-    $display->panels['header'][0] = 'new-2fa90c01-38ba-4791-b327-d1ad17a7b725';
-    $pane = new stdClass();
-    $pane->pid = 'new-8ece7229-29b9-4974-811c-58369bec52ad';
-    $pane->panel = 'header';
-    $pane->type = 'pane_navigation';
-    $pane->subtype = 'pane_navigation';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = '';
-    $pane->uuid = '8ece7229-29b9-4974-811c-58369bec52ad';
-    $display->content['new-8ece7229-29b9-4974-811c-58369bec52ad'] = $pane;
-    $display->panels['header'][1] = 'new-8ece7229-29b9-4974-811c-58369bec52ad';
-    $pane = new stdClass();
-    $pane->pid = 'new-0b2702ae-6ca4-4df9-b154-d69670883fc1';
-    $pane->panel = 'sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'user-login';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = '';
-    $pane->uuid = '0b2702ae-6ca4-4df9-b154-d69670883fc1';
-    $display->content['new-0b2702ae-6ca4-4df9-b154-d69670883fc1'] = $pane;
-    $display->panels['sidebar'][0] = 'new-0b2702ae-6ca4-4df9-b154-d69670883fc1';
-    $pane = new stdClass();
-    $pane->pid = 'new-5c371fb7-d1b6-4b67-889d-3cc29b4c5972';
-    $pane->panel = 'sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'system-navigation';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = '';
-    $pane->uuid = '5c371fb7-d1b6-4b67-889d-3cc29b4c5972';
-    $display->content['new-5c371fb7-d1b6-4b67-889d-3cc29b4c5972'] = $pane;
-    $display->panels['sidebar'][1] = 'new-5c371fb7-d1b6-4b67-889d-3cc29b4c5972';
-  $display->hide_title = PANELS_TITLE_PANE;
-  $display->title_pane = 'new-f590b0e9-79b7-4589-a806-d64e438dab83';
-  $handler->conf['display'] = $display;
-  $export['site_template_panel_context_basic'] = $handler;
 
   return $export;
 }
