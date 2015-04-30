@@ -14,3 +14,37 @@
     overflow: hidden;
     background-color:$white;
 }
+
+/* ==========================================================================
+   Global Titles and RSS
+   ========================================================================== */
+.pane-nodetitleview,
+.pane-mmorpg-game-game-rss-link-block{
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+
+.view-nodetitleview{
+  padding-left: 20px;
+
+  a {
+    @extend %title;
+    color: $black !important;
+  }
+}
+
+.pane-mmorpg-game-game-rss-link-block > a{
+  width: 19px;
+  height: 19px;
+  text-indent: -9999px;
+  display: inline-block;
+  background: url("../images/rss_icon.png") no-repeat transparent;
+  margin-left: -10px;
+
+  &:hover{
+    background-position: -19px 0px;
+  }
+}
