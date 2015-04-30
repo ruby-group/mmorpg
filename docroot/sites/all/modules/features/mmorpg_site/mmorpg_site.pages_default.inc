@@ -383,6 +383,29 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->uuid = '0e5e0dfc-7b03-454b-8de8-204a6f4e52c8';
     $display->content['new-0e5e0dfc-7b03-454b-8de8-204a6f4e52c8'] = $pane;
     $display->panels['header'][0] = 'new-0e5e0dfc-7b03-454b-8de8-204a6f4e52c8';
+    $pane = new stdClass();
+    $pane->pid = 'new-d1bd1815-3846-4938-84b4-0da3dfd8caa1';
+    $pane->panel = 'highlighted';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'd1bd1815-3846-4938-84b4-0da3dfd8caa1';
+    $display->content['new-d1bd1815-3846-4938-84b4-0da3dfd8caa1'] = $pane;
+    $display->panels['highlighted'][0] = 'new-d1bd1815-3846-4938-84b4-0da3dfd8caa1';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-7b400639-bb8b-4544-8866-d9598aad6d4a';
   $handler->conf['display'] = $display;
@@ -2351,6 +2374,27 @@ play-now/*',
     $pane->uuid = '449f3985-da87-4b81-a982-4ec43fdc0ebc';
     $display->content['new-449f3985-da87-4b81-a982-4ec43fdc0ebc'] = $pane;
     $display->panels['header'][0] = 'new-449f3985-da87-4b81-a982-4ec43fdc0ebc';
+    $pane = new stdClass();
+    $pane->pid = 'new-b0a7cfca-949e-4cac-8c35-8baf87baf1cd';
+    $pane->panel = 'highlighted';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_siteskins-active_siteskin';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b0a7cfca-949e-4cac-8c35-8baf87baf1cd';
+    $display->content['new-b0a7cfca-949e-4cac-8c35-8baf87baf1cd'] = $pane;
+    $display->panels['highlighted'][0] = 'new-b0a7cfca-949e-4cac-8c35-8baf87baf1cd';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
