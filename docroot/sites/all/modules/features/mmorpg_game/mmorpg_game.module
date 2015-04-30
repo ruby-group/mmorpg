@@ -47,15 +47,15 @@ function mmorpg_game_menu_content() {
   $game_nid = intval(arg(1));
   $current = arg(2);
 
-  if ($game_nid == 0 or !in_array($current, array(
-      'overview',
-      'forum',
-      'ratings',
-      'reviews',
-      'screenshots',
-      'videos',
-      'video',
-    ))
+  if (arg(0) != 'admin' and ($game_nid == 0 or !in_array($current, array(
+        'overview',
+        'forum',
+        'ratings',
+        'reviews',
+        'screenshots',
+        'videos',
+        'video',
+      )))
   ) {
     drupal_access_denied();
   }
