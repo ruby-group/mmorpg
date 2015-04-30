@@ -181,7 +181,7 @@
    Platforms
    ========================================================================== */
 /* line 133, ../sass/variables/_mixins.scss */
-.page-giveaways h2.pane-title {
+.view-nodetitleview a, .page-giveaways h2.pane-title {
   padding: 10px 15px 5px 0px;
   margin: 0px;
   font-size: 35px;
@@ -207,6 +207,36 @@
   margin: auto;
   overflow: hidden;
   background-color: #ffffff; }
+
+/* ==========================================================================
+   Global Titles and RSS
+   ========================================================================== */
+/* line 21, ../sass/abstractions/_global.scss */
+.pane-nodetitleview,
+.pane-mmorpg-game-game-rss-link-block {
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 10px;
+  padding-bottom: 20px; }
+
+/* line 30, ../sass/abstractions/_global.scss */
+.view-nodetitleview {
+  padding-left: 20px; }
+  /* line 33, ../sass/abstractions/_global.scss */
+  .view-nodetitleview a {
+    color: #000 !important; }
+
+/* line 39, ../sass/abstractions/_global.scss */
+.pane-mmorpg-game-game-rss-link-block > a {
+  width: 19px;
+  height: 19px;
+  text-indent: -9999px;
+  display: inline-block;
+  background: url("../images/rss_icon.png") no-repeat transparent;
+  margin-left: -10px; }
+  /* line 47, ../sass/abstractions/_global.scss */
+  .pane-mmorpg-game-game-rss-link-block > a:hover {
+    background-position: -19px 0px; }
 
 /* line 1, ../sass/abstractions/_header.scss */
 header.header {
