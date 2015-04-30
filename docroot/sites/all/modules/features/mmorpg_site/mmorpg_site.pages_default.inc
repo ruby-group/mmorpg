@@ -13,11 +13,45 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'site_template__403';
+  $handler->task = 'site_template';
+  $handler->subtask = '';
+  $handler->handler = 'http_response';
+  $handler->weight = -28;
+  $handler->conf = array(
+    'title' => '403',
+    'contexts' => array(),
+    'relationships' => array(),
+    'code' => '301',
+    'destination' => '<front>',
+    'name' => '403',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_access',
+          'settings' => array(
+            'type' => 'view',
+          ),
+          'context' => array(
+            0 => 'logged-in-user',
+            1 => 'node',
+          ),
+          'not' => TRUE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $export['site_template__403'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'site_template__article_page';
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -28;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'Article page',
     'no_blocks' => 0,
@@ -191,7 +225,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -23;
+  $handler->weight = -22;
   $handler->conf = array(
     'title' => 'Game Overview',
     'no_blocks' => 0,
@@ -403,7 +437,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -24;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Game Ratings',
     'no_blocks' => 0,
@@ -631,7 +665,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -19;
+  $handler->weight = -18;
   $handler->conf = array(
     'title' => 'Giveaway',
     'no_blocks' => 0,
@@ -1062,7 +1096,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -20;
+  $handler->weight = -19;
   $handler->conf = array(
     'title' => 'Giveaway Listing ',
     'no_blocks' => 0,
@@ -1449,7 +1483,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'Game',
     'no_blocks' => 0,
@@ -1598,7 +1632,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -21;
   $handler->conf = array(
     'title' => 'Play Now',
     'no_blocks' => 0,
@@ -1874,7 +1908,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'Screenshot Gallery ',
     'no_blocks' => 0,
@@ -2110,7 +2144,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -21;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'Video Detail Page',
     'no_blocks' => 0,
@@ -2399,7 +2433,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -25;
+  $handler->weight = -24;
   $handler->conf = array(
     'title' => 'Video Listing ',
     'no_blocks' => 0,
