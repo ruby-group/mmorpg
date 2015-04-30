@@ -233,6 +233,6 @@ function mmorpg_site_page_titles() {
     }
   }
   $title = join($title,' / ');
-  $title_html = '<div class="title_crumbs">' . $title . '<a class="rss_icon">RSS-IMAGE</a></div>';
+  $title_html = '<div class="title_crumbs">' . $title . '</div>';
   return $title_html;
 }
