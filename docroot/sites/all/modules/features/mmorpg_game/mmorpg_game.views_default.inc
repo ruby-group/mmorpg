@@ -395,27 +395,12 @@ function mmorpg_game_views_default_views() {
     'game' => 'game',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['path'] = 'test-rating';
+  /* Display: Active Ratings */
+  $handler = $view->new_display('page', 'Active Ratings', 'active_ratings');
+  $handler->display->display_options['path'] = 'active_ratings';
 
-  /* Display: Active */
-  $handler = $view->new_display('panel_pane', 'Active', 'active_ratings');
-  $handler->display->display_options['display_description'] = 'Displays the active set of ratings';
-  $handler->display->display_options['argument_input'] = array(
-    'nid' => array(
-      'type' => 'user',
-      'context' => 'entity:comment.url',
-      'context_optional' => 0,
-      'panel' => '1',
-      'fixed' => '',
-      'label' => 'Content: Nid',
-    ),
-  );
-
-  /* Display: Inactive */
-  $handler = $view->new_display('panel_pane', 'Inactive', 'ainactive_ratings');
-  $handler->display->display_options['display_description'] = 'Displays only the results of the ratings';
+  /* Display: Inactive Ratings */
+  $handler = $view->new_display('page', 'Inactive Ratings', 'inactive_ratings');
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -495,16 +480,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_7']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_7']['precision'] = '0';
   $handler->display->display_options['fields']['value_7']['appearance'] = 'rate_views_widget_disabled';
-  $handler->display->display_options['argument_input'] = array(
-    'nid' => array(
-      'type' => 'user',
-      'context' => 'entity:comment.author',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Content: Nid',
-    ),
-  );
+  $handler->display->display_options['path'] = 'inactive_ratings';
   $translatables['game_ratings'] = array(
     t('Master'),
     t('more'),
@@ -526,12 +502,8 @@ function mmorpg_game_views_default_views() {
     t(','),
     t('Performance/Lag'),
     t('All'),
-    t('Page'),
-    t('Active'),
-    t('Displays the active set of ratings'),
-    t('View panes'),
-    t('Inactive'),
-    t('Displays only the results of the ratings'),
+    t('Active Ratings'),
+    t('Inactive Ratings'),
   );
   $export['game_ratings'] = $view;
 
