@@ -4,11 +4,3 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-
-# OS generated files #
-######################
-.DS_Store*
-ehthumbs.db
-Icon^M^M
-Thumbs.db
-._*
