@@ -77,12 +77,7 @@ function mmorpg_rate_preprocess_rate_template_mmorpg(&$variables) {
   if ($variables['mode'] == RATE_CLOSED) {
     $info[] = t('Rating is closed.');
   }
-
-  if ($variables['mode'] != RATE_COMPACT && $variables['mode'] != RATE_COMPACT_DISABLED) {
-    if (isset($results['user_vote'])) {
-      $vote = $results['user_vote'];
-      $info[] = t('!vote', array('!vote' => $vote));
-    }
-  }
+  $info['user_vote'] = t('!vote', array('!vote' => $variables['results']['user_vote']));
+  $info['rating'] = t('!rating', array('!rating' => $variables['results']['rating']));
   $variables['info'] = implode(' ', $info);
 }
