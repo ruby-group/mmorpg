@@ -527,7 +527,7 @@ body {
     margin-right: 15px;
     border-radius: 2px;
     -webkit-appearance: none;
-    padding: 0 2em 0 1em;
+    padding: 0 1.25em 0 0.75em;
     line-height: 35px; }
     /* line 81, ../sass/components/_filters.scss */
     .views-exposed-form-giveaway-listing-panel-pane .chosen-container span + div {
