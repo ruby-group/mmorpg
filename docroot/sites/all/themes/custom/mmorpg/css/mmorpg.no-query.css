@@ -504,7 +504,7 @@ body {
   color: #fff;
   padding: 9px 9px 8px 9px !important;
   border-radius: 2px;
-  top: 1px; }
+  top: 2px; }
 /* line 56, ../sass/components/_filters.scss */
 .views-exposed-form-giveaway-listing-panel-pane .chosen-container {
   width: 100% !important; }
