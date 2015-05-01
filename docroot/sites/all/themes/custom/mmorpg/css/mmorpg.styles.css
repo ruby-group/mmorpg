@@ -817,13 +817,14 @@ li.leaf-user-name .om-maximenu-middle {
 .game-sub-menu {
   background: #333333;
   padding: 1em;
-  margin-bottom: 1em; }
-  /* line 97, ../sass/components/_navigation.scss */
+  margin-bottom: 1em;
+  display: inline-block; }
+  /* line 98, ../sass/components/_navigation.scss */
   .game-sub-menu a {
     padding: 0.50em;
     border: 1px solid transparent;
     color: #ffffff; }
-    /* line 101, ../sass/components/_navigation.scss */
+    /* line 102, ../sass/components/_navigation.scss */
     .game-sub-menu a:hover, .game-sub-menu a.active {
       color: #2186d4; }
 
