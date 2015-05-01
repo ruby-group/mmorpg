@@ -61,13 +61,23 @@ function mmorpg_site_image_default_styles() {
   $styles['giveaway_promoted__700x400_'] = array(
     'label' => 'Giveaway Promoted (700x400)',
     'effects' => array(
-      1 => array(
-        'name' => 'image_resize',
+      7 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 700,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+      8 => array(
+        'name' => 'image_crop',
         'data' => array(
           'width' => 700,
           'height' => 400,
+          'anchor' => 'left-top',
         ),
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
   );
