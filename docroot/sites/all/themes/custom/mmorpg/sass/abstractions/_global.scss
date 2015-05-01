@@ -18,7 +18,7 @@
 /* ==========================================================================
    Global Titles and RSS
    ========================================================================== */
-.pane-nodetitleview,
+.pane-mmorpg-site-title-block,
 .pane-mmorpg-game-game-rss-link-block{
   display: inline-block;
   vertical-align: middle;
@@ -27,11 +27,11 @@
 }
 
 
-.view-nodetitleview{
-  padding-left: 20px;
+.title_crumbs{
+  @extend %title;
+  color: $black !important;
 
   a {
-    @extend %title;
     color: $black !important;
   }
 }

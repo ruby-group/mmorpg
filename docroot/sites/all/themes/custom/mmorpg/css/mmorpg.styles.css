@@ -181,7 +181,7 @@
    Platforms
    ========================================================================== */
 /* line 133, ../sass/variables/_mixins.scss */
-.view-nodetitleview a, .page-giveaways h2.pane-title {
+.title_crumbs, .page-giveaways h2.pane-title {
   padding: 10px 15px 5px 0px;
   margin: 0px;
   font-size: 35px;
@@ -212,7 +212,7 @@
    Global Titles and RSS
    ========================================================================== */
 /* line 21, ../sass/abstractions/_global.scss */
-.pane-nodetitleview,
+.pane-mmorpg-site-title-block,
 .pane-mmorpg-game-game-rss-link-block {
   display: inline-block;
   vertical-align: middle;
@@ -220,10 +220,10 @@
   padding-bottom: 20px; }
 
 /* line 30, ../sass/abstractions/_global.scss */
-.view-nodetitleview {
-  padding-left: 20px; }
-  /* line 33, ../sass/abstractions/_global.scss */
-  .view-nodetitleview a {
+.title_crumbs {
+  color: #000 !important; }
+  /* line 34, ../sass/abstractions/_global.scss */
+  .title_crumbs a {
     color: #000 !important; }
 
 /* line 39, ../sass/abstractions/_global.scss */
