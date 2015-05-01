@@ -2447,28 +2447,13 @@ play-now/*',
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-332c1339-34e9-434c-be47-b68dd8b3160f';
+    $pane->pid = 'new-49f68a97-d1f9-41fa-a3e3-69ed81d3830b';
     $pane->panel = 'content';
-    $pane->type = 'views';
-    $pane->subtype = 'nodetitleview';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_site-title_block';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '1',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '%1',
-      'url' => '',
-      'display' => 'default',
-      'context' => array(
-        0 => '',
-      ),
       'override_title' => 0,
       'override_title_text' => '',
       'override_title_heading' => 'h2',
@@ -2481,9 +2466,9 @@ play-now/*',
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '332c1339-34e9-434c-be47-b68dd8b3160f';
-    $display->content['new-332c1339-34e9-434c-be47-b68dd8b3160f'] = $pane;
-    $display->panels['content'][0] = 'new-332c1339-34e9-434c-be47-b68dd8b3160f';
+    $pane->uuid = '49f68a97-d1f9-41fa-a3e3-69ed81d3830b';
+    $display->content['new-49f68a97-d1f9-41fa-a3e3-69ed81d3830b'] = $pane;
+    $display->panels['content'][0] = 'new-49f68a97-d1f9-41fa-a3e3-69ed81d3830b';
     $pane = new stdClass();
     $pane->pid = 'new-68abb798-5556-4063-a13e-c9488de0c358';
     $pane->panel = 'content';
@@ -2637,7 +2622,9 @@ play-now/*',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 5;
@@ -2703,7 +2690,7 @@ play-now/*',
     $pane->uuid = '3c407aa2-ca1c-4ed3-bd57-472c0b627219';
     $display->content['new-3c407aa2-ca1c-4ed3-bd57-472c0b627219'] = $pane;
     $display->panels['highlighted'][0] = 'new-3c407aa2-ca1c-4ed3-bd57-472c0b627219';
-  $display->hide_title = PANELS_TITLE_NONE;
+  $display->hide_title = PANELS_TITLE_PANE;
   $display->title_pane = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
   $handler->conf['display'] = $display;
   $export['site_template__video_listing'] = $handler;

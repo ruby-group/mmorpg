@@ -755,6 +755,13 @@ User Submitted|User Uploaded Only',
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="promoted_bg"></div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -791,6 +798,7 @@ User Submitted|User Uploaded Only',
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('<div class="promoted_bg"></div>'),
     t('All'),
   );
   $export['video_details_player'] = $view;
@@ -821,13 +829,12 @@ User Submitted|User Uploaded Only',
   $handler->display->display_options['fields']['field_video_url']['id'] = 'field_video_url';
   $handler->display->display_options['fields']['field_video_url']['table'] = 'field_data_field_video_url';
   $handler->display->display_options['fields']['field_video_url']['field'] = 'field_video_url';
-  $handler->display->display_options['fields']['field_video_url']['relationship'] = 'field_game_target_id';
   $handler->display->display_options['fields']['field_video_url']['label'] = '';
   $handler->display->display_options['fields']['field_video_url']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_video_url']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_video_url']['type'] = 'isfield_video';
   $handler->display->display_options['fields']['field_video_url']['settings'] = array(
-    'dimensions' => '670x400',
+    'dimensions' => '480x360',
   );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';

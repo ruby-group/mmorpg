@@ -181,7 +181,7 @@
    Platforms
    ========================================================================== */
 /* line 133, ../sass/variables/_mixins.scss */
-.view-nodetitleview a, .page-giveaways h2.pane-title {
+.title_crumbs, .page-giveaways h2.pane-title {
   padding: 10px 15px 5px 0px;
   margin: 0px;
   font-size: 35px;
@@ -212,7 +212,7 @@
    Global Titles and RSS
    ========================================================================== */
 /* line 21, ../sass/abstractions/_global.scss */
-.pane-nodetitleview,
+.pane-mmorpg-site-title-block,
 .pane-mmorpg-game-game-rss-link-block {
   display: inline-block;
   vertical-align: middle;
@@ -220,10 +220,10 @@
   padding-bottom: 20px; }
 
 /* line 30, ../sass/abstractions/_global.scss */
-.view-nodetitleview {
-  padding-left: 20px; }
-  /* line 33, ../sass/abstractions/_global.scss */
-  .view-nodetitleview a {
+.title_crumbs {
+  color: #000 !important; }
+  /* line 34, ../sass/abstractions/_global.scss */
+  .title_crumbs a {
     color: #000 !important; }
 
 /* line 39, ../sass/abstractions/_global.scss */
@@ -504,7 +504,7 @@ body {
   color: #fff;
   padding: 9px 9px 8px 9px !important;
   border-radius: 2px;
-  top: 1px; }
+  top: 2px; }
 /* line 56, ../sass/components/_filters.scss */
 .views-exposed-form-giveaway-listing-panel-pane .chosen-container {
   width: 100% !important; }
@@ -527,7 +527,7 @@ body {
     margin-right: 15px;
     border-radius: 2px;
     -webkit-appearance: none;
-    padding: 0 2em 0 1em;
+    padding: 0 1.25em 0 0.75em;
     line-height: 35px; }
     /* line 81, ../sass/components/_filters.scss */
     .views-exposed-form-giveaway-listing-panel-pane .chosen-container span + div {
@@ -688,7 +688,8 @@ body {
 
 /* line 136, ../sass/components/_keygiveaway.scss */
 .page-giveaways h2.pane-title {
-  padding-top: 0; }
+  padding-top: 0;
+  padding-bottom: 20px; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
@@ -774,13 +775,14 @@ li.leaf-user-name .om-maximenu-middle {
 .game-sub-menu {
   background: #333333;
   padding: 1em;
-  margin-bottom: 1em; }
-  /* line 97, ../sass/components/_navigation.scss */
+  margin-bottom: 1em;
+  display: inline-block; }
+  /* line 98, ../sass/components/_navigation.scss */
   .game-sub-menu a {
     padding: 0.50em;
     border: 1px solid transparent;
     color: #ffffff; }
-    /* line 101, ../sass/components/_navigation.scss */
+    /* line 102, ../sass/components/_navigation.scss */
     .game-sub-menu a:hover, .game-sub-menu a.active {
       color: #2186d4; }
 
@@ -1246,6 +1248,12 @@ ul.pager {
     .pane-video-details-player .views-row .views-field-body p {
       margin-top: 0; }
     /* line 17, ../sass/components/_videos.scss */
+    .pane-video-exclusive .views-row .views-field-field-video-url,
+    .pane-video-exclusive .views-row .views-field-field-video-url iframe,
+    .pane-video-details-player .views-row .views-field-field-video-url,
+    .pane-video-details-player .views-row .views-field-field-video-url iframe {
+      height: 400px; }
+    /* line 22, ../sass/components/_videos.scss */
     .pane-video-exclusive .views-row .promoted_bg,
     .pane-video-details-player .views-row .promoted_bg {
       background: #000;
@@ -1257,38 +1265,38 @@ ul.pager {
       height: 100%;
       left: 0; }
 
-/* line 32, ../sass/components/_videos.scss */
+/* line 37, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .views-row {
   max-width: 150px;
   float: none;
   vertical-align: top;
   margin: 0px 3px;
   margin-bottom: 10px; }
-/* line 41, ../sass/components/_videos.scss */
+/* line 46, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_image a {
   display: block;
   border-bottom: 4px solid #bce6ff;
   height: 124px; }
-  /* line 46, ../sass/components/_videos.scss */
+  /* line 51, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_image a img {
     height: 120px; }
-/* line 51, ../sass/components/_videos.scss */
+/* line 56, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_hover {
   max-width: 150px;
   height: 120px; }
-  /* line 56, ../sass/components/_videos.scss */
+  /* line 61, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover span {
     display: block;
     padding: 0.75em 1.75em;
     margin-left: 0.5em;
     background: url("../images/video_icon.png") no-repeat transparent 2px 10px; }
-  /* line 67, ../sass/components/_videos.scss */
+  /* line 72, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover:hover + .video_image > a {
     border-bottom: 4px solid #1879cd; }
-  /* line 71, ../sass/components/_videos.scss */
+  /* line 76, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_hover:hover + .video_title > a {
     color: #1879cd; }
-/* line 76, ../sass/components/_videos.scss */
+/* line 81, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .video_title a {
   color: #000;
   font-size: 16px;
@@ -1297,6 +1305,6 @@ ul.pager {
   border-bottom: 0px !important;
   display: block;
   font-weight: 400; }
-  /* line 85, ../sass/components/_videos.scss */
+  /* line 90, ../sass/components/_videos.scss */
   .pane-video-gallery-grid .video_title a:hover {
     color: #1879cd; }
