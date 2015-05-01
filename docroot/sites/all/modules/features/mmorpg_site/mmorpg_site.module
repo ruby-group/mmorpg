@@ -115,6 +115,10 @@ function mmorpg_site_block_info() {
     'info' => t('Invisible Block'),
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
+  $blocks['title_block'] = array(
+    'info' => t('Title Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
   return $blocks;
 }
 
@@ -123,9 +127,14 @@ function mmorpg_site_block_info() {
  */
 function mmorpg_site_block_view($delta = '') {
   $block = array();
-  if ($delta == 'invisible_block') {
-    $block['content'] = "<div class='placeholder'></div>";
-  }
+  switch($delta) {
+    case 'invisible_block':
+      $block['content'] = "<div class='placeholder'></div>";
+      break;
+    case 'title_block':
+      $block['content'] = mmorpg_site_page_titles();
+      break;
+  } 
   return $block;
 }
 
@@ -194,4 +203,36 @@ function mmorpg_site_update_count_endpoint() {
       'store' => $dummy_ids,
     ),
   ));
+}
+
+/**
+ * It returns the title for page.
+ */
+function mmorpg_site_page_titles() {
+  $arg0 = arg(0);
+  $arg1 = arg(1);
+  $arg2 = arg(2);
+  $title = array();
+  if ($arg0 == "game") {
+    $games_list_link = l('Games','games');
+    $game_node = node_load($arg1);
+    switch($arg2) {
+      case 'overview':
+      case 'forums':
+      case 'ratings':
+      case 'reviews':
+      case 'screenshots':
+      case 'videos':
+        $title[] = $games_list_link;
+        $title[] = t($game_node->title);
+        break;
+      case 'video':
+        $title[] = $games_list_link;
+        $title[] = l($game_node->title,$arg0.'/'.$arg1.'/overview');
+        break;
+    }
+  }
+  $title = join($title,' / ');
+  $title_html = '<div class="title_crumbs">' . $title . '</div>';
+  return $title_html;
 }
