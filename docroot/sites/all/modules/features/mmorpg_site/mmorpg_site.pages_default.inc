@@ -2644,29 +2644,6 @@ play-now/*',
     $display->content['new-973b3525-2ec5-4e58-b916-669fcbb907b1'] = $pane;
     $display->panels['content'][4] = 'new-973b3525-2ec5-4e58-b916-669fcbb907b1';
     $pane = new stdClass();
-    $pane->pid = 'new-d3248165-4d15-435a-a957-569b1aa432b6';
-    $pane->panel = 'content';
-    $pane->type = 'block';
-    $pane->subtype = 'mmorpg_site-title_block';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->locks = array();
-    $pane->uuid = 'd3248165-4d15-435a-a957-569b1aa432b6';
-    $display->content['new-d3248165-4d15-435a-a957-569b1aa432b6'] = $pane;
-    $display->panels['content'][5] = 'new-d3248165-4d15-435a-a957-569b1aa432b6';
-    $pane = new stdClass();
     $pane->pid = 'new-00af7f15-76bb-441e-8ea4-8be6b56fc3b9';
     $pane->panel = 'header';
     $pane->type = 'panels_mini';
