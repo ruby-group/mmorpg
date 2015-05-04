@@ -369,3 +369,13 @@ function mmorpg_updates_update_7042() {
 function mmorpg_updates_update_7043() {
   module_enable(array('chosen'));
 }
+
+/**
+ * Removing field collection game fields and enabling conditional_fields module.
+ */
+function mmorpg_updates_update_7044() {
+  module_enable(array('conditional_fields'));
+  field_delete_instance(field_info_instance('field_collection_item', 'field_game_cancel', 'field_game_development_status'));
+  field_delete_instance(field_info_instance('field_collection_item', 'field_status_date', 'field_game_development_status'));
+  field_delete_instance(field_info_instance('node', 'field_game_cancel', 'game'));
+}
