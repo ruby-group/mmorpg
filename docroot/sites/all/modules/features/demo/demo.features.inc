@@ -30,14 +30,14 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['bypass country restriction'])) {
     $data['bypass country restriction']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
+  if (isset($data['clear key_giveaway_importer feeds'])) {
+    $data['clear key_giveaway_importer feeds']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
   if (isset($data['clone node'])) {
     $data['clone node']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['clone own nodes'])) {
     $data['clone own nodes']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
-  }
-  if (isset($data['create article_news_post content'])) {
-    $data['create article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['create customer content'])) {
     $data['create customer content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
@@ -47,6 +47,9 @@ function demo_user_default_permissions_alter(&$data) {
   }
   if (isset($data['create game_link content'])) {
     $data['create game_link content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['create giveaway content'])) {
+    $data['create giveaway content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['create mmorpg_article content'])) {
     $data['create mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
@@ -63,9 +66,6 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['create siteskin content'])) {
     $data['create siteskin content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
-  if (isset($data['delete any article_news_post content'])) {
-    $data['delete any article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
-  }
   if (isset($data['delete any customer content'])) {
     $data['delete any customer content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
@@ -74,6 +74,9 @@ function demo_user_default_permissions_alter(&$data) {
   }
   if (isset($data['delete any game_link content'])) {
     $data['delete any game_link content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete any giveaway content'])) {
+    $data['delete any giveaway content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['delete any mmorpg_article content'])) {
     $data['delete any mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
@@ -96,9 +99,6 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['delete any video content'])) {
     $data['delete any video content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
-  if (isset($data['delete own article_news_post content'])) {
-    $data['delete own article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
-  }
   if (isset($data['delete own customer content'])) {
     $data['delete own customer content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
@@ -107,6 +107,9 @@ function demo_user_default_permissions_alter(&$data) {
   }
   if (isset($data['delete own game_link content'])) {
     $data['delete own game_link content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete own giveaway content'])) {
+    $data['delete own giveaway content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['delete own mmorpg_article content'])) {
     $data['delete own mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
@@ -129,9 +132,6 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['delete own video content'])) {
     $data['delete own video content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
-  if (isset($data['edit any article_news_post content'])) {
-    $data['edit any article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
-  }
   if (isset($data['edit any customer content'])) {
     $data['edit any customer content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
@@ -140,6 +140,9 @@ function demo_user_default_permissions_alter(&$data) {
   }
   if (isset($data['edit any game_link content'])) {
     $data['edit any game_link content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit any giveaway content'])) {
+    $data['edit any giveaway content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['edit any mmorpg_article content'])) {
     $data['edit any mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
@@ -162,9 +165,6 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['edit any video content'])) {
     $data['edit any video content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
-  if (isset($data['edit own article_news_post content'])) {
-    $data['edit own article_news_post content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
-  }
   if (isset($data['edit own customer content'])) {
     $data['edit own customer content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
@@ -173,6 +173,9 @@ function demo_user_default_permissions_alter(&$data) {
   }
   if (isset($data['edit own game_link content'])) {
     $data['edit own game_link content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit own giveaway content'])) {
+    $data['edit own giveaway content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['edit own mmorpg_article content'])) {
     $data['edit own mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
@@ -194,6 +197,9 @@ function demo_user_default_permissions_alter(&$data) {
   }
   if (isset($data['edit own video content'])) {
     $data['edit own video content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['import key_giveaway_importer feeds'])) {
+    $data['import key_giveaway_importer feeds']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
   if (isset($data['set article_news_post published on date'])) {
     $data['set article_news_post published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
