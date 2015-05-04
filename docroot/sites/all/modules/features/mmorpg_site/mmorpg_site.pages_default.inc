@@ -17,7 +17,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'http_response';
-  $handler->weight = -28;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => '403',
     'contexts' => array(),
@@ -51,7 +51,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -22;
   $handler->conf = array(
     'title' => 'Article page',
     'no_blocks' => 0,
@@ -225,7 +225,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'Game Overview',
     'no_blocks' => 0,
@@ -437,7 +437,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -23;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'Game Ratings',
     'no_blocks' => 0,
@@ -1483,7 +1483,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -21;
   $handler->conf = array(
     'title' => 'Game',
     'no_blocks' => 0,
@@ -1632,7 +1632,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -21;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'Play Now',
     'no_blocks' => 0,
@@ -1908,7 +1908,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -25;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'Screenshot Gallery ',
     'no_blocks' => 0,
@@ -2144,7 +2144,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -20;
+  $handler->weight = -24;
   $handler->conf = array(
     'title' => 'Video Detail Page',
     'no_blocks' => 0,
@@ -2433,7 +2433,7 @@ play-now/*',
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -24;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'Video Listing ',
     'no_blocks' => 0,
