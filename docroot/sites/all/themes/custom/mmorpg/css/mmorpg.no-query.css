@@ -13,7 +13,7 @@
   height: auto; }
 
 /* line 15, ../sass/variables/_mixins.scss */
-.view-giveaway-listing .giveaway_details_top .giveaway_type, .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type, .pane-screenshot-gallery-grid .screenshot_hover, .pane-video-gallery-grid .video_hover {
+.view-giveaway-listing .giveaway_details_top .giveaway_type, .view-sweepstakes-listing .giveaway_details_top .giveaway_type, .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type, .pane-screenshot-gallery-grid .screenshot_hover, .pane-video-gallery-grid .video_hover {
   color: #bfcad1;
   position: absolute;
   top: 0;
@@ -509,15 +509,15 @@ body {
     background: #2186d4; }
 
 /* line 32, ../sass/components/_filters.scss */
-.views-exposed-form-giveaway-listing-listing-pane label {
+.views-exposed-form-giveaway-listing-listing-pane label, .views-exposed-form-sweepstakes-listing-listing-pane label {
   display: none; }
 /* line 36, ../sass/components/_filters.scss */
-.views-exposed-form-giveaway-listing-listing-pane .views-exposed-widget {
+.views-exposed-form-giveaway-listing-listing-pane .views-exposed-widget, .views-exposed-form-sweepstakes-listing-listing-pane .views-exposed-widget {
   padding: 0;
   float: none;
   display: inline-block; }
 /* line 42, ../sass/components/_filters.scss */
-.views-exposed-form-giveaway-listing-listing-pane .form-submit {
+.views-exposed-form-giveaway-listing-listing-pane .form-submit, .views-exposed-form-sweepstakes-listing-listing-pane .form-submit {
   margin-top: 0 !important;
   position: relative;
   border: 1px solid #2186d4;
@@ -530,16 +530,16 @@ body {
   border-radius: 2px;
   top: 2px; }
 /* line 56, ../sass/components/_filters.scss */
-.views-exposed-form-giveaway-listing-listing-pane .chosen-container {
+.views-exposed-form-giveaway-listing-listing-pane .chosen-container, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container {
   width: 100% !important; }
   /* line 60, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-listing-pane .chosen-container .chosen-single {
+  .views-exposed-form-giveaway-listing-listing-pane .chosen-container .chosen-single, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container .chosen-single {
     height: auto;
     border: none;
     padding: 0;
     border-radius: 0; }
   /* line 66, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-listing-pane .chosen-container span {
+  .views-exposed-form-giveaway-listing-listing-pane .chosen-container span, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container span {
     position: relative;
     border: 1px solid #2186d4;
     cursor: pointer;
@@ -554,7 +554,7 @@ body {
     padding: 0 1.25em 0 0.75em;
     line-height: 35px; }
     /* line 81, ../sass/components/_filters.scss */
-    .views-exposed-form-giveaway-listing-listing-pane .chosen-container span + div {
+    .views-exposed-form-giveaway-listing-listing-pane .chosen-container span + div, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container span + div {
       width: 0;
       height: 0;
       border-left: 6px solid transparent;
@@ -568,10 +568,10 @@ body {
       /* Firefox */
       transition: all 50ms ease-in-out; }
       /* line 93, ../sass/components/_filters.scss */
-      .views-exposed-form-giveaway-listing-listing-pane .chosen-container span + div b {
+      .views-exposed-form-giveaway-listing-listing-pane .chosen-container span + div b, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container span + div b {
         display: none; }
   /* line 99, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-listing-pane .chosen-container.chosen-with-drop span + div {
+  .views-exposed-form-giveaway-listing-listing-pane .chosen-container.chosen-with-drop span + div, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container.chosen-with-drop span + div {
     width: 0;
     height: 0;
     border-left: 6px solid transparent;
@@ -579,11 +579,11 @@ body {
     border-bottom: 8px solid white;
     border-top: 0; }
   /* line 108, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-listing-pane .chosen-container ul.chosen-results {
+  .views-exposed-form-giveaway-listing-listing-pane .chosen-container ul.chosen-results, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container ul.chosen-results {
     padding: 0;
     margin: 0; }
     /* line 112, ../sass/components/_filters.scss */
-    .views-exposed-form-giveaway-listing-listing-pane .chosen-container ul.chosen-results li {
+    .views-exposed-form-giveaway-listing-listing-pane .chosen-container ul.chosen-results li, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container ul.chosen-results li {
       padding: 8px 12px;
       -webkit-transition: all 150ms ease-in-out;
       /* Safari */
@@ -591,7 +591,7 @@ body {
       /* Firefox */
       transition: all 150ms ease-in-out; }
       /* line 118, ../sass/components/_filters.scss */
-      .views-exposed-form-giveaway-listing-listing-pane .chosen-container ul.chosen-results li.highlighted {
+      .views-exposed-form-giveaway-listing-listing-pane .chosen-container ul.chosen-results li.highlighted, .views-exposed-form-sweepstakes-listing-listing-pane .chosen-container ul.chosen-results li.highlighted {
         background: #bbb;
         trasitiion: 0.3s; }
 
@@ -627,37 +627,37 @@ body {
   text-align: center; }
 
 /* line 22, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .views-row {
+.view-giveaway-listing .views-row, .view-sweepstakes-listing .views-row {
   margin: 1em 0; }
 /* line 26, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .giveaway_details {
+.view-giveaway-listing .giveaway_details, .view-sweepstakes-listing .giveaway_details {
   display: inline-block;
   vertical-align: top; }
 /* line 31, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .giveaway_details_top {
+.view-giveaway-listing .giveaway_details_top, .view-sweepstakes-listing .giveaway_details_top {
   position: relative; }
   /* line 34, ../sass/components/_keygiveaway.scss */
-  .view-giveaway-listing .giveaway_details_top .giveaway_type {
+  .view-giveaway-listing .giveaway_details_top .giveaway_type, .view-sweepstakes-listing .giveaway_details_top .giveaway_type {
     background: none;
     padding: 0.75em; }
 /* line 41, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .giveaway_details_bottom {
+.view-giveaway-listing .giveaway_details_bottom, .view-sweepstakes-listing .giveaway_details_bottom {
   max-width: 68%;
   margin-left: 1em; }
 /* line 46, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .giveaway_title a {
+.view-giveaway-listing .giveaway_title a, .view-sweepstakes-listing .giveaway_title a {
   color: #000;
   font-size: 20px;
   font-weight: 400; }
 /* line 52, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .giveaway_body p {
+.view-giveaway-listing .giveaway_body p, .view-sweepstakes-listing .giveaway_body p {
   line-height: 1.4em;
   overflow: hidden;
   display: block;
   position: relative;
   margin-bottom: 10px; }
 /* line 60, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .giveaway_remaining {
+.view-giveaway-listing .giveaway_remaining, .view-sweepstakes-listing .giveaway_remaining {
   color: #31b4ff;
   font-weight: bold; }
 

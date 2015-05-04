@@ -616,19 +616,19 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['text'] = 'link';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Hero Image */
-  $handler->display->display_options['fields']['field_game_hero_image']['id'] = 'field_game_hero_image';
-  $handler->display->display_options['fields']['field_game_hero_image']['table'] = 'field_data_field_game_hero_image';
-  $handler->display->display_options['fields']['field_game_hero_image']['field'] = 'field_game_hero_image';
-  $handler->display->display_options['fields']['field_game_hero_image']['relationship'] = 'field_game_target_id';
-  $handler->display->display_options['fields']['field_game_hero_image']['label'] = '';
-  $handler->display->display_options['fields']['field_game_hero_image']['alter']['text'] = '[field_game_hero_image]
+  /* Field: Content: Header Image */
+  $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['alter']['text'] = '[field_hero_image]
 <span>Game</span>';
-  $handler->display->display_options['fields']['field_game_hero_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_game_hero_image']['alter']['path'] = 'game/[nid]/overview';
-  $handler->display->display_options['fields']['field_game_hero_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_game_hero_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_game_hero_image']['settings'] = array(
+  $handler->display->display_options['fields']['field_hero_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_hero_image']['alter']['path'] = 'game/[nid]/overview';
+  $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
     'image_style' => 'play_now_slider_192x128',
     'image_link' => '',
   );
@@ -672,7 +672,7 @@ function mmorpg_signup_now_views_default_views() {
     t('Desc'),
     t('Content entity referenced from field_game'),
     t('link'),
-    t('[field_game_hero_image]
+    t('[field_hero_image]
 <span>Game</span>'),
     t('<span>Game</span>'),
     t('Content pane'),

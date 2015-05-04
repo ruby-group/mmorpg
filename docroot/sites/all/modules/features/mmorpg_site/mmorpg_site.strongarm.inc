@@ -153,6 +153,20 @@ function mmorpg_site_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'country_specific_nodes_def_cn';
+  $strongarm->value = 'US';
+  $export['country_specific_nodes_def_cn'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'country_specific_nodes_include_list';
+  $strongarm->value = 'giveaway,signup_now_link,sweepstake,0,0,0,0,0,0,0,0,0,0,0';
+  $export['country_specific_nodes_include_list'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_api_version';
   $strongarm->value = '7.2';
   $export['date_api_version'] = $strongarm;

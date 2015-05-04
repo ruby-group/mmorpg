@@ -13,4 +13,5 @@ dependencies[] = text
 features[features_api][] = api:2
 features[field_base][] = body
 features[field_base][] = field_countries_cce
+features[field_base][] = field_hero_image
 features[field_base][] = field_target_url

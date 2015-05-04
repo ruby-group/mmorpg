@@ -34,14 +34,14 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Hero Image */
-  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
-  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
+  /* Field: Content: Header Image */
+  $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
     'image_style' => 'articles_overview_200x155',
     'image_link' => '',
   );
