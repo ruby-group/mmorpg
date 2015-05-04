@@ -33,23 +33,13 @@ function mmorpg_game_image_default_styles() {
   $styles['overview_articles__200x155_'] = array(
     'label' => 'Overview Articles (200x155)',
     'effects' => array(
-      5 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => 200,
-          'height' => '',
-          'upscale' => 0,
-        ),
-        'weight' => 1,
-      ),
-      6 => array(
-        'name' => 'image_crop',
+      3 => array(
+        'name' => 'image_resize',
         'data' => array(
           'width' => 200,
           'height' => 155,
-          'anchor' => 'left-top',
         ),
-        'weight' => 2,
+        'weight' => 1,
       ),
     ),
   );
