@@ -43,7 +43,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => -3,
     ),
@@ -82,13 +84,16 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => -1,
     ),
   );
 
-  // Exported field_instance: 'node-play_now_promoted_game-field_pnpg_background_image'
+  // Exported field_instance:
+  // 'node-play_now_promoted_game-field_pnpg_background_image'
   $field_instances['node-play_now_promoted_game-field_pnpg_background_image'] = array(
     'bundle' => 'play_now_promoted_game',
     'deleted' => 0,
@@ -275,7 +280,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 1,
     ),
@@ -314,7 +321,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 2,
     ),
@@ -351,13 +360,16 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 4,
     ),
   );
 
-  // Exported field_instance: 'node-promoted_signup_now_link-field_psnl_schedule'
+  // Exported field_instance:
+  // 'node-promoted_signup_now_link-field_psnl_schedule'
   $field_instances['node-promoted_signup_now_link-field_psnl_schedule'] = array(
     'bundle' => 'promoted_signup_now_link',
     'deleted' => 0,
@@ -441,7 +453,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 3,
     ),
@@ -568,7 +582,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 2,
     ),
@@ -607,7 +623,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 1,
     ),
@@ -647,7 +665,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 5,
     ),
@@ -744,7 +764,9 @@ function mmorpg_signup_now_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 4,
     ),

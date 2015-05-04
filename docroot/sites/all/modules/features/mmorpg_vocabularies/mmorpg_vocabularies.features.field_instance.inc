@@ -10,7 +10,8 @@
 function mmorpg_vocabularies_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'taxonomy_term-tiers_games_to_play_-field_tiers_max_links_to_display'
+  // Exported field_instance:
+  // 'taxonomy_term-tiers_games_to_play_-field_tiers_max_links_to_display'
   $field_instances['taxonomy_term-tiers_games_to_play_-field_tiers_max_links_to_display'] = array(
     'bundle' => 'tiers_games_to_play_',
     'default_value' => NULL,

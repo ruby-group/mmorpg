@@ -10,7 +10,8 @@
 function mmorpg_siteskins_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_siteskin_subskin-field_siteskin_bg_color'
+  // Exported field_instance:
+  // 'field_collection_item-field_siteskin_subskin-field_siteskin_bg_color'
   $field_instances['field_collection_item-field_siteskin_subskin-field_siteskin_bg_color'] = array(
     'bundle' => 'field_siteskin_subskin',
     'default_value' => NULL,
@@ -41,7 +42,8 @@ function mmorpg_siteskins_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_siteskin_subskin-field_siteskin_image'
+  // Exported field_instance:
+  // 'field_collection_item-field_siteskin_subskin-field_siteskin_image'
   $field_instances['field_collection_item-field_siteskin_subskin-field_siteskin_image'] = array(
     'bundle' => 'field_siteskin_subskin',
     'deleted' => 0,
@@ -85,7 +87,8 @@ function mmorpg_siteskins_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_siteskin_subskin-field_target_url'
+  // Exported field_instance:
+  // 'field_collection_item-field_siteskin_subskin-field_target_url'
   $field_instances['field_collection_item-field_siteskin_subskin-field_target_url'] = array(
     'bundle' => 'field_siteskin_subskin',
     'default_value' => NULL,
@@ -136,7 +139,8 @@ function mmorpg_siteskins_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_siteskin_subskin-field_third_party_tracking_pixel'
+  // Exported field_instance:
+  // 'field_collection_item-field_siteskin_subskin-field_third_party_tracking_pixel'
   $field_instances['field_collection_item-field_siteskin_subskin-field_third_party_tracking_pixel'] = array(
     'bundle' => 'field_siteskin_subskin',
     'default_value' => NULL,
@@ -197,7 +201,9 @@ function mmorpg_siteskins_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'options_select',
       'weight' => 0,
     ),
