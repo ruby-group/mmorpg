@@ -17,7 +17,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'http_response';
-  $handler->weight = -23;
+  $handler->weight = -22;
   $handler->conf = array(
     'title' => '403',
     'contexts' => array(),
@@ -51,7 +51,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -21;
   $handler->conf = array(
     'title' => 'Article page',
     'no_blocks' => 0,
@@ -1096,7 +1096,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -19;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Giveaway Listing ',
     'no_blocks' => 0,
@@ -1483,7 +1483,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -21;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'Game',
     'no_blocks' => 0,
@@ -1632,7 +1632,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -20;
+  $handler->weight = -19;
   $handler->conf = array(
     'title' => 'Play Now',
     'no_blocks' => 0,
