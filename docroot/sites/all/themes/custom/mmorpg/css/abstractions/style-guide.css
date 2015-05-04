@@ -1,22 +1,22 @@
-/* line 23, ../../sass/abstractions/style-guide.scss */
 .main {
   width: 100%;
   float: right;
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  border: 1px solid green; }
-  @media (min-width: 1024px) {
-    /* line 23, ../../sass/abstractions/style-guide.scss */
-    .main {
-      width: 100%;
-      float: right;
-      margin-left: 0;
-      margin-right: 0;
-      clear: none;
-      clear: both; } }
+  border: 1px solid green;
+}
+@media (min-width: 1024px) {
+  .main {
+    width: 100%;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+    clear: both;
+  }
+}
 
-/* line 31, ../../sass/abstractions/style-guide.scss */
 .ads-section {
   width: 100%;
   float: right;
@@ -24,9 +24,9 @@
   margin-right: 0;
   clear: none;
   height: 100px;
-  border: 1px solid red; }
+  border: 1px solid red;
+}
 
-/* line 36, ../../sass/abstractions/style-guide.scss */
 .ad1 {
   width: 40.67797%;
   float: left;
@@ -34,9 +34,9 @@
   margin-left: 8.47458%;
   clear: none;
   background: red;
-  height: 100px; }
+  height: 100px;
+}
 
-/* line 41, ../../sass/abstractions/style-guide.scss */
 .ad2 {
   width: 40.67797%;
   float: left;
@@ -44,38 +44,42 @@
   margin-left: 50.84746%;
   clear: none;
   background: orange;
-  height: 100px; }
+  height: 100px;
+}
 
-/* line 47, ../../sass/abstractions/style-guide.scss */
 .leftsidebar,
 .center-content,
 .rightsidebar {
-  float: left; }
+  float: left;
+}
 
-/* line 53, ../../sass/abstractions/style-guide.scss */
 .leftsidebar {
   display: none;
   background: #333;
-  height: 100vh; }
-  @media (min-width: 1024px) {
-    /* line 53, ../../sass/abstractions/style-guide.scss */
-    .leftsidebar {
-      width: 180px;
-      margin-right: 20px;
-      display: block; } }
+  height: 100vh;
+}
+@media (min-width: 1024px) {
+  .leftsidebar {
+    width: 180px;
+    margin-right: 20px;
+    display: block;
+  }
+}
 
 @media (min-width: 1024px) {
-  /* line 64, ../../sass/abstractions/style-guide.scss */
   .center-content {
     width: 700px;
     margin-right: 20px;
-    padding-top: 1.7em; } }
+    padding-top: 1.7em;
+  }
+}
 
-/* line 71, ../../sass/abstractions/style-guide.scss */
 .rightsidebar {
-  display: none; }
-  @media (min-width: 1024px) {
-    /* line 71, ../../sass/abstractions/style-guide.scss */
-    .rightsidebar {
-      width: 330px;
-      display: block; } }
+  display: none;
+}
+@media (min-width: 1024px) {
+  .rightsidebar {
+    width: 330px;
+    display: block;
+  }
+}

@@ -1,7 +1,6 @@
 /* ==========================================================================
    Gallery pages common styles
    ========================================================================== */
-/* line 4, ../sass/variables/_mixins.scss */
 .pane-screenshot-gallery-grid .views-row, .pane-video-gallery-grid .views-row {
   display: inline-block;
   float: left;
@@ -10,25 +9,25 @@
   position: relative;
   cursor: pointer;
   width: 100%;
-  height: auto; }
+  height: auto;
+}
 
-/* line 15, ../sass/variables/_mixins.scss */
 .view-giveaway-listing .giveaway_details_top .giveaway_type, .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type, .pane-screenshot-gallery-grid .screenshot_hover, .pane-video-gallery-grid .video_hover {
   color: #bfcad1;
   position: absolute;
   top: 0;
   width: 100%;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
-  background: url("../images/updates_bg.png"); }
+  background: url("../images/updates_bg.png");
+}
 
-/* line 24, ../sass/variables/_mixins.scss */
 .pane-screenshot-gallery-grid .screenshot_hover:hover, .pane-video-gallery-grid .video_hover:hover {
-  background: none; }
+  background: none;
+}
 
 /* ==========================================================================
    Node pages common styles
    ========================================================================== */
-/* line 31, ../sass/variables/_mixins.scss */
 .node-type-mmorpg-article .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .pane-video-exclusive .views-row .views-field-body .field-content,
 .pane-video-details-player .views-row .views-field-body .field-content {
   background: #ffffff;
@@ -39,12 +38,12 @@
   margin-bottom: -20px;
   padding: 20px;
   position: relative;
-  width: 92%; }
+  width: 92%;
+}
 
 /* ==========================================================================
    Play Now Buttons and filters
    ========================================================================== */
-/* line 46, ../sass/variables/_mixins.scss */
 .pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div, .pane-mmorpg-signup-now-play-now-page-filters a, .view-screenshot-gallery-grid .form-type-bef-link a, .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .views-more-link, .view-play-now .play_now_url a,
 .view-play-now .promoted_play_now_url a, .view-play-now .play_now_more a,
 .view-play-now .promoted_play_now_more a, .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_url a, .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_more a {
@@ -58,191 +57,191 @@
   border-radius: 1px;
   white-space: nowrap;
   margin-right: 6px;
-  margin-bottom: 6px; }
+  margin-bottom: 6px;
+}
 
 /* ==========================================================================
    Platforms
    ========================================================================== */
-/* line 64, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li {
   text-indent: -9999px;
   background-repeat: no-repeat;
-  background-color: transparent; }
+  background-color: transparent;
+}
 
-/* line 70, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.android,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.android,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.android,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.android {
-  background-image: url("../images/android.gif"); }
+  background-image: url("../images/android.gif");
+}
 
-/* line 74, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.dreamcast,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.dreamcast,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.dreamcast,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.dreamcast {
-  background-image: url("../images/dreamcast.png"); }
+  background-image: url("../images/dreamcast.png");
+}
 
-/* line 78, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.ios,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.ios,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.ios,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.ios {
-  background-image: url("../images/ios.png"); }
+  background-image: url("../images/ios.png");
+}
 
-/* line 82, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.linux,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.linux,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.linux,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.linux {
-  background-image: url("../images/linux.gif"); }
+  background-image: url("../images/linux.gif");
+}
 
-/* line 86, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.mac,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.mac,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.mac,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.mac {
-  background-image: url("../images/mac.gif"); }
+  background-image: url("../images/mac.gif");
+}
 
-/* line 90, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.mobiledevices,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.mobiledevices,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.mobiledevices,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.mobiledevices {
-  background-image: url("../images/mobile.png"); }
+  background-image: url("../images/mobile.png");
+}
 
-/* line 94, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.pc,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.pc,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.pc,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.pc {
-  background-image: url("../images/pc.gif"); }
+  background-image: url("../images/pc.gif");
+}
 
-/* line 98, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.playstation2,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.playstation2,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.playstation2,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.playstation2 {
-  background-image: url("../images/ps2.jpg"); }
+  background-image: url("../images/ps2.jpg");
+}
 
-/* line 102, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.ps3,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.ps3,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.ps3,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.ps3 {
-  background-image: url("../images/ps3.jpg"); }
+  background-image: url("../images/ps3.jpg");
+}
 
-/* line 106, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.playstation4,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.playstation4,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.playstation4,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.playstation4 {
-  background-image: url("../images/ps4.jpg"); }
+  background-image: url("../images/ps4.jpg");
+}
 
-/* line 110, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.wii,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.wii,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.wii,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.wii {
-  background-image: url("../images/wii.jpg"); }
+  background-image: url("../images/wii.jpg");
+}
 
-/* line 114, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.wiiu,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.wiiu,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.wiiu,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.wiiu {
-  background-image: url("../images/wiiu.png"); }
+  background-image: url("../images/wiiu.png");
+}
 
-/* line 118, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.xbox,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xbox,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xbox,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xbox {
-  background-image: url("../images/xbox.jpg"); }
+  background-image: url("../images/xbox.jpg");
+}
 
-/* line 122, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.xbox360,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xbox360,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xbox360,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xbox360 {
-  background-image: url("../images/xbox360.jpg"); }
+  background-image: url("../images/xbox360.jpg");
+}
 
-/* line 126, ../sass/variables/_mixins.scss */
 .view-play-now .play_now_row_header .play_now_platforms ul li.xboxone,
 .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xboxone,
 .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xboxone,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xboxone {
-  background-image: url("../images/xboxone.png"); }
+  background-image: url("../images/xboxone.png");
+}
 
 /* ==========================================================================
    Platforms
    ========================================================================== */
-/* line 133, ../sass/variables/_mixins.scss */
 .title_crumbs, .page-giveaways h2.pane-title {
   padding: 10px 15px 5px 0px;
   margin: 0px;
   font-size: 35px;
   font-weight: normal;
-  line-height: 1.2em; }
+  line-height: 1.2em;
+}
 
-/* line 1, ../sass/abstractions/_global.scss */
 .hidden {
-  display: none; }
+  display: none;
+}
 
-/* line 4, ../sass/abstractions/_global.scss */
 .breadcrumb {
-  display: none; }
+  display: none;
+}
 
-/* line 7, ../sass/abstractions/_global.scss */
 .main {
-  padding-top: 135px; }
+  padding-top: 135px;
+}
 
-/* line 10, ../sass/abstractions/_global.scss */
 .main-inner {
   max-width: 1260px;
   clear: both;
   margin: auto;
   overflow: hidden;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+}
 
 /* ==========================================================================
    Global Titles and RSS
    ========================================================================== */
-/* line 21, ../sass/abstractions/_global.scss */
 .pane-mmorpg-site-title-block,
 .pane-mmorpg-game-game-rss-link-block {
   display: inline-block;
   vertical-align: middle;
   padding-top: 10px;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+}
 
-/* line 30, ../sass/abstractions/_global.scss */
 .title_crumbs {
-  color: #000 !important; }
-  /* line 34, ../sass/abstractions/_global.scss */
-  .title_crumbs a {
-    color: #000 !important; }
+  color: #000 !important;
+}
+.title_crumbs a {
+  color: #000 !important;
+}
 
-/* line 39, ../sass/abstractions/_global.scss */
 .pane-mmorpg-game-game-rss-link-block > a {
   width: 19px;
   height: 19px;
   text-indent: -9999px;
   display: inline-block;
   background: url("../images/rss_icon.png") no-repeat transparent;
-  margin-left: -10px; }
-  /* line 47, ../sass/abstractions/_global.scss */
-  .pane-mmorpg-game-game-rss-link-block > a:hover {
-    background-position: -19px 0px; }
+  margin-left: -10px;
+}
+.pane-mmorpg-game-game-rss-link-block > a:hover {
+  background-position: -19px 0px;
+}
 
-/* line 1, ../sass/abstractions/_header.scss */
 header.header {
-  padding-top: 0; }
+  padding-top: 0;
+}
 
-/* line 3, ../sass/abstractions/_header.scss */
 .header {
   width: 100%;
   float: right;
@@ -252,29 +251,29 @@ header.header {
   border-bottom: 1px solid #dbdbdb;
   border-top: 1px solid #dbdbdb;
   background: #fff;
-  padding: 1.5em 0; }
-  /* line 10, ../sass/abstractions/_header.scss */
-  .l-region--header .header {
-    padding-top: 1.5em; }
-  /* line 14, ../sass/abstractions/_header.scss */
-  .header .l-constrained {
-    width: 83.05085%;
-    float: left;
-    margin-right: -100%;
-    margin-left: 8.47458%;
-    clear: none; }
-  /* line 17, ../sass/abstractions/_header.scss */
-  .header .pane-logo-block-logo {
-    float: left;
-    margin-right: 0.50em; }
-  /* line 21, ../sass/abstractions/_header.scss */
-  .header .block--om-maximenu h2 {
-    display: none; }
-  /* line 25, ../sass/abstractions/_header.scss */
-  .header .om-menu li {
-    border-left: 1px solid #d7f0ff; }
+  padding: 1.5em 0;
+}
+.l-region--header .header {
+  padding-top: 1.5em;
+}
+.header .l-constrained {
+  width: 83.05085%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 8.47458%;
+  clear: none;
+}
+.header .pane-logo-block-logo {
+  float: left;
+  margin-right: 0.50em;
+}
+.header .block--om-maximenu h2 {
+  display: none;
+}
+.header .om-menu li {
+  border-left: 1px solid #d7f0ff;
+}
 
-/* line 31, ../sass/abstractions/_header.scss */
 .advert-bar {
   width: 100%;
   float: right;
@@ -282,35 +281,35 @@ header.header {
   margin-right: 0;
   clear: none;
   height: 90px;
-  background: #E2E2E2; }
+  background: #E2E2E2;
+}
 
-/* line 1, ../sass/abstractions/_siteskin.scss */
 .main-inner {
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+}
 
-/* line 5, ../sass/abstractions/_siteskin.scss */
 #skin-tracking-area {
   position: absolute;
   z-index: 1;
   width: 100%;
-  top: 16em; }
-  /* line 11, ../sass/abstractions/_siteskin.scss */
-  #skin-tracking-area .skin-tracking-link {
-    height: 1000vh;
-    width: 100%;
-    position: fixed; }
+  top: 16em;
+}
+#skin-tracking-area .skin-tracking-link {
+  height: 1000vh;
+  width: 100%;
+  position: fixed;
+}
 
-/* line 23, ../sass/abstractions/style-guide.scss */
 .main {
   width: 100%;
   float: right;
   margin-left: 0;
   margin-right: 0;
   clear: none;
-  border: 1px solid green; }
+  border: 1px solid green;
+}
 
-/* line 31, ../sass/abstractions/style-guide.scss */
 .ads-section {
   width: 100%;
   float: right;
@@ -318,9 +317,9 @@ header.header {
   margin-right: 0;
   clear: none;
   height: 100px;
-  border: 1px solid red; }
+  border: 1px solid red;
+}
 
-/* line 36, ../sass/abstractions/style-guide.scss */
 .ad1 {
   width: 40.67797%;
   float: left;
@@ -328,9 +327,9 @@ header.header {
   margin-left: 8.47458%;
   clear: none;
   background: red;
-  height: 100px; }
+  height: 100px;
+}
 
-/* line 41, ../sass/abstractions/style-guide.scss */
 .ad2 {
   width: 40.67797%;
   float: left;
@@ -338,161 +337,161 @@ header.header {
   margin-left: 50.84746%;
   clear: none;
   background: orange;
-  height: 100px; }
+  height: 100px;
+}
 
-/* line 47, ../sass/abstractions/style-guide.scss */
 .leftsidebar,
 .center-content,
 .rightsidebar {
-  float: left; }
+  float: left;
+}
 
-/* line 53, ../sass/abstractions/style-guide.scss */
 .leftsidebar {
   display: none;
   background: #333;
-  height: 100vh; }
+  height: 100vh;
+}
 
-/* line 71, ../sass/abstractions/style-guide.scss */
 .rightsidebar {
-  display: none; }
+  display: none;
+}
 
-/* line 1, ../sass/base/_forms.scss */
 .fullwidth, .view-footer .om-autoscroll {
   width: 100%;
   display: inline-block;
-  text-align: center; }
+  text-align: center;
+}
 
-/* line 7, ../sass/base/_forms.scss */
 .btn, .view-footer .om-autoscroll {
   background: #2186d4;
   color: #ffffff;
   border-radius: 3px;
   padding: 0.75em 0.50em;
-  margin-bottom: 0.50em; }
-  /* line 13, ../sass/base/_forms.scss */
-  .btn:hover, .view-footer .om-autoscroll:hover {
-    background: #2b94e4; }
+  margin-bottom: 0.50em;
+}
+.btn:hover, .view-footer .om-autoscroll:hover {
+  background: #2b94e4;
+}
 
-/* line 17, ../sass/base/_forms.scss */
 .btn.green, .view-footer .green.om-autoscroll {
-  background: #65c015; }
+  background: #65c015;
+}
 
-/* line 20, ../sass/base/_forms.scss */
 .btn.large, .view-footer .large.om-autoscroll {
-  border: 0; }
+  border: 0;
+}
 
-/* line 2, ../sass/base/_lists.scss */
 .sidebar-listing .view-content {
-  line-height: 28px; }
-/* line 5, ../sass/base/_lists.scss */
+  line-height: 28px;
+}
 .sidebar-listing .views-row {
   border-bottom: 1px solid #cecece;
-  padding: 0.50em; }
-  /* line 8, ../sass/base/_lists.scss */
-  .sidebar-listing .views-row .views-field-field-game-hero-image {
-    float: left;
-    margin-right: 0.50em; }
-  /* line 12, ../sass/base/_lists.scss */
-  .sidebar-listing .views-row:hover {
-    background-color: #e9f8ff !important; }
+  padding: 0.50em;
+}
+.sidebar-listing .views-row .views-field-field-game-hero-image {
+  float: left;
+  margin-right: 0.50em;
+}
+.sidebar-listing .views-row:hover {
+  background-color: #e9f8ff !important;
+}
 
-/* line 1, ../sass/base/_media.scss */
 img, media {
-  max-width: 100%; }
+  max-width: 100%;
+}
 
-/* line 1, ../sass/base/_typography.scss */
 a, a:link, a:visited {
   color: #31b4ff;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
-/* line 6, ../sass/base/_typography.scss */
 body {
   font-weight: 100;
-  font-size: 14px; }
+  font-size: 14px;
+}
 
-/* line 2, ../sass/components/_article.scss */
 .node-type-mmorpg-article .node--mmorpg-article .field__item img {
   max-width: 100%;
   height: auto !important;
-  width: 100%; }
-/* line 8, ../sass/components/_article.scss */
+  width: 100%;
+}
 .node-type-mmorpg-article h1 {
   padding: 10px 15px 5px 0px;
   margin-left: 26px;
   margin: 0px;
   font-size: 35px;
   font-weight: normal;
-  line-height: 1.2em; }
-/* line 17, ../sass/components/_article.scss */
+  line-height: 1.2em;
+}
 .node-type-mmorpg-article .node__submitted {
   font-size: 13px;
   padding: 6px 0px 15px 1px;
   border-top: 1px solid #bce6ff;
   display: inline-block;
   margin-top: 5px;
-  color: #959595; }
-/* line 26, ../sass/components/_article.scss */
+  color: #959595;
+}
 .node-type-mmorpg-article .field--name-field-article-overview {
-  display: none; }
-/* line 30, ../sass/components/_article.scss */
+  display: none;
+}
 .node-type-mmorpg-article .field__item {
   font-size: 14px;
   line-height: 1.6em;
   padding-top: 0px;
-  margin-top: 0px; }
-/* line 37, ../sass/components/_article.scss */
+  margin-top: 0px;
+}
 .node-type-mmorpg-article .field--name-field-article-hero-image {
-  padding: 0px; }
-/* line 41, ../sass/components/_article.scss */
+  padding: 0px;
+}
 .node-type-mmorpg-article .field--name-field-article-news-post {
-  top: -20px; }
-  /* line 49, ../sass/components/_article.scss */
-  .node-type-mmorpg-article .field--name-field-article-news-post img {
-    max-width: 715px;
-    width: 100%; }
+  top: -20px;
+}
+.node-type-mmorpg-article .field--name-field-article-news-post img {
+  max-width: 715px;
+  width: 100%;
+}
 
-/* line 57, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .views-field-title span {
-  width: 100%; }
-  /* line 59, ../sass/components/_article.scss */
-  .block-views-id-latest_updates-block .views-field-title span a {
-    min-height: 45px;
-    display: inline-block;
-    width: 100%; }
-    /* line 63, ../sass/components/_article.scss */
-    .block-views-id-latest_updates-block .views-field-title span a img {
-      float: left;
-      margin-right: 0.50em; }
-/* line 69, ../sass/components/_article.scss */
+  width: 100%;
+}
+.block-views-id-latest_updates-block .views-field-title span a {
+  min-height: 45px;
+  display: inline-block;
+  width: 100%;
+}
+.block-views-id-latest_updates-block .views-field-title span a img {
+  float: left;
+  margin-right: 0.50em;
+}
 .block-views-id-latest_updates-block .view-footer a {
-  color: #ffffff; }
+  color: #ffffff;
+}
 
-/* line 8, ../sass/components/_filters.scss */
 .pane-mmorpg-signup-now-play-now-page-filters h2.pane-title {
   padding: 10px 15px 5px 0px;
   margin: 0px;
   font-size: 35px;
   font-weight: normal;
-  line-height: 1.2em; }
-/* line 16, ../sass/components/_filters.scss */
+  line-height: 1.2em;
+}
 .pane-mmorpg-signup-now-play-now-page-filters h2.pane-title + div {
-  background: #65c015; }
-/* line 21, ../sass/components/_filters.scss */
+  background: #65c015;
+}
 .pane-mmorpg-signup-now-play-now-page-filters a {
-  background: #707070; }
-  /* line 25, ../sass/components/_filters.scss */
-  .pane-mmorpg-signup-now-play-now-page-filters a.active {
-    background: #2186d4; }
+  background: #707070;
+}
+.pane-mmorpg-signup-now-play-now-page-filters a.active {
+  background: #2186d4;
+}
 
-/* line 32, ../sass/components/_filters.scss */
 .views-exposed-form-giveaway-listing-panel-pane label {
-  display: none; }
-/* line 36, ../sass/components/_filters.scss */
+  display: none;
+}
 .views-exposed-form-giveaway-listing-panel-pane .views-exposed-widget {
   padding: 0;
   float: none;
-  display: inline-block; }
-/* line 42, ../sass/components/_filters.scss */
+  display: inline-block;
+}
 .views-exposed-form-giveaway-listing-panel-pane .form-submit {
   margin-top: 0 !important;
   position: relative;
@@ -504,85 +503,88 @@ body {
   color: #fff;
   padding: 9px 9px 8px 9px !important;
   border-radius: 2px;
-  top: 2px; }
-/* line 56, ../sass/components/_filters.scss */
+  top: 2px;
+}
 .views-exposed-form-giveaway-listing-panel-pane .chosen-container {
-  width: 100% !important; }
-  /* line 60, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-panel-pane .chosen-container .chosen-single {
-    height: auto;
-    border: none;
-    padding: 0;
-    border-radius: 0; }
-  /* line 66, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-panel-pane .chosen-container span {
-    position: relative;
-    border: 1px solid #2186d4;
-    cursor: pointer;
-    background: #2186d4;
-    font-size: 14px;
-    height: 35px;
-    width: 100%;
-    color: #fff;
-    margin-right: 15px;
-    border-radius: 2px;
-    -webkit-appearance: none;
-    padding: 0 1.25em 0 0.75em;
-    line-height: 35px; }
-    /* line 81, ../sass/components/_filters.scss */
-    .views-exposed-form-giveaway-listing-panel-pane .chosen-container span + div {
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 8px solid #fff;
-      top: 40%;
-      right: 12px;
-      -webkit-transition: all 50ms ease-in-out;
-      /* Safari */
-      -moz-transition: all 50ms ease-in-out;
-      /* Firefox */
-      transition: all 50ms ease-in-out; }
-      /* line 93, ../sass/components/_filters.scss */
-      .views-exposed-form-giveaway-listing-panel-pane .chosen-container span + div b {
-        display: none; }
-  /* line 99, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-panel-pane .chosen-container.chosen-with-drop span + div {
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 8px solid white;
-    border-top: 0; }
-  /* line 108, ../sass/components/_filters.scss */
-  .views-exposed-form-giveaway-listing-panel-pane .chosen-container ul.chosen-results {
-    padding: 0;
-    margin: 0; }
-    /* line 112, ../sass/components/_filters.scss */
-    .views-exposed-form-giveaway-listing-panel-pane .chosen-container ul.chosen-results li {
-      padding: 8px 12px;
-      -webkit-transition: all 150ms ease-in-out;
-      /* Safari */
-      -moz-transition: all 150ms ease-in-out;
-      /* Firefox */
-      transition: all 150ms ease-in-out; }
-      /* line 118, ../sass/components/_filters.scss */
-      .views-exposed-form-giveaway-listing-panel-pane .chosen-container ul.chosen-results li.highlighted {
-        background: #bbb;
-        trasitiion: 0.3s; }
+  width: 100% !important;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container .chosen-single {
+  height: auto;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container span {
+  position: relative;
+  border: 1px solid #2186d4;
+  cursor: pointer;
+  background: #2186d4;
+  font-size: 14px;
+  height: 35px;
+  width: 100%;
+  color: #fff;
+  margin-right: 15px;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  padding: 0 1.25em 0 0.75em;
+  line-height: 35px;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container span + div {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #fff;
+  top: 40%;
+  right: 12px;
+  -webkit-transition: all 50ms ease-in-out;
+  /* Safari */
+  -moz-transition: all 50ms ease-in-out;
+  /* Firefox */
+  transition: all 50ms ease-in-out;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container span + div b {
+  display: none;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container.chosen-with-drop span + div {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 8px solid white;
+  border-top: 0;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container ul.chosen-results {
+  padding: 0;
+  margin: 0;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container ul.chosen-results li {
+  padding: 8px 12px;
+  -webkit-transition: all 150ms ease-in-out;
+  /* Safari */
+  -moz-transition: all 150ms ease-in-out;
+  /* Firefox */
+  transition: all 150ms ease-in-out;
+}
+.views-exposed-form-giveaway-listing-panel-pane .chosen-container ul.chosen-results li.highlighted {
+  background: #bbb;
+  trasitiion: 0.3s;
+}
 
-/* line 132, ../sass/components/_filters.scss */
 .view-screenshot-gallery-grid .form-type-bef-link {
-  display: inline-block; }
-  /* line 135, ../sass/components/_filters.scss */
-  .view-screenshot-gallery-grid .form-type-bef-link a {
-    background: #707070;
-    margin-right: 3px; }
-/* line 142, ../sass/components/_filters.scss */
+  display: inline-block;
+}
+.view-screenshot-gallery-grid .form-type-bef-link a {
+  background: #707070;
+  margin-right: 3px;
+}
+.view-screenshot-gallery-grid .form-type-bef-link a.active {
+  background: #65c015;
+}
 .view-screenshot-gallery-grid .selected a {
-  background: #65c015; }
+  background: #65c015;
+}
 
-/* line 1, ../sass/components/_keygiveaway.scss */
 .remainingkeys {
   display: block;
   padding: 10px;
@@ -590,476 +592,476 @@ body {
   color: #14adff;
   font-weight: bold;
   text-align: center;
-  margin: 0.50em 0; }
+  margin: 0.50em 0;
+}
 
-/* line 12, ../sass/components/_keygiveaway.scss */
 .node-type-giveaway p, .node-type-giveaway strong, .node-type-giveaway span {
-  font-size: 14px !important; }
-/* line 15, ../sass/components/_keygiveaway.scss */
+  font-size: 14px !important;
+}
 .node-type-giveaway .-giveaway-show-claim-button {
-  text-align: center; }
+  text-align: center;
+}
 
-/* line 22, ../sass/components/_keygiveaway.scss */
 .view-giveaway-listing .views-row {
-  margin: 1em 0; }
-/* line 26, ../sass/components/_keygiveaway.scss */
+  margin: 1em 0;
+}
 .view-giveaway-listing .giveaway_details {
   display: inline-block;
-  vertical-align: top; }
-/* line 31, ../sass/components/_keygiveaway.scss */
+  vertical-align: top;
+}
 .view-giveaway-listing .giveaway_details_top {
-  position: relative; }
-  /* line 34, ../sass/components/_keygiveaway.scss */
-  .view-giveaway-listing .giveaway_details_top .giveaway_type {
-    background: none;
-    padding: 0.75em; }
-/* line 41, ../sass/components/_keygiveaway.scss */
+  position: relative;
+}
+.view-giveaway-listing .giveaway_details_top .giveaway_type {
+  background: none;
+  padding: 0.75em;
+}
 .view-giveaway-listing .giveaway_details_bottom {
   max-width: 68%;
-  margin-left: 1em; }
-/* line 46, ../sass/components/_keygiveaway.scss */
+  margin-left: 1em;
+}
 .view-giveaway-listing .giveaway_title a {
   color: #000;
   font-size: 20px;
-  font-weight: 400; }
-/* line 52, ../sass/components/_keygiveaway.scss */
+  font-weight: 400;
+}
 .view-giveaway-listing .giveaway_body p {
   line-height: 1.4em;
   overflow: hidden;
   display: block;
   position: relative;
-  margin-bottom: 10px; }
-/* line 60, ../sass/components/_keygiveaway.scss */
+  margin-bottom: 10px;
+}
 .view-giveaway-listing .giveaway_remaining {
   color: #31b4ff;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-/* line 67, ../sass/components/_keygiveaway.scss */
 .promoted-giveaway .promoted_giveaway_details_top {
-  position: relative; }
-  /* line 70, ../sass/components/_keygiveaway.scss */
-  .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type {
-    background: none;
-    padding: 0.75em; }
-/* line 77, ../sass/components/_keygiveaway.scss */
+  position: relative;
+}
+.promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type {
+  background: none;
+  padding: 0.75em;
+}
 .promoted-giveaway .promoted_giveaway_details_bottom {
   width: 95%;
-  top: -40px; }
-  /* line 82, ../sass/components/_keygiveaway.scss */
-  .promoted-giveaway .promoted_giveaway_details_bottom:hover {
-    background: #e9f8ff;
-    border-color: #1879cd; }
-    /* line 86, ../sass/components/_keygiveaway.scss */
-    .promoted-giveaway .promoted_giveaway_details_bottom:hover .promoted_giveaway_title a {
-      color: #1879cd; }
-  /* line 91, ../sass/components/_keygiveaway.scss */
-  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_title a {
-    color: #000;
-    font-size: 30px;
-    font-weight: 400; }
-  /* line 98, ../sass/components/_keygiveaway.scss */
-  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .views-more-link {
-    background: #2186d4; }
-  /* line 103, ../sass/components/_keygiveaway.scss */
-  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body span.comments {
-    font-size: 1.2em;
-    line-height: 1.3em;
-    display: inline-block; }
-    /* line 108, ../sass/components/_keygiveaway.scss */
-    .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body span.comments span.comment_icon {
-      background: url("../images/bg_icns_dark.png") no-repeat transparent left;
-      background-position: -63px -96px;
-      padding-left: 1.5em; }
-  /* line 115, ../sass/components/_keygiveaway.scss */
-  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .sharethis-wrapper {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 3em; }
-  /* line 122, ../sass/components/_keygiveaway.scss */
-  .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_author {
-    color: #a2a2a2; }
-    /* line 125, ../sass/components/_keygiveaway.scss */
-    .promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_author a {
-      color: #cecece;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: capitalize;
-      -webkit-font-smoothing: antialiased; }
+  top: -40px;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom:hover {
+  background: #e9f8ff;
+  border-color: #1879cd;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom:hover .promoted_giveaway_title a {
+  color: #1879cd;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_title a {
+  color: #000;
+  font-size: 30px;
+  font-weight: 400;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .views-more-link {
+  background: #2186d4;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body span.comments {
+  font-size: 1.2em;
+  line-height: 1.3em;
+  display: inline-block;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body span.comments span.comment_icon {
+  background: url("../images/bg_icns_dark.png") no-repeat transparent left;
+  background-position: -63px -96px;
+  padding-left: 1.5em;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_body .sharethis-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 3em;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_author {
+  color: #a2a2a2;
+}
+.promoted-giveaway .promoted_giveaway_details_bottom .promoted_giveaway_author a {
+  color: #cecece;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* line 136, ../sass/components/_keygiveaway.scss */
 .page-giveaways h2.pane-title {
   padding-top: 0;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+}
 
-/* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
-  padding: 0; }
-  /* line 5, ../sass/components/_navigation.scss */
-  .om-menu .item-list ul li {
-    border: 0;
-    line-height: 22px;
-    list-style: none;
-    clear: both;
-    min-height: 45px;
-    margin-bottom: 1em; }
-/* line 15, ../sass/components/_navigation.scss */
+  padding: 0;
+}
+.om-menu .item-list ul li {
+  border: 0;
+  line-height: 22px;
+  list-style: none;
+  clear: both;
+  min-height: 45px;
+  margin-bottom: 1em;
+}
 .om-menu li:hover {
-  background: #bce6ff; }
-  /* line 17, ../sass/components/_navigation.scss */
-  .om-menu li:hover .om-maximenu-content {
-    border-top: 5px solid #bce6ff; }
+  background: #bce6ff;
+}
+.om-menu li:hover .om-maximenu-content {
+  border-top: 5px solid #bce6ff;
+}
 
-/* line 22, ../sass/components/_navigation.scss */
 .om-maximenu .om-maximenu-middle {
-  border-radius: 0 0 3px 3px; }
+  border-radius: 0 0 3px 3px;
+}
 
-/* line 26, ../sass/components/_navigation.scss */
 li.leaf-user-name .om-maximenu-middle {
-  width: 320px; }
-  /* line 29, ../sass/components/_navigation.scss */
-  li.leaf-user-name .om-maximenu-middle .om-maximenu-middle-right {
-    padding: 0px; }
-  /* line 33, ../sass/components/_navigation.scss */
-  li.leaf-user-name .om-maximenu-middle .views-row {
-    width: 50%;
-    height: 50%;
-    display: inline-block;
-    margin: 0px;
-    border: 0px !important;
-    margin-right: -4px;
-    position: relative;
-    margin-bottom: -3px;
-    vertical-align: top; }
-    /* line 44, ../sass/components/_navigation.scss */
-    li.leaf-user-name .om-maximenu-middle .views-row a {
-      color: #ffffff;
-      padding: 0;
-      background: transparent; }
-    /* line 50, ../sass/components/_navigation.scss */
-    li.leaf-user-name .om-maximenu-middle .views-row .updates_text {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 98%;
-      background: url("../images/updates_bg.png"); }
-      /* line 57, ../sass/components/_navigation.scss */
-      li.leaf-user-name .om-maximenu-middle .views-row .updates_text:hover {
-        background: none; }
-      /* line 61, ../sass/components/_navigation.scss */
-      li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_title {
-        bottom: 0.5em;
-        font-size: 16px;
-        font-weight: 400;
-        padding: 0px;
-        position: absolute; }
-      /* line 69, ../sass/components/_navigation.scss */
-      li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_type {
-        color: #bfcad1;
-        display: block;
-        padding: 10px 0px 0px 10px;
-        position: absolute;
-        top: 0;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
-        z-index: 1; }
-        /* line 78, ../sass/components/_navigation.scss */
-        li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_type a {
-          color: #bfcad1; }
-      /* line 83, ../sass/components/_navigation.scss */
-      li.leaf-user-name .om-maximenu-middle .views-row .updates_text a.content_link {
-        display: block;
-        z-index: 2;
-        height: 128px;
-        width: 160px; }
+  width: 320px;
+}
+li.leaf-user-name .om-maximenu-middle .om-maximenu-middle-right {
+  padding: 0px;
+}
+li.leaf-user-name .om-maximenu-middle .views-row {
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+  margin: 0px;
+  border: 0px !important;
+  margin-right: -4px;
+  position: relative;
+  margin-bottom: -3px;
+  vertical-align: top;
+}
+li.leaf-user-name .om-maximenu-middle .views-row a {
+  color: #ffffff;
+  padding: 0;
+  background: transparent;
+}
+li.leaf-user-name .om-maximenu-middle .views-row .updates_text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 98%;
+  background: url("../images/updates_bg.png");
+}
+li.leaf-user-name .om-maximenu-middle .views-row .updates_text:hover {
+  background: none;
+}
+li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_title {
+  bottom: 0.5em;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0px;
+  position: absolute;
+}
+li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_type {
+  color: #bfcad1;
+  display: block;
+  padding: 10px 0px 0px 10px;
+  position: absolute;
+  top: 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+li.leaf-user-name .om-maximenu-middle .views-row .updates_text .updates_type a {
+  color: #bfcad1;
+}
+li.leaf-user-name .om-maximenu-middle .views-row .updates_text a.content_link {
+  display: block;
+  z-index: 2;
+  height: 128px;
+  width: 160px;
+}
 
-/* line 93, ../sass/components/_navigation.scss */
 .game-sub-menu {
   background: #333333;
   padding: 1em;
   margin-bottom: 1em;
-  display: inline-block; }
-  /* line 98, ../sass/components/_navigation.scss */
-  .game-sub-menu a {
-    padding: 0.50em;
-    border: 1px solid transparent;
-    color: #ffffff; }
-    /* line 102, ../sass/components/_navigation.scss */
-    .game-sub-menu a:hover, .game-sub-menu a.active {
-      color: #2186d4; }
+  display: inline-block;
+}
+.game-sub-menu a {
+  padding: 0.50em;
+  border: 1px solid transparent;
+  color: #ffffff;
+}
+.game-sub-menu a:hover, .game-sub-menu a.active {
+  color: #2186d4;
+}
 
-/* line 1, ../sass/components/_pager.scss */
 ul.pager {
-  padding-top: 20px; }
-  /* line 4, ../sass/components/_pager.scss */
-  ul.pager li {
-    line-height: 40px;
-    font-size: 1.2em;
-    font-weight: 100;
-    background: #65c015;
-    color: #ffffff;
-    display: inline-block;
-    margin-right: 3px;
-    padding: 0; }
-    /* line 14, ../sass/components/_pager.scss */
-    ul.pager li.pager__item--current {
-      background: #707070;
-      padding: 6px 17px; }
-    /* line 19, ../sass/components/_pager.scss */
-    ul.pager li:hover {
-      background: #2186d4; }
-    /* line 23, ../sass/components/_pager.scss */
-    ul.pager li a {
-      color: #ffffff;
-      padding: 6px 17px;
-      display: block; }
-    /* line 29, ../sass/components/_pager.scss */
-    ul.pager li.pager__item--first, ul.pager li.pager__item--previous, ul.pager li.pager__item--next, ul.pager li.pager__item--last {
-      display: none; }
+  padding-top: 20px;
+}
+ul.pager li {
+  line-height: 40px;
+  font-size: 1.2em;
+  font-weight: 100;
+  background: #65c015;
+  color: #ffffff;
+  display: inline-block;
+  margin-right: 3px;
+  padding: 0;
+}
+ul.pager li.pager__item--current {
+  background: #707070;
+  padding: 6px 17px;
+}
+ul.pager li:hover {
+  background: #2186d4;
+}
+ul.pager li a {
+  color: #ffffff;
+  padding: 6px 17px;
+  display: block;
+}
+ul.pager li.pager__item--first, ul.pager li.pager__item--previous, ul.pager li.pager__item--next, ul.pager li.pager__item--last {
+  display: none;
+}
 
-/* line 1, ../sass/components/_play-now.scss */
 .pane-play-now-slider {
   overflow: hidden;
   overflow-x: auto;
   max-height: 172px !important;
   padding: 20px;
-  background: #342D44; }
-  /* line 12, ../sass/components/_play-now.scss */
-  .pane-play-now-slider .view-play-now-slider {
-    width: 150%;
-    position: static; }
-  /* line 17, ../sass/components/_play-now.scss */
-  .pane-play-now-slider .views-row {
-    float: left;
-    margin-right: 0.75em;
-    position: relative; }
-    /* line 22, ../sass/components/_play-now.scss */
-    .pane-play-now-slider .views-row .views-field-nothing {
-      color: #bfcad1;
-      position: absolute;
-      padding: 10px;
-      top: 0;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); }
-    /* line 30, ../sass/components/_play-now.scss */
-    .pane-play-now-slider .views-row img {
-      border-bottom: 4px solid #bce6ff; }
-      /* line 33, ../sass/components/_play-now.scss */
-      .pane-play-now-slider .views-row img:hover {
-        border-bottom: 4px solid #1879cd; }
+  background: #342D44;
+}
+.pane-play-now-slider .view-play-now-slider {
+  width: 150%;
+  position: static;
+}
+.pane-play-now-slider .views-row {
+  float: left;
+  margin-right: 0.75em;
+  position: relative;
+}
+.pane-play-now-slider .views-row .views-field-nothing {
+  color: #bfcad1;
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+.pane-play-now-slider .views-row img {
+  border-bottom: 4px solid #bce6ff;
+}
+.pane-play-now-slider .views-row img:hover {
+  border-bottom: 4px solid #1879cd;
+}
 
-/* line 43, ../sass/components/_play-now.scss */
 .view-play-now .views-row {
-  padding: 10px; }
-/* line 49, ../sass/components/_play-now.scss */
+  padding: 10px;
+}
 .view-play-now .play_now_row_header .play_now_title,
 .view-play-now .play_now_row_header .promoted_play_now_title,
 .view-play-now .promoted_play_now_row_header .play_now_title,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_title {
-  display: inline-block; }
-  /* line 52, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_row_header .play_now_title a,
-  .view-play-now .play_now_row_header .promoted_play_now_title a,
-  .view-play-now .promoted_play_now_row_header .play_now_title a,
-  .view-play-now .promoted_play_now_row_header .promoted_play_now_title a {
-    color: #70b9ed;
-    padding-bottom: 10px;
-    font-size: 32px;
-    display: block;
-    box-sizing: border-box;
-    font-weight: 400; }
-/* line 62, ../sass/components/_play-now.scss */
+  display: inline-block;
+}
+.view-play-now .play_now_row_header .play_now_title a,
+.view-play-now .play_now_row_header .promoted_play_now_title a,
+.view-play-now .promoted_play_now_row_header .play_now_title a,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_title a {
+  color: #70b9ed;
+  padding-bottom: 10px;
+  font-size: 32px;
+  display: block;
+  box-sizing: border-box;
+  font-weight: 400;
+}
 .view-play-now .play_now_row_header .play_now_platforms,
 .view-play-now .play_now_row_header .promoted_play_now_platforms,
 .view-play-now .promoted_play_now_row_header .play_now_platforms,
 .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms {
   display: inline-block;
-  vertical-align: bottom; }
-  /* line 66, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_row_header .play_now_platforms ul,
-  .view-play-now .play_now_row_header .promoted_play_now_platforms ul,
-  .view-play-now .promoted_play_now_row_header .play_now_platforms ul,
-  .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul {
-    padding: 0;
-    list-style: none; }
-    /* line 69, ../sass/components/_play-now.scss */
-    .view-play-now .play_now_row_header .play_now_platforms ul li,
-    .view-play-now .play_now_row_header .promoted_play_now_platforms ul li,
-    .view-play-now .promoted_play_now_row_header .play_now_platforms ul li,
-    .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li {
-      display: inline-block;
-      height: 18px;
-      width: 18px; }
-      /* line 79, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.dreamcast,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.dreamcast,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.dreamcast,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.dreamcast {
-        width: 24px; }
-      /* line 84, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.ios,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.ios,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.ios,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.ios {
-        width: 34px; }
-      /* line 105, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.playstation2,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.playstation2,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.playstation2,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.playstation2 {
-        width: 52px; }
-      /* line 110, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.ps3,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.ps3,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.ps3,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.ps3 {
-        width: 44px; }
-      /* line 115, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.playstation4,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.playstation4,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.playstation4,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.playstation4 {
-        width: 50px; }
-      /* line 120, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.wii,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.wii,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.wii,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.wii {
-        width: 30px; }
-      /* line 125, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.wiiu,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.wiiu,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.wiiu,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.wiiu {
-        width: 57px; }
-      /* line 130, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.xbox,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xbox,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xbox,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xbox {
-        width: 24px; }
-      /* line 135, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.xbox360,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xbox360,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xbox360,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xbox360 {
-        width: 30px; }
-      /* line 140, ../sass/components/_play-now.scss */
-      .view-play-now .play_now_row_header .play_now_platforms ul li.xboxone,
-      .view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xboxone,
-      .view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xboxone,
-      .view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xboxone {
-        width: 30px; }
-/* line 152, ../sass/components/_play-now.scss */
+  vertical-align: bottom;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul {
+  padding: 0;
+  list-style: none;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.dreamcast,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.dreamcast,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.dreamcast,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.dreamcast {
+  width: 24px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.ios,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.ios,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.ios,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.ios {
+  width: 34px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.playstation2,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.playstation2,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.playstation2,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.playstation2 {
+  width: 52px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.ps3,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.ps3,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.ps3,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.ps3 {
+  width: 44px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.playstation4,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.playstation4,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.playstation4,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.playstation4 {
+  width: 50px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.wii,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.wii,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.wii,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.wii {
+  width: 30px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.wiiu,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.wiiu,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.wiiu,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.wiiu {
+  width: 57px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.xbox,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xbox,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xbox,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xbox {
+  width: 24px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.xbox360,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xbox360,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xbox360,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xbox360 {
+  width: 30px;
+}
+.view-play-now .play_now_row_header .play_now_platforms ul li.xboxone,
+.view-play-now .play_now_row_header .promoted_play_now_platforms ul li.xboxone,
+.view-play-now .promoted_play_now_row_header .play_now_platforms ul li.xboxone,
+.view-play-now .promoted_play_now_row_header .promoted_play_now_platforms ul li.xboxone {
+  width: 30px;
+}
 .view-play-now .play_now_row_details .play_now_details,
 .view-play-now .play_now_row_details .promoted_play_now_details,
 .view-play-now .promoted_play_now_row_details .play_now_details,
 .view-play-now .promoted_play_now_row_details .promoted_play_now_details {
-  display: inline-block; }
-/* line 157, ../sass/components/_play-now.scss */
+  display: inline-block;
+}
 .view-play-now .play_now_row_details .play_now_status > span,
 .view-play-now .play_now_row_details .promoted_play_now_status > span,
 .view-play-now .promoted_play_now_row_details .play_now_status > span,
 .view-play-now .promoted_play_now_row_details .promoted_play_now_status > span {
-  display: inline-block; }
-/* line 162, ../sass/components/_play-now.scss */
+  display: inline-block;
+}
 .view-play-now .play_now_row_details span.content,
 .view-play-now .promoted_play_now_row_details span.content {
-  font-weight: 600; }
-/* line 167, ../sass/components/_play-now.scss */
+  font-weight: 600;
+}
 .view-play-now .play_now_body,
 .view-play-now .promoted_play_now_body {
-  line-height: 1.55em; }
-  /* line 171, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_body p,
-  .view-play-now .promoted_play_now_body p {
-    display: none; }
-    /* line 174, ../sass/components/_play-now.scss */
-    .view-play-now .play_now_body p:first-child,
-    .view-play-now .promoted_play_now_body p:first-child {
-      display: block !important; }
-  /* line 179, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_body .play_now_body_more,
-  .view-play-now .promoted_play_now_body .play_now_body_more {
-    cursor: pointer;
-    margin-left: 0.75em; }
-/* line 187, ../sass/components/_play-now.scss */
+  line-height: 1.55em;
+}
+.view-play-now .play_now_body p,
+.view-play-now .promoted_play_now_body p {
+  display: none;
+}
+.view-play-now .play_now_body p:first-child,
+.view-play-now .promoted_play_now_body p:first-child {
+  display: block !important;
+}
+.view-play-now .play_now_body .play_now_body_more,
+.view-play-now .promoted_play_now_body .play_now_body_more {
+  cursor: pointer;
+  margin-left: 0.75em;
+}
 .view-play-now .play_now_screenshots .views-row,
 .view-play-now .promoted_play_now_screenshots .views-row {
   max-width: 120px;
   padding: 0;
   display: inline-block;
-  margin-right: 3px; }
-  /* line 193, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_screenshots .views-row:first-child,
-  .view-play-now .promoted_play_now_screenshots .views-row:first-child {
-    max-width: 160px; }
-/* line 199, ../sass/components/_play-now.scss */
+  margin-right: 3px;
+}
+.view-play-now .play_now_screenshots .views-row:first-child,
+.view-play-now .promoted_play_now_screenshots .views-row:first-child {
+  max-width: 160px;
+}
 .view-play-now .play_now_row_footer,
 .view-play-now .promoted_play_now_row_footer {
-  padding-top: 8px; }
-  /* line 203, ../sass/components/_play-now.scss */
-  .view-play-now .play_now_row_footer .play_now_url,
-  .view-play-now .play_now_row_footer .promoted_play_now_url,
-  .view-play-now .play_now_row_footer .play_now_more,
-  .view-play-now .play_now_row_footer .promoted_play_now_more,
-  .view-play-now .promoted_play_now_row_footer .play_now_url,
-  .view-play-now .promoted_play_now_row_footer .promoted_play_now_url,
-  .view-play-now .promoted_play_now_row_footer .play_now_more,
-  .view-play-now .promoted_play_now_row_footer .promoted_play_now_more {
-    display: inline-block; }
-/* line 212, ../sass/components/_play-now.scss */
+  padding-top: 8px;
+}
+.view-play-now .play_now_row_footer .play_now_url,
+.view-play-now .play_now_row_footer .promoted_play_now_url,
+.view-play-now .play_now_row_footer .play_now_more,
+.view-play-now .play_now_row_footer .promoted_play_now_more,
+.view-play-now .promoted_play_now_row_footer .play_now_url,
+.view-play-now .promoted_play_now_row_footer .promoted_play_now_url,
+.view-play-now .promoted_play_now_row_footer .play_now_more,
+.view-play-now .promoted_play_now_row_footer .promoted_play_now_more {
+  display: inline-block;
+}
 .view-play-now .play_now_url a,
 .view-play-now .promoted_play_now_url a {
-  background: #65c015; }
-/* line 218, ../sass/components/_play-now.scss */
+  background: #65c015;
+}
 .view-play-now .play_now_more a,
 .view-play-now .promoted_play_now_more a {
-  background: #707070; }
-/* line 224, ../sass/components/_play-now.scss */
+  background: #707070;
+}
 .view-play-now .promoted_play_now_block {
   margin-bottom: 20px;
   color: #ffffff;
   position: relative;
   height: 360px;
-  width: 880px; }
-  /* line 231, ../sass/components/_play-now.scss */
-  .view-play-now .promoted_play_now_block .promoted_play_now_background {
-    position: absolute;
-    z-index: -1; }
-  /* line 236, ../sass/components/_play-now.scss */
-  .view-play-now .promoted_play_now_block .promoted_play_now_content {
-    padding: 20px 20px 15px 20px;
-    text-shadow: 0 1px 3px #000000; }
-    /* line 240, ../sass/components/_play-now.scss */
-    .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_url a {
-      background: #65c015;
-      padding-left: 20px;
-      padding-right: 20px;
-      font-size: 1.4em;
-      border-radius: 3px;
-      line-height: 40px; }
-    /* line 250, ../sass/components/_play-now.scss */
-    .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_more a {
-      background: transparent; }
-    /* line 255, ../sass/components/_play-now.scss */
-    .view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_screenshots img {
-      border: 1px solid #636363 !important; }
-/* line 261, ../sass/components/_play-now.scss */
+  width: 880px;
+}
+.view-play-now .promoted_play_now_block .promoted_play_now_background {
+  position: absolute;
+  z-index: -1;
+}
+.view-play-now .promoted_play_now_block .promoted_play_now_content {
+  padding: 20px 20px 15px 20px;
+  text-shadow: 0 1px 3px #000000;
+}
+.view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_url a {
+  background: #65c015;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 1.4em;
+  border-radius: 3px;
+  line-height: 40px;
+}
+.view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_more a {
+  background: transparent;
+}
+.view-play-now .promoted_play_now_block .promoted_play_now_content .promoted_play_now_screenshots img {
+  border: 1px solid #636363 !important;
+}
 .view-play-now .views-widget-filter-title {
-  width: 100%; }
-  /* line 265, ../sass/components/_play-now.scss */
-  .view-play-now .views-widget-filter-title label {
-    display: none; }
-  /* line 269, ../sass/components/_play-now.scss */
-  .view-play-now .views-widget-filter-title input {
-    margin: 0px 0px 20px 0px;
-    padding: 9px 5px;
-    border-radius: 2px;
-    border: 1px solid #cecece;
-    background: #EEFBFF;
-    width: 100%;
-    color: #000;
-    box-sizing: border-box; }
+  width: 100%;
+}
+.view-play-now .views-widget-filter-title label {
+  display: none;
+}
+.view-play-now .views-widget-filter-title input {
+  margin: 0px 0px 20px 0px;
+  padding: 9px 5px;
+  border-radius: 2px;
+  border: 1px solid #cecece;
+  background: #EEFBFF;
+  width: 100%;
+  color: #000;
+  box-sizing: border-box;
+}
 
-/* line 1, ../sass/components/_ratings.scss */
 .pane-game-ratings {
   background-color: #333333;
   color: white;
@@ -1069,91 +1071,98 @@ ul.pager {
   background-image: url(http://skywisenight.com/spec_rev7/content/images/639_r0.jpg);
   background-position: 0px -40px;
   background-repeat: no-repeat;
-  margin-bottom: 2em; }
-  /* line 11, ../sass/components/_ratings.scss */
-  .pane-game-ratings .views-field {
-    margin: 1em 0; }
-  /* line 14, ../sass/components/_ratings.scss */
-  .pane-game-ratings .views-label {
-    float: left;
-    min-width: 124px; }
-  /* line 18, ../sass/components/_ratings.scss */
-  .pane-game-ratings .ui-slider-horizontal {
-    background: #494949;
-    border: 1px solid #8ECCFF;
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-    display: inline-table;
-    width: 240px;
-    height: 0.8em; }
-  /* line 28, ../sass/components/_ratings.scss */
-  .pane-game-ratings .rate-mmorpg-value {
-    background: #2697ff;
-    height: 12px;
-    float: left; }
+  margin-bottom: 2em;
+}
+.pane-game-ratings .views-field {
+  margin: 1em 0;
+}
+.pane-game-ratings .views-label {
+  float: left;
+  min-width: 124px;
+}
+.pane-game-ratings .ui-slider-horizontal {
+  background: #494949;
+  border: 1px solid #8ECCFF;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  display: inline-table;
+  width: 240px;
+  height: 0.8em;
+}
+.pane-game-ratings .rate-mmorpg-value {
+  background: #2697ff;
+  height: 12px;
+  float: left;
+}
 
-/* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
-  padding: 0 10px; }
-  /* line 3, ../sass/components/_rightsidebar.scss */
-  .rightsidebar h2.block__title,
-  .rightsidebar h2.pane-title {
-    font-size: 18px;
-    font-weight: normal;
-    border-bottom: 3px solid #bce6ff;
-    margin-bottom: 0;
-    padding-bottom: 0.50em; }
-  /* line 11, ../sass/components/_rightsidebar.scss */
-  .rightsidebar .block__content {
-    line-height: 18px; }
-  /* line 15, ../sass/components/_rightsidebar.scss */
-  .rightsidebar .views-row {
-    line-height: 40px;
-    font-size: 14px;
-    height: 40px;
-    border-bottom: 1px solid #cecece; }
-    /* line 21, ../sass/components/_rightsidebar.scss */
-    .rightsidebar .views-row:hover {
-      background: #e9f8ff; }
-    /* line 25, ../sass/components/_rightsidebar.scss */
-    .rightsidebar .views-row .views-field-field-image,
-    .rightsidebar .views-row .views-field-field-target-url {
-      display: inline-block;
-      vertical-align: top;
-      padding-right: 0.25em; }
-      /* line 31, ../sass/components/_rightsidebar.scss */
-      .rightsidebar .views-row .views-field-field-image .field-content,
-      .rightsidebar .views-row .views-field-field-target-url .field-content {
-        display: table-cell; }
-      /* line 35, ../sass/components/_rightsidebar.scss */
-      .rightsidebar .views-row .views-field-field-image img,
-      .rightsidebar .views-row .views-field-field-target-url img {
-        vertical-align: middle; }
-  /* line 41, ../sass/components/_rightsidebar.scss */
-  .rightsidebar .view-footer p,
-  .rightsidebar .view-footer a {
-    display: block;
-    padding: 10px 0px 10px 0px;
-    width: 100%;
-    color: #000;
-    margin: 0;
-    line-height: 18px; }
+  padding: 0 10px;
+}
+.rightsidebar h2.block__title,
+.rightsidebar h2.pane-title {
+  font-size: 18px;
+  font-weight: normal;
+  border-bottom: 3px solid #bce6ff;
+  margin-bottom: 0;
+  padding-bottom: 0.50em;
+}
+.rightsidebar .block__content {
+  line-height: 18px;
+}
+.rightsidebar .views-row {
+  line-height: 40px;
+  font-size: 14px;
+  height: 40px;
+  border-bottom: 1px solid #cecece;
+}
+.rightsidebar .views-row:hover {
+  background: #e9f8ff;
+}
+.rightsidebar .views-row .views-field-field-image,
+.rightsidebar .views-row .views-field-field-target-url {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 0.25em;
+}
+.rightsidebar .views-row .views-field-field-image .field-content,
+.rightsidebar .views-row .views-field-field-target-url .field-content {
+  display: table-cell;
+}
+.rightsidebar .views-row .views-field-field-image img,
+.rightsidebar .views-row .views-field-field-target-url img {
+  vertical-align: middle;
+}
+.rightsidebar .view-footer p,
+.rightsidebar .view-footer a {
+  display: block;
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+  color: #000;
+  margin: 0;
+  line-height: 18px;
+}
 
-/* line 2, ../sass/components/_screenshots.scss */
 .pane-screenshot-gallery-grid .views-row {
-  max-width: 109px; }
-/* line 10, ../sass/components/_screenshots.scss */
+  max-width: 109px;
+}
+.pane-screenshot-gallery-grid .views-row .views-row-even.views-row-last {
+  margin: 0;
+}
 .pane-screenshot-gallery-grid .screenshot_hover {
   max-width: 109px;
   height: 96%;
-  padding: 1em; }
-  /* line 20, ../sass/components/_screenshots.scss */
-  .pane-screenshot-gallery-grid .screenshot_hover.house_submitted span {
-    background: transparent url("../images/mmorpg_screenshot.png") no-repeat left;
-    padding-left: 1.75em; }
+  padding: 1em;
+}
+.pane-screenshot-gallery-grid .screenshot_hover.house_submitted span {
+  background: transparent url("../images/mmorpg_screenshot.png") no-repeat left;
+  padding-left: 1.75em;
+}
 
-/* line 2, ../sass/components/_social.scss */
+#edit_field_screenshot_category_tid_chosen {
+  display: none !important;
+}
+
 .sharethis-wrapper span {
   display: inline-block;
   margin-right: 6px;
@@ -1162,37 +1171,37 @@ ul.pager {
   color: #fff;
   padding: 6px 10px;
   margin-bottom: 10px;
-  padding-left: 28px; }
-/* line 12, ../sass/components/_social.scss */
+  padding-left: 28px;
+}
 .sharethis-wrapper .st_sharethis_custom {
   border-color: #2F8BFF;
-  background-color: #0070FF; }
-  /* line 15, ../sass/components/_social.scss */
-  .sharethis-wrapper .st_sharethis_custom:before {
-    content: "Share"; }
-/* line 19, ../sass/components/_social.scss */
+  background-color: #0070FF;
+}
+.sharethis-wrapper .st_sharethis_custom:before {
+  content: "Share";
+}
 .sharethis-wrapper .st_facebook_custom {
   background: #4e69a2;
-  border-color: #3c5488; }
-  /* line 22, ../sass/components/_social.scss */
-  .sharethis-wrapper .st_facebook_custom:before {
-    content: "Facebook"; }
-/* line 26, ../sass/components/_social.scss */
+  border-color: #3c5488;
+}
+.sharethis-wrapper .st_facebook_custom:before {
+  content: "Facebook";
+}
 .sharethis-wrapper .st_twitter_custom {
   border-color: #2F8BFF;
-  background-color: #00C2FF; }
-  /* line 29, ../sass/components/_social.scss */
-  .sharethis-wrapper .st_twitter_custom:before {
-    content: "Tweet"; }
-/* line 33, ../sass/components/_social.scss */
+  background-color: #00C2FF;
+}
+.sharethis-wrapper .st_twitter_custom:before {
+  content: "Tweet";
+}
 .sharethis-wrapper .st_googleplus_custom {
   border-color: #FF9B2F;
-  background-color: #F37E00; }
-  /* line 36, ../sass/components/_social.scss */
-  .sharethis-wrapper .st_googleplus_custom:before {
-    content: "G+"; }
+  background-color: #F37E00;
+}
+.sharethis-wrapper .st_googleplus_custom:before {
+  content: "G+";
+}
 
-/* line 1, ../sass/components/_trending.scss */
 .trending {
   display: none;
   width: 100%;
@@ -1202,101 +1211,101 @@ ul.pager {
   clear: none;
   height: 30px;
   margin-top: 0.50em;
-  border-bottom: 1px solid #dbdbdb; }
-  /* line 10, ../sass/components/_trending.scss */
-  .trending .l-region--trending {
-    width: 83.05085%;
-    float: left;
-    margin-right: -100%;
-    margin-left: 8.47458%;
-    clear: none; }
-    /* line 12, ../sass/components/_trending.scss */
-    .trending .l-region--trending h3 {
-      float: left;
-      margin: 0;
-      margin-right: 0.50em; }
-    /* line 17, ../sass/components/_trending.scss */
-    .trending .l-region--trending .trending_links {
-      line-height: 19px;
-      margin: 0;
-      padding-left: 0;
-      overflow-y: hidden;
-      height: 20px; }
-      /* line 23, ../sass/components/_trending.scss */
-      .trending .l-region--trending .trending_links li {
-        float: left;
-        list-style: none;
-        color: #959595; }
-        /* line 27, ../sass/components/_trending.scss */
-        .trending .l-region--trending .trending_links li a {
-          margin: 0px 4px; }
-      /* line 32, ../sass/components/_trending.scss */
-      .trending .l-region--trending .trending_links li:last-child span {
-        display: none; }
+  border-bottom: 1px solid #dbdbdb;
+}
+.trending .l-region--trending {
+  width: 83.05085%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 8.47458%;
+  clear: none;
+}
+.trending .l-region--trending h3 {
+  float: left;
+  margin: 0;
+  margin-right: 0.50em;
+}
+.trending .l-region--trending .trending_links {
+  line-height: 19px;
+  margin: 0;
+  padding-left: 0;
+  overflow-y: hidden;
+  height: 20px;
+}
+.trending .l-region--trending .trending_links li {
+  float: left;
+  list-style: none;
+  color: #959595;
+}
+.trending .l-region--trending .trending_links li a {
+  margin: 0px 4px;
+}
+.trending .l-region--trending .trending_links li:last-child span {
+  display: none;
+}
 
-/* line 1, ../sass/components/_videos.scss */
 .pane-video-exclusive,
 .pane-video-details-player {
-  margin-bottom: 1em; }
-  /* line 4, ../sass/components/_videos.scss */
-  .pane-video-exclusive .views-row,
-  .pane-video-details-player .views-row {
-    padding: 1em;
-    position: relative; }
-    /* line 12, ../sass/components/_videos.scss */
-    .pane-video-exclusive .views-row .views-field-body p,
-    .pane-video-details-player .views-row .views-field-body p {
-      margin-top: 0; }
-    /* line 17, ../sass/components/_videos.scss */
-    .pane-video-exclusive .views-row .views-field-field-video-url,
-    .pane-video-exclusive .views-row .views-field-field-video-url iframe,
-    .pane-video-details-player .views-row .views-field-field-video-url,
-    .pane-video-details-player .views-row .views-field-field-video-url iframe {
-      height: 400px; }
-    /* line 22, ../sass/components/_videos.scss */
-    .pane-video-exclusive .views-row .promoted_bg,
-    .pane-video-details-player .views-row .promoted_bg {
-      background: #000;
-      max-height: 450px;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      left: 0; }
+  margin-bottom: 1em;
+}
+.pane-video-exclusive .views-row,
+.pane-video-details-player .views-row {
+  padding: 1em;
+  position: relative;
+}
+.pane-video-exclusive .views-row .views-field-body p,
+.pane-video-details-player .views-row .views-field-body p {
+  margin-top: 0;
+}
+.pane-video-exclusive .views-row .views-field-field-video-url,
+.pane-video-exclusive .views-row .views-field-field-video-url iframe,
+.pane-video-details-player .views-row .views-field-field-video-url,
+.pane-video-details-player .views-row .views-field-field-video-url iframe {
+  height: 400px;
+}
+.pane-video-exclusive .views-row .promoted_bg,
+.pane-video-details-player .views-row .promoted_bg {
+  background: #000;
+  max-height: 450px;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
 
-/* line 37, ../sass/components/_videos.scss */
 .pane-video-gallery-grid .views-row {
   max-width: 150px;
   float: none;
   vertical-align: top;
   margin: 0px 3px;
-  margin-bottom: 10px; }
-/* line 46, ../sass/components/_videos.scss */
+  margin-bottom: 10px;
+}
 .pane-video-gallery-grid .video_image a {
   display: block;
   border-bottom: 4px solid #bce6ff;
-  height: 124px; }
-  /* line 51, ../sass/components/_videos.scss */
-  .pane-video-gallery-grid .video_image a img {
-    height: 120px; }
-/* line 56, ../sass/components/_videos.scss */
+  height: 124px;
+}
+.pane-video-gallery-grid .video_image a img {
+  height: 120px;
+}
 .pane-video-gallery-grid .video_hover {
   max-width: 150px;
-  height: 120px; }
-  /* line 61, ../sass/components/_videos.scss */
-  .pane-video-gallery-grid .video_hover span {
-    display: block;
-    padding: 0.75em 1.75em;
-    margin-left: 0.5em;
-    background: url("../images/video_icon.png") no-repeat transparent 2px 10px; }
-  /* line 72, ../sass/components/_videos.scss */
-  .pane-video-gallery-grid .video_hover:hover + .video_image > a {
-    border-bottom: 4px solid #1879cd; }
-  /* line 76, ../sass/components/_videos.scss */
-  .pane-video-gallery-grid .video_hover:hover + .video_title > a {
-    color: #1879cd; }
-/* line 81, ../sass/components/_videos.scss */
+  height: 120px;
+}
+.pane-video-gallery-grid .video_hover span {
+  display: block;
+  padding: 0.75em 1.75em;
+  margin-left: 0.5em;
+  background: url("../images/video_icon.png") no-repeat transparent 2px 10px;
+}
+.pane-video-gallery-grid .video_hover:hover + .video_image > a {
+  border-bottom: 4px solid #1879cd;
+}
+.pane-video-gallery-grid .video_hover:hover + .video_title > a {
+  color: #1879cd;
+}
 .pane-video-gallery-grid .video_title a {
   color: #000;
   font-size: 16px;
@@ -1304,7 +1313,8 @@ ul.pager {
   text-shadow: none;
   border-bottom: 0px !important;
   display: block;
-  font-weight: 400; }
-  /* line 90, ../sass/components/_videos.scss */
-  .pane-video-gallery-grid .video_title a:hover {
-    color: #1879cd; }
+  font-weight: 400;
+}
+.pane-video-gallery-grid .video_title a:hover {
+  color: #1879cd;
+}
