@@ -81,3 +81,50 @@ function mmorpg_rate_preprocess_rate_template_mmorpg(&$variables) {
   $info['rating'] = t('!rating', array('!rating' => $variables['results']['rating']));
   $variables['info'] = implode(' ', $info);
 }
+
+/**
+ * Implements hook_block_info(). A block that adds reviews by the user.
+ */
+function mmorpg_rate_block_info() {
+  $blocks['add_review_block'] = array(
+    'info' => t('Add Review Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_rate_block_view($delta = '') {
+  $block = array();
+  switch($delta) {
+    case 'add_review_block':
+      $block['content'] = mmorpg_rate_add_review_block();
+      break;
+  } 
+  return $block;
+}
+
+/**
+ * Returns a form to add the review.
+ */
+function mmorpg_rate_add_review_block() {
+  global $user;
+  $nid = arg(1);
+  module_load_include('inc', 'reviews', 'includes/reviews.pages');
+  if (!reviews_check_user_review($nid, $user->uid)) {
+    $output = drupal_render(drupal_get_form('reviews_add_review',$nid));
+  } else {
+    $reviews = db_select('reviews', 'r')
+    ->fields('r',array('rid'))
+    ->condition('uid', $user->uid, '=')
+    ->condition('nid', $nid, '=')
+    ->range(0, 1)
+    ->execute()
+    ->fetchAll();
+    $rid = $reviews[0]->rid;
+    $output = drupal_render(drupal_get_form('reviews_edit_review',$nid,$rid));
+  }
+  return $output;
+}

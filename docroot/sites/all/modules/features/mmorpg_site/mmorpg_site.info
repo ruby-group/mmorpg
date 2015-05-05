@@ -13,6 +13,7 @@ dependencies[] = page_manager
 dependencies[] = panels_everywhere
 dependencies[] = panels_mini
 dependencies[] = radioactivity
+dependencies[] = reviews
 dependencies[] = search
 dependencies[] = sharethis
 dependencies[] = strongarm
