@@ -798,9 +798,10 @@ li.leaf-user-name .om-maximenu-middle {
     /* line 102, ../sass/components/_navigation.scss */
     .game-sub-menu a:hover, .game-sub-menu a.active {
       color: #2186d4; }
-  /* line 106, ../sass/components/_navigation.scss */
-  .game-sub-menu #edit-actions {
-    display: none; }
+
+/* line 108, ../sass/components/_navigation.scss */
+.search-block-form #edit-actions {
+  display: none; }
 
 /* line 1, ../sass/components/_pager.scss */
 ul.pager {
