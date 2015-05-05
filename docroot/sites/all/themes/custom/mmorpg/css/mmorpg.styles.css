@@ -238,6 +238,15 @@
   .pane-mmorpg-game-game-rss-link-block > a:hover {
     background-position: -19px 0px; }
 
+/* line 52, ../sass/abstractions/_global.scss */
+.pill {
+  background-color: #31b4ff;
+  color: white;
+  border-radius: 3px;
+  padding: 1px 3px 2px 4px;
+  margin: 0px 5px 0px 5px;
+  font-size: 0.8em; }
+
 /* line 1, ../sass/abstractions/_header.scss */
 header.header {
   padding-top: 0; }
@@ -258,23 +267,20 @@ header.header {
     padding-top: 1.5em; }
   /* line 14, ../sass/abstractions/_header.scss */
   .header .l-constrained {
-    width: 83.05085%;
-    float: left;
-    margin-right: -100%;
-    margin-left: 8.47458%;
-    clear: none; }
-  /* line 17, ../sass/abstractions/_header.scss */
+    max-width: 1260px;
+    margin: auto; }
+  /* line 18, ../sass/abstractions/_header.scss */
   .header .pane-logo-block-logo {
     float: left;
     margin-right: 0.50em; }
-  /* line 21, ../sass/abstractions/_header.scss */
+  /* line 22, ../sass/abstractions/_header.scss */
   .header .block--om-maximenu h2 {
     display: none; }
-  /* line 25, ../sass/abstractions/_header.scss */
+  /* line 26, ../sass/abstractions/_header.scss */
   .header .om-menu li {
     border-left: 1px solid #d7f0ff; }
 
-/* line 31, ../sass/abstractions/_header.scss */
+/* line 32, ../sass/abstractions/_header.scss */
 .advert-bar {
   width: 100%;
   float: right;
@@ -834,6 +840,9 @@ li.leaf-user-name .om-maximenu-middle {
     /* line 102, ../sass/components/_navigation.scss */
     .game-sub-menu a:hover, .game-sub-menu a.active {
       color: #2186d4; }
+  /* line 106, ../sass/components/_navigation.scss */
+  .game-sub-menu #edit-actions {
+    display: none; }
 
 /* line 1, ../sass/components/_pager.scss */
 ul.pager {
