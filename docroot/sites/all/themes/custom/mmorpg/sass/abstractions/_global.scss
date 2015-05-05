@@ -48,3 +48,17 @@
     background-position: -19px 0px;
   }
 }
+
+.pill {
+  background-color: $link;
+  line-height: 11px;
+  position: relative;
+  display: inline-block;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 0px 5px 0px 5px;
+  font-size: 0.9em;
+  top: -1px;
+  margin-right: 0px;
+}

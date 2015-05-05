@@ -238,6 +238,20 @@
   .pane-mmorpg-game-game-rss-link-block > a:hover {
     background-position: -19px 0px; }
 
+/* line 52, ../sass/abstractions/_global.scss */
+.pill {
+  background-color: #31b4ff;
+  line-height: 11px;
+  position: relative;
+  display: inline-block;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 0px 5px 0px 5px;
+  font-size: 0.9em;
+  top: -1px;
+  margin-right: 0px; }
+
 /* line 1, ../sass/abstractions/_header.scss */
 header.header {
   padding-top: 0; }
