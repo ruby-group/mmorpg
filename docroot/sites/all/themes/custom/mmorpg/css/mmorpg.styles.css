@@ -214,19 +214,24 @@
 /* line 21, ../sass/abstractions/_global.scss */
 .pane-mmorpg-site-title-block,
 .pane-mmorpg-game-game-rss-link-block {
-  display: inline-block;
-  vertical-align: middle;
-  padding-top: 10px;
-  padding-bottom: 20px; }
+  display: inline;
+  vertical-align: middle; }
 
-/* line 30, ../sass/abstractions/_global.scss */
+/* line 26, ../sass/abstractions/_global.scss */
+.pane-mmorpg-game-game-rss-link-block {
+  position: relative;
+  top: -0.75em;
+  left: -0.25em; }
+
+/* line 31, ../sass/abstractions/_global.scss */
 .title_crumbs {
-  color: #000 !important; }
-  /* line 34, ../sass/abstractions/_global.scss */
+  color: #000 !important;
+  display: inline; }
+  /* line 35, ../sass/abstractions/_global.scss */
   .title_crumbs a {
     color: #000 !important; }
 
-/* line 39, ../sass/abstractions/_global.scss */
+/* line 40, ../sass/abstractions/_global.scss */
 .pane-mmorpg-game-game-rss-link-block > a {
   width: 19px;
   height: 19px;
@@ -234,11 +239,11 @@
   display: inline-block;
   background: url("../images/rss_icon.png") no-repeat transparent;
   margin-left: -10px; }
-  /* line 47, ../sass/abstractions/_global.scss */
+  /* line 48, ../sass/abstractions/_global.scss */
   .pane-mmorpg-game-game-rss-link-block > a:hover {
     background-position: -19px 0px; }
 
-/* line 52, ../sass/abstractions/_global.scss */
+/* line 53, ../sass/abstractions/_global.scss */
 .pill {
   background-color: #31b4ff;
   color: white;
@@ -246,6 +251,11 @@
   padding: 1px 3px 2px 4px;
   margin: 0px 5px 0px 5px;
   font-size: 0.8em; }
+
+/* line 62, ../sass/abstractions/_global.scss */
+.pane-mmorpg-game-game-menu-block {
+  margin-top: 1em;
+  margin-bottom: 0.75em; }
 
 /* line 1, ../sass/abstractions/_header.scss */
 header.header {
