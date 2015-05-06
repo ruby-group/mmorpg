@@ -26,12 +26,12 @@ function mmorpg_signup_now_views_api($module = NULL, $api = NULL) {
 function mmorpg_signup_now_image_default_styles() {
   $styles = array();
 
-  // Exported image style: plaw_now_slider.
-  $styles['plaw_now_slider'] = array(
-    'label' => 'Plaw Now Slider',
+  // Exported image style: play_now_slider_192x128.
+  $styles['play_now_slider_192x128'] = array(
+    'label' => 'Play Now Slider (192x128)',
     'effects' => array(
-      4 => array(
-        'name' => 'image_resize',
+      1 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 192,
           'height' => 128,
@@ -41,12 +41,12 @@ function mmorpg_signup_now_image_default_styles() {
     ),
   );
 
-  // Exported image style: promoted_signup_now_links__26_x_26_.
-  $styles['promoted_signup_now_links__26_x_26_'] = array(
-    'label' => 'Promoted Signup Now Links (26 X 26)',
+  // Exported image style: promoted_signup_now_links_26x26.
+  $styles['promoted_signup_now_links_26x26'] = array(
+    'label' => 'Promoted Signup Now Links (26x26)',
     'effects' => array(
       1 => array(
-        'name' => 'image_resize',
+        'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 26,
           'height' => 26,

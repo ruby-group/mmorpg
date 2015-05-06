@@ -42,7 +42,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
-    'image_style' => 'overview_articles__200x155_',
+    'image_style' => 'articles_overview_200x155',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -578,7 +578,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['picture']['label'] = '';
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = FALSE;
-  $handler->display->display_options['fields']['picture']['image_style'] = 'promoted_signup_now_links__26_x_26_';
+  $handler->display->display_options['fields']['picture']['image_style'] = 'promoted_signup_now_links_26x26';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -773,7 +773,7 @@ User Submitted|User Uploaded Only',
   $handler->display->display_options['fields']['field_screenshot_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_screenshot_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_screenshot_image']['settings'] = array(
-    'image_style' => 'screenshot_gallery__228_x_150_',
+    'image_style' => 'screenshot_gallery_228x150',
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_screenshot_image']['group_rows'] = FALSE;

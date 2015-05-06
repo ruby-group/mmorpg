@@ -48,7 +48,7 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
-    'image_style' => '60x45_updates_menu',
+    'image_style' => 'updates_menu_60x45',
     'image_link' => '',
   );
   /* Field: Content: Title */
@@ -213,7 +213,7 @@ function mmorpg_article_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
-    'image_style' => '200x160_user_menu',
+    'image_style' => 'user_menu_200x160',
     'image_link' => 'content',
   );
   /* Field: Content: Article Type */

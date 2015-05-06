@@ -156,7 +156,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
-    'image_style' => 'overview_articles__200x155_',
+    'image_style' => 'articles_overview_200x155',
     'image_link' => 'content',
   );
   /* Field: Global: Giveaway Keys left */
@@ -343,7 +343,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
-    'image_style' => 'overview_articles__200x155_',
+    'image_style' => 'articles_overview_200x155',
     'image_link' => 'content',
   );
   /* Field: Global: Giveaway Keys left */
@@ -439,7 +439,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
-    'image_style' => 'giveaway_promoted__700x400_',
+    'image_style' => 'giveaway_promoted_700x400',
     'image_link' => 'content',
   );
   /* Field: Global: Giveaway Keys left */

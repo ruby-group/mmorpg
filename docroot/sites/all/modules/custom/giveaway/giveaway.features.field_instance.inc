@@ -64,7 +64,7 @@ function giveaway_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'giveaway_node__700x305_',
+          'image_style' => 'giveaway_node_700x305',
         ),
         'type' => 'image',
         'weight' => 12,
