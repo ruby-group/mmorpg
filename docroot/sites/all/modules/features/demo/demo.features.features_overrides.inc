@@ -83,6 +83,7 @@ function demo_features_override_default_overrides() {
   $overrides["user_permission.use text format filtered_html.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.view any unpublished customer content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.view any unpublished game_link content.roles|subadmin"] = 'subadmin';
+  $overrides["user_permission.view any unpublished giveaway content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.view any unpublished play_now_promoted_game content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.view any unpublished promoted_signup_now_link content.roles|subadmin"] = 'subadmin';
   $overrides["user_permission.view any unpublished screenshot_gallery content.roles|subadmin"] = 'subadmin';

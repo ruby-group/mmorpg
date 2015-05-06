@@ -237,6 +237,9 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['view any unpublished game_link content'])) {
     $data['view any unpublished game_link content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
+  if (isset($data['view any unpublished giveaway content'])) {
+    $data['view any unpublished giveaway content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
   if (isset($data['view any unpublished play_now_promoted_game content'])) {
     $data['view any unpublished play_now_promoted_game content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
