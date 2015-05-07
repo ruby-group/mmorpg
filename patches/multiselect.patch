@@ -1,0 +1,16 @@
+Index: docroot/sites/all/modules/contrib/multiselect/multiselect.module
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- docroot/sites/all/modules/contrib/multiselect/multiselect.module	(revision 0f41367a0bd0aff97b815ef9fe2dc9ae00f6166f)
++++ docroot/sites/all/modules/contrib/multiselect/multiselect.module	(revision )
+@@ -110,7 +110,7 @@
+   $properties = _options_properties($type, $multiple, $required, $has_value);
+ 
+   // Prepare the list of options.
+-  $options = _options_get_options($field, $instance, $properties, NULL, NULL);
++  $options = _options_get_options($field, $instance, $properties, $element['#entity_type'], $element['#entity']);
+ 
+   // Remove all tags from values. Very useful for views displays.
+   $options = array_map("strip_tags", $options);

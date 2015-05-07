@@ -128,6 +128,9 @@ function mmorpg_article_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_article_related_games',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -138,6 +141,15 @@ function mmorpg_article_field_default_field_bases() {
     'settings' => array(
       'handler' => 'base',
       'handler_settings' => array(
+        'allow_self_reference' => 1,
+        'behaviors' => array(
+          'views-autocomplete' => array(
+            'status' => 0,
+          ),
+          'views-select-list' => array(
+            'status' => 0,
+          ),
+        ),
         'sort' => array(
           'type' => 'none',
         ),
@@ -303,6 +315,7 @@ function mmorpg_article_field_default_field_bases() {
     'settings' => array(
       'handler' => 'base',
       'handler_settings' => array(
+        'allow_self_reference' => 1,
         'behaviors' => array(
           'views-autocomplete' => array(
             'status' => 0,

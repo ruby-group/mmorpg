@@ -440,7 +440,9 @@ function giveaway_field_default_field_instances() {
     'widget' => array(
       'active' => 0,
       'module' => 'multiselect',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => '',
+      ),
       'type' => 'multiselect',
       'weight' => 9,
     ),

@@ -9,6 +9,10 @@
  * Test for Entity Reference admin UI.
  */
 class EntityReferenceAdminTestCase extends DrupalWebTestCase {
+  protected $admin_user;
+  protected $type;
+  protected $hyphen_type;
+
   public static function getInfo() {
     return array(
       'name' => 'Entity Reference UI',
@@ -73,8 +77,10 @@ class EntityReferenceAdminTestCase extends DrupalWebTestCase {
     $this->assertFieldByName('field[settings][target_type]', 'node');
     // The base handler should be selected by default.
     $this->assertFieldByName('field[settings][handler]', 'base');
+    // "Allow self reference" should be checked by default.
+    $this->assertFieldChecked('edit-field-settings-handler-settings-allow-self-reference');
 
-    // The base handler settings should be diplayed.
+    // The base handler settings should be displayed.
     $entity_type = 'node';
     $entity_info = entity_get_info($entity_type);
     foreach ($entity_info['bundles'] as $bundle_name => $bundle_info) {

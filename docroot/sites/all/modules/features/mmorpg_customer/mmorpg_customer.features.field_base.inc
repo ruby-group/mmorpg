@@ -197,6 +197,7 @@ function mmorpg_customer_field_default_field_bases() {
     'settings' => array(
       'handler' => 'base',
       'handler_settings' => array(
+        'allow_self_reference' => 1,
         'behaviors' => array(
           'views-autocomplete' => array(
             'status' => 0,

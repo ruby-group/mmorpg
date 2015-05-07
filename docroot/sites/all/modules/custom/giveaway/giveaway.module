@@ -25,6 +25,7 @@ function giveaway_feeds_processor_targets_alter(&$targets, $entity_type, $bundle
 }
 
 function giveaway_gid_set_target($source, $entity, $target, $value, $mapping) {
+  dsm($source);dsm($entity);dsm($target);dsm($value);dsm($mapping);
   $entity->{$mapping['target']} = $entity->feeds_item->{$mapping['source']};
 }
 
