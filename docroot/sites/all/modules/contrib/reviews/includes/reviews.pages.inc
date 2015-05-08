@@ -178,11 +178,9 @@ function reviews_add_review_submit($form, &$form_state) {
     else {
       drupal_set_message(t('Thankyou! Your review has been submitted.'), 'status');
     }
-    drupal_goto('node/' . $nid);
   }
   else {
     drupal_set_message(t('There seems to have been a problem submitting your review. Please try again later'), 'error');
-    drupal_goto('node/' . $nid . '/add-review');
   }
 }
 
@@ -291,11 +289,9 @@ function reviews_edit_review_submit($form, &$form_state) {
   if ($result == SAVED_UPDATED) {
     reviews_update_review_count_for_node($nid);
     drupal_set_message(t('Your edited review has been saved. It will be moderated again before it is re-published.'), 'status');
-    drupal_goto('node/' . $nid);
   }
   else {
     drupal_set_message(t('There seems to have been a problem submitting your review. Please try again later'), 'error');
-    drupal_goto('node/' . $nid);
   }
 }
 
