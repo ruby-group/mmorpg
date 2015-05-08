@@ -34,7 +34,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Hero Image */
+  /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -519,14 +519,17 @@ function mmorpg_game_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: Reviews: User */
@@ -588,6 +591,10 @@ function mmorpg_game_views_default_views() {
 
   /* Display: Review Count */
   $handler = $view->new_display('page', 'Review Count', 'page_1');
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Reviews: Node review count */
   $handler->display->display_options['fields']['count']['id'] = 'count';
@@ -607,6 +614,13 @@ function mmorpg_game_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('User'),
     t('Node'),
     t('[name] writes:'),
