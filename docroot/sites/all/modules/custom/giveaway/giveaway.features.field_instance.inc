@@ -238,7 +238,11 @@ function giveaway_field_default_field_instances() {
   // Exported field_instance: 'node-giveaway-field_keys_per_day_spread'
   $field_instances['node-giveaway-field_keys_per_day_spread'] = array(
     'bundle' => 'giveaway',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'tid' => 12680,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
