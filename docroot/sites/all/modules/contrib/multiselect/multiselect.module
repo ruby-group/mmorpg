@@ -110,7 +110,8 @@ function multiselect_field_widget_form(&$form, &$form_state, $field, $instance, 
   $properties = _options_properties($type, $multiple, $required, $has_value);
 
   // Prepare the list of options.
-  $options = _options_get_options($field, $instance, $properties, NULL, NULL);
+  $options = _options_get_options($field, $instance, $properties, $element['#entity_type'],
+    is_null(current(entity_extract_ids($element['#entity_type'], $element['#entity']))) ? NULL : $element['#entity']);
 
   // Remove all tags from values. Very useful for views displays.
   $options = array_map("strip_tags", $options);

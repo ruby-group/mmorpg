@@ -1,0 +1,471 @@
+diff --git a/plugins/selection/EntityReference_SelectionHandler_Generic.class.php b/plugins/selection/EntityReference_SelectionHandler_Generic.class.php
+index 57a3a37..70dbbbb 100644
+--- a/plugins/selection/EntityReference_SelectionHandler_Generic.class.php
++++ b/plugins/selection/EntityReference_SelectionHandler_Generic.class.php
+@@ -46,7 +46,8 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
+       'target_bundles' => array(),
+       'sort' => array(
+         'type' => 'none',
+-      )
++      ),
++      'allow_self_reference' => 1,
+     );
+ 
+     if (!empty($entity_info['entity keys']['bundle'])) {
+@@ -149,6 +150,13 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
+       );
+     }
+ 
++    $form['allow_self_reference'] = array(
++      '#type' => 'checkbox',
++      '#title' => t('Allow to choose self reference'),
++      '#description' => t('If checked you will be able to set reference to self entity. Disabled by default'),
++      '#default_value' => $field['settings']['handler_settings']['allow_self_reference'],
++    );
++
+     return $form;
+   }
+ 
+@@ -208,31 +216,31 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
+    * Implements EntityReferenceHandler::validateAutocompleteInput().
+    */
+   public function validateAutocompleteInput($input, &$element, &$form_state, $form) {
+-      $entities = $this->getReferencableEntities($input, '=', 6);
+-      if (empty($entities)) {
+-        // Error if there are no entities available for a required field.
+-        form_error($element, t('There are no entities matching "%value"', array('%value' => $input)));
+-      }
+-      elseif (count($entities) > 5) {
+-        // Error if there are more than 5 matching entities.
+-        form_error($element, t('Many entities are called %value. Specify the one you want by appending the id in parentheses, like "@value (@id)"', array(
+-          '%value' => $input,
+-          '@value' => $input,
+-          '@id' => key($entities),
+-        )));
+-      }
+-      elseif (count($entities) > 1) {
+-        // More helpful error if there are only a few matching entities.
+-        $multiples = array();
+-        foreach ($entities as $id => $name) {
+-          $multiples[] = $name . ' (' . $id . ')';
+-        }
+-        form_error($element, t('Multiple entities match this reference; "%multiple"', array('%multiple' => implode('", "', $multiples))));
+-      }
+-      else {
+-        // Take the one and only matching entity.
+-        return key($entities);
++    $entities = $this->getReferencableEntities($input, '=', 6);
++    if (empty($entities)) {
++      // Error if there are no entities available for a required field.
++      form_error($element, t('There are no entities matching "%value"', array('%value' => $input)));
++    }
++    elseif (count($entities) > 5) {
++      // Error if there are more than 5 matching entities.
++      form_error($element, t('Many entities are called %value. Specify the one you want by appending the id in parentheses, like "@value (@id)"', array(
++        '%value' => $input,
++        '@value' => $input,
++        '@id' => key($entities),
++      )));
++    }
++    elseif (count($entities) > 1) {
++      // More helpful error if there are only a few matching entities.
++      $multiples = array();
++      foreach ($entities as $id => $name) {
++        $multiples[] = $name . ' (' . $id . ')';
+       }
++      form_error($element, t('Multiple entities match this reference; "%multiple"', array('%multiple' => implode('", "', $multiples))));
++    }
++    else {
++      // Take the one and only matching entity.
++      return key($entities);
++    }
+   }
+ 
+   /**
+@@ -269,6 +277,12 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
+       }
+     }
+ 
++    // Exclude self reference.
++    if (empty($this->field['settings']['handler_settings']['allow_self_reference']) && isset($this->entity)) {
++      list($entity_id,,) = entity_extract_ids($this->entity_type, $this->entity);
++      $query->entityCondition('entity_id', $entity_id, '<>');
++    }
++
+     return $query;
+   }
+ 
+diff --git a/plugins/selection/EntityReference_SelectionHandler_Views.class.php b/plugins/selection/EntityReference_SelectionHandler_Views.class.php
+index 1b036a7..4647e8e 100644
+--- a/plugins/selection/EntityReference_SelectionHandler_Views.class.php
++++ b/plugins/selection/EntityReference_SelectionHandler_Views.class.php
+@@ -9,12 +9,14 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
+    * Implements EntityReferenceHandler::getInstance().
+    */
+   public static function getInstance($field, $instance = NULL, $entity_type = NULL, $entity = NULL) {
+-    return new EntityReference_SelectionHandler_Views($field, $instance);
++    return new EntityReference_SelectionHandler_Views($field, $instance, $entity_type, $entity);
+   }
+ 
+-  protected function __construct($field, $instance) {
++  protected function __construct($field, $instance, $entity_type = NULL, $entity = NULL) {
+     $this->field = $field;
+     $this->instance = $instance;
++    $this->entity_type = $entity_type;
++    $this->entity = $entity;
+   }
+ 
+   /**
+@@ -68,6 +70,15 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
+         )) . '</p>',
+       );
+     }
++
++    $form['allow_self_reference'] = array(
++      '#type' => 'checkbox',
++      '#title' => t('Allow to choose self reference'),
++      '#description' => t('If checked you will be able to set reference to self entity. Disabled by default'),
++      '#default_value' => !empty($field['settings']['handler_settings']['allow_self_reference'])
++        ? 1 : 0,
++    );
++
+     return $form;
+   }
+ 
+@@ -76,6 +87,11 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
+     $display_name = $this->field['settings']['handler_settings']['view']['display_name'];
+     $args = $this->field['settings']['handler_settings']['view']['args'];
+     $entity_type = $this->field['settings']['target_type'];
++    $entity_id_to_exclude = FALSE;
++
++    if (isset($this->entity) && $this->field['settings']['handler_settings']['allow_self_reference']) {
++      list($entity_id_to_exclude,,) = entity_extract_ids($this->entity_type, $this->entity);
++    }
+ 
+     // Check that the view is valid and the display still exists.
+     $this->view = views_get_view($view_name);
+@@ -94,6 +110,7 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
+       'match_operator' => $match_operator,
+       'limit' => $limit,
+       'ids' => $ids,
++      'entity_id_to_exclude' => $entity_id_to_exclude,
+     );
+     $this->view->display_handler->set_option('entityreference_options', $entityreference_options);
+     return TRUE;
+diff --git a/tests/entityreference.admin.test b/tests/entityreference.admin.test
+index 9a12119..782cb85 100644
+--- a/tests/entityreference.admin.test
++++ b/tests/entityreference.admin.test
+@@ -9,6 +9,10 @@
+  * Test for Entity Reference admin UI.
+  */
+ class EntityReferenceAdminTestCase extends DrupalWebTestCase {
++  protected $admin_user;
++  protected $type;
++  protected $hyphen_type;
++
+   public static function getInfo() {
+     return array(
+       'name' => 'Entity Reference UI',
+@@ -73,8 +77,10 @@ class EntityReferenceAdminTestCase extends DrupalWebTestCase {
+     $this->assertFieldByName('field[settings][target_type]', 'node');
+     // The base handler should be selected by default.
+     $this->assertFieldByName('field[settings][handler]', 'base');
++    // "Allow self reference" should be checked by default.
++    $this->assertFieldChecked('edit-field-settings-handler-settings-allow-self-reference');
+ 
+-    // The base handler settings should be diplayed.
++    // The base handler settings should be displayed.
+     $entity_type = 'node';
+     $entity_info = entity_get_info($entity_type);
+     foreach ($entity_info['bundles'] as $bundle_name => $bundle_info) {
+diff --git a/tests/entityreference.feeds.test b/tests/entityreference.feeds.test
+index 4dc1901..69004a6 100644
+--- a/tests/entityreference.feeds.test
++++ b/tests/entityreference.feeds.test
+@@ -8,7 +8,9 @@
+ /**
+  * Class for testing Feeds field mapper.
+  */
+-class FeedsMapperFieldTestCase extends DrupalWebTestCase{
++class FeedsMapperFieldTestCase extends DrupalWebTestCase {
++  protected $admin_user;
++
+   /**
+    * Test info function.
+    */
+diff --git a/tests/entityreference.handlers.test b/tests/entityreference.handlers.test
+index b88e106..0d47d33 100644
+--- a/tests/entityreference.handlers.test
++++ b/tests/entityreference.handlers.test
+@@ -21,8 +21,13 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+     parent::setUp('entityreference');
+   }
+ 
+-  protected function assertReferencable($field, $tests, $handler_name) {
+-    $handler = entityreference_get_selection_handler($field);
++  protected function assertReferencable($handler_arguments, $tests, $handler_name) {
++    $handler_arguments += array(
++      'instance' => NULL,
++      'entity_type' => NULL,
++      'entity' => NULL
++    );
++    $handler = entityreference_get_selection_handler($handler_arguments['field'], $handler_arguments['instance'], $handler_arguments['entity_type'], $handler_arguments['entity']);
+ 
+     foreach ($tests as $test) {
+       foreach ($test['arguments'] as $arguments) {
+@@ -163,7 +168,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+         ),
+       ),
+     );
+-    $this->assertReferencable($field, $referencable_tests, 'Node handler');
++    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Node handler');
+ 
+     // Test as an admin.
+     $admin_user = $this->drupalCreateUser(array('access content', 'bypass node access'));
+@@ -193,7 +198,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+         ),
+       ),
+     );
+-    $this->assertReferencable($field, $referencable_tests, 'Node handler (admin)');
++    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Node handler (admin)');
+   }
+ 
+   /**
+@@ -285,7 +290,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+         'result' => array(),
+       ),
+     );
+-    $this->assertReferencable($field, $referencable_tests, 'User handler');
++    $this->assertReferencable(array('field' => $field), $referencable_tests, 'User handler');
+ 
+     $GLOBALS['user'] = $users['admin'];
+     $referencable_tests = array(
+@@ -324,7 +329,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+         ),
+       ),
+     );
+-    $this->assertReferencable($field, $referencable_tests, 'User handler (admin)');
++    $this->assertReferencable(array('field' => $field), $referencable_tests, 'User handler (admin)');
+   }
+ 
+   /**
+@@ -442,7 +447,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+         'result' => array(),
+       ),
+     );
+-    $this->assertReferencable($field, $referencable_tests, 'Comment handler');
++    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Comment handler');
+ 
+     // Test as a comment admin.
+     $admin_user = $this->drupalCreateUser(array('access content', 'access comments', 'administer comments'));
+@@ -460,7 +465,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+         ),
+       ),
+     );
+-    $this->assertReferencable($field, $referencable_tests, 'Comment handler (comment admin)');
++    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Comment handler (comment admin)');
+ 
+     // Test as a node and comment admin.
+     $admin_user = $this->drupalCreateUser(array('access content', 'access comments', 'administer comments', 'bypass node access'));
+@@ -479,7 +484,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+         ),
+       ),
+     );
+-    $this->assertReferencable($field, $referencable_tests, 'Comment handler (comment + node admin)');
++    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Comment handler (comment + node admin)');
+   }
+ 
+   /**
+@@ -594,4 +599,175 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
+     );
+     $this->assertIdentical($result['article'], $expected_result, 'Query sorted by field returned expected values for non-admin.');
+   }
++
++  public function testAllowingSelfReference() {
++    // Build a fake field instance that allows self reference.
++    $allowing_field = array(
++      'translatable' => FALSE,
++      'entity_types' => array(),
++      'settings' => array(
++        'handler' => 'base',
++        'target_type' => 'node',
++        'handler_settings' => array(
++          'target_bundles' => array(),
++          'allow_self_reference' => 1,
++        ),
++      ),
++      'field_name' => 'test_field_1',
++      'type' => 'entityreference',
++      'cardinality' => '1',
++    );
++
++    $allowing_field = field_create_field($allowing_field);
++
++    $allowing_field_instance = array(
++      'field_name' => $allowing_field['field_name'],
++      'entity_type' => 'test_entity',
++      'bundle' => 'test_bundle',
++      'label' => $this->randomName() . '_label',
++      'description' => $this->randomName() . '_description',
++      'weight' => mt_rand(0, 127),
++      'settings' => array(
++        'test_instance_setting' => $this->randomName(),
++      ),
++      'widget' => array(
++        'type' => 'test_field_widget',
++        'label' => 'Test Field',
++        'settings' => array(
++          'test_widget_setting' => $this->randomName(),
++        )
++      )
++    );
++    $allowing_field_instance = field_create_instance($allowing_field_instance);
++
++    // Build a fake field instance that doesn't allows self reference.
++    $not_allowing_field = array(
++      'translatable' => FALSE,
++      'entity_types' => array(),
++      'settings' => array(
++        'handler' => 'base',
++        'target_type' => 'node',
++        'handler_settings' => array(
++          'target_bundles' => array(),
++          'allow_self_reference' => 0,
++        ),
++      ),
++      'field_name' => 'test_field_2',
++      'type' => 'entityreference',
++      'cardinality' => '1',
++    );
++
++    $not_allowing_field = field_create_field($not_allowing_field);
++
++    $not_allowing_field_instance = array(
++      'field_name' => $not_allowing_field['field_name'],
++      'entity_type' => 'test_entity',
++      'bundle' => 'test_bundle',
++      'label' => $this->randomName() . '_label',
++      'description' => $this->randomName() . '_description',
++      'weight' => mt_rand(0, 127),
++      'settings' => array(
++        'test_instance_setting' => $this->randomName(),
++      ),
++      'widget' => array(
++        'type' => 'test_field_widget',
++        'label' => 'Test Field',
++        'settings' => array(
++          'test_widget_setting' => $this->randomName(),
++        )
++      )
++    );
++    $not_allowing_field_instance = field_create_instance($not_allowing_field_instance);
++
++    // Build a set of test data.
++    // Titles contain HTML-special characters to test escaping.
++    $nodes = array(
++      'node_1' => (object) array(
++        'type' => 'article',
++        'status' => 1,
++        'title' => 'First node',
++        'uid' => 1,
++      ),
++      'node_2' => (object) array(
++        'type' => 'article',
++        'status' => 1,
++        'title' => 'Second node',
++        'uid' => 1,
++      ),
++    );
++
++    $node_labels = array();
++    foreach ($nodes as $key => &$node) {
++      node_save($node);
++      $node_labels[$key] = check_plain($node->title);
++    }
++
++    $user = $this->drupalCreateUser(array('access content'));
++    $GLOBALS['user'] = $user;
++    $referencable_tests = array(
++      array(
++        'arguments' => array(
++          array(NULL, 'CONTAINS'),
++        ),
++        'result' => array(
++          'article' => array(
++            $nodes['node_1']->nid => $node_labels['node_1'],
++            $nodes['node_2']->nid => $node_labels['node_2'],
++          ),
++        ),
++      ),
++      array('arguments' => array(
++          array('Second node', 'CONTAINS'),
++        ),
++        'result' => array(
++          'article' => array(
++            $nodes['node_2']->nid => $node_labels['node_2'],
++          ),
++        ),
++      ),
++    );
++    $handler_settings = array(
++      'field' => $allowing_field,
++      'instance' => $allowing_field_instance,
++      'entity' => $nodes['node_1'],
++      'entity_type' => 'node'
++    );
++    $this->assertReferencable($handler_settings, $referencable_tests, 'Node handler');
++
++    $referencable_tests = array(
++      array(
++        'arguments' => array(
++          array(NULL, 'CONTAINS'),
++        ),
++        'result' => array(
++          'article' => array(
++            $nodes['node_2']->nid => $node_labels['node_2'],
++          ),
++        ),
++      ),
++      array('arguments' => array(
++          array('Second node', 'CONTAINS'),
++        ),
++        'result' => array(
++          'article' => array(
++            $nodes['node_2']->nid => $node_labels['node_2'],
++          ),
++        ),
++      ),
++      array('arguments' => array(
++          array('First node', 'CONTAINS'),
++        ),
++        'result' => array(
++          // we should not find first node
++        ),
++      ),
++    );
++    $handler_settings = array(
++      'field' => $not_allowing_field,
++      'instance' => $not_allowing_field_instance,
++      'entity' => $nodes['node_1'],
++      'entity_type' => 'node'
++    );
++    $this->assertReferencable($handler_settings, $referencable_tests, 'Node handler');
++  }
+ }
+diff --git a/views/entityreference_plugin_display.inc b/views/entityreference_plugin_display.inc
+index f13e88a..d47f680 100644
+--- a/views/entityreference_plugin_display.inc
++++ b/views/entityreference_plugin_display.inc
+@@ -97,6 +97,11 @@ class entityreference_plugin_display extends views_plugin_display {
+       $this->view->query->add_where(NULL, $id_field, $options['ids']);
+     }
+ 
++    // Avoid self reference.
++    if (!empty($options['entity_id_to_exclude'])) {
++      $this->view->query->add_where(NULL, $id_field, $options['entity_id_to_exclude'], '<>');
++    }
++
+     $this->view->set_items_per_page($options['limit']);
+   }
+ 

@@ -8,7 +8,9 @@
 /**
  * Class for testing Feeds field mapper.
  */
-class FeedsMapperFieldTestCase extends DrupalWebTestCase{
+class FeedsMapperFieldTestCase extends DrupalWebTestCase {
+  protected $admin_user;
+
   /**
    * Test info function.
    */

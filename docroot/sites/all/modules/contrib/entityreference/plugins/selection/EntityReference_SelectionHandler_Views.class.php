@@ -9,12 +9,14 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
    * Implements EntityReferenceHandler::getInstance().
    */
   public static function getInstance($field, $instance = NULL, $entity_type = NULL, $entity = NULL) {
-    return new EntityReference_SelectionHandler_Views($field, $instance);
+    return new EntityReference_SelectionHandler_Views($field, $instance, $entity_type, $entity);
   }
 
-  protected function __construct($field, $instance) {
+  protected function __construct($field, $instance, $entity_type = NULL, $entity = NULL) {
     $this->field = $field;
     $this->instance = $instance;
+    $this->entity_type = $entity_type;
+    $this->entity = $entity;
   }
 
   /**
@@ -68,6 +70,15 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
         )) . '</p>',
       );
     }
+
+    $form['allow_self_reference'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Allow to choose self reference'),
+      '#description' => t('If checked you will be able to set reference to self entity. Disabled by default'),
+      '#default_value' => !empty($field['settings']['handler_settings']['allow_self_reference'])
+        ? 1 : 0,
+    );
+
     return $form;
   }
 
@@ -76,6 +87,11 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
     $display_name = $this->field['settings']['handler_settings']['view']['display_name'];
     $args = $this->field['settings']['handler_settings']['view']['args'];
     $entity_type = $this->field['settings']['target_type'];
+    $entity_id_to_exclude = FALSE;
+
+    if (isset($this->entity) && $this->field['settings']['handler_settings']['allow_self_reference']) {
+      list($entity_id_to_exclude,,) = entity_extract_ids($this->entity_type, $this->entity);
+    }
 
     // Check that the view is valid and the display still exists.
     $this->view = views_get_view($view_name);
@@ -94,6 +110,7 @@ class EntityReference_SelectionHandler_Views implements EntityReference_Selectio
       'match_operator' => $match_operator,
       'limit' => $limit,
       'ids' => $ids,
+      'entity_id_to_exclude' => $entity_id_to_exclude,
     );
     $this->view->display_handler->set_option('entityreference_options', $entityreference_options);
     return TRUE;

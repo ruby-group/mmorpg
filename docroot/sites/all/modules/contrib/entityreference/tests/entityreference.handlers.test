@@ -21,8 +21,13 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
     parent::setUp('entityreference');
   }
 
-  protected function assertReferencable($field, $tests, $handler_name) {
-    $handler = entityreference_get_selection_handler($field);
+  protected function assertReferencable($handler_arguments, $tests, $handler_name) {
+    $handler_arguments += array(
+      'instance' => NULL,
+      'entity_type' => NULL,
+      'entity' => NULL
+    );
+    $handler = entityreference_get_selection_handler($handler_arguments['field'], $handler_arguments['instance'], $handler_arguments['entity_type'], $handler_arguments['entity']);
 
     foreach ($tests as $test) {
       foreach ($test['arguments'] as $arguments) {
@@ -163,7 +168,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
         ),
       ),
     );
-    $this->assertReferencable($field, $referencable_tests, 'Node handler');
+    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Node handler');
 
     // Test as an admin.
     $admin_user = $this->drupalCreateUser(array('access content', 'bypass node access'));
@@ -193,7 +198,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
         ),
       ),
     );
-    $this->assertReferencable($field, $referencable_tests, 'Node handler (admin)');
+    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Node handler (admin)');
   }
 
   /**
@@ -285,7 +290,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
         'result' => array(),
       ),
     );
-    $this->assertReferencable($field, $referencable_tests, 'User handler');
+    $this->assertReferencable(array('field' => $field), $referencable_tests, 'User handler');
 
     $GLOBALS['user'] = $users['admin'];
     $referencable_tests = array(
@@ -324,7 +329,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
         ),
       ),
     );
-    $this->assertReferencable($field, $referencable_tests, 'User handler (admin)');
+    $this->assertReferencable(array('field' => $field), $referencable_tests, 'User handler (admin)');
   }
 
   /**
@@ -442,7 +447,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
         'result' => array(),
       ),
     );
-    $this->assertReferencable($field, $referencable_tests, 'Comment handler');
+    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Comment handler');
 
     // Test as a comment admin.
     $admin_user = $this->drupalCreateUser(array('access content', 'access comments', 'administer comments'));
@@ -460,7 +465,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
         ),
       ),
     );
-    $this->assertReferencable($field, $referencable_tests, 'Comment handler (comment admin)');
+    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Comment handler (comment admin)');
 
     // Test as a node and comment admin.
     $admin_user = $this->drupalCreateUser(array('access content', 'access comments', 'administer comments', 'bypass node access'));
@@ -479,7 +484,7 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
         ),
       ),
     );
-    $this->assertReferencable($field, $referencable_tests, 'Comment handler (comment + node admin)');
+    $this->assertReferencable(array('field' => $field), $referencable_tests, 'Comment handler (comment + node admin)');
   }
 
   /**
@@ -593,5 +598,176 @@ class EntityReferenceHandlersTestCase extends DrupalWebTestCase {
       $nodes['published1']->nid => $node_labels['published1'],
     );
     $this->assertIdentical($result['article'], $expected_result, 'Query sorted by field returned expected values for non-admin.');
+  }
+
+  public function testAllowingSelfReference() {
+    // Build a fake field instance that allows self reference.
+    $allowing_field = array(
+      'translatable' => FALSE,
+      'entity_types' => array(),
+      'settings' => array(
+        'handler' => 'base',
+        'target_type' => 'node',
+        'handler_settings' => array(
+          'target_bundles' => array(),
+          'allow_self_reference' => 1,
+        ),
+      ),
+      'field_name' => 'test_field_1',
+      'type' => 'entityreference',
+      'cardinality' => '1',
+    );
+
+    $allowing_field = field_create_field($allowing_field);
+
+    $allowing_field_instance = array(
+      'field_name' => $allowing_field['field_name'],
+      'entity_type' => 'test_entity',
+      'bundle' => 'test_bundle',
+      'label' => $this->randomName() . '_label',
+      'description' => $this->randomName() . '_description',
+      'weight' => mt_rand(0, 127),
+      'settings' => array(
+        'test_instance_setting' => $this->randomName(),
+      ),
+      'widget' => array(
+        'type' => 'test_field_widget',
+        'label' => 'Test Field',
+        'settings' => array(
+          'test_widget_setting' => $this->randomName(),
+        )
+      )
+    );
+    $allowing_field_instance = field_create_instance($allowing_field_instance);
+
+    // Build a fake field instance that doesn't allows self reference.
+    $not_allowing_field = array(
+      'translatable' => FALSE,
+      'entity_types' => array(),
+      'settings' => array(
+        'handler' => 'base',
+        'target_type' => 'node',
+        'handler_settings' => array(
+          'target_bundles' => array(),
+          'allow_self_reference' => 0,
+        ),
+      ),
+      'field_name' => 'test_field_2',
+      'type' => 'entityreference',
+      'cardinality' => '1',
+    );
+
+    $not_allowing_field = field_create_field($not_allowing_field);
+
+    $not_allowing_field_instance = array(
+      'field_name' => $not_allowing_field['field_name'],
+      'entity_type' => 'test_entity',
+      'bundle' => 'test_bundle',
+      'label' => $this->randomName() . '_label',
+      'description' => $this->randomName() . '_description',
+      'weight' => mt_rand(0, 127),
+      'settings' => array(
+        'test_instance_setting' => $this->randomName(),
+      ),
+      'widget' => array(
+        'type' => 'test_field_widget',
+        'label' => 'Test Field',
+        'settings' => array(
+          'test_widget_setting' => $this->randomName(),
+        )
+      )
+    );
+    $not_allowing_field_instance = field_create_instance($not_allowing_field_instance);
+
+    // Build a set of test data.
+    // Titles contain HTML-special characters to test escaping.
+    $nodes = array(
+      'node_1' => (object) array(
+        'type' => 'article',
+        'status' => 1,
+        'title' => 'First node',
+        'uid' => 1,
+      ),
+      'node_2' => (object) array(
+        'type' => 'article',
+        'status' => 1,
+        'title' => 'Second node',
+        'uid' => 1,
+      ),
+    );
+
+    $node_labels = array();
+    foreach ($nodes as $key => &$node) {
+      node_save($node);
+      $node_labels[$key] = check_plain($node->title);
+    }
+
+    $user = $this->drupalCreateUser(array('access content'));
+    $GLOBALS['user'] = $user;
+    $referencable_tests = array(
+      array(
+        'arguments' => array(
+          array(NULL, 'CONTAINS'),
+        ),
+        'result' => array(
+          'article' => array(
+            $nodes['node_1']->nid => $node_labels['node_1'],
+            $nodes['node_2']->nid => $node_labels['node_2'],
+          ),
+        ),
+      ),
+      array('arguments' => array(
+          array('Second node', 'CONTAINS'),
+        ),
+        'result' => array(
+          'article' => array(
+            $nodes['node_2']->nid => $node_labels['node_2'],
+          ),
+        ),
+      ),
+    );
+    $handler_settings = array(
+      'field' => $allowing_field,
+      'instance' => $allowing_field_instance,
+      'entity' => $nodes['node_1'],
+      'entity_type' => 'node'
+    );
+    $this->assertReferencable($handler_settings, $referencable_tests, 'Node handler');
+
+    $referencable_tests = array(
+      array(
+        'arguments' => array(
+          array(NULL, 'CONTAINS'),
+        ),
+        'result' => array(
+          'article' => array(
+            $nodes['node_2']->nid => $node_labels['node_2'],
+          ),
+        ),
+      ),
+      array('arguments' => array(
+          array('Second node', 'CONTAINS'),
+        ),
+        'result' => array(
+          'article' => array(
+            $nodes['node_2']->nid => $node_labels['node_2'],
+          ),
+        ),
+      ),
+      array('arguments' => array(
+          array('First node', 'CONTAINS'),
+        ),
+        'result' => array(
+          // we should not find first node
+        ),
+      ),
+    );
+    $handler_settings = array(
+      'field' => $not_allowing_field,
+      'instance' => $not_allowing_field_instance,
+      'entity' => $nodes['node_1'],
+      'entity_type' => 'node'
+    );
+    $this->assertReferencable($handler_settings, $referencable_tests, 'Node handler');
   }
 }

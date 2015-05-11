@@ -239,7 +239,7 @@ function mmorpg_signup_now_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'play-now';
+  $handler->display->display_options['path'] = 'playnowview';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');

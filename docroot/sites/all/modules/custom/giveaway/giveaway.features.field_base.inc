@@ -202,7 +202,7 @@ function giveaway_field_default_field_bases() {
   // Exported field_base: 'field_private_allowed_users'
   $field_bases['field_private_allowed_users'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_private_allowed_users',
@@ -219,6 +219,7 @@ function giveaway_field_default_field_bases() {
     'settings' => array(
       'handler' => 'base',
       'handler_settings' => array(
+        'allow_self_reference' => 1,
         'behaviors' => array(
           'views-autocomplete' => array(
             'status' => 0,
@@ -288,6 +289,7 @@ function giveaway_field_default_field_bases() {
     'settings' => array(
       'handler' => 'base',
       'handler_settings' => array(
+        'allow_self_reference' => 0,
         'behaviors' => array(
           'views-autocomplete' => array(
             'status' => 0,

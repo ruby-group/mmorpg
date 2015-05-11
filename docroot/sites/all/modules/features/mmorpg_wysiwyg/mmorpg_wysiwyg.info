@@ -9,7 +9,6 @@ dependencies[] = fitvids
 dependencies[] = shortcode
 dependencies[] = shortcode_basic_tags
 dependencies[] = shortcode_embed_content
-dependencies[] = shortcode_video
 dependencies[] = shortcode_wysiwyg
 dependencies[] = strongarm
 dependencies[] = wysiwyg

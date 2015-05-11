@@ -1,7 +1,7 @@
-diff --git a/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc b/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc
+diff --git a/radioactivity-bootstrap.inc b/radioactivity-bootstrap.inc
 index 1147be5..1989704 100644
---- a/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc
-+++ b/docroot/sites/all/modules/contrib/radioactivity/radioactivity-bootstrap.inc
+--- a/radioactivity-bootstrap.inc
++++ b/radioactivity-bootstrap.inc
 @@ -23,9 +23,8 @@ else {
   * Get the config file path of R
   */
