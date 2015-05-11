@@ -7,8 +7,15 @@
         var userVote = parseInt($(this).find('.user-vote').text());
         var avgVote = parseInt($(this).find('.average-rating').text());
         var totalAvg = (userVote + avgVote) / 8;
-        var node = "<span class=total-average>" + totalAvg + "</span>";
+        if ($(this).find(".total-average").length == 0) {
+          var node = "<span class=total-average>" + totalAvg + "</span>";
+          } else {
+            $(this).find(".total-average").text(totalAvg);
+          }
         $(this).append(node);
+        userVote = undefined;
+        avgVote = undefined;
+        totalAvg = undefined;
       });
     }
 
