@@ -2,7 +2,7 @@
    Drupal.behaviors.mmorpgGameRatings = {
     attach: function (context, settings) {
       var userRatingAverage = function() {
-      var container = $('.view-id-game_ratings  .views-field');
+       var container = $('.view-id-game_ratings .views-field');
       $.each(container, function(index, el) {
         var userVote = parseInt($(this).find('.user-vote').text());
         var avgVote = parseInt($(this).find('.average-rating').text());
