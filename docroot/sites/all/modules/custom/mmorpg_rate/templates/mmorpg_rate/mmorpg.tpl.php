@@ -5,7 +5,7 @@
  */
 
 if ($info) {
-  print '<div class="rate-info"> <div class="user-vote">' . $info['vote'] . '</div><div class="average-rating"> ' . $info['rating'] . '</rate></div>';
+  print '<div class="rate-info"> <div class="user-vote">' . $info['vote'] . '</div><div class="average-rating"> ' . $info['rating'] . '</div></div>';
 } else {
   print '<div class="rate-info"></div>';
 }
