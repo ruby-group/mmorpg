@@ -122,3 +122,31 @@ function mmorpg_signup_now_menu_link() {
     </div>
 </div>';
 }
+
+/**
+ * returns the average game rating 
+ */
+function _mmorpg_signup_now_game_avg_rating($nid) {
+  $db_result = db_query('SELECT ROUND( avg(value),1) as value FROM {votingapi_vote} WHERE entity_id = :nid ', array(':nid' => $nid));
+  $result = $db_result->fetchAssoc();
+  return $result['value'];
+
+}
+
+function mmorpg_signup_now_views_data() {
+  $data['custom']['table']['group'] = t('Custom');
+   $data['custom']['table']['join'] = array(
+     // #global is a special flag which let's a table appear all the time.
+     '#global' => array(),
+   );
+
+   $data['custom']['average_game_rating'] = array(
+     'title' => t('Average Game Rating'),
+     'help' => t('Displays average ratings of a game'),
+     'field' => array(
+       'handler' => 'views_handler_average_game_rating',
+     ),
+   );
+
+   return $data;
+}

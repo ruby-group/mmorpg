@@ -193,3 +193,4 @@ features[views_view][] = play_now_slider
 features[views_view][] = promoted_signup_now_link
 features[views_view][] = promoted_signup_now_links_admin
 features_exclude[dependencies][mmorpg_signup_now] = mmorpg_signup_now
+files[] = views/views_handler_average_game_rating.inc
