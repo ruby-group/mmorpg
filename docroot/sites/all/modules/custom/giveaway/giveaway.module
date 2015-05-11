@@ -20,13 +20,17 @@ function giveaway_ctools_plugin_directory($module, $plugin) {
  */
 function giveaway_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
   if ($entity_type == 'data_giveaway_keys') {
-    $targets['gid']['callback'] = 'giveaway_gid_set_target';
+    $targets['gid']['callback'] = '_giveaway_gid_set_target';
+    $targets['url']['callback'] = '_giveaway_url_set_target';
   }
 }
 
-function giveaway_gid_set_target($source, $entity, $target, $value, $mapping) {
-  dsm($source);dsm($entity);dsm($target);dsm($value);dsm($mapping);
+function _giveaway_gid_set_target($source, $entity, $target, $value, $mapping) {
   $entity->{$mapping['target']} = $entity->feeds_item->{$mapping['source']};
+}
+
+function _giveaway_url_set_target($source, $entity, $target, $value, $mapping) {
+  $entity->feeds_item->$target = $entity->gid . '-' . $entity->game_key;
 }
 
 /**
