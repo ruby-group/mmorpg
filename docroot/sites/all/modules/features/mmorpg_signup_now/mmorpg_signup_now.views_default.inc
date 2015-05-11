@@ -815,6 +815,12 @@ function mmorpg_signup_now_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
+  /* Field: Custom: Average Game Rating */
+  $handler->display->display_options['fields']['average_game_rating']['id'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['table'] = 'custom';
+  $handler->display->display_options['fields']['average_game_rating']['field'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['label'] = '';
+  $handler->display->display_options['fields']['average_game_rating']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Type */
   $handler->display->display_options['sorts']['type']['id'] = 'type';
   $handler->display->display_options['sorts']['type']['table'] = 'node';
