@@ -453,7 +453,7 @@ function giveaway_field_default_field_instances() {
     'bundle' => 'giveaway',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'You can specify parts of the key in the message as #keyval_1#, #keyval_2# etc.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -497,6 +497,7 @@ function giveaway_field_default_field_instances() {
   t('Related Giveaways');
   t('Select countries to filter the node based on user country.');
   t('Successful Giveaway Body');
+  t('You can specify parts of the key in the message as #keyval_1#, #keyval_2# etc.');
 
   return $field_instances;
 }

@@ -104,13 +104,18 @@ function _giveaway_show_keys_left() {
 
 function _giveaway_show_user_claimed_key() {
   global $user;
-  $key = db_select('giveaway_keys')
+  $node = node_load(@end(arg()));
+  $key_parts = explode('|', db_select('giveaway_keys')
     ->fields(NULL, array('game_key'))
     ->condition('uid', $user->uid)
-    ->condition('gid', @end(arg()))
+    ->condition('gid', $node->nid)
     ->execute()
-    ->fetchField();
-  return "<div class='yourkey'>" . t('Your key is: @key', array('@key' => $key)) . "</div>";
+    ->fetchField());
+
+  for ($search = array(), $count = 1; $count <= count($key_parts); $count++) {
+    $search[] = "#keyval_$count#";
+  }
+  return str_ireplace($search, $key_parts, $node->field_successfuly_giveaway_body[LANGUAGE_NONE][0]['value']);
 }
 
 function _giveaway_show_claim_button_submit($form, &$form_state) {

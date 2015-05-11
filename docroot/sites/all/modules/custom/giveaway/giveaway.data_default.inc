@@ -79,6 +79,10 @@ function giveaway_data_default() {
         'label' => 'Giveaway Id',
         'locked' => FALSE,
         'required' => FALSE,
+        'views_field_handler' => 'views_handler_field_numeric',
+        'views_filter_handler' => 'views_handler_filter_numeric',
+        'views_argument_handler' => 'views_handler_argument_numeric',
+        'views_sort_handler' => 'views_handler_sort',
       ),
       'key' => array(
         'label' => 'The actual Key',
@@ -94,11 +98,50 @@ function giveaway_data_default() {
         'label' => 'The IP to which it has been given.',
         'locked' => FALSE,
         'required' => FALSE,
+        'views_field_handler' => 'giveaway_handler_field_ip_address',
+        'views_filter_handler' => 'views_handler_filter_numeric',
+        'views_argument_handler' => 'views_handler_argument_numeric',
+        'views_sort_handler' => 'views_handler_sort',
+      ),
+      'gkid' => array(
+        'label' => 'Key Id',
+        'views_field_handler' => 'views_handler_field_numeric',
+        'views_filter_handler' => 'views_handler_filter_numeric',
+        'views_argument_handler' => 'views_handler_argument_numeric',
+        'views_sort_handler' => 'views_handler_sort',
+      ),
+      'game_key' => array(
+        'label' => 'Game Key',
+        'views_field_handler' => 'views_handler_field',
+        'views_filter_handler' => 'views_handler_filter_string',
+        'views_argument_handler' => 'views_handler_argument_string',
+        'views_sort_handler' => 'views_handler_sort',
+      ),
+      'uid' => array(
+        'label' => 'The user who has claimed it.',
+        'views_field_handler' => 'views_handler_field_numeric',
+        'views_filter_handler' => 'views_handler_filter_numeric',
+        'views_argument_handler' => 'views_handler_argument_numeric',
+        'views_sort_handler' => 'views_handler_sort',
+      ),
+      'claimed_on' => array(
+        'label' => 'Timestamp when it was claimed.',
+        'views_field_handler' => 'views_handler_field_date',
+        'views_filter_handler' => 'views_handler_filter_date',
+        'views_argument_handler' => 'views_handler_argument_date',
+        'views_sort_handler' => 'views_handler_sort_date',
       ),
     ),
     'label_field' => '',
     'is_entity_type' => 1,
     'entity_id' => 'gkid',
+    'join' => array(
+      'users' => array(
+        'left_field' => 'uid',
+        'field' => 'uid',
+        'inner_join' => '0',
+      ),
+    ),
   );
   $export['giveaway_keys'] = $data_table;
 
