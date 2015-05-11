@@ -12,7 +12,7 @@
           } else {
             $(this).find(".total-average").text(totalAvg);
           }
-        $(this).append(node);
+          $(this).find(".field-content").before(node);
         userVote = undefined;
         avgVote = undefined;
         totalAvg = undefined;
