@@ -8,6 +8,19 @@
   background-position: 0px -40px;
   background-repeat: no-repeat;
   margin-bottom: 2em;
+  display: inline-block;
+  .view-header {
+    float: left;
+    margin: 1em 0 0 1em;
+  }
+  .view-footer {
+    .btn {
+    background: $green;
+    }
+  }
+  .view-content {
+  float: right;
+  }
   .views-field {
   	  margin: 1em 0;
 	}
@@ -30,4 +43,31 @@
 	  height: 12px;
 	  float: left;
 	}
+  .views-row {
+    .field-content {
+      display: inline-block;
+    }
+    .rate-info {
+      display: none;
+    }
+    .total-average {
+      margin-right: 0.50em;
+      min-width: 40px;
+      float: left;
+    }
+  }
+  .ratingstotal {
+    label {
+      font-size: 19px;
+    }
+    .currentScore {
+      margin-top: 0;
+    }
+    .game-average {
+      font-size: 80px;
+    }
+  }
+  a.btn {
+    color: white;
+  }
 }

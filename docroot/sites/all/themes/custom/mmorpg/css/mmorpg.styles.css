@@ -1151,15 +1151,26 @@ ul.pager {
   background-image: url(http://skywisenight.com/spec_rev7/content/images/639_r0.jpg);
   background-position: 0px -40px;
   background-repeat: no-repeat;
-  margin-bottom: 2em; }
-  /* line 11, ../sass/components/_ratings.scss */
+  margin-bottom: 2em;
+  display: inline-block; }
+  /* line 12, ../sass/components/_ratings.scss */
+  .pane-game-ratings .view-header {
+    float: left;
+    margin: 1em 0 0 1em; }
+  /* line 17, ../sass/components/_ratings.scss */
+  .pane-game-ratings .view-footer .btn, .pane-game-ratings .view-footer .om-autoscroll {
+    background: #65c015; }
+  /* line 21, ../sass/components/_ratings.scss */
+  .pane-game-ratings .view-content {
+    float: right; }
+  /* line 24, ../sass/components/_ratings.scss */
   .pane-game-ratings .views-field {
     margin: 1em 0; }
-  /* line 14, ../sass/components/_ratings.scss */
+  /* line 27, ../sass/components/_ratings.scss */
   .pane-game-ratings .views-label {
     float: left;
     min-width: 124px; }
-  /* line 18, ../sass/components/_ratings.scss */
+  /* line 31, ../sass/components/_ratings.scss */
   .pane-game-ratings .ui-slider-horizontal {
     background: #494949;
     border: 1px solid #8ECCFF;
@@ -1169,11 +1180,34 @@ ul.pager {
     display: inline-table;
     width: 240px;
     height: 0.8em; }
-  /* line 28, ../sass/components/_ratings.scss */
+  /* line 41, ../sass/components/_ratings.scss */
   .pane-game-ratings .rate-mmorpg-value {
     background: #2697ff;
     height: 12px;
     float: left; }
+  /* line 47, ../sass/components/_ratings.scss */
+  .pane-game-ratings .views-row .field-content {
+    display: inline-block; }
+  /* line 50, ../sass/components/_ratings.scss */
+  .pane-game-ratings .views-row .rate-info {
+    display: none; }
+  /* line 53, ../sass/components/_ratings.scss */
+  .pane-game-ratings .views-row .total-average {
+    margin-right: 0.50em;
+    min-width: 40px;
+    float: left; }
+  /* line 60, ../sass/components/_ratings.scss */
+  .pane-game-ratings .ratingstotal label {
+    font-size: 19px; }
+  /* line 63, ../sass/components/_ratings.scss */
+  .pane-game-ratings .ratingstotal .currentScore {
+    margin-top: 0; }
+  /* line 66, ../sass/components/_ratings.scss */
+  .pane-game-ratings .ratingstotal .game-average {
+    font-size: 80px; }
+  /* line 70, ../sass/components/_ratings.scss */
+  .pane-game-ratings a.btn, .pane-game-ratings .view-footer a.om-autoscroll, .view-footer .pane-game-ratings a.om-autoscroll {
+    color: white; }
 
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
