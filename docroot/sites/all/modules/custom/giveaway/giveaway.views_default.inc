@@ -297,8 +297,8 @@ function giveaway_views_default_views() {
     ),
   );
 
-  /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane');
+  /* Display: Listing pane */
+  $handler = $view->new_display('panel_pane', 'Listing pane', 'listing_pane');
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -382,8 +382,8 @@ function giveaway_views_default_views() {
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 
-  /* Display: Promoted Content pane */
-  $handler = $view->new_display('panel_pane', 'Promoted Content pane', 'panel_pane_1');
+  /* Display: Promoted pane */
+  $handler = $view->new_display('panel_pane', 'Promoted pane', 'promoted_pane');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'promoted-giveaway';
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -511,6 +511,14 @@ function giveaway_views_default_views() {
 
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed');
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'giveaways/rss.xml';
   $translatables['giveaway_listing'] = array(
     t('Master'),
     t('more'),
@@ -544,9 +552,9 @@ function giveaway_views_default_views() {
     t('Game'),
     t('Type'),
     t('Post date'),
-    t('Content pane'),
+    t('Listing pane'),
     t('View panes'),
-    t('Promoted Content pane'),
+    t('Promoted pane'),
     t('author'),
     t('Keep Reading'),
     t('<span class="comment_icon"></span><strong>[comment_count]</strong> comments'),
@@ -562,6 +570,7 @@ function giveaway_views_default_views() {
 <div class="promoted_giveaway_author">Posted by [name] on [created]th</div>
 
 </div>'),
+    t('Feed'),
   );
   $export['giveaway_listing'] = $view;
 
