@@ -1,16 +1,4 @@
 (function ($) {
-  Drupal.behaviors.mmorpgToggleRatings = {
-    jQuery("#rate-view .btn").click(function(event) {
-      jQuery("#rate-view").hide();
-      jQuery(".cast-view").show();
-      event.preventDefault()
-    });
-    jQuery(".cast-view .btn").click(function(event) {
-      jQuery("#rate-view").show();
-      jQuery(".cast-view").hide();
-      event.preventDefault()
-    });
-  }
   Drupal.behaviors.mmorpgGameRatings = {
     attach: function (context, settings) {
       var userRatingAverage = function() {
@@ -44,6 +32,18 @@
 
     userRatingAverage();
     gameAverage();
+  }
+  Drupal.behaviors.mmorpgToggleRatings = {
+    jQuery("#rate-view .btn").click(function(event) {
+      jQuery("#rate-view").hide();
+      jQuery(".cast-view").show();
+      event.preventDefault()
+    });
+    jQuery(".cast-view .btn").click(function(event) {
+      jQuery("#rate-view").show();
+      jQuery(".cast-view").hide();
+      event.preventDefault()
+    });
   }
 };
 })(jQuery);
