@@ -32,30 +32,30 @@ function mmorpg_article_views_api($module = NULL, $api = NULL) {
 function mmorpg_article_image_default_styles() {
   $styles = array();
 
-  // Exported image style: 200x160_user_menu.
-  $styles['200x160_user_menu'] = array(
-    'label' => '200x160 User Menu',
+  // Exported image style: updates_menu_60x45.
+  $styles['updates_menu_60x45'] = array(
+    'label' => 'Updates Menu (60x45)',
     'effects' => array(
       1 => array(
-        'name' => 'image_resize',
+        'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 200,
-          'height' => 160,
+          'width' => 60,
+          'height' => 45,
         ),
         'weight' => 1,
       ),
     ),
   );
 
-  // Exported image style: 60x45_updates_menu.
-  $styles['60x45_updates_menu'] = array(
-    'label' => '60x45 Updates Menu',
+  // Exported image style: user_menu_200x160.
+  $styles['user_menu_200x160'] = array(
+    'label' => 'User Menu (200x160)',
     'effects' => array(
       1 => array(
-        'name' => 'image_resize',
+        'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 60,
-          'height' => 45,
+          'width' => 200,
+          'height' => 160,
         ),
         'weight' => 1,
       ),

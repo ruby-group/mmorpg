@@ -377,7 +377,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_pnpg_background_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_pnpg_background_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_pnpg_background_image']['settings'] = array(
-    'image_style' => 'play_now_promoted',
+    'image_style' => 'promoted_play_now_880x360',
     'image_link' => '',
   );
   /* Field: Global: Custom text */
@@ -534,7 +534,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_screenshot_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_screenshot_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_screenshot_image']['settings'] = array(
-    'image_style' => 'play_now_screenshots__160x100_',
+    'image_style' => 'play_now_screenshots_160x100',
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_screenshot_image']['group_rows'] = FALSE;
@@ -629,7 +629,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_game_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_game_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_game_hero_image']['settings'] = array(
-    'image_style' => 'plaw_now_slider',
+    'image_style' => 'play_now_slider_192x128',
     'image_link' => '',
   );
   /* Field: Global: Custom text */
@@ -772,7 +772,7 @@ function mmorpg_signup_now_views_default_views() {
   $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_image']['settings'] = array(
-    'image_style' => 'promoted_signup_now_links__26_x_26_',
+    'image_style' => 'promoted_signup_now_links_26x26',
     'image_link' => '',
   );
   /* Field: Content: Title */

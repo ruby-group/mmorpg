@@ -29,12 +29,12 @@ function mmorpg_game_views_api($module = NULL, $api = NULL) {
 function mmorpg_game_image_default_styles() {
   $styles = array();
 
-  // Exported image style: overview_articles__200x155_.
-  $styles['overview_articles__200x155_'] = array(
-    'label' => 'Overview Articles (200x155)',
+  // Exported image style: articles_overview_200x155.
+  $styles['articles_overview_200x155'] = array(
+    'label' => 'Articles Overview (200x155)',
     'effects' => array(
-      3 => array(
-        'name' => 'image_resize',
+      1 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 200,
           'height' => 155,
@@ -44,12 +44,12 @@ function mmorpg_game_image_default_styles() {
     ),
   );
 
-  // Exported image style: screenshot_gallery__228_x_150_.
-  $styles['screenshot_gallery__228_x_150_'] = array(
-    'label' => 'Screenshot Gallery (228 X 150)',
+  // Exported image style: screenshot_gallery_228x150.
+  $styles['screenshot_gallery_228x150'] = array(
+    'label' => 'Screenshot Gallery (228x150)',
     'effects' => array(
-      2 => array(
-        'name' => 'image_resize',
+      1 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 228,
           'height' => 150,
