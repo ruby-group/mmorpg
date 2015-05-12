@@ -12,6 +12,7 @@
   .view-header {
     float: left;
     margin: 1em 0 0 1em;
+    text-align: center;
   }
   .view-footer {
     .btn {
@@ -22,27 +23,27 @@
   float: right;
   }
   .views-field {
-  	  margin: 1em 0;
-	}
-	.views-label {
-	  float: left;
-	  min-width: 124px;
-	}
-	.ui-slider-horizontal {
-	  background: #494949;
-	  border: 1px solid #8ECCFF;
-	  border-radius: 2px;
-	  overflow: hidden;
-	  position: relative;
-	  display: inline-table;
-	  width: 240px;
-	  height: 0.8em;
-	}
-	.rate-mmorpg-value {
-	  background: #2697ff;
-	  height: 12px;
-	  float: left;
-	}
+      margin: 1em 0;
+    }
+    .views-label {
+      float: left;
+      min-width: 124px;
+    }
+    .ui-slider-horizontal {
+      background: #494949;
+      border: 1px solid #8ECCFF;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      display: inline-table;
+      width: 240px;
+      height: 0.8em;
+    }
+    .rate-mmorpg-value {
+      background: #2697ff;
+      height: 12px;
+      float: left;
+    }
   .views-row {
     .field-content {
       display: inline-block;
@@ -57,7 +58,7 @@
     }
   }
   .ratingstotal {
-    label {
+    .label {
       font-size: 19px;
     }
     .currentScore {
@@ -70,4 +71,21 @@
   a.btn {
     color: white;
   }
+  .view-display-id-active_ratings {
+   .view-content {
+      background: rgba(0, 0, 0, 0.53);
+      border: 1px solid #777;
+      padding: 0 1em 0;
+    }
+    .view-footer {
+      display: inline-block;
+      width: 50%;
+      float: right;
+      text-align: center;
+    }
+  }
+}
+.cast-view {
+  display: none;
+  float: left;
 }
