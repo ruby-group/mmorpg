@@ -37,10 +37,13 @@ function mmorpg_game_field_default_field_bases() {
   // Exported field_base: 'field_business_model'
   $field_bases['field_business_model'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_business_model',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -173,55 +176,16 @@ function mmorpg_game_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_developer'
-  $field_bases['field_developer'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_developer',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'allow_self_reference' => 1,
-        'behaviors' => array(
-          'views-autocomplete' => array(
-            'status' => 0,
-          ),
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'developer' => 'developer',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
-  );
-
   // Exported field_base: 'field_distribution_types'
   $field_bases['field_distribution_types'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_distribution_types',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -714,10 +678,13 @@ function mmorpg_game_field_default_field_bases() {
   // Exported field_base: 'field_languages'
   $field_bases['field_languages'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_languages',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -821,10 +788,13 @@ function mmorpg_game_field_default_field_bases() {
   // Exported field_base: 'field_payment_methods'
   $field_bases['field_payment_methods'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_payment_methods',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
@@ -871,48 +841,6 @@ function mmorpg_game_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_publisher'
-  $field_bases['field_publisher'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_publisher',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'entityreference',
-    'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'allow_self_reference' => 1,
-        'behaviors' => array(
-          'views-autocomplete' => array(
-            'status' => 0,
-          ),
-          'views-select-list' => array(
-            'status' => 0,
-          ),
-        ),
-        'sort' => array(
-          'type' => 'none',
-        ),
-        'target_bundles' => array(
-          'publisher' => 'publisher',
-        ),
-      ),
-      'target_type' => 'node',
-    ),
-    'translatable' => 0,
-    'type' => 'entityreference',
   );
 
   // Exported field_base: 'field_release_date_full'

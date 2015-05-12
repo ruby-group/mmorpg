@@ -753,41 +753,6 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-game-field_developer'
-  $field_instances['node-game-field_developer'] = array(
-    'bundle' => 'game',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 25,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_developer',
-    'label' => 'Developer',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 25,
-    ),
-  );
-
   // Exported field_instance: 'node-game-field_distribution_types'
   $field_instances['node-game-field_distribution_types'] = array(
     'bundle' => 'game',
@@ -1515,41 +1480,6 @@ function mmorpg_game_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 23,
-    ),
-  );
-
-  // Exported field_instance: 'node-game-field_publisher'
-  $field_instances['node-game-field_publisher'] = array(
-    'bundle' => 'game',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 26,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_publisher',
-    'label' => 'Publisher',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => '',
-      ),
-      'type' => 'options_select',
-      'weight' => 26,
     ),
   );
 
@@ -2321,7 +2251,6 @@ function mmorpg_game_field_default_field_instances() {
   t('Classification');
   t('Date Type');
   t('Description');
-  t('Developer');
   t('Display Date');
   t('Distribution Types');
   t('Duration');
@@ -2349,7 +2278,6 @@ function mmorpg_game_field_default_field_instances() {
   t('PVP');
   t('Payment Methods');
   t('Platforms');
-  t('Publisher');
   t('Release Date');
   t('Release Quarter');
   t('Release Year');
