@@ -397,10 +397,34 @@ function mmorpg_game_views_default_views() {
 
   /* Display: Active Ratings */
   $handler = $view->new_display('page', 'Active Ratings', 'active_ratings');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal"><span class="label">Player Rating</span><h3 class="currentScore">8.6</h3></div>';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<input type="submit" name="submit" value="Cast your rating" class="btn large cta" id="castRatingSubmit">';
+  $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['path'] = 'active_ratings';
 
   /* Display: Inactive Ratings */
   $handler = $view->new_display('page', 'Inactive Ratings', 'inactive_ratings');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal">
+										<span class="label">Player Rating</span><h3 class="currentScore">8.6</h3>
+										<a href="#" class="btn castratebutton">Rate this Game</a>
+									</div>';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -503,7 +527,13 @@ function mmorpg_game_views_default_views() {
     t('Performance/Lag'),
     t('All'),
     t('Active Ratings'),
+    t('<div class="cell ratingstotal"><span class="label">Player Rating</span><h3 class="currentScore">8.6</h3></div>'),
+    t('<input type="submit" name="submit" value="Cast your rating" class="btn large cta" id="castRatingSubmit">'),
     t('Inactive Ratings'),
+    t('<div class="cell ratingstotal">
+										<span class="label">Player Rating</span><h3 class="currentScore">8.6</h3>
+										<a href="#" class="btn castratebutton">Rate this Game</a>
+									</div>'),
   );
   $export['game_ratings'] = $view;
 
@@ -847,6 +877,10 @@ User Submitted|User Uploaded Only',
     ),
   );
 
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['path'] = 'game/%/screenshotview';
+
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
   $handler->display->display_options['pager']['type'] = 'some';
@@ -881,6 +915,7 @@ User Submitted|User Uploaded Only'),
     t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),
+    t('Page'),
     t('Feed'),
   );
   $export['screenshot_gallery_grid'] = $view;

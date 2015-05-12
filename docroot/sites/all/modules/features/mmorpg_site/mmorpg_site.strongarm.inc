@@ -77,7 +77,7 @@ function mmorpg_site_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'chosen_jquery_selector';
-  $strongarm->value = 'select#edit-created, select#edit-sort-by, select#edit-sort-order';
+  $strongarm->value = 'select';
   $export['chosen_jquery_selector'] = $strongarm;
 
   $strongarm = new stdClass();
