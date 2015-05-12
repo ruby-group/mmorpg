@@ -141,6 +141,11 @@ function giveaway_data_default() {
         'field' => 'uid',
         'inner_join' => '0',
       ),
+      'node' => array(
+        'left_field' => 'nid',
+        'field' => 'gid',
+        'inner_join' => '1',
+      ),
     ),
   );
   $export['giveaway_keys'] = $data_table;
