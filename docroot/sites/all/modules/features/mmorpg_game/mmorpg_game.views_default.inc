@@ -34,7 +34,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Header Image */
+  /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -847,10 +847,6 @@ User Submitted|User Uploaded Only',
     ),
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['path'] = 'game/%/screenshots';
-
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
   $handler->display->display_options['pager']['type'] = 'some';
@@ -885,7 +881,6 @@ User Submitted|User Uploaded Only'),
     t('All'),
     t('Screenshot Gallery Grid'),
     t('View panes'),
-    t('Page'),
     t('Feed'),
   );
   $export['screenshot_gallery_grid'] = $view;
