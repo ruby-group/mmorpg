@@ -202,9 +202,9 @@ function mmorpg_game_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
+          'prefix_suffix' => 1,
           'scale' => 0,
-          'thousand_separator' => ' ',
+          'thousand_separator' => '',
         ),
         'type' => 'number_integer',
         'weight' => 14,
@@ -495,9 +495,9 @@ function mmorpg_game_field_default_field_instances() {
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
+          'prefix_suffix' => 1,
           'scale' => 0,
-          'thousand_separator' => ' ',
+          'thousand_separator' => '',
         ),
         'type' => 'number_integer',
         'weight' => 11,
