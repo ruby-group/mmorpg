@@ -7,6 +7,11 @@
 include_once 'giveaway.features.inc';
 
 /**
+ * This has been included here because the projspace server is running version 5.4
+ */
+include_once 'array_column.php';
+
+/**
  * Implements hook_ctools_plugin_directory().
  */
 function giveaway_ctools_plugin_directory($module, $plugin) {
