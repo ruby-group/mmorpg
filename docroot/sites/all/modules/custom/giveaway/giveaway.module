@@ -54,6 +54,10 @@ function giveaway_block_info() {
     'info' => t('Giveaway User Claimed Key Block'),
     'cache' => DRUPAL_CACHE_PER_USER,
   );
+  $blocks['giveaway_title_rss_block'] = array(
+    'info' => t('Giveaway Title & RSS Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
   return $blocks;
 }
 
@@ -71,6 +75,9 @@ function giveaway_block_view($delta = '') {
       break;
     case 'giveaway_user_claimed_key_block':
       $block['content'] = _giveaway_show_user_claimed_key();
+      break;
+    case 'giveaway_title_rss_block':
+      $block['content'] = _giveaway_show_title_rss();
       break;
   }
   return $block;
@@ -153,6 +160,16 @@ function _giveaway_show_claim_button_submit($form, &$form_state) {
       ->condition('gkid', $id)
       ->execute();
   }
+}
+
+function _giveaway_show_title_rss() {
+  return "
+  <div class='pane-mmorpg-game-game-rss-link-block aliya-this-is-custom-html'>
+  <h2 class='pane-title'>
+      Special Offers &amp; Giveaways
+  </h2>"
+  . l('RSS', 'giveaways/rss.xml') .
+  "</div>";
 }
 
 function _giveaway_user_is_logged_in($user) {

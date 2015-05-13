@@ -1,6 +1,6 @@
 <?php
 
-function clickmeter_config_form() {
+function clickmeter_link_config_form() {
   return system_settings_form(array(
     'clickmeter_api_key' => array(
       '#type' => 'textfield',
@@ -11,7 +11,7 @@ function clickmeter_config_form() {
   ));
 }
 
-function clickmeter_group_config() {
+function clickmeter_link_group_config() {
   $groups = ClickmeterService::get_groups('all');
   $display = array();
   foreach ($groups as $id => $name) {
@@ -20,7 +20,7 @@ function clickmeter_group_config() {
       $name,
     );
   }
-  $form = drupal_get_form('clickmeter_new_group_form');
+  $form = drupal_get_form('clickmeter_link_new_group_form');
 
   return
     render($form) .
@@ -31,7 +31,7 @@ function clickmeter_group_config() {
     ));
 }
 
-function clickmeter_new_group_form() {
+function clickmeter_link_new_group_form() {
   return array(
     'new_group' => array(
       '#title' => t('Create Group'),
@@ -42,10 +42,10 @@ function clickmeter_new_group_form() {
       '#type' => 'submit',
       '#value' => t('Save')
     ),
-    '#submit' => array('clickmeter_new_group_form_submit'),
+    '#submit' => array('clickmeter_link_new_group_form_submit'),
   );
 }
 
-function clickmeter_new_group_form_submit($form_id, &$form_state) {
+function clickmeter_link_new_group_form_submit($form_id, &$form_state) {
   ClickmeterService::new_group($form_state['values']['new_group']);
 }
