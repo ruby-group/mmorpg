@@ -29,7 +29,11 @@
 
    function render($values) {
      // Render your content.
-    $game_nid = $values->node_field_data_field_game_nid;
+    if (isset($values->node_field_data_field_game_nid)) {
+      $game_nid = $values->node_field_data_field_game_nid;
+    } else {
+      $game_nid = $values->nid;
+    }
      return _mmorpg_signup_now_game_avg_rating($game_nid);
    }
 }
