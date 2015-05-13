@@ -1105,7 +1105,7 @@ ul.pager {
   /* line 12, ../sass/components/_ratings.scss */
   .pane-game-ratings .view-header {
     float: left;
-    margin: 1em 0 0 1em;
+    margin: 11em 0 0 3em;
     text-align: center; }
   /* line 18, ../sass/components/_ratings.scss */
   .pane-game-ratings .view-footer .btn, .pane-game-ratings .view-footer .om-autoscroll {
@@ -1119,7 +1119,7 @@ ul.pager {
   /* line 28, ../sass/components/_ratings.scss */
   .pane-game-ratings .views-label {
     float: left;
-    min-width: 124px; }
+    min-width: 165px; }
   /* line 32, ../sass/components/_ratings.scss */
   .pane-game-ratings .ui-slider-horizontal {
     background: #494949;
@@ -1142,47 +1142,80 @@ ul.pager {
   .pane-game-ratings .views-row .field-content {
     display: inline-block; }
   /* line 54, ../sass/components/_ratings.scss */
-  .pane-game-ratings .views-row .rate-info {
-    display: none; }
-  /* line 57, ../sass/components/_ratings.scss */
   .pane-game-ratings .views-row .total-average {
     margin-right: 0.50em;
     min-width: 40px;
     float: left; }
-  /* line 64, ../sass/components/_ratings.scss */
+  /* line 61, ../sass/components/_ratings.scss */
   .pane-game-ratings .ratingstotal .label {
     font-size: 19px; }
-  /* line 67, ../sass/components/_ratings.scss */
+  /* line 64, ../sass/components/_ratings.scss */
   .pane-game-ratings .ratingstotal .currentScore {
-    margin-top: 0; }
-  /* line 70, ../sass/components/_ratings.scss */
-  .pane-game-ratings .ratingstotal .game-average {
+    margin-top: 0;
     font-size: 80px; }
-  /* line 74, ../sass/components/_ratings.scss */
+  /* line 69, ../sass/components/_ratings.scss */
   .pane-game-ratings a.btn, .pane-game-ratings .view-footer a.om-autoscroll, .view-footer .pane-game-ratings a.om-autoscroll {
     color: white; }
-  /* line 78, ../sass/components/_ratings.scss */
+  /* line 73, ../sass/components/_ratings.scss */
   .pane-game-ratings .view-display-id-active_ratings .view-content {
     background: rgba(0, 0, 0, 0.53);
     border: 1px solid #777;
     padding: 0 1em 0; }
-  /* line 83, ../sass/components/_ratings.scss */
+  /* line 78, ../sass/components/_ratings.scss */
   .pane-game-ratings .view-display-id-active_ratings .view-footer {
     display: inline-block;
     width: 50%;
     float: right;
     text-align: center; }
+  /* line 85, ../sass/components/_ratings.scss */
+  .pane-game-ratings .views-field-average-game-rating {
+    position: absolute;
+    left: 2em;
+    text-align: center;
+    top: 8em;
+    width: 170px; }
+    /* line 91, ../sass/components/_ratings.scss */
+    .pane-game-ratings .views-field-average-game-rating .views-label-average-game-rating {
+      font-size: 19px;
+      display: inline-block;
+      float: none; }
+    /* line 96, ../sass/components/_ratings.scss */
+    .pane-game-ratings .views-field-average-game-rating .total-average {
+      display: none; }
+    /* line 99, ../sass/components/_ratings.scss */
+    .pane-game-ratings .views-field-average-game-rating .field-content, .pane-game-ratings .views-field-average-game-rating .game-average {
+      font-size: 80px;
+      width: 100%;
+      font-weight: bold; }
 
-/* line 91, ../sass/components/_ratings.scss */
+/* line 106, ../sass/components/_ratings.scss */
 .cast-view {
-  display: none;
-  float: left; }
+  float: left;
+  display: none; }
+  /* line 109, ../sass/components/_ratings.scss */
+  .cast-view .average-rating {
+    display: none; }
 
-/* line 95, ../sass/components/_ratings.scss */
+/* line 113, ../sass/components/_ratings.scss */
 .pane-mmorpg-rate-add-review-block {
   float: left; }
 
-/* line 99, ../sass/components/_ratings.scss */
+/* line 116, ../sass/components/_ratings.scss */
+.rate-info {
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: -3em; }
+
+/* line 123, ../sass/components/_ratings.scss */
+.rate-widget {
+  position: relative; }
+
+/* line 127, ../sass/components/_ratings.scss */
+#rate-view .user-vote {
+  display: none; }
+/* line 130, ../sass/components/_ratings.scss */
 #rate-view .rate-mmorpg.ui-mmorpg {
   background: #494949;
   border: 1px solid #8ECCFF;
@@ -1191,6 +1224,10 @@ ul.pager {
   position: relative;
   display: inline-table;
   height: 0.8em; }
+
+/* line 141, ../sass/components/_ratings.scss */
+.page-game-ratings .panel-1col .panel-col {
+  position: relative; }
 
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {

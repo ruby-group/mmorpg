@@ -4,11 +4,8 @@
  * Rate widget theme
  */
 
-if ($info) {
-  print '<div class="rate-info"> <div class="user-vote">' . $info['vote'] . '</div><div class="average-rating"> ' . $info['rating'] . '</div></div>';
-} else {
-  print '<div class="rate-info"></div>';
-}
+
+print '<div class="rate-info"> <div class="user-vote">' . $user_vote . '</div><div class="average-rating"> ' . $rating . '</div></div>';
 
 print '<div class="rate-mmorpg rate-value-' . $value . '">';
 print theme('item_list', array('items' => $buttons));

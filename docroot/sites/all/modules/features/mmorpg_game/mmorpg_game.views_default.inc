@@ -368,6 +368,12 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_7']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_7']['precision'] = '0';
   $handler->display->display_options['fields']['value_7']['appearance'] = 'rate_views_widget';
+  /* Field: Custom: Average Game Rating */
+  $handler->display->display_options['fields']['average_game_rating']['id'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['table'] = 'custom';
+  $handler->display->display_options['fields']['average_game_rating']['field'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['label'] = 'Player Rating';
+  $handler->display->display_options['fields']['average_game_rating']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -404,7 +410,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal"><span class="label">Player Rating</span><h3 class="currentScore">8.6</h3></div>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal"></div>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Footer: Global: Text area */
@@ -423,7 +429,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal">
-										<span class="label">Player Rating</span><h3 class="currentScore">8.6</h3>
+										
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
@@ -535,16 +541,16 @@ function mmorpg_game_views_default_views() {
     t('.'),
     t(','),
     t('Performance/Lag'),
+    t('Player Rating'),
     t('All'),
     t('Active Ratings'),
-    t('<div class="cell ratingstotal"><span class="label">Player Rating</span><h3 class="currentScore">8.6</h3></div>'),
+    t('<div class="cell ratingstotal"></div>'),
     t('<input type="submit" name="submit" value="Cast your rating" class="btn large cta" id="castRatingSubmit">'),
     t('Inactive Ratings'),
     t('<div class="cell ratingstotal">
-										<span class="label">Player Rating</span><h3 class="currentScore">8.6</h3>
+										
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>'),
-    t('Player Rating'),
   );
   $export['game_ratings'] = $view;
 

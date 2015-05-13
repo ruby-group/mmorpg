@@ -48,12 +48,11 @@ function mmorpg_rate_theme() {
  * Preprocess function for the mmorpg_rate template.
  */
 function mmorpg_rate_preprocess_rate_template_mmorpg(&$variables) {
-
   drupal_add_library('system', 'ui.slider');
 
   // Calculate start value for slider.
-  if (isset($variables['results']['user_vote'])) {
-    $variables['value'] = $variables['results']['user_vote'];
+  if (isset($variables['results']['rating'])) {
+    $variables['value'] = round($variables['results']['rating'],1);
   }
   else {
     $variables['value'] = 5;
@@ -77,9 +76,13 @@ function mmorpg_rate_preprocess_rate_template_mmorpg(&$variables) {
   if ($variables['mode'] == RATE_CLOSED) {
     $info[] = t('Rating is closed.');
   }
-  $info['user_vote'] = t('!vote', array('!vote' => $variables['results']['user_vote']));
-  $info['rating'] = t('!rating', array('!rating' => $variables['results']['rating']));
-  $variables['info'] = implode(' ', $info);
+  if (isset($variables['results']['user_vote'])) {
+    $variables['user_vote'] =round($variables['results']['user_vote'],1);
+  }
+  else {
+    $variables['user_vote'] = 5;
+  }
+  $variables['rating'] = round($variables['results']['rating'],1);
 }
 
 /**
