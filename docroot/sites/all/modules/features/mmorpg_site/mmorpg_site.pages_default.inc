@@ -2578,11 +2578,8 @@ function mmorpg_site_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array();
     $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '300',
-        'granularity' => 'none',
-      ),
+      'method' => '0',
+      'settings' => array(),
     );
     $pane->style = array(
       'settings' => NULL,
@@ -2603,11 +2600,8 @@ function mmorpg_site_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array();
     $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '300',
-        'granularity' => 'none',
-      ),
+      'method' => '0',
+      'settings' => array(),
     );
     $pane->style = array(
       'settings' => NULL,
