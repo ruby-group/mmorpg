@@ -19,7 +19,7 @@ function giveaway_keys_are_available_ctools_access_check($conf, $context) {
   return db_select('giveaway_keys')
     ->fields(NULL, array('gkid'))
     ->condition('gid', $context->data->nid)
-    ->condition('claimed_on', 0)
+    ->condition('uid', 0)
     ->execute()
     ->rowCount();
 }

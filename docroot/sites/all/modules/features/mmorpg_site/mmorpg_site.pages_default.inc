@@ -314,6 +314,16 @@ function mmorpg_site_default_page_manager_handlers() {
           ),
           'not' => FALSE,
         ),
+        1 => array(
+          'name' => 'role',
+          'settings' => array(
+            'rids' => array(
+              0 => 2,
+            ),
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
       ),
     );
     $pane->configuration = array(
@@ -384,6 +394,12 @@ function mmorpg_site_default_page_manager_handlers() {
             1 => 'argument_entity_id:node_1',
           ),
           'not' => TRUE,
+        ),
+        1 => array(
+          'name' => 'giveaway_keys_are_available',
+          'settings' => NULL,
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
         ),
       ),
     );
