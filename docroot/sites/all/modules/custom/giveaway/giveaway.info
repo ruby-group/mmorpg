@@ -100,4 +100,5 @@ features[variable][] = scheduler_unpublish_enable_giveaway
 features[variable][] = scheduler_unpublish_required_giveaway
 features[variable][] = scheduler_unpublish_revision_giveaway
 features[variable][] = scheduler_use_vertical_tabs_giveaway
+features[views_view][] = giveaway_keys
 features[views_view][] = giveaway_listing
