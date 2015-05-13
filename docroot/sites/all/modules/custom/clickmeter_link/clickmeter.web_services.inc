@@ -48,7 +48,7 @@ class ClickmeterService {
     $response = self::rest_get('groups?status=' . $type);
     $return = array();
     foreach ($response->entities as $entity) {
-      $return[$entity->id] = self::get_group($entity->id)->name;
+      $return[$entity->id] = check_plain(self::get_group($entity->id)->name);
     }
     return $return;
   }
@@ -67,7 +67,7 @@ class ClickmeterService {
     $response = self::rest_get('domains');
     $return = array();
     foreach ($response->entities as $entity) {
-      $return[$entity->id] = self::get_domain($entity->id)->name;
+      $return[$entity->id] = check_plain(self::get_domain($entity->id)->name);
     }
     return $return;
   }

@@ -41,7 +41,7 @@ function clickmeter_link_menu() {
     'description' => 'Configuration for clickmeter API key.',
     'access arguments' => array('administer site configuration'),
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('clickmeter_config_form'),
+    'page arguments' => array('clickmeter_link_config_form'),
     'file' => 'clickmeter_link.admin.inc',
     'file path' => drupal_get_path('module', 'clickmeter_link'),
     'type' => MENU_NORMAL_ITEM,
@@ -50,7 +50,7 @@ function clickmeter_link_menu() {
     'title' => 'Group Management',
     'description' => 'Link group management page.',
     'access arguments' => array('administer site configuration'),
-    'page callback' => 'clickmeter_group_config',
+    'page callback' => 'clickmeter_link_group_config',
     'file' => 'clickmeter_link.admin.inc',
     'file path' => drupal_get_path('module', 'clickmeter_link'),
     'type' => MENU_NORMAL_ITEM,
@@ -451,10 +451,10 @@ function _clickmeter_link_process(&$item, $delta, $field, $entity) {
 
       $item['group'] = $group_id;
       $item['domain'] = $domain_id;
-      $item['link_id'] = $link_details->id;
-      $item['pixel_id'] = $pixel_details->id;
-      $item['link_url'] = $link_details->trackingCode;
-      $item['pixel_url'] = $pixel_details->trackingCode;
+      $item['link_id'] = check_plain($link_details->id);
+      $item['pixel_id'] = check_plain($pixel_details->id);
+      $item['link_url'] = check_plain($link_details->trackingCode);
+      $item['pixel_url'] = check_plain($pixel_details->trackingCode);
     } catch (Exception $e) {
       $item['group'] = $item['clickmeter_fieldset']['group'];
       $item['domain'] = $item['clickmeter_fieldset']['domain'];
@@ -747,7 +747,7 @@ function _clickmeter_link_parse_url($url) {
  * Replaces the PHP parse_str() function.
  *
  * Because parse_str replaces the following characters in query parameters name
- * in order to maintain compability with deprecated register_globals directive:
+ * in order to maintain compatibility with deprecated register_globals directive:
  *
  *   - chr(32) ( ) (space)
  *   - chr(46) (.) (dot)
@@ -952,7 +952,7 @@ function clickmeter_link_field_process($element, $form_state, $complete_form) {
     );
   }
 
-  // If the title field is avaliable or there are field accepts multiple values
+  // If the title field is available or there are field accepts multiple values
   // then allow the individual field items display the required asterisk if needed.
   if (isset($element['title']) || isset($element['_weight'])) {
     // To prevent an extra required indicator, disable the required flag on the
