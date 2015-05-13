@@ -311,6 +311,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_1']['table'] = 'votingapi_cache';
   $handler->display->display_options['fields']['value_1']['field'] = 'value';
   $handler->display->display_options['fields']['value_1']['relationship'] = 'votingapi_cache_1';
+  $handler->display->display_options['fields']['value_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_1']['precision'] = '0';
   $handler->display->display_options['fields']['value_1']['appearance'] = 'rate_views_widget';
   /* Field: Vote results: Value */
@@ -328,6 +329,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_2']['field'] = 'value';
   $handler->display->display_options['fields']['value_2']['relationship'] = 'votingapi_cache_3';
   $handler->display->display_options['fields']['value_2']['label'] = 'Community';
+  $handler->display->display_options['fields']['value_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_2']['precision'] = '0';
   $handler->display->display_options['fields']['value_2']['appearance'] = 'rate_views_widget';
   /* Field: Vote results: Value */
@@ -449,6 +451,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_1']['table'] = 'votingapi_cache';
   $handler->display->display_options['fields']['value_1']['field'] = 'value';
   $handler->display->display_options['fields']['value_1']['relationship'] = 'votingapi_cache_1';
+  $handler->display->display_options['fields']['value_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_1']['precision'] = '0';
   $handler->display->display_options['fields']['value_1']['appearance'] = 'rate_views_widget_disabled';
   /* Field: Vote results: Value */
@@ -466,6 +469,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_2']['field'] = 'value';
   $handler->display->display_options['fields']['value_2']['relationship'] = 'votingapi_cache_3';
   $handler->display->display_options['fields']['value_2']['label'] = 'Community';
+  $handler->display->display_options['fields']['value_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_2']['precision'] = '0';
   $handler->display->display_options['fields']['value_2']['appearance'] = 'rate_views_widget_disabled';
   /* Field: Vote results: Value */
@@ -504,6 +508,12 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_7']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_7']['precision'] = '0';
   $handler->display->display_options['fields']['value_7']['appearance'] = 'rate_views_widget_disabled';
+  /* Field: Custom: Average Game Rating */
+  $handler->display->display_options['fields']['average_game_rating']['id'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['table'] = 'custom';
+  $handler->display->display_options['fields']['average_game_rating']['field'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['label'] = 'Player Rating';
+  $handler->display->display_options['fields']['average_game_rating']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'inactive_ratings';
   $translatables['game_ratings'] = array(
     t('Master'),
@@ -534,6 +544,7 @@ function mmorpg_game_views_default_views() {
 										<span class="label">Player Rating</span><h3 class="currentScore">8.6</h3>
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>'),
+    t('Player Rating'),
   );
   $export['game_ratings'] = $view;
 
