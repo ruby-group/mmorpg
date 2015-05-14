@@ -34,7 +34,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Hero Image */
+  /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -374,6 +374,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['average_game_rating']['field'] = 'average_game_rating';
   $handler->display->display_options['fields']['average_game_rating']['label'] = 'Player Rating';
   $handler->display->display_options['fields']['average_game_rating']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['average_game_rating']['empty'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -520,6 +521,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['average_game_rating']['field'] = 'average_game_rating';
   $handler->display->display_options['fields']['average_game_rating']['label'] = 'Player Rating';
   $handler->display->display_options['fields']['average_game_rating']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['average_game_rating']['empty'] = '0';
   $handler->display->display_options['path'] = 'inactive_ratings';
   $translatables['game_ratings'] = array(
     t('Master'),
