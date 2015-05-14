@@ -272,3 +272,23 @@ function _giveaway_is_private_and_user_is_eligible($giveaway, $user) {
   }
   return TRUE;
 }
+
+/**
+ * Implements hook_action_info().
+ */
+function giveaway_action_info() {
+  return array(
+    'giveaway_unassign_keys' => array(
+      'type' => 'data_giveaway_keys',
+      'label' => t('Un-assign keys from users.'),
+      'behavior' => array('changes_property'),
+      'configurable' => FALSE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+    ),
+  );
+}
+
+function giveaway_unassign_keys(&$entity, $context) {
+  $entity->uid = $entity->ip_address = $entity->claimed_on = 0;
+}

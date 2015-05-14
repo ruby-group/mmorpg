@@ -151,7 +151,9 @@ function giveaway_views_default_views() {
       'settings' => array(
         'show_all_tokens' => 1,
         'display_values' => array(
-          '_all_' => '_all_',
+          'uid' => 'uid',
+          'ip_address' => 'ip_address',
+          'claimed_on' => 'claimed_on',
         ),
       ),
     ),
@@ -166,6 +168,13 @@ function giveaway_views_default_views() {
     ),
     'action::system_send_email_action' => array(
       'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::giveaway_unassign_keys' => array(
+      'selected' => 1,
       'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
@@ -227,6 +236,56 @@ function giveaway_views_default_views() {
   $handler->display->display_options['arguments']['gid']['validate_options']['types'] = array(
     'giveaway' => 'giveaway',
   );
+  /* Filter criterion: Keys to be given away: Game Key */
+  $handler->display->display_options['filters']['game_key']['id'] = 'game_key';
+  $handler->display->display_options['filters']['game_key']['table'] = 'giveaway_keys';
+  $handler->display->display_options['filters']['game_key']['field'] = 'game_key';
+  $handler->display->display_options['filters']['game_key']['operator'] = 'contains';
+  $handler->display->display_options['filters']['game_key']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['game_key']['expose']['operator_id'] = 'game_key_op';
+  $handler->display->display_options['filters']['game_key']['expose']['label'] = 'Key';
+  $handler->display->display_options['filters']['game_key']['expose']['operator'] = 'game_key_op';
+  $handler->display->display_options['filters']['game_key']['expose']['identifier'] = 'game_key';
+  $handler->display->display_options['filters']['game_key']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: User: E-mail */
+  $handler->display->display_options['filters']['mail']['id'] = 'mail';
+  $handler->display->display_options['filters']['mail']['table'] = 'users';
+  $handler->display->display_options['filters']['mail']['field'] = 'mail';
+  $handler->display->display_options['filters']['mail']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['mail']['operator'] = 'contains';
+  $handler->display->display_options['filters']['mail']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['mail']['expose']['operator_id'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['label'] = 'E-mail';
+  $handler->display->display_options['filters']['mail']['expose']['operator'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['identifier'] = 'mail';
+  $handler->display->display_options['filters']['mail']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Username';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
@@ -264,6 +323,8 @@ function giveaway_views_default_views() {
     t('IP Address'),
     t('Claimed On'),
     t('All'),
+    t('E-mail'),
+    t('Username'),
     t('Page'),
   );
   $export['giveaway_keys'] = $view;
@@ -851,8 +912,8 @@ function giveaway_views_default_views() {
     t('last »'),
     t('queue'),
     t('Nid'),
-    t('Default'),
     t('Date'),
+    t('Default'),
     t('Title'),
     t('Game'),
     t('Type'),
