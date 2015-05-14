@@ -1863,6 +1863,99 @@ function mmorpg_game_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_allow_multiple';
+  $strongarm->value = '0';
+  $export['reviews_allow_multiple'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_enabled';
+  $strongarm->value = 1;
+  $export['reviews_enabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_enabled_content_types';
+  $strongarm->value = array(
+    'game' => 'game',
+    'article_news_post' => 0,
+    'mmorpg_article' => 0,
+    'customer' => 0,
+    'game_link' => 0,
+    'screenshot_gallery' => 0,
+    'video' => 0,
+    'play_now_promoted_game' => 0,
+    'promoted_signup_now_link' => 0,
+    'signup_now_link' => 0,
+    'siteskin' => 0,
+    'developer' => 0,
+    'publisher' => 0,
+    'test' => 0,
+  );
+  $export['reviews_enabled_content_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_link_type';
+  $strongarm->value = 'tab';
+  $export['reviews_link_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_moderate_content_types';
+  $strongarm->value = array(
+    'article_news_post' => 0,
+    'mmorpg_article' => 0,
+    'customer' => 0,
+    'game' => 0,
+    'game_link' => 0,
+    'screenshot_gallery' => 0,
+    'video' => 0,
+    'play_now_promoted_game' => 0,
+    'promoted_signup_now_link' => 0,
+    'signup_now_link' => 0,
+    'siteskin' => 0,
+    'developer' => 0,
+    'publisher' => 0,
+    'test' => 0,
+  );
+  $export['reviews_moderate_content_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_notify_admin';
+  $strongarm->value = '0';
+  $export['reviews_notify_admin'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_per_page';
+  $strongarm->value = '0';
+  $export['reviews_per_page'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_sort_order';
+  $strongarm->value = '0';
+  $export['reviews_sort_order'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'reviews_use_rating';
+  $strongarm->value = FALSE;
+  $export['reviews_use_rating'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'scheduler_expand_fieldset_game';
   $strongarm->value = '0';
   $export['scheduler_expand_fieldset_game'] = $strongarm;

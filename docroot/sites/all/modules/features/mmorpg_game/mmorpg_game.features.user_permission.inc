@@ -10,6 +10,25 @@
 function mmorpg_game_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'add reviews'.
+  $permissions['add reviews'] = array(
+    'name' => 'add reviews',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'reviews',
+  );
+
+  // Exported permission: 'administer reviews'.
+  $permissions['administer reviews'] = array(
+    'name' => 'administer reviews',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'reviews',
+  );
+
   // Exported permission: 'create game content'.
   $permissions['create game content'] = array(
     'name' => 'create game content',
@@ -152,6 +171,33 @@ function mmorpg_game_user_default_permissions() {
     'name' => 'edit own video content',
     'roles' => array(),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit reviews'.
+  $permissions['edit reviews'] = array(
+    'name' => 'edit reviews',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'reviews',
+  );
+
+  // Exported permission: 'moderate reviews'.
+  $permissions['moderate reviews'] = array(
+    'name' => 'moderate reviews',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'reviews',
+  );
+
+  // Exported permission: 'read reviews'.
+  $permissions['read reviews'] = array(
+    'name' => 'read reviews',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'reviews',
   );
 
   // Exported permission: 'set game published on date'.
