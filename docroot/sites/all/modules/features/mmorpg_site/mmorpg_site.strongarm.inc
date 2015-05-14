@@ -167,6 +167,90 @@ function mmorpg_site_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:buttontext_add';
+  $strongarm->value = '>';
+  $export['improved_multi_select:buttontext_add'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:buttontext_addall';
+  $strongarm->value = '»';
+  $export['improved_multi_select:buttontext_addall'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:buttontext_del';
+  $strongarm->value = '<';
+  $export['improved_multi_select:buttontext_del'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:buttontext_delall';
+  $strongarm->value = '«';
+  $export['improved_multi_select:buttontext_delall'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:buttontext_movedown';
+  $strongarm->value = 'Move down';
+  $export['improved_multi_select:buttontext_movedown'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:buttontext_moveup';
+  $strongarm->value = 'Move up';
+  $export['improved_multi_select:buttontext_moveup'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:filtertype';
+  $strongarm->value = 'partial';
+  $export['improved_multi_select:filtertype'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:groupresetfilter';
+  $strongarm->value = 1;
+  $export['improved_multi_select:groupresetfilter'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:isall';
+  $strongarm->value = 0;
+  $export['improved_multi_select:isall'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:orderable';
+  $strongarm->value = 0;
+  $export['improved_multi_select:orderable'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:selectors';
+  $strongarm->value = '#edit-field-countries-cce-und';
+  $export['improved_multi_select:selectors'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'improved_multi_select:url';
+  $strongarm->value = 'node/*/edit';
+  $export['improved_multi_select:url'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'install_profile';
   $strongarm->value = 'mmorpg';
   $export['install_profile'] = $strongarm;

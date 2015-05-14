@@ -411,3 +411,11 @@ function mmorpg_updates_update_7047() {
     ))
     ->execute();
 }
+
+/**
+ * Enabling improved_multi_select module.
+ */
+function mmorpg_updates_update_7048() {
+  module_enable(array('improved_multi_select'));
+}
+
