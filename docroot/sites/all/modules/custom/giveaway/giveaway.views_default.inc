@@ -24,7 +24,8 @@ function giveaway_views_default_views() {
   $handler = $view->new_display('default', 'Default', 'default');
   $handler->display->display_options['title'] = 'Keys to be given away';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'edit any giveaway content';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -288,7 +289,7 @@ function giveaway_views_default_views() {
   );
 
   /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'node/%/keys';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Keys';
