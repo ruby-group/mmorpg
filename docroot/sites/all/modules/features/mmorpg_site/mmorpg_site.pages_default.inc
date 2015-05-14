@@ -314,6 +314,16 @@ function mmorpg_site_default_page_manager_handlers() {
           ),
           'not' => FALSE,
         ),
+        1 => array(
+          'name' => 'role',
+          'settings' => array(
+            'rids' => array(
+              0 => 2,
+            ),
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
       ),
     );
     $pane->configuration = array(
@@ -385,6 +395,12 @@ function mmorpg_site_default_page_manager_handlers() {
           ),
           'not' => TRUE,
         ),
+        1 => array(
+          'name' => 'giveaway_keys_are_available',
+          'settings' => NULL,
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
       ),
     );
     $pane->configuration = array(
@@ -403,6 +419,31 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->uuid = 'f84b3c3d-8c37-4939-af33-f0beb38625ff';
     $display->content['new-f84b3c3d-8c37-4939-af33-f0beb38625ff'] = $pane;
     $display->panels['middle'][6] = 'new-f84b3c3d-8c37-4939-af33-f0beb38625ff';
+    $pane = new stdClass();
+    $pane->pid = 'new-87540677-8a32-4889-82c6-6cd4cf7225f0';
+    $pane->panel = 'middle';
+    $pane->type = 'sharethis';
+    $pane->subtype = 'sharethis';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'path' => 'current',
+      'path-external' => '',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->locks = array();
+    $pane->uuid = '87540677-8a32-4889-82c6-6cd4cf7225f0';
+    $display->content['new-87540677-8a32-4889-82c6-6cd4cf7225f0'] = $pane;
+    $display->panels['middle'][7] = 'new-87540677-8a32-4889-82c6-6cd4cf7225f0';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-60a87a87-1c56-4f6f-8631-676caaaafb08';
   $handler->conf['display'] = $display;

@@ -25,7 +25,7 @@ function giveaway_user_has_claimed_ctools_access_check($conf, $context) {
   }
 
   //if the user is anonymous, we assume he hasn't claimed.
-  if ($context[0]->data->uid === 0) {
+  if ($context[0]->data->uid == 0) {
     return FALSE;
   }
 
