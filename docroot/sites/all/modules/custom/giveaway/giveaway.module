@@ -164,8 +164,8 @@ function _giveaway_show_claim_button_submit($form, &$form_state) {
 
 function _giveaway_show_title_rss() {
   return "
-  <div class='pane-mmorpg-game-game-rss-link-block aliya-this-is-custom-html'>
-  <h2 class='pane-title'>
+  <div class='pane-mmorpg-game-game-rss-link-block'>
+  <h2 class='title_crumbs'>
       Special Offers &amp; Giveaways
   </h2>"
   . l('RSS', 'giveaways/rss.xml') .
