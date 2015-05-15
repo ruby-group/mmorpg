@@ -142,3 +142,25 @@
     position: relative;
   }
 }
+
+/*Sideblock Rating Block */
+.views-field-average-game-rating {
+  background: #494949;
+  border: 1px solid #848484;
+  border-radius: 2px;
+  display: inline-block;
+  width: 80px;
+  float: right;
+  font-size: 13px;
+  margin-top: 0.75em;
+  line-height: 18px;
+  color: #fff;
+  .field-content {
+    background: #2697ff;
+    padding: 1px 5px 2px;
+    line-height: 16px;
+    width: 5.8%;
+    display: block;
+    height: 17px;
+  }
+}
