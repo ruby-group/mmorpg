@@ -33,7 +33,6 @@ scripts[] = mmorpg_signup_now.js
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[field_base][] = field_countries_cce
 features[field_base][] = field_link_type
 features[field_base][] = field_pnpg_background_image
 features[field_base][] = field_pnpg_schedule
