@@ -1231,7 +1231,7 @@ ul.pager {
 
 /*Sideblock Rating Block */
 /* line 147, ../sass/components/_ratings.scss */
-.views-field-average-game-rating {
+.rightsidebar .views-field-average-game-rating {
   background: #494949;
   border: 1px solid #848484;
   border-radius: 2px;
@@ -1243,7 +1243,7 @@ ul.pager {
   line-height: 18px;
   color: #fff; }
   /* line 158, ../sass/components/_ratings.scss */
-  .views-field-average-game-rating .field-content {
+  .rightsidebar .views-field-average-game-rating .field-content {
     background: #2697ff;
     padding: 1px 5px 2px;
     line-height: 16px;
