@@ -34,7 +34,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Header Image */
+  /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
   $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
@@ -288,6 +288,11 @@ function mmorpg_game_views_default_views() {
     'tag' => 'Sound',
     'function' => 'average',
   );
+  /* Relationship: Content: Game Development Status (field_game_development_status) */
+  $handler->display->display_options['relationships']['field_game_development_status_value']['id'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['field'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['delta'] = '-1';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -403,6 +408,16 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'game' => 'game',
   );
+  /* Filter criterion: Field collection item: Status (field_dev_status) */
+  $handler->display->display_options['filters']['field_dev_status_tid']['id'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['table'] = 'field_data_field_dev_status';
+  $handler->display->display_options['filters']['field_dev_status_tid']['field'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['relationship'] = 'field_game_development_status_value';
+  $handler->display->display_options['filters']['field_dev_status_tid']['value'] = array(
+    279 => '279',
+  );
+  $handler->display->display_options['filters']['field_dev_status_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_dev_status_tid']['vocabulary'] = 'game_development_status';
 
   /* Display: Active Ratings */
   $handler = $view->new_display('page', 'Active Ratings', 'active_ratings');
@@ -434,6 +449,102 @@ function mmorpg_game_views_default_views() {
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Graphics';
+  $handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Graphics',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_1']['id'] = 'votingapi_cache_1';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['label'] = 'Value';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Value',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_2']['id'] = 'votingapi_cache_2';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['label'] = 'Fun';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Fun',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_3']['id'] = 'votingapi_cache_3';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['label'] = 'Community';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Community',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_4']['id'] = 'votingapi_cache_4';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['label'] = 'Role-playing';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Role_playing',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_5']['id'] = 'votingapi_cache_5';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['label'] = 'Performance Lag';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Performance_lag',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_6']['id'] = 'votingapi_cache_6';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['label'] = 'Service';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Service',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_7']['id'] = 'votingapi_cache_7';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['label'] = 'Sound';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Sound',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Game Development Status (field_game_development_status) */
+  $handler->display->display_options['relationships']['field_game_development_status_value']['id'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['field'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['delta'] = '-1';
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_8']['id'] = 'votingapi_cache_8';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['label'] = 'Hype';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'hype',
+    'function' => 'count',
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -515,6 +626,16 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_7']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_7']['precision'] = '0';
   $handler->display->display_options['fields']['value_7']['appearance'] = 'rate_views_widget_disabled';
+  /* Field: Vote results: Value */
+  $handler->display->display_options['fields']['value_8']['id'] = 'value_8';
+  $handler->display->display_options['fields']['value_8']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value_8']['field'] = 'value';
+  $handler->display->display_options['fields']['value_8']['relationship'] = 'votingapi_cache_8';
+  $handler->display->display_options['fields']['value_8']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value_8']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value_8']['precision'] = '0';
+  $handler->display->display_options['fields']['value_8']['separator'] = '.';
+  $handler->display->display_options['fields']['value_8']['appearance'] = 'rate_views_widget_disabled';
   /* Field: Custom: Average Game Rating */
   $handler->display->display_options['fields']['average_game_rating']['id'] = 'average_game_rating';
   $handler->display->display_options['fields']['average_game_rating']['table'] = 'custom';
@@ -539,6 +660,7 @@ function mmorpg_game_views_default_views() {
     t('Performance Lag'),
     t('Service'),
     t('Sound'),
+    t('field collection item from field_game_development_status'),
     t('[value]'),
     t('.'),
     t(','),
@@ -553,8 +675,145 @@ function mmorpg_game_views_default_views() {
 										
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>'),
+    t('Hype'),
   );
   $export['game_ratings'] = $view;
+
+  $view = new view();
+  $view->name = 'hype';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Hype';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Hype';
+  $handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'hype',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Game Development Status (field_game_development_status) */
+  $handler->display->display_options['relationships']['field_game_development_status_value']['id'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['field'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['delta'] = '-1';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Vote results: Value */
+  $handler->display->display_options['fields']['value']['id'] = 'value';
+  $handler->display->display_options['fields']['value']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['field'] = 'value';
+  $handler->display->display_options['fields']['value']['relationship'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value']['precision'] = '0';
+  $handler->display->display_options['fields']['value']['separator'] = '.';
+  $handler->display->display_options['fields']['value']['appearance'] = 'rate_views_widget';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'game' => 'game',
+  );
+  /* Filter criterion: Field collection item: Status (field_dev_status) */
+  $handler->display->display_options['filters']['field_dev_status_tid']['id'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['table'] = 'field_data_field_dev_status';
+  $handler->display->display_options['filters']['field_dev_status_tid']['field'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['relationship'] = 'field_game_development_status_value';
+  $handler->display->display_options['filters']['field_dev_status_tid']['value'] = array(
+    278 => '278',
+    277 => '277',
+  );
+  $handler->display->display_options['filters']['field_dev_status_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_dev_status_tid']['vocabulary'] = 'game_development_status';
+
+  /* Display: active */
+  $handler = $view->new_display('page', 'active', 'active_hype');
+  $handler->display->display_options['path'] = 'hype-active';
+
+  /* Display: Inactive */
+  $handler = $view->new_display('page', 'Inactive', 'hype_inactive');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Vote results: Value */
+  $handler->display->display_options['fields']['value']['id'] = 'value';
+  $handler->display->display_options['fields']['value']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['field'] = 'value';
+  $handler->display->display_options['fields']['value']['relationship'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value']['precision'] = '0';
+  $handler->display->display_options['fields']['value']['separator'] = '.';
+  $handler->display->display_options['fields']['value']['appearance'] = 'rate_views_widget_disabled';
+  $handler->display->display_options['path'] = 'hype-inactive';
+  $translatables['hype'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Hype'),
+    t('field collection item from field_game_development_status'),
+    t('.'),
+    t('All'),
+    t('active'),
+    t('Inactive'),
+  );
+  $export['hype'] = $view;
 
   $view = new view();
   $view->name = 'reviews';
