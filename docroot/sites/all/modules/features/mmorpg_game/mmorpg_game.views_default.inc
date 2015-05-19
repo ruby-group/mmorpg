@@ -449,6 +449,102 @@ function mmorpg_game_views_default_views() {
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Graphics';
+  $handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Graphics',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_1']['id'] = 'votingapi_cache_1';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['label'] = 'Value';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Value',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_2']['id'] = 'votingapi_cache_2';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['label'] = 'Fun';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Fun',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_3']['id'] = 'votingapi_cache_3';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['label'] = 'Community';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Community',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_4']['id'] = 'votingapi_cache_4';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['label'] = 'Role-playing';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Role_playing',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_5']['id'] = 'votingapi_cache_5';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['label'] = 'Performance Lag';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Performance_lag',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_6']['id'] = 'votingapi_cache_6';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['label'] = 'Service';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Service',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_7']['id'] = 'votingapi_cache_7';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['label'] = 'Sound';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Sound',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Game Development Status (field_game_development_status) */
+  $handler->display->display_options['relationships']['field_game_development_status_value']['id'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['field'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['delta'] = '-1';
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_8']['id'] = 'votingapi_cache_8';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['label'] = 'Hype';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'hype',
+    'function' => 'count',
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -530,6 +626,16 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_7']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_7']['precision'] = '0';
   $handler->display->display_options['fields']['value_7']['appearance'] = 'rate_views_widget_disabled';
+  /* Field: Vote results: Value */
+  $handler->display->display_options['fields']['value_8']['id'] = 'value_8';
+  $handler->display->display_options['fields']['value_8']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value_8']['field'] = 'value';
+  $handler->display->display_options['fields']['value_8']['relationship'] = 'votingapi_cache_8';
+  $handler->display->display_options['fields']['value_8']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value_8']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value_8']['precision'] = '0';
+  $handler->display->display_options['fields']['value_8']['separator'] = '.';
+  $handler->display->display_options['fields']['value_8']['appearance'] = 'rate_views_widget_disabled';
   /* Field: Custom: Average Game Rating */
   $handler->display->display_options['fields']['average_game_rating']['id'] = 'average_game_rating';
   $handler->display->display_options['fields']['average_game_rating']['table'] = 'custom';
@@ -569,6 +675,7 @@ function mmorpg_game_views_default_views() {
 										
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>'),
+    t('Hype'),
   );
   $export['game_ratings'] = $view;
 
