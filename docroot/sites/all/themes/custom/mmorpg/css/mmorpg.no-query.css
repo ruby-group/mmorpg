@@ -1230,8 +1230,8 @@ ul.pager {
   position: relative; }
 
 /*Sideblock Rating Block */
-/* line 147, ../sass/components/_ratings.scss */
-.rightsidebar .views-field-average-game-rating {
+/* line 146, ../sass/components/_ratings.scss */
+.rightsidebar .view-promoted-signup-now-link .views-field-average-game-rating {
   background: #494949;
   border: 1px solid #848484;
   border-radius: 2px;
@@ -1242,8 +1242,8 @@ ul.pager {
   margin-top: 0.75em;
   line-height: 18px;
   color: #fff; }
-  /* line 158, ../sass/components/_ratings.scss */
-  .rightsidebar .views-field-average-game-rating .field-content {
+  /* line 157, ../sass/components/_ratings.scss */
+  .rightsidebar .view-promoted-signup-now-link .views-field-average-game-rating .field-content {
     background: #2697ff;
     padding: 1px 5px 2px;
     line-height: 16px;
