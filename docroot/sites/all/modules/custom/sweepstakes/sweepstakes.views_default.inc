@@ -1,31 +1,31 @@
 <?php
 /**
  * @file
- * giveaway.views_default.inc
+ * sweepstakes.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function giveaway_views_default_views() {
+function sweepstakes_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'giveaway_keys';
-  $view->description = 'Default view for data table Keys to be given away';
-  $view->tag = 'data table';
-  $view->base_table = 'giveaway_keys';
-  $view->human_name = '';
-  $view->core = 0;
+  $view->name = 'sweepstake_entries';
+  $view->description = '';
+  $view->tag = 'Sweepstakes';
+  $view->base_table = 'node';
+  $view->human_name = 'Sweepstake Entries';
+  $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
-  /* Display: Default */
-  $handler = $view->new_display('default', 'Default', 'default');
-  $handler->display->display_options['title'] = 'Keys to be given away';
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Sweepstake Entries';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'edit any giveaway content';
+  $handler->display->display_options['access']['perm'] = 'edit own sweepstake content';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -36,269 +36,71 @@ function giveaway_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'views_bulk_operations' => 'views_bulk_operations',
-    'gkid' => 'gkid',
-    'gid' => 'gid',
-    'game_key' => 'game_key',
-    'name' => 'name',
-    'ip_address' => 'ip_address',
-    'claimed_on' => 'claimed_on',
-    'edit_link' => 'edit_link',
+    'title' => 'title',
+    'nid' => 'nid',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'views_bulk_operations' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'gkid' => array(
-      'sortable' => 1,
+    'title' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'gid' => array(
-      'sortable' => 1,
+    'nid' => array(
+      'sortable' => 0,
       'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'game_key' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'name' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'ip_address' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'claimed_on' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'edit_link' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['sticky'] = TRUE;
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['text']['id'] = 'area';
-  $handler->display->display_options['empty']['text']['table'] = 'views';
-  $handler->display->display_options['empty']['text']['field'] = 'area';
-  $handler->display->display_options['empty']['text']['content'] = 'There is no data in this table.';
-  $handler->display->display_options['empty']['text']['format'] = '1';
-  /* Relationship: Keys to be given away: The user who has claimed it. */
+  /* No results behavior: Global: Unfiltered text */
+  $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['empty']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['empty']['area_text_custom']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area_text_custom']['content'] = 'No entries yet.';
+  /* Relationship: Sweepstakes entries: Uid */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
-  $handler->display->display_options['relationships']['uid']['table'] = 'giveaway_keys';
+  $handler->display->display_options['relationships']['uid']['table'] = 'sweepstakes_entries';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Bulk operations: Keys to be given away */
-  $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'giveaway_keys';
-  $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
-  $handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
-  $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
-    'action::views_bulk_operations_delete_item' => array(
-      'selected' => 1,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
-    'action::views_bulk_operations_delete_revision' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
-    'action::views_bulk_operations_script_action' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
-    'action::views_bulk_operations_modify_action' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'settings' => array(
-        'show_all_tokens' => 1,
-        'display_values' => array(
-          'uid' => 'uid',
-          'ip_address' => 'ip_address',
-          'claimed_on' => 'claimed_on',
-        ),
-      ),
-    ),
-    'action::views_bulk_operations_argument_selector_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'settings' => array(
-        'url' => '',
-      ),
-    ),
-    'action::system_send_email_action' => array(
-      'selected' => 0,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
-    'action::giveaway_unassign_keys' => array(
-      'selected' => 1,
-      'postpone_processing' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-    ),
-  );
-  /* Field: Keys to be given away: Key Id */
-  $handler->display->display_options['fields']['gkid']['id'] = 'gkid';
-  $handler->display->display_options['fields']['gkid']['table'] = 'giveaway_keys';
-  $handler->display->display_options['fields']['gkid']['field'] = 'gkid';
-  $handler->display->display_options['fields']['gkid']['label'] = 'gkid';
-  $handler->display->display_options['fields']['gkid']['exclude'] = TRUE;
-  /* Field: Keys to be given away: Giveaway Id */
-  $handler->display->display_options['fields']['gid']['id'] = 'gid';
-  $handler->display->display_options['fields']['gid']['table'] = 'giveaway_keys';
-  $handler->display->display_options['fields']['gid']['field'] = 'gid';
-  $handler->display->display_options['fields']['gid']['exclude'] = TRUE;
-  /* Field: Keys to be given away: Game Key */
-  $handler->display->display_options['fields']['game_key']['id'] = 'game_key';
-  $handler->display->display_options['fields']['game_key']['table'] = 'giveaway_keys';
-  $handler->display->display_options['fields']['game_key']['field'] = 'game_key';
-  $handler->display->display_options['fields']['game_key']['label'] = 'Key';
+  $handler->display->display_options['relationships']['uid']['required'] = TRUE;
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
-  $handler->display->display_options['fields']['name']['label'] = 'User';
-  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Field: Keys to be given away: The IP to which it has been given. */
+  /* Field: Sweepstakes entries: Ip address */
   $handler->display->display_options['fields']['ip_address']['id'] = 'ip_address';
-  $handler->display->display_options['fields']['ip_address']['table'] = 'giveaway_keys';
+  $handler->display->display_options['fields']['ip_address']['table'] = 'sweepstakes_entries';
   $handler->display->display_options['fields']['ip_address']['field'] = 'ip_address';
-  $handler->display->display_options['fields']['ip_address']['label'] = 'IP Address';
-  /* Field: Keys to be given away: Timestamp when it was claimed. */
-  $handler->display->display_options['fields']['claimed_on']['id'] = 'claimed_on';
-  $handler->display->display_options['fields']['claimed_on']['table'] = 'giveaway_keys';
-  $handler->display->display_options['fields']['claimed_on']['field'] = 'claimed_on';
-  $handler->display->display_options['fields']['claimed_on']['label'] = 'Claimed On';
-  $handler->display->display_options['fields']['claimed_on']['date_format'] = 'long';
-  $handler->display->display_options['fields']['claimed_on']['second_date_format'] = 'long';
-  /* Field: Keys to be given away: Edit link */
-  $handler->display->display_options['fields']['edit_link']['id'] = 'edit_link';
-  $handler->display->display_options['fields']['edit_link']['table'] = 'giveaway_keys';
-  $handler->display->display_options['fields']['edit_link']['field'] = 'edit_link';
-  $handler->display->display_options['fields']['edit_link']['label'] = '';
-  $handler->display->display_options['fields']['edit_link']['element_label_colon'] = FALSE;
-  /* Contextual filter: Keys to be given away: Giveaway Id */
-  $handler->display->display_options['arguments']['gid']['id'] = 'gid';
-  $handler->display->display_options['arguments']['gid']['table'] = 'giveaway_keys';
-  $handler->display->display_options['arguments']['gid']['field'] = 'gid';
-  $handler->display->display_options['arguments']['gid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['gid']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['gid']['validate']['type'] = 'node';
-  $handler->display->display_options['arguments']['gid']['validate_options']['types'] = array(
-    'giveaway' => 'giveaway',
-  );
-  /* Filter criterion: Keys to be given away: Game Key */
-  $handler->display->display_options['filters']['game_key']['id'] = 'game_key';
-  $handler->display->display_options['filters']['game_key']['table'] = 'giveaway_keys';
-  $handler->display->display_options['filters']['game_key']['field'] = 'game_key';
-  $handler->display->display_options['filters']['game_key']['operator'] = 'contains';
-  $handler->display->display_options['filters']['game_key']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['game_key']['expose']['operator_id'] = 'game_key_op';
-  $handler->display->display_options['filters']['game_key']['expose']['label'] = 'Key';
-  $handler->display->display_options['filters']['game_key']['expose']['operator'] = 'game_key_op';
-  $handler->display->display_options['filters']['game_key']['expose']['identifier'] = 'game_key';
-  $handler->display->display_options['filters']['game_key']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  /* Filter criterion: User: E-mail */
-  $handler->display->display_options['filters']['mail']['id'] = 'mail';
-  $handler->display->display_options['filters']['mail']['table'] = 'users';
-  $handler->display->display_options['filters']['mail']['field'] = 'mail';
-  $handler->display->display_options['filters']['mail']['relationship'] = 'uid';
-  $handler->display->display_options['filters']['mail']['operator'] = 'contains';
-  $handler->display->display_options['filters']['mail']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['mail']['expose']['operator_id'] = 'mail_op';
-  $handler->display->display_options['filters']['mail']['expose']['label'] = 'E-mail';
-  $handler->display->display_options['filters']['mail']['expose']['operator'] = 'mail_op';
-  $handler->display->display_options['filters']['mail']['expose']['identifier'] = 'mail';
-  $handler->display->display_options['filters']['mail']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
-  /* Filter criterion: User: Name */
-  $handler->display->display_options['filters']['uid']['id'] = 'uid';
-  $handler->display->display_options['filters']['uid']['table'] = 'users';
-  $handler->display->display_options['filters']['uid']['field'] = 'uid';
-  $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
-  $handler->display->display_options['filters']['uid']['value'] = '';
-  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Username';
-  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
-  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-  );
+  /* Field: Sweepstakes entries: Timestamp */
+  $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
+  $handler->display->display_options['fields']['timestamp']['table'] = 'sweepstakes_entries';
+  $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'access denied';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'node/%/keys';
+  $handler->display->display_options['path'] = 'node/%/entries';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Keys';
+  $handler->display->display_options['menu']['title'] = 'Sweepstake Entries';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
-  $translatables['giveaway_keys'] = array(
-    t('Default'),
-    t('Keys to be given away'),
+  $translatables['sweepstake_entries'] = array(
+    t('Master'),
+    t('Sweepstake Entries'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -312,30 +114,24 @@ function giveaway_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('There is no data in this table.'),
-    t('giveaway_keys.uid -> users.uid'),
-    t('- Choose an operation -'),
-    t('gkid'),
+    t('No entries yet.'),
+    t('sweepstakes_entries.uid -> users.uid'),
+    t('Name'),
+    t('Ip address'),
     t('.'),
     t(','),
-    t('Giveaway Id'),
-    t('Key'),
-    t('User'),
-    t('IP Address'),
-    t('Claimed On'),
+    t('Timestamp'),
     t('All'),
-    t('E-mail'),
-    t('Username'),
     t('Page'),
   );
-  $export['giveaway_keys'] = $view;
+  $export['sweepstake_entries'] = $view;
 
   $view = new view();
-  $view->name = 'giveaway_listing';
+  $view->name = 'sweepstakes_listing';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Giveaway Listing';
+  $view->human_name = 'Sweepstakes Listing';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -556,12 +352,6 @@ function giveaway_views_default_views() {
   $handler->display->display_options['sorts']['field_game_target_id']['field'] = 'field_game_target_id';
   $handler->display->display_options['sorts']['field_game_target_id']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_game_target_id']['expose']['label'] = 'Game';
-  /* Sort criterion: Content: Offer Type (field_offer_type) */
-  $handler->display->display_options['sorts']['field_offer_type_tid']['id'] = 'field_offer_type_tid';
-  $handler->display->display_options['sorts']['field_offer_type_tid']['table'] = 'field_data_field_offer_type';
-  $handler->display->display_options['sorts']['field_offer_type_tid']['field'] = 'field_offer_type_tid';
-  $handler->display->display_options['sorts']['field_offer_type_tid']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['field_offer_type_tid']['expose']['label'] = 'Type';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -574,35 +364,9 @@ function giveaway_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'giveaway' => 'giveaway',
+    'sweepstake' => 'sweepstake',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Keys to be given away: The user who has claimed it. */
-  $handler->display->display_options['filters']['uid']['id'] = 'uid';
-  $handler->display->display_options['filters']['uid']['table'] = 'giveaway_keys';
-  $handler->display->display_options['filters']['uid']['field'] = 'uid';
-  $handler->display->display_options['filters']['uid']['relationship'] = 'gid';
-  $handler->display->display_options['filters']['uid']['value']['value'] = '0';
-  $handler->display->display_options['filters']['uid']['group'] = 1;
-  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['label'] = 'The user who has claimed it.';
-  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
-  $handler->display->display_options['filters']['uid']['is_grouped'] = TRUE;
-  $handler->display->display_options['filters']['uid']['group_info']['identifier'] = 'uid';
-  $handler->display->display_options['filters']['uid']['group_info']['default_group'] = '1';
-  $handler->display->display_options['filters']['uid']['group_info']['group_items'] = array(
-    1 => array(
-      'title' => 'Active',
-      'operator' => '=',
-      'value' => array(
-        'value' => '0',
-        'min' => '',
-        'max' => '',
-      ),
-    ),
-  );
   /* Filter criterion: Content: Post date */
   $handler->display->display_options['filters']['created']['id'] = 'created';
   $handler->display->display_options['filters']['created']['table'] = 'node';
@@ -675,13 +439,6 @@ function giveaway_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -715,26 +472,6 @@ function giveaway_views_default_views() {
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_hero_image']['group_column'] = 'entity_id';
-  /* Field: Global: Giveaway Keys left */
-  $handler->display->display_options['fields']['keys_left']['id'] = 'keys_left';
-  $handler->display->display_options['fields']['keys_left']['table'] = 'views';
-  $handler->display->display_options['fields']['keys_left']['field'] = 'keys_left';
-  $handler->display->display_options['fields']['keys_left']['label'] = '';
-  $handler->display->display_options['fields']['keys_left']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['keys_left']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['keys_left']['gid'] = '[nid]';
-  /* Field: Views: Views Conditional */
-  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
-  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
-  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
-  $handler->display->display_options['fields']['views_conditional']['label'] = '';
-  $handler->display->display_options['fields']['views_conditional']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['views_conditional']['if'] = 'keys_left';
-  $handler->display->display_options['fields']['views_conditional']['condition'] = '3';
-  $handler->display->display_options['fields']['views_conditional']['equalto'] = '0';
-  $handler->display->display_options['fields']['views_conditional']['then'] = '[keys_left] Keys Remaining';
-  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 1;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -742,12 +479,11 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="giveaway_details giveaway_details_top">
 <div class="giveaway_image">[field_hero_image]</div>
-<div class="giveaway_type">Giveaway</div>
+<div class="giveaway_type">Sweepstakes</div>
 </div>
 <div class="giveaway_details giveaway_details_bottom">
 <div class="giveaway_title">[title]</div>
 <div class="giveaway_body">[body]</div>
-<div class="giveaway_remaining">[views_conditional]</div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 
@@ -774,13 +510,6 @@ function giveaway_views_default_views() {
     'giveaways' => 'giveaways',
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -890,8 +619,8 @@ function giveaway_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'giveaways/rss.xml';
-  $translatables['giveaway_listing'] = array(
+  $handler->display->display_options['path'] = 'sweepstakes/rss.xml';
+  $translatables['sweepstakes_listing'] = array(
     t('Master'),
     t('more'),
     t('Sort'),
@@ -901,7 +630,6 @@ function giveaway_views_default_views() {
     t('Descending'),
     t('Advanced options'),
     t('Sort options'),
-    t('All'),
     t('All Time'),
     t('Select any filter and click on Apply to see results'),
     t('Items per page'),
@@ -913,22 +641,19 @@ function giveaway_views_default_views() {
     t('last »'),
     t('queue'),
     t('Nid'),
-    t('Date'),
     t('Default'),
+    t('Date'),
     t('Title'),
     t('Game'),
-    t('Type'),
-    t('The user who has claimed it.'),
     t('Post date'),
     t('Listing pane'),
     t('<div class="giveaway_details giveaway_details_top">
 <div class="giveaway_image">[field_hero_image]</div>
-<div class="giveaway_type">Giveaway</div>
+<div class="giveaway_type">Sweepstakes</div>
 </div>
 <div class="giveaway_details giveaway_details_bottom">
 <div class="giveaway_title">[title]</div>
 <div class="giveaway_body">[body]</div>
-<div class="giveaway_remaining">[views_conditional]</div>
 </div>'),
     t('View panes'),
     t('Promoted pane'),
@@ -949,7 +674,161 @@ function giveaway_views_default_views() {
 </div>'),
     t('Feed'),
   );
-  $export['giveaway_listing'] = $view;
+  $export['sweepstakes_listing'] = $view;
+
+  $view = new view();
+  $view->name = 'sweepstakes_winners';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'sweepstakes_entries';
+  $view->human_name = 'Sweepstakes Winners';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'name' => 'name',
+    'confirmed' => 'confirmed',
+    'views_conditional' => 'views_conditional',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'confirmed' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'views_conditional' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'Winners';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  /* Relationship: Sweepstakes entries: Nid */
+  $handler->display->display_options['relationships']['nid']['id'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['table'] = 'sweepstakes_entries';
+  $handler->display->display_options['relationships']['nid']['field'] = 'nid';
+  $handler->display->display_options['relationships']['nid']['label'] = 'sweepstakes_entries.nid -> node.nid Sweepstakes Entry';
+  $handler->display->display_options['relationships']['nid']['required'] = TRUE;
+  /* Relationship: Sweepstakes entries: Uid */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'sweepstakes_entries';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['label'] = 'sweepstakes_entries.uid -> users.uid Sweepstakes Entry';
+  $handler->display->display_options['relationships']['uid']['required'] = TRUE;
+  /* Relationship: Sweepstakes entries: Prize id */
+  $handler->display->display_options['relationships']['prize_id']['id'] = 'prize_id';
+  $handler->display->display_options['relationships']['prize_id']['table'] = 'sweepstakes_entries';
+  $handler->display->display_options['relationships']['prize_id']['field'] = 'prize_id';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = 'Username';
+  /* Field: Field collection item: Description */
+  $handler->display->display_options['fields']['field_prize_description']['id'] = 'field_prize_description';
+  $handler->display->display_options['fields']['field_prize_description']['table'] = 'field_data_field_prize_description';
+  $handler->display->display_options['fields']['field_prize_description']['field'] = 'field_prize_description';
+  $handler->display->display_options['fields']['field_prize_description']['relationship'] = 'prize_id';
+  $handler->display->display_options['fields']['field_prize_description']['label'] = 'Prize';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Location';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'LA, CA, United States';
+  /* Field: Sweepstakes entries: Confirmed */
+  $handler->display->display_options['fields']['confirmed']['id'] = 'confirmed';
+  $handler->display->display_options['fields']['confirmed']['table'] = 'sweepstakes_entries';
+  $handler->display->display_options['fields']['confirmed']['field'] = 'confirmed';
+  $handler->display->display_options['fields']['confirmed']['exclude'] = TRUE;
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = 'Status';
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'confirmed';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['then'] = '* Confirmed *';
+  $handler->display->display_options['fields']['views_conditional']['or'] = 'N/A';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'sweepstake' => 'sweepstake',
+  );
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane');
+  $translatables['sweepstakes_winners'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Winners'),
+    t('sweepstakes_entries.nid -> node.nid Sweepstakes Entry'),
+    t('sweepstakes_entries.uid -> users.uid Sweepstakes Entry'),
+    t('sweepstakes_entries.prize_id -> field_collection_item.item_id'),
+    t('Username'),
+    t('Prize'),
+    t('Location'),
+    t('LA, CA, United States'),
+    t('Confirmed'),
+    t('.'),
+    t(','),
+    t('Status'),
+    t('All'),
+    t('Content pane'),
+    t('View panes'),
+  );
+  $export['sweepstakes_winners'] = $view;
 
   return $export;
 }

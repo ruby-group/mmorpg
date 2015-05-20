@@ -17,7 +17,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'http_response';
-  $handler->weight = -26;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => '403',
     'contexts' => array(),
@@ -200,10 +200,10 @@ function mmorpg_site_default_page_manager_handlers() {
     $display->content['new-60a87a87-1c56-4f6f-8631-676caaaafb08'] = $pane;
     $display->panels['middle'][0] = 'new-60a87a87-1c56-4f6f-8631-676caaaafb08';
     $pane = new stdClass();
-    $pane->pid = 'new-29c5c6e2-7cb5-4a25-a38d-7b371fc62617';
+    $pane->pid = 'new-7d9e8edb-545c-4327-83fc-1b0b056f7ddd';
     $pane->panel = 'middle';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_article_hero_image';
+    $pane->subtype = 'node:field_hero_image';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -213,7 +213,7 @@ function mmorpg_site_default_page_manager_handlers() {
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'image_style' => '',
+        'image_style' => 'giveaway_node_700x305',
         'image_link' => '',
       ),
       'context' => 'argument_entity_id:node_1',
@@ -235,9 +235,9 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '29c5c6e2-7cb5-4a25-a38d-7b371fc62617';
-    $display->content['new-29c5c6e2-7cb5-4a25-a38d-7b371fc62617'] = $pane;
-    $display->panels['middle'][1] = 'new-29c5c6e2-7cb5-4a25-a38d-7b371fc62617';
+    $pane->uuid = '7d9e8edb-545c-4327-83fc-1b0b056f7ddd';
+    $display->content['new-7d9e8edb-545c-4327-83fc-1b0b056f7ddd'] = $pane;
+    $display->panels['middle'][1] = 'new-7d9e8edb-545c-4327-83fc-1b0b056f7ddd';
     $pane = new stdClass();
     $pane->pid = 'new-18ac3978-8da9-4d4f-846b-7a043793c0fa';
     $pane->panel = 'middle';
@@ -456,7 +456,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'http_response';
-  $handler->weight = -27;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'invisible content',
     'contexts' => array(),
@@ -493,6 +493,213 @@ function mmorpg_site_default_page_manager_handlers() {
     ),
   );
   $export['node_view__invisible_content'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view__sweepstakes';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -27;
+  $handler->conf = array(
+    'title' => 'Sweepstakes',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'sweepstakes',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:node',
+          'settings' => array(
+            'type' => array(
+              'sweepstake' => 'sweepstake',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '16675bb2-7480-41d1-8b02-3b0836af30c1';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-bf363d30-e3e8-400b-9f6c-0e89f7b18a3e';
+    $pane->panel = 'middle';
+    $pane->type = 'page_messages';
+    $pane->subtype = 'page_messages';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'bf363d30-e3e8-400b-9f6c-0e89f7b18a3e';
+    $display->content['new-bf363d30-e3e8-400b-9f6c-0e89f7b18a3e'] = $pane;
+    $display->panels['middle'][0] = 'new-bf363d30-e3e8-400b-9f6c-0e89f7b18a3e';
+    $pane = new stdClass();
+    $pane->pid = 'new-786a3050-4399-48e0-9c3e-fca7ac19a605';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_hero_image';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'image',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'image_style' => 'giveaway_node_700x305',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'args',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '786a3050-4399-48e0-9c3e-fca7ac19a605';
+    $display->content['new-786a3050-4399-48e0-9c3e-fca7ac19a605'] = $pane;
+    $display->panels['middle'][1] = 'new-786a3050-4399-48e0-9c3e-fca7ac19a605';
+    $pane = new stdClass();
+    $pane->pid = 'new-369d1d2f-0228-41ab-990b-19fc19681989';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:body';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'args',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '369d1d2f-0228-41ab-990b-19fc19681989';
+    $display->content['new-369d1d2f-0228-41ab-990b-19fc19681989'] = $pane;
+    $display->panels['middle'][2] = 'new-369d1d2f-0228-41ab-990b-19fc19681989';
+    $pane = new stdClass();
+    $pane->pid = 'new-7c41d6de-62ca-45a7-bb8f-f33299bb4991';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_sweepstakes_rules';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'args',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '7c41d6de-62ca-45a7-bb8f-f33299bb4991';
+    $display->content['new-7c41d6de-62ca-45a7-bb8f-f33299bb4991'] = $pane;
+    $display->panels['middle'][3] = 'new-7c41d6de-62ca-45a7-bb8f-f33299bb4991';
+    $pane = new stdClass();
+    $pane->pid = 'new-7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'sweepstakes-sweepstakes_entry_block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39';
+    $display->content['new-7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39'] = $pane;
+    $display->panels['middle'][4] = 'new-7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['node_view__sweepstakes'] = $handler;
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
@@ -2955,6 +3162,166 @@ play-now/*',
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['playnow'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'sweepstakes';
+  $page->task = 'page';
+  $page->admin_title = 'Sweepstakes';
+  $page->admin_description = '';
+  $page->path = 'sweepstakes';
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_sweepstakes__panel_context_ef04e5a8-47f5-4f70-9475-d8f6fdeedc8b';
+  $handler->task = 'page';
+  $handler->subtask = 'sweepstakes';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Sweepstakes',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(),
+      'logic' => 'and',
+    ),
+    'panels_everywhere_site_template' => '-1',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'header' => NULL,
+      'highlighted' => NULL,
+      'help' => NULL,
+      'content' => NULL,
+      'sidebar_first' => NULL,
+      'sidebar_second' => NULL,
+      'footer' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'ddf12fe8-b71b-4d31-b027-fe9f79f3fc3c';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'sweepstakes-sweepstakes_title_rss_block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3';
+    $display->content['new-4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3'] = $pane;
+    $display->panels['middle'][0] = 'new-4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3';
+    $pane = new stdClass();
+    $pane->pid = 'new-202f2ce5-bef0-4aa3-b4ce-6667b084f2ed';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'views-5949cc515d4897b423a89734083b9967';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'inherit_path' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '202f2ce5-bef0-4aa3-b4ce-6667b084f2ed';
+    $display->content['new-202f2ce5-bef0-4aa3-b4ce-6667b084f2ed'] = $pane;
+    $display->panels['middle'][1] = 'new-202f2ce5-bef0-4aa3-b4ce-6667b084f2ed';
+    $pane = new stdClass();
+    $pane->pid = 'new-14baf3d1-4bfc-40e6-9a52-4af72ed8255d';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'sweepstakes_listing-promoted_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '14baf3d1-4bfc-40e6-9a52-4af72ed8255d';
+    $display->content['new-14baf3d1-4bfc-40e6-9a52-4af72ed8255d'] = $pane;
+    $display->panels['middle'][2] = 'new-14baf3d1-4bfc-40e6-9a52-4af72ed8255d';
+    $pane = new stdClass();
+    $pane->pid = 'new-133984e3-0bc0-4a4c-9968-ad67d9f7f85a';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'sweepstakes_listing-listing_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '133984e3-0bc0-4a4c-9968-ad67d9f7f85a';
+    $display->content['new-133984e3-0bc0-4a4c-9968-ad67d9f7f85a'] = $pane;
+    $display->panels['middle'][3] = 'new-133984e3-0bc0-4a4c-9968-ad67d9f7f85a';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['sweepstakes'] = $page;
 
   return $pages;
 

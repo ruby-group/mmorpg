@@ -419,3 +419,20 @@ function mmorpg_updates_update_7048() {
   module_enable(array('improved_multi_select'));
 }
 
+/**
+ * Enabling Sweepstakes & refactored similar purpose fields into a single field.
+ */
+function mmorpg_updates_update_7049() {
+  module_enable(array('field_collection_table', 'sweepstakes'));
+
+  field_delete_instance(field_info_instance('node', 'field_game_hero_image', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_article_hero_image', 'giveaway'));
+  field_delete_instance(field_info_instance('node', 'field_article_hero_image', 'mmorpg_article'));
+
+  db_insert('nodequeue_auto')
+    ->fields(array(
+      'qid' => 2,
+      'auto_add' => 1,
+    ))
+    ->execute();
+}
