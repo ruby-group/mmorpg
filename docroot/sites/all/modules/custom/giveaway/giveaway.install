@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Implements hook_schema().
+ */
 function giveaway_schema() {
   return array(
     'giveaway_keys' =>

@@ -1,0 +1,4 @@
+name = IP2Location - IP2Proxy
+description = IP2Proxy Lookup
+core = 7.x
+package = IP2Location

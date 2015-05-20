@@ -33,7 +33,7 @@ function sweepstakes_schema() {
       ),
       'ip_address' => array(
         'type' => 'int',
-        'unsigned' => TRUE,
+        'unsigned' => FALSE,
         'not null' => TRUE,
         'default' => 0,
         'description' => 'The ip address of the request'
@@ -54,21 +54,21 @@ function sweepstakes_schema() {
         'type' => 'int',
         'size' => 'tiny',
         'not null' => TRUE,
-        'default' => TRUE,
+        'default' => 1,
         'description' => 'whether the entry is valid'
       ),
       'prize_id' => array(
         'type' => 'int',
         'unsigned' => TRUE,
-        'not null' => FALSE,
-        'default' => null,
+        'not null' => TRUE,
+        'default' => 0,
         'description' => 'The prize node id (if the uid has won the prize)'
       ),
       'confirmed' => array(
         'type' => 'int',
         'unsigned' => TRUE,
-        'not null' => FALSE,
-        'default' => null,
+        'not null' => TRUE,
+        'default' => 0,
         'description' => 'whether the user has confirmed acceptance of the prize'
       ),
     ),
