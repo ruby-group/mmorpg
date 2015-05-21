@@ -666,7 +666,7 @@ function sweepstakes_field_default_field_instances() {
     'bundle' => 'sweepstake',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Tokens available: #username#, #prize#, #link#',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -714,6 +714,7 @@ function sweepstakes_field_default_field_instances() {
   t('Select countries to filter the node based on user country.');
   t('Sponsor');
   t('Tier');
+  t('Tokens available: #username#, #prize#, #link#');
   t('Winner Email Message');
 
   return $field_instances;
