@@ -34,17 +34,60 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Field: Content: Promoted to front page */
+  $handler->display->display_options['fields']['promote']['id'] = 'promote';
+  $handler->display->display_options['fields']['promote']['table'] = 'node';
+  $handler->display->display_options['fields']['promote']['field'] = 'promote';
+  $handler->display->display_options['fields']['promote']['label'] = '';
+  $handler->display->display_options['fields']['promote']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['promote']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['promote']['type'] = 'custom';
+  $handler->display->display_options['fields']['promote']['type_custom_true'] = '1';
+  $handler->display->display_options['fields']['promote']['type_custom_false'] = '0';
+  $handler->display->display_options['fields']['promote']['not'] = 0;
+  /* Field: Content: Article Type */
+  $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['table'] = 'field_data_field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['field'] = 'field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['label'] = '';
+  $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
   /* Field: Content: Header Image */
   $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
-    'image_style' => 'articles_overview_200x155',
+    'image_style' => 'giveaway_promoted_700x400',
     'image_link' => '',
   );
+  /* Field: Content: Header Image */
+  $handler->display->display_options['fields']['field_hero_image_1']['id'] = 'field_hero_image_1';
+  $handler->display->display_options['fields']['field_hero_image_1']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image_1']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image_1']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hero_image_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image_1']['settings'] = array(
+    'image_style' => 'user_menu_200x160',
+    'image_link' => '',
+  );
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional_1']['id'] = 'views_conditional_1';
+  $handler->display->display_options['fields']['views_conditional_1']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional_1']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional_1']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional_1']['if'] = 'promote';
+  $handler->display->display_options['fields']['views_conditional_1']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional_1']['equalto'] = '1';
+  $handler->display->display_options['fields']['views_conditional_1']['then'] = '[field_hero_image]';
+  $handler->display->display_options['fields']['views_conditional_1']['or'] = '[field_hero_image_1]';
+  $handler->display->display_options['fields']['views_conditional_1']['strip_tags'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -58,29 +101,13 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_article_overview']['field'] = 'field_article_overview';
   $handler->display->display_options['fields']['field_article_overview']['label'] = '';
   $handler->display->display_options['fields']['field_article_overview']['element_label_colon'] = FALSE;
-  /* Field: Content: Promoted to front page */
-  $handler->display->display_options['fields']['promote']['id'] = 'promote';
-  $handler->display->display_options['fields']['promote']['table'] = 'node';
-  $handler->display->display_options['fields']['promote']['field'] = 'promote';
-  $handler->display->display_options['fields']['promote']['label'] = '';
-  $handler->display->display_options['fields']['promote']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['promote']['type'] = 'custom';
-  $handler->display->display_options['fields']['promote']['type_custom_true'] = '<div>true</div>';
-  $handler->display->display_options['fields']['promote']['type_custom_false'] = '<div>false</div>';
-  $handler->display->display_options['fields']['promote']['not'] = 0;
   /* Field: Content: ShareThis Link */
   $handler->display->display_options['fields']['sharethis']['id'] = 'sharethis';
   $handler->display->display_options['fields']['sharethis']['table'] = 'node';
   $handler->display->display_options['fields']['sharethis']['field'] = 'sharethis';
   $handler->display->display_options['fields']['sharethis']['label'] = '';
+  $handler->display->display_options['fields']['sharethis']['exclude'] = TRUE;
   $handler->display->display_options['fields']['sharethis']['element_label_colon'] = FALSE;
-  /* Field: Content: Article Type */
-  $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
-  $handler->display->display_options['fields']['field_article_type']['table'] = 'field_data_field_article_type';
-  $handler->display->display_options['fields']['field_article_type']['field'] = 'field_article_type';
-  $handler->display->display_options['fields']['field_article_type']['label'] = '';
-  $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -95,6 +122,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['text'] = 'Keep Reading';
   $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
@@ -105,12 +133,26 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['created']['alter']['text'] = 'Posted by [name] on [created]';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'F jS';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'promote';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['then'] = '[nid]
+[sharethis]
+[created]';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -175,8 +217,7 @@ function mmorpg_game_views_default_views() {
     t('next ›'),
     t('last »'),
     t('author'),
-    t('<div>true</div>'),
-    t('<div>false</div>'),
+    t('1'),
     t('Keep Reading'),
     t('Posted by [name] on [created]'),
     t('All'),
