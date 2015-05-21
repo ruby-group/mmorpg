@@ -13,7 +13,7 @@
   height: auto; }
 
 /* line 15, ../sass/variables/_mixins.scss */
-.view-giveaway-listing .giveaway_details_top .giveaway_type, .view-sweepstakes .giveaway_details_top .giveaway_type, .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type, .pane-screenshot-gallery-grid .screenshot_hover, .pane-video-gallery-grid .video_hover {
+.view-giveaway-listing .giveaway_details_top .giveaway_type, .view-sweepstakes-listing .giveaway_details_top .giveaway_type, .promoted-giveaway .promoted_giveaway_details_top .promoted_giveaway_type, .pane-screenshot-gallery-grid .screenshot_hover, .pane-video-gallery-grid .video_hover {
   color: #bfcad1;
   position: absolute;
   top: 0;
@@ -29,7 +29,7 @@
    Node pages common styles
    ========================================================================== */
 /* line 31, ../sass/variables/_mixins.scss */
-.node-type-mmorpg-article .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .pane-video-exclusive .views-row .views-field-body .field-content,
+.node-type-mmorpg-article .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .field--name-field-article-overview, .pane-video-exclusive .views-row .views-field-body .field-content,
 .pane-video-details-player .views-row .views-field-body .field-content {
   background: #ffffff;
   border-top: 4px solid #bce6ff;
@@ -260,6 +260,10 @@
 /* line 66, ../sass/abstractions/_global.scss */
 .pager .ajax-progress-throbber {
   display: none !important; }
+
+/* line 69, ../sass/abstractions/_global.scss */
+.pane-sharethis {
+  margin-top: 1em; }
 
 /* line 1, ../sass/abstractions/_header.scss */
 header.header {
@@ -699,7 +703,7 @@ body {
   position: relative;
   margin-bottom: 10px; }
 /* line 60, ../sass/components/_keygiveaway.scss */
-.view-giveaway-listing .giveaway_remaining {
+.view-giveaway-listing .giveaway_remaining, .view-sweepstakes-listing .giveaway_remaining {
   color: #31b4ff;
   font-weight: bold; }
 
@@ -759,6 +763,11 @@ body {
 .page-giveaways h2.pane-title {
   padding-top: 0;
   padding-bottom: 20px; }
+
+/* line 142, ../sass/components/_keygiveaway.scss */
+.field--name-field-article-overview {
+  width: 95%;
+  top: -40px; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {

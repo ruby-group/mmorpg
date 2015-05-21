@@ -74,7 +74,7 @@
     }
   }
 
-  .promoted_giveaway_details_bottom{
+  .promoted_giveaway_details_bottom {
     @extend %node_body;
     width: 95%;
     top: -40px;
@@ -137,4 +137,10 @@
   @extend %title;
   padding-top: 0;
   padding-bottom: 20px;
+}
+
+.field--name-field-article-overview {
+    @extend %node_body;
+    width: 95%;
+    top: -40px;
 }
