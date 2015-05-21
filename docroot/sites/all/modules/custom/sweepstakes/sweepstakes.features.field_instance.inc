@@ -196,7 +196,7 @@ function sweepstakes_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 9,
     ),
   );
 
@@ -237,7 +237,7 @@ function sweepstakes_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 8,
+      'weight' => 14,
     ),
   );
 
@@ -351,7 +351,7 @@ function sweepstakes_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 3,
+      'weight' => 8,
     ),
   );
 
@@ -395,7 +395,7 @@ function sweepstakes_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 9,
+      'weight' => 3,
     ),
   );
 
@@ -442,7 +442,7 @@ function sweepstakes_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 10,
+      'weight' => 4,
     ),
   );
 
@@ -485,7 +485,7 @@ function sweepstakes_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 11,
+      'weight' => 5,
     ),
   );
 
@@ -535,7 +535,7 @@ function sweepstakes_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 6,
     ),
   );
 
@@ -585,7 +585,7 @@ function sweepstakes_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 7,
     ),
   );
 
@@ -623,7 +623,7 @@ function sweepstakes_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 6,
+      'weight' => 11,
     ),
   );
 
@@ -657,7 +657,7 @@ function sweepstakes_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 10,
     ),
   );
 
@@ -691,7 +691,7 @@ function sweepstakes_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 7,
+      'weight' => 12,
     ),
   );
 

@@ -13,6 +13,34 @@ function sweepstakes_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'additional_settings__active_tab_sweepstake';
+  $strongarm->value = 'edit-webform';
+  $export['additional_settings__active_tab_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_sweepstake';
+  $strongarm->value = '';
+  $export['ant_pattern_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_php_sweepstake';
+  $strongarm->value = 0;
+  $export['ant_php_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_sweepstake';
+  $strongarm->value = '0';
+  $export['ant_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_sweepstake';
   $strongarm->value = 0;
   $export['comment_anonymous_sweepstake'] = $strongarm;
@@ -62,6 +90,40 @@ function sweepstakes_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_sweepstake';
+  $strongarm->value = 0;
+  $export['diff_enable_revisions_page_node_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_sweepstake';
+  $strongarm->value = 0;
+  $export['diff_show_preview_changes_node_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_sweepstake';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_field_collection_item__field_sweepstakes_prizes';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_field_collection_item__field_sweepstakes_prizes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__sweepstake';
   $strongarm->value = array(
     'view_modes' => array(
@@ -93,7 +155,10 @@ function sweepstakes_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '14',
+          'weight' => '15',
+        ),
+        'webform_template' => array(
+          'weight' => '13',
         ),
       ),
       'display' => array(),
@@ -142,6 +207,152 @@ function sweepstakes_strongarm() {
   $strongarm->name = 'node_submitted_sweepstake';
   $strongarm->value = 0;
   $export['node_submitted_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_expand_fieldset_sweepstake';
+  $strongarm->value = '0';
+  $export['scheduler_expand_fieldset_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_enable_sweepstake';
+  $strongarm->value = 0;
+  $export['scheduler_publish_enable_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_past_date_sweepstake';
+  $strongarm->value = 'error';
+  $export['scheduler_publish_past_date_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_required_sweepstake';
+  $strongarm->value = 0;
+  $export['scheduler_publish_required_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_revision_sweepstake';
+  $strongarm->value = 0;
+  $export['scheduler_publish_revision_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_publish_touch_sweepstake';
+  $strongarm->value = 0;
+  $export['scheduler_publish_touch_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_enable_sweepstake';
+  $strongarm->value = 0;
+  $export['scheduler_unpublish_enable_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_required_sweepstake';
+  $strongarm->value = 0;
+  $export['scheduler_unpublish_required_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_unpublish_revision_sweepstake';
+  $strongarm->value = 0;
+  $export['scheduler_unpublish_revision_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'scheduler_use_vertical_tabs_sweepstake';
+  $strongarm->value = '1';
+  $export['scheduler_use_vertical_tabs_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_comp_sweepstake';
+  $strongarm->value = 'each';
+  $export['unique_field_comp_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_fields_sweepstake';
+  $strongarm->value = array();
+  $export['unique_field_fields_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_scope_sweepstake';
+  $strongarm->value = 'type';
+  $export['unique_field_scope_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'unique_field_show_matches_sweepstake';
+  $strongarm->value = array();
+  $export['unique_field_show_matches_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'webform_node_sweepstake';
+  $strongarm->value = 1;
+  $export['webform_node_sweepstake'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'webform_template_collapsible';
+  $strongarm->value = 0;
+  $export['webform_template_collapsible'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'webform_template_defeat_nodeaccess';
+  $strongarm->value = 0;
+  $export['webform_template_defeat_nodeaccess'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'webform_template_dest';
+  $strongarm->value = array(
+    'sweepstake' => 'sweepstake',
+    'webform' => 0,
+  );
+  $export['webform_template_dest'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'webform_template_lang';
+  $strongarm->value = 0;
+  $export['webform_template_lang'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'webform_template_src';
+  $strongarm->value = array(
+    'webform' => 'webform',
+    'sweepstake' => 0,
+  );
+  $export['webform_template_src'] = $strongarm;
 
   return $export;
 }
