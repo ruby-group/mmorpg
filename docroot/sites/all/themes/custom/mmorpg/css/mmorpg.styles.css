@@ -1431,6 +1431,20 @@ ul.pager {
   .sharethis-wrapper .st_googleplus_custom:before {
     content: "G+"; }
 
+/* line 3, ../sass/components/_sweepstakes.scss */
+.section-sweepstakes .pane-mmorpg-game-game-rss-link-block a {
+  position: relative;
+  top: -0.40em; }
+/* line 9, ../sass/components/_sweepstakes.scss */
+.section-sweepstakes .views-exposed-form-sweepstakes-listing-listing-pane .views-exposed-widget {
+  margin-right: 0.50em; }
+/* line 13, ../sass/components/_sweepstakes.scss */
+.section-sweepstakes .views-more-link, .section-sweepstakes .sharethis-wrapper {
+  margin-top: 1em; }
+/* line 16, ../sass/components/_sweepstakes.scss */
+.section-sweepstakes .giveaway_title {
+  margin-bottom: 1em; }
+
 /* line 1, ../sass/components/_trending.scss */
 .trending {
   display: none;
