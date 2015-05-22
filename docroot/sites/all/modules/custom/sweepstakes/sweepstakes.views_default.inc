@@ -201,7 +201,6 @@ function sweepstakes_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'sweepstake' => 'sweepstake',
   );
-  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'empty';
   /* Filter criterion: Sweepstakes entries: Valid */
   $handler->display->display_options['filters']['valid']['id'] = 'valid';
   $handler->display->display_options['filters']['valid']['table'] = 'sweepstakes_entries';

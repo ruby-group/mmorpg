@@ -216,7 +216,7 @@ function sweepstakes_pick_winners($form, &$form_state) {
 
   $operations = array();
   foreach ($prizes as $id => $prize) {
-    if (empty(($prize->field_prize_giveaway))) {
+    if (empty($prize->field_prize_giveaway)) {
       // this is a non giveaway prize.
       for ($count = 0; $count < $prize->field_prize_count[LANGUAGE_NONE][0]['value']; $count++) {
         $operations[] = array(
@@ -312,6 +312,7 @@ function sweepstakes_email_winners($form, &$form_state) {
       'sweepstakes_email_one_winner',
       array(
         $user,
+        $sweepstake->nid,
         $sweepstake->field_sweepstakes_winner_message[LANGUAGE_NONE][0]['value'],
         $prizes[$details[$user->uid]]
       )
@@ -325,14 +326,14 @@ function sweepstakes_email_winners($form, &$form_state) {
   ));
 }
 
-function sweepstakes_email_one_winner($account, $message, $prize, &$context) {
+function sweepstakes_email_one_winner($account, $sid, $message, $prize, &$context) {
   drupal_mail('sweepstakes', 'sweepstakes_winner', $account->mail, user_preferred_language($account), array(
     'body' => $message,
     'subject' => 'Congratulations on winning the sweepstakes',
     'headers' => 'simple',
     'prize' => $prize,
     'user' => $account,
-    'link' => 'http://google.com',
+    'link' => base_path() . drupal_get_path_alias('node/' . $sid),
   ));
   $context['results'][] = $account->uid;
 }
@@ -363,3 +364,44 @@ function sweepstakes_email_winners_finished($success, $results, $operations) {
   );
 }
 
+/**
+ * Implements hook_menu().
+ */
+function sweepstakes_menu() {
+  return array(
+    'sweepstakes_prize_redirect' => array(
+      'type' => MENU_CALLBACK,
+      'page callback' => 'sweepstakes_post_webform_submission_callback',
+      'access callback' => TRUE,
+    )
+  );
+}
+
+function sweepstakes_post_webform_submission_callback() {
+  global $user;
+  if ($user->uid == 0) {
+    drupal_goto();
+  }
+  $args = arg();
+  array_shift($args);
+  $args = explode('/', drupal_get_normal_path(implode('/', $args)));
+  $nid = next($args);
+
+  $prize = current(entity_load('field_collection_item', array(
+    current(db_select('sweepstakes_entries')
+      ->fields(NULL, array('prize_id'))
+      ->condition('nid', $nid)
+      ->condition('uid', $user->uid)
+      ->condition('prize_id', 0, '>')
+      ->range(0, 1)
+      ->execute()
+      ->fetchAssoc())
+  )));
+
+  if (!empty($prize->field_prize_giveaway)) {
+    drupal_goto(drupal_get_path_alias('node/' . $prize->field_prize_giveaway[LANGUAGE_NONE][0]['target_id']));
+    return;
+  }
+
+  return 'Thank you for providing the details. We will revert back with the shipping information of the gift';
+}
