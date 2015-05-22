@@ -52,7 +52,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_article_type']['label'] = '';
   $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
-  /* Field: Content: Header Image */
+  /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
@@ -64,7 +64,7 @@ function mmorpg_game_views_default_views() {
     'image_style' => 'giveaway_promoted_700x400',
     'image_link' => '',
   );
-  /* Field: Content: Header Image */
+  /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_hero_image_1']['id'] = 'field_hero_image_1';
   $handler->display->display_options['fields']['field_hero_image_1']['table'] = 'field_data_field_hero_image';
   $handler->display->display_options['fields']['field_hero_image_1']['field'] = 'field_hero_image';
@@ -742,6 +742,10 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
   /* Relationship: Content: Vote results */
   $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
   $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
@@ -769,7 +773,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value']['table'] = 'votingapi_cache';
   $handler->display->display_options['fields']['value']['field'] = 'value';
   $handler->display->display_options['fields']['value']['relationship'] = 'votingapi_cache';
-  $handler->display->display_options['fields']['value']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value']['label'] = 'Player Hype';
   $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value']['precision'] = '0';
   $handler->display->display_options['fields']['value']['separator'] = '.';
@@ -816,10 +820,31 @@ function mmorpg_game_views_default_views() {
 
   /* Display: active */
   $handler = $view->new_display('page', 'active', 'active_hype');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal"></div>';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<input type="submit" name="submit" value="Cast your Hype" class="btn large cta" id="castRatingSubmit">';
+  $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['path'] = 'hype-active';
 
   /* Display: Inactive */
   $handler = $view->new_display('page', 'Inactive', 'hype_inactive');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal"><a href="#" class="btn castratebutton">Hype this Game</a></div>';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -849,10 +874,14 @@ function mmorpg_game_views_default_views() {
     t('Desc'),
     t('Hype'),
     t('field collection item from field_game_development_status'),
+    t('Player Hype'),
     t('.'),
     t('All'),
     t('active'),
+    t('<div class="cell ratingstotal"></div>'),
+    t('<input type="submit" name="submit" value="Cast your Hype" class="btn large cta" id="castRatingSubmit">'),
     t('Inactive'),
+    t('<div class="cell ratingstotal"><a href="#" class="btn castratebutton">Hype this Game</a></div>'),
   );
   $export['hype'] = $view;
 
