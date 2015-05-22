@@ -39,6 +39,7 @@ features[page_manager_handlers][] = node_view__403
 features[page_manager_handlers][] = node_view__article
 features[page_manager_handlers][] = node_view__giveaway
 features[page_manager_handlers][] = node_view__invisible_content
+features[page_manager_handlers][] = node_view__reviews
 features[page_manager_handlers][] = node_view__sweepstakes
 features[page_manager_handlers][] = node_view__video_detail
 features[page_manager_handlers][] = site_template__default
