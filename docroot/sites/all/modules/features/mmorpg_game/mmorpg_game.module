@@ -60,6 +60,11 @@ function mmorpg_game_menu_content() {
     drupal_access_denied();
   }
 
+  //check if hype or ratings
+  $game_node = node_load($game_nid);
+  $dev_status = $game_node->field_game_development_status['und'][0]['value'];
+  $rating_hype = ($dev_status == 279) ? "Ratings" : "Hype";
+
   $active_attribute = array('class' => array('active'));
   $overview_attributes = $forum_attributes = $ratings_attributes = $reviews_attributes
     = $screenshots_attributes = $videos_attributes = array();
@@ -90,7 +95,7 @@ function mmorpg_game_menu_content() {
   }
   $overview = l(t('Overview'), 'game/' . $game_nid . '/overview', array('attributes' => $overview_attributes));
   $forum = l(t('Forum'), 'game/' . $game_nid . '/forum', array('attributes' => $forum_attributes));
-  $ratings = l(t('Ratings'), 'game/' . $game_nid . '/ratings', array('attributes' => $ratings_attributes));
+  $ratings = l(t($rating_hype), 'game/' . $game_nid . '/ratings', array('attributes' => $ratings_attributes));
   $reviews = l(t('Reviews'), 'game/' . $game_nid . '/reviews', array('attributes' => $reviews_attributes));
   $screenshots = l(t('Screenshots'), 'game/' . $game_nid . '/screenshots', array('attributes' => $screenshots_attributes));
   $videos = l(t('Videos'), 'game/' . $game_nid . '/videos', array('attributes' => $videos_attributes));
