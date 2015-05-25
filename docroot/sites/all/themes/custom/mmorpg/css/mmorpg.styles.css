@@ -1334,12 +1334,13 @@ ul.pager {
     font-weight: bold; }
   /* line 20, ../sass/components/_review.scss */
   .pro-con-section .field__items .field__item {
-    margin-top: 8px; }
-  /* line 23, ../sass/components/_review.scss */
+    margin-top: 4px;
+    margin-left: 15px; }
+  /* line 24, ../sass/components/_review.scss */
   .pro-con-section .field--name-field-final-score .field__item {
     font-size: 70px;
     margin-top: 0; }
-  /* line 27, ../sass/components/_review.scss */
+  /* line 28, ../sass/components/_review.scss */
   .pro-con-section h2.pane-title {
     font-size: 14px; }
 
