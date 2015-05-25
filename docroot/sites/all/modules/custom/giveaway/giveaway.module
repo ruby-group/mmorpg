@@ -142,23 +142,7 @@ function _giveaway_show_claim_button_submit($form, &$form_state) {
     and _giveaway_todays_key_quota_is_not_exhausted($giveaway)
     and _giveaway_hourly_spread_is_not_exhausted($giveaway)
   ) {
-
-    $id = db_select('giveaway_keys')
-      ->fields(NULL, array('gkid'))
-      ->condition('gid', $giveaway->nid)
-      ->condition('claimed_on', 0)
-      ->range(0, 1)
-      ->execute()
-      ->fetchField();
-
-    db_update('giveaway_keys')
-      ->fields(array(
-        'uid' => $user->uid,
-        'claimed_on' => time(),
-        'ip_address' => ip2long($_SERVER['REMOTE_ADDR'])
-      ))
-      ->condition('gkid', $id)
-      ->execute();
+    _giveaway_dispense_key_to_user($giveaway->nid, $user->uid);
   }
 }
 
@@ -273,6 +257,25 @@ function _giveaway_is_private_and_user_is_eligible($giveaway, $user) {
   return TRUE;
 }
 
+function _giveaway_dispense_key_to_user($gid, $uid) {
+  $id = db_select('giveaway_keys')
+    ->fields(NULL, array('gkid'))
+    ->condition('gid', $gid)
+    ->condition('claimed_on', 0)
+    ->range(0, 1)
+    ->execute()
+    ->fetchField();
+
+  db_update('giveaway_keys')
+    ->fields(array(
+      'uid' => $uid,
+      'claimed_on' => time(),
+      'ip_address' => ip2long($_SERVER['REMOTE_ADDR'])
+    ))
+    ->condition('gkid', $id)
+    ->execute();
+}
+
 /**
  * Implements hook_action_info().
  */
@@ -280,7 +283,7 @@ function giveaway_action_info() {
   return array(
     'giveaway_unassign_keys' => array(
       'type' => 'data_giveaway_keys',
-      'label' => t('Un-assign keys from users.'),
+      'label' => t('Un-assign keys from users'),
       'behavior' => array('changes_property'),
       'configurable' => FALSE,
       'vbo_configurable' => FALSE,

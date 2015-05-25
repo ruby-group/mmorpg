@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function ip2proxy_schema() {
+  return array(
+    'ip2proxy' =>
+      array(
+        'name' => 'ip2proxy',
+        'description' => '',
+        'fields' =>
+          array(
+            'ip_address' =>
+              array(
+                'type' => 'varchar',
+                'size' => 'normal',
+                'length' => '15',
+                'not null' => FALSE,
+                'description' => '',
+              ),
+            'country_code' =>
+              array(
+                'type' => 'char',
+                'size' => 'normal',
+                'length' => '2',
+                'not null' => FALSE,
+                'description' => '',
+              ),
+            'country_name' =>
+              array(
+                'type' => 'char',
+                'size' => 'normal',
+                'length' => '64',
+                'not null' => FALSE,
+                'description' => '',
+              ),
+          ),
+        'indexes' =>
+          array(
+            'idx_ip_address' =>
+              array(
+                0 => 'ip_address',
+              ),
+          ),
+      ),
+  );
+}

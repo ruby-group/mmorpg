@@ -44,6 +44,21 @@ function mmorpg_game_image_default_styles() {
     ),
   );
 
+  // Exported image style: review_hero__700x437_.
+  $styles['review_hero__700x437_'] = array(
+    'label' => 'Review Hero (700x437)',
+    'effects' => array(
+      6 => array(
+        'name' => 'image_resize',
+        'data' => array(
+          'width' => 700,
+          'height' => 437,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: screenshot_gallery_228x150.
   $styles['screenshot_gallery_228x150'] = array(
     'label' => 'Screenshot Gallery (228x150)',
@@ -79,6 +94,22 @@ function mmorpg_game_node_info() {
       'name' => t('Game Link'),
       'base' => 'node_content',
       'description' => t('The content type to add unofficial links to game.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'review' => array(
+      'name' => t('Review'),
+      'base' => 'node_content',
+      'description' => t('The official review content type'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'review_content' => array(
+      'name' => t('Review Content'),
+      'base' => 'node_content',
+      'description' => t('The content pages for reviews.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

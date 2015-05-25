@@ -1,0 +1,407 @@
+<?php
+/**
+ * @file
+ * Code for the Sweepstakes feature.
+ */
+
+include_once 'sweepstakes.features.inc';
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function sweepstakes_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function sweepstakes_block_info() {
+  $blocks['sweepstakes_entry_block'] = array(
+    'info' => t('Sweepstakes Entry Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['sweepstakes_title_rss_block'] = array(
+    'info' => t('Sweepstakes Title & RSS Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['sweepstakes_admin_ops_block'] = array(
+    'info' => t('Sweepstakes Admin Operations Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function sweepstakes_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'sweepstakes_entry_block':
+      $block['content'] = drupal_get_form('sweepstakes_entry_form');
+      break;
+    case 'sweepstakes_title_rss_block':
+      $block['content'] = _sweepstakes_show_title_rss();
+      break;
+    case 'sweepstakes_admin_ops_block':
+      $block['content'] = drupal_get_form('_sweepstakes_show_admin_ops');
+      break;
+  }
+  return $block;
+}
+
+function sweepstakes_entry_form() {
+  return array(
+    'sid' => array(
+      '#type' => 'hidden',
+      '#value' => arg(1),
+    ),
+    'share' => array(
+      '#type' => 'checkbox',
+      '#default_value' => TRUE,
+      '#title' => t('I have read, understand and agree to the above contest rules'),
+    ),
+    'signup' => array(
+      '#type' => 'checkbox',
+      '#default_value' => TRUE,
+      '#title' => t('Check here if you would like us to e-mail you about contests like this in the future'),
+    ),
+    'submit' => array(
+      '#type' => 'submit',
+      '#value' => t('Enter Contest'),
+      '#attributes' => array(
+        'class' => array('btn large green'),
+      ),
+    ),
+  );
+}
+
+function sweepstakes_entry_form_submit($form, &$form_state) {
+  global $user;
+  if (_sweepstakes_check_unique_entry($form_state['values']['sid'], $user->uid)) {
+    _sweepstakes_add_entry($form_state['values']['sid'], $user->uid, NULL, NULL, 'user initiated');
+  }
+}
+
+function _sweepstakes_check_unique_entry($nid, $uid) {
+  $entries = db_select('sweepstakes_entries')
+    ->fields(NULL, array('seid'))
+    ->condition('nid', $nid)
+    ->condition('uid', $uid)
+    ->execute()
+    ->rowCount();
+
+  if ($entries > 0) {
+    drupal_set_message(t('You are already enrolled in this sweepstakes'), 'error');
+    return FALSE;
+  }
+  return TRUE;
+}
+
+function _sweepstakes_add_entry($nid, $uid = NULL, $ip_address = NULL, $timestamp = NULL, $source = NULL) {
+  if (is_null($uid)) {
+    global $user;
+    $uid = $user->uid;
+  }
+
+  if (is_null($ip_address)) {
+    $ip_address = ip2long(ip_address());
+  }
+
+  if (is_null($timestamp)) {
+    $timestamp = time();
+  }
+
+  db_insert('sweepstakes_entries')
+    ->fields(array(
+      'seid' => 0,
+      'nid' => $nid,
+      'uid' => $uid,
+      'ip_address' => $ip_address,
+      'timestamp' => $timestamp,
+      'source' => $source,
+    ))
+    ->execute();
+
+  drupal_set_message(t('You have successfully entered the sweepstakes'));
+}
+
+function _sweepstakes_show_title_rss() {
+  return "
+  <div class='pane-mmorpg-game-game-rss-link-block'>
+  <h2 class='title_crumbs'>
+      Sweepstakes
+  </h2>"
+  . l('RSS', 'sweepstakes/rss.xml') .
+  "</div>";
+}
+
+function _sweepstakes_show_admin_ops() {
+  return array(
+    'sid' => array(
+      '#type' => 'hidden',
+      '#value' => arg(1),
+    ),
+    'delete_duplicates' => array(
+      '#type' => 'submit',
+      '#value' => t('Delete Duplicates'),
+      '#submit' => array(
+        'sweepstakes_delete_duplicates',
+      ),
+    ),
+    'pick_winners' => array(
+      '#type' => 'submit',
+      '#value' => t('Pick Winners'),
+      '#submit' => array(
+        'sweepstakes_pick_winners',
+      ),
+    ),
+    'email_winners' => array(
+      '#type' => 'submit',
+      '#value' => t('Email Winners'),
+      '#submit' => array(
+        'sweepstakes_email_winners',
+      ),
+    ),
+  );
+}
+
+function sweepstakes_delete_duplicates($form, &$form_state) {
+  $sweepstake = $form_state['values']['sid'];
+  $entries = db_select('sweepstakes_entries')
+    ->fields(NULL, array('seid', 'ip_address'))
+    ->condition('nid', $sweepstake)
+    ->condition('valid', 1)
+    ->execute()
+    ->fetchAllKeyed();
+
+  $operations = array();
+  foreach ($entries as $id => $ip_address) {
+    $operations[] = array(
+      'sweepstakes_delete_one_duplicate',
+      array($id, $ip_address)
+    );
+  }
+
+  batch_set(array(
+    'title' => t('Deleting Duplicates'),
+    'operations' => $operations,
+    'finished' => 'sweepstakes_delete_duplicates_finished',
+  ));
+}
+
+function sweepstakes_delete_one_duplicate($id, $ip_address, &$context) {
+  if (ip2proxy_is_proxy($ip_address)) {
+    db_update('sweepstakes_entries')
+      ->fields(array('valid' => 0,))
+      ->condition('seid', $id)
+      ->execute();
+    $context['results'][] = $id;
+  }
+}
+
+function sweepstakes_delete_duplicates_finished($success, $results, $operations) {
+  drupal_set_message($success ?
+    format_plural(count($results), 'One entry deleted', '@count entries deleted') :
+    t('Finished with an error')
+  );
+}
+
+function sweepstakes_pick_winners($form, &$form_state) {
+  $sweepstake = node_load($form_state['values']['sid']);
+  $prizes = entity_load('field_collection_item', array_column($sweepstake->field_sweepstakes_prizes[LANGUAGE_NONE], 'value'));
+
+  $operations = array();
+  foreach ($prizes as $id => $prize) {
+    if (empty($prize->field_prize_giveaway)) {
+      // this is a non giveaway prize.
+      for ($count = 0; $count < $prize->field_prize_count[LANGUAGE_NONE][0]['value']; $count++) {
+        $operations[] = array(
+          'sweepstakes_pick_one_winner_for_non_giveaway',
+          array($id, $sweepstake->nid)
+        );
+      }
+    }
+    else {
+      // this is a giveaway prize.
+      $operations[] = array(
+        'sweepstakes_pick_one_winner_for_giveaway',
+        array(
+          $id,
+          $sweepstake->nid,
+          $prize->field_prize_giveaway[LANGUAGE_NONE][0]['target_id']
+        )
+      );
+    }
+  }
+
+  batch_set(array(
+    'title' => t('Picking Winners'),
+    'operations' => $operations,
+    'finished' => 'sweepstakes_pick_winners_finished',
+  ));
+}
+
+function sweepstakes_pick_one_winner_for_non_giveaway($pid, $sid, &$context) {
+  $seid = db_select('sweepstakes_entries')
+    ->fields(NULL, array('seid'))
+    ->condition('nid', $sid)
+    ->condition('prize_id', 0)
+    ->condition('valid', 1)
+    ->range(0, 1)
+    ->execute()
+    ->fetchAssoc();
+
+  if ($seid) {
+    db_update('sweepstakes_entries')
+      ->fields(array('prize_id' => $pid))
+      ->condition('seid', $seid)
+      ->execute();
+    $context['results'][] = $sid;
+  }
+}
+
+function sweepstakes_pick_one_winner_for_giveaway($pid, $sid, $gid, &$context) {
+  $entry = db_select('sweepstakes_entries')
+    ->fields(NULL, array('seid', 'uid'))
+    ->condition('nid', $sid)
+    ->condition('prize_id', 0)
+    ->condition('valid', 1)
+    ->range(0, 1)
+    ->execute()
+    ->fetchAssoc();
+
+  if (is_array($entry)) {
+    db_update('sweepstakes_entries')
+      ->fields(array('prize_id' => $pid))
+      ->condition('seid', $entry['seid'])
+      ->execute();
+
+    _giveaway_dispense_key_to_user($gid, $entry['uid']);
+
+    $context['results'][] = $sid;
+  }
+}
+
+function sweepstakes_pick_winners_finished($success, $results, $operations) {
+  drupal_set_message($success ?
+    format_plural(count($results), 'One prize awarded.', '@count prizes awarded.') :
+    t('Finished with an error.')
+  );
+}
+
+function sweepstakes_email_winners($form, &$form_state) {
+  $sweepstake = node_load($form_state['values']['sid']);
+  $prizes = entity_load('field_collection_item', array_column($sweepstake->field_sweepstakes_prizes[LANGUAGE_NONE], 'value'));
+  $details = db_select('sweepstakes_entries')
+    ->fields(NULL, array('uid', 'prize_id'))
+    ->condition('nid', $sweepstake->nid)
+    ->condition('valid', 1)
+    ->condition('prize_id', 0, '>')
+    ->condition('confirmed', 0)
+    ->execute()
+    ->fetchAllKeyed();
+
+  $users = user_load_multiple(array_keys($details));
+  $operations = array();
+  foreach ($users as $user) {
+    $operations[] = array(
+      'sweepstakes_email_one_winner',
+      array(
+        $user,
+        $sweepstake->nid,
+        $sweepstake->field_sweepstakes_winner_message[LANGUAGE_NONE][0]['value'],
+        $prizes[$details[$user->uid]]
+      )
+    );
+  }
+
+  batch_set(array(
+    'title' => t('Emailing Winners'),
+    'operations' => $operations,
+    'finished' => 'sweepstakes_email_winners_finished',
+  ));
+}
+
+function sweepstakes_email_one_winner($account, $sid, $message, $prize, &$context) {
+  drupal_mail('sweepstakes', 'sweepstakes_winner', $account->mail, user_preferred_language($account), array(
+    'body' => $message,
+    'subject' => 'Congratulations on winning the sweepstakes',
+    'headers' => 'simple',
+    'prize' => $prize,
+    'user' => $account,
+    'link' => base_path() . drupal_get_path_alias('node/' . $sid),
+  ));
+  $context['results'][] = $account->uid;
+}
+
+/**
+ * Implements hook_mail().
+ */
+function sweepstakes_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'sweepstakes_winner':
+      $search = array('#username#', '#prize#', '#link#');
+      $replace = array(
+        $params['user']->name,
+        $params['prize']->field_prize_description[LANGUAGE_NONE][0]['safe_value'],
+        $params['link'],
+      );
+      $message['subject'] = t($params['subject']);
+      $message['body'][] = str_replace($search, $replace, $params['body']);
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+      break;
+  }
+}
+
+function sweepstakes_email_winners_finished($success, $results, $operations) {
+  drupal_set_message($success ?
+    format_plural(count($results), 'One email sent.', '@count emails sent.') :
+    t('Finished with an error.')
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function sweepstakes_menu() {
+  return array(
+    'sweepstakes_prize_redirect' => array(
+      'type' => MENU_CALLBACK,
+      'page callback' => 'sweepstakes_post_webform_submission_callback',
+      'access callback' => TRUE,
+    )
+  );
+}
+
+function sweepstakes_post_webform_submission_callback() {
+  global $user;
+  if ($user->uid == 0) {
+    drupal_goto();
+  }
+  $args = arg();
+  array_shift($args);
+  $args = explode('/', drupal_get_normal_path(implode('/', $args)));
+  $nid = next($args);
+
+  $prize = current(entity_load('field_collection_item', array(
+    current(db_select('sweepstakes_entries')
+      ->fields(NULL, array('prize_id'))
+      ->condition('nid', $nid)
+      ->condition('uid', $user->uid)
+      ->condition('prize_id', 0, '>')
+      ->range(0, 1)
+      ->execute()
+      ->fetchAssoc())
+  )));
+
+  if (!empty($prize->field_prize_giveaway)) {
+    drupal_goto(drupal_get_path_alias('node/' . $prize->field_prize_giveaway[LANGUAGE_NONE][0]['target_id']));
+    return;
+  }
+
+  return 'Thank you for providing the details. We will revert back with the shipping information of the gift';
+}

@@ -17,7 +17,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'http_response';
-  $handler->weight = -26;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => '403',
     'contexts' => array(),
@@ -200,10 +200,10 @@ function mmorpg_site_default_page_manager_handlers() {
     $display->content['new-60a87a87-1c56-4f6f-8631-676caaaafb08'] = $pane;
     $display->panels['middle'][0] = 'new-60a87a87-1c56-4f6f-8631-676caaaafb08';
     $pane = new stdClass();
-    $pane->pid = 'new-29c5c6e2-7cb5-4a25-a38d-7b371fc62617';
+    $pane->pid = 'new-7d9e8edb-545c-4327-83fc-1b0b056f7ddd';
     $pane->panel = 'middle';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_article_hero_image';
+    $pane->subtype = 'node:field_hero_image';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -213,7 +213,7 @@ function mmorpg_site_default_page_manager_handlers() {
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'image_style' => '',
+        'image_style' => 'giveaway_node_700x305',
         'image_link' => '',
       ),
       'context' => 'argument_entity_id:node_1',
@@ -235,9 +235,9 @@ function mmorpg_site_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '29c5c6e2-7cb5-4a25-a38d-7b371fc62617';
-    $display->content['new-29c5c6e2-7cb5-4a25-a38d-7b371fc62617'] = $pane;
-    $display->panels['middle'][1] = 'new-29c5c6e2-7cb5-4a25-a38d-7b371fc62617';
+    $pane->uuid = '7d9e8edb-545c-4327-83fc-1b0b056f7ddd';
+    $display->content['new-7d9e8edb-545c-4327-83fc-1b0b056f7ddd'] = $pane;
+    $display->panels['middle'][1] = 'new-7d9e8edb-545c-4327-83fc-1b0b056f7ddd';
     $pane = new stdClass();
     $pane->pid = 'new-18ac3978-8da9-4d4f-846b-7a043793c0fa';
     $pane->panel = 'middle';
@@ -456,7 +456,7 @@ function mmorpg_site_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'http_response';
-  $handler->weight = -27;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'invisible content',
     'contexts' => array(),
@@ -493,6 +493,691 @@ function mmorpg_site_default_page_manager_handlers() {
     ),
   );
   $export['node_view__invisible_content'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view__reviews';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -24;
+  $handler->conf = array(
+    'title' => 'Reviews',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'Node from Game field',
+        'keyword' => 'game',
+        'name' => 'entity_from_field:field_game-node-node',
+        'delta' => 0,
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+    ),
+    'name' => 'reviews',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'review' => 'review',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->uuid = '10f0d031-40ed-4efa-ad64-a175a659a91a';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-dd499e84-417e-43fb-9235-3990992a9910';
+    $pane->panel = 'middle';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => '',
+      'id' => '',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'dd499e84-417e-43fb-9235-3990992a9910';
+    $display->content['new-dd499e84-417e-43fb-9235-3990992a9910'] = $pane;
+    $display->panels['middle'][0] = 'new-dd499e84-417e-43fb-9235-3990992a9910';
+    $pane = new stdClass();
+    $pane->pid = 'new-14ea8711-3ffb-4ab0-8781-840329039f1b';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_view';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '%title',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '14ea8711-3ffb-4ab0-8781-840329039f1b';
+    $display->content['new-14ea8711-3ffb-4ab0-8781-840329039f1b'] = $pane;
+    $display->panels['middle'][1] = 'new-14ea8711-3ffb-4ab0-8781-840329039f1b';
+    $pane = new stdClass();
+    $pane->pid = 'new-7f990e2f-1953-4b5c-87e3-105e8a53556d';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_hero_image';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'image',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'image_style' => 'review_hero__700x437_',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '7f990e2f-1953-4b5c-87e3-105e8a53556d';
+    $display->content['new-7f990e2f-1953-4b5c-87e3-105e8a53556d'] = $pane;
+    $display->panels['middle'][2] = 'new-7f990e2f-1953-4b5c-87e3-105e8a53556d';
+    $pane = new stdClass();
+    $pane->pid = 'new-6353efab-bbbb-4df5-aa11-7fdaa60ead92';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_site-related_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'title' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'theme' => 0,
+      ),
+      'style' => 'wrapper_raw',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '6353efab-bbbb-4df5-aa11-7fdaa60ead92';
+    $display->content['new-6353efab-bbbb-4df5-aa11-7fdaa60ead92'] = $pane;
+    $display->panels['middle'][3] = 'new-6353efab-bbbb-4df5-aa11-7fdaa60ead92';
+    $pane = new stdClass();
+    $pane->pid = 'new-ea89b1c9-a3b5-4b0d-ab8b-57e115582c2b';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_final_score';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'number_decimal',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'thousand_separator' => ' ',
+        'decimal_separator' => '.',
+        'scale' => '2',
+        'prefix_suffix' => 1,
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'style' => 'wrapper_raw',
+      'settings' => array(
+        'title' => array(
+          'prefix' => '<div class="pro-con-section"><div class="final">',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '',
+          'suffix' => '</div>',
+        ),
+        'theme' => 0,
+      ),
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = 'ea89b1c9-a3b5-4b0d-ab8b-57e115582c2b';
+    $display->content['new-ea89b1c9-a3b5-4b0d-ab8b-57e115582c2b'] = $pane;
+    $display->panels['middle'][4] = 'new-ea89b1c9-a3b5-4b0d-ab8b-57e115582c2b';
+    $pane = new stdClass();
+    $pane->pid = 'new-ec1931f0-f988-4663-914f-17621352f189';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_pros';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'taxonomy_term_reference_plain',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = 'ec1931f0-f988-4663-914f-17621352f189';
+    $display->content['new-ec1931f0-f988-4663-914f-17621352f189'] = $pane;
+    $display->panels['middle'][5] = 'new-ec1931f0-f988-4663-914f-17621352f189';
+    $pane = new stdClass();
+    $pane->pid = 'new-a301be3e-7fc1-4d49-a57d-f66140a2d129';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_pros_text';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = 'a301be3e-7fc1-4d49-a57d-f66140a2d129';
+    $display->content['new-a301be3e-7fc1-4d49-a57d-f66140a2d129'] = $pane;
+    $display->panels['middle'][6] = 'new-a301be3e-7fc1-4d49-a57d-f66140a2d129';
+    $pane = new stdClass();
+    $pane->pid = 'new-0f134980-2723-42b1-9e74-6b9fe718189f';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_cons';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'taxonomy_term_reference_plain',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->locks = array();
+    $pane->uuid = '0f134980-2723-42b1-9e74-6b9fe718189f';
+    $display->content['new-0f134980-2723-42b1-9e74-6b9fe718189f'] = $pane;
+    $display->panels['middle'][7] = 'new-0f134980-2723-42b1-9e74-6b9fe718189f';
+    $pane = new stdClass();
+    $pane->pid = 'new-3e09677c-5ed1-487e-9ae3-249201360f58';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_cons_text';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => array(
+        'title' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '',
+          'suffix' => '</div>',
+        ),
+        'theme' => 0,
+      ),
+      'style' => 'wrapper_raw',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->locks = array();
+    $pane->uuid = '3e09677c-5ed1-487e-9ae3-249201360f58';
+    $display->content['new-3e09677c-5ed1-487e-9ae3-249201360f58'] = $pane;
+    $display->panels['middle'][8] = 'new-3e09677c-5ed1-487e-9ae3-249201360f58';
+    $pane = new stdClass();
+    $pane->pid = 'new-3f6b8af2-4267-44c2-b60d-d35662599400';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'sharethis-sharethis_block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->locks = array();
+    $pane->uuid = '3f6b8af2-4267-44c2-b60d-d35662599400';
+    $display->content['new-3f6b8af2-4267-44c2-b60d-d35662599400'] = $pane;
+    $display->panels['middle'][9] = 'new-3f6b8af2-4267-44c2-b60d-d35662599400';
+    $pane = new stdClass();
+    $pane->pid = 'new-a29404b0-a603-49b8-853f-90b1300f5259';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'mmorpg_site-related_content_menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 10;
+    $pane->locks = array();
+    $pane->uuid = 'a29404b0-a603-49b8-853f-90b1300f5259';
+    $display->content['new-a29404b0-a603-49b8-853f-90b1300f5259'] = $pane;
+    $display->panels['middle'][10] = 'new-a29404b0-a603-49b8-853f-90b1300f5259';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['node_view__reviews'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view__sweepstakes';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -27;
+  $handler->conf = array(
+    'title' => 'Sweepstakes',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'sweepstakes',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:node',
+          'settings' => array(
+            'type' => array(
+              'sweepstake' => 'sweepstake',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '16675bb2-7480-41d1-8b02-3b0836af30c1';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-e0171120-f662-4c2e-9583-c551f90f2ef7';
+    $pane->panel = 'middle';
+    $pane->type = 'pane_messages';
+    $pane->subtype = 'pane_messages';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e0171120-f662-4c2e-9583-c551f90f2ef7';
+    $display->content['new-e0171120-f662-4c2e-9583-c551f90f2ef7'] = $pane;
+    $display->panels['middle'][0] = 'new-e0171120-f662-4c2e-9583-c551f90f2ef7';
+    $pane = new stdClass();
+    $pane->pid = 'new-786a3050-4399-48e0-9c3e-fca7ac19a605';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_hero_image';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'image',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'image_style' => 'giveaway_node_700x305',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'args',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '786a3050-4399-48e0-9c3e-fca7ac19a605';
+    $display->content['new-786a3050-4399-48e0-9c3e-fca7ac19a605'] = $pane;
+    $display->panels['middle'][1] = 'new-786a3050-4399-48e0-9c3e-fca7ac19a605';
+    $pane = new stdClass();
+    $pane->pid = 'new-369d1d2f-0228-41ab-990b-19fc19681989';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:body';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'args',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '369d1d2f-0228-41ab-990b-19fc19681989';
+    $display->content['new-369d1d2f-0228-41ab-990b-19fc19681989'] = $pane;
+    $display->panels['middle'][2] = 'new-369d1d2f-0228-41ab-990b-19fc19681989';
+    $pane = new stdClass();
+    $pane->pid = 'new-7c41d6de-62ca-45a7-bb8f-f33299bb4991';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_sweepstakes_rules';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '300',
+        'granularity' => 'args',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '7c41d6de-62ca-45a7-bb8f-f33299bb4991';
+    $display->content['new-7c41d6de-62ca-45a7-bb8f-f33299bb4991'] = $pane;
+    $display->panels['middle'][3] = 'new-7c41d6de-62ca-45a7-bb8f-f33299bb4991';
+    $pane = new stdClass();
+    $pane->pid = 'new-7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'sweepstakes-sweepstakes_entry_block';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'sweepstake_user_has_won',
+          'settings' => NULL,
+          'context' => array(
+            0 => 'logged-in-user',
+            1 => 'argument_entity_id:node_1',
+          ),
+          'not' => TRUE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39';
+    $display->content['new-7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39'] = $pane;
+    $display->panels['middle'][4] = 'new-7bbbd2b2-d8f7-4b0a-9878-815d9dfccb39';
+    $pane = new stdClass();
+    $pane->pid = 'new-69dbc0d4-809b-460c-bce0-7bf996b2596c';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field_extra';
+    $pane->subtype = 'node:webform';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'sweepstake_user_has_won',
+          'settings' => NULL,
+          'context' => array(
+            0 => 'logged-in-user',
+            1 => 'argument_entity_id:node_1',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'view_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = '69dbc0d4-809b-460c-bce0-7bf996b2596c';
+    $display->content['new-69dbc0d4-809b-460c-bce0-7bf996b2596c'] = $pane;
+    $display->panels['middle'][5] = 'new-69dbc0d4-809b-460c-bce0-7bf996b2596c';
+    $pane = new stdClass();
+    $pane->pid = 'new-d413aba7-84f0-4f68-9c1e-826cc84a5dd8';
+    $pane->panel = 'middle';
+    $pane->type = 'sharethis';
+    $pane->subtype = 'sharethis';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'path' => 'current',
+      'path-external' => '',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = 'd413aba7-84f0-4f68-9c1e-826cc84a5dd8';
+    $display->content['new-d413aba7-84f0-4f68-9c1e-826cc84a5dd8'] = $pane;
+    $display->panels['middle'][6] = 'new-d413aba7-84f0-4f68-9c1e-826cc84a5dd8';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['node_view__sweepstakes'] = $handler;
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
@@ -1152,7 +1837,7 @@ game/*/video',
       ),
       2 => array(
         'type' => 'column',
-        'width' => 78.495067405574005,
+        'width' => 78.4950674055740051926477462984621524810791015625,
         'width_type' => '%',
         'parent' => '1',
         'children' => array(
@@ -1163,7 +1848,7 @@ game/*/video',
       ),
       3 => array(
         'type' => 'column',
-        'width' => 21.504932594425995,
+        'width' => 21.5049325944259948073522537015378475189208984375,
         'width_type' => '%',
         'parent' => '1',
         'children' => array(
@@ -1847,6 +2532,85 @@ function mmorpg_site_default_page_manager_pages() {
     $display->content['new-72b2da02-e0f8-4b21-b50a-0acf8674fd00'] = $pane;
     $display->panels['middle'][2] = 'new-72b2da02-e0f8-4b21-b50a-0acf8674fd00';
     $pane = new stdClass();
+    $pane->pid = 'new-e5b2e13a-afbf-4979-b18e-cacb2ad334b5';
+    $pane->panel = 'middle';
+    $pane->type = 'views';
+    $pane->subtype = 'hype';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '1',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'hype_inactive',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => 'rate-view',
+      'css_class' => '',
+    );
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = 'e5b2e13a-afbf-4979-b18e-cacb2ad334b5';
+    $display->content['new-e5b2e13a-afbf-4979-b18e-cacb2ad334b5'] = $pane;
+    $display->panels['middle'][3] = 'new-e5b2e13a-afbf-4979-b18e-cacb2ad334b5';
+    $pane = new stdClass();
+    $pane->pid = 'new-20788318-0d3a-499e-8ca2-297d8a5679af';
+    $pane->panel = 'middle';
+    $pane->type = 'views';
+    $pane->subtype = 'hype';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 1,
+      'nodes_per_page' => '1',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'active_hype',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '20788318-0d3a-499e-8ca2-297d8a5679af';
+    $display->content['new-20788318-0d3a-499e-8ca2-297d8a5679af'] = $pane;
+    $display->panels['middle'][4] = 'new-20788318-0d3a-499e-8ca2-297d8a5679af';
+    $pane = new stdClass();
     $pane->pid = 'new-ff41606e-1b52-4a79-aab0-debe9eaba230';
     $pane->panel = 'middle';
     $pane->type = 'custom';
@@ -1866,11 +2630,11 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 5;
     $pane->locks = array();
     $pane->uuid = 'ff41606e-1b52-4a79-aab0-debe9eaba230';
     $display->content['new-ff41606e-1b52-4a79-aab0-debe9eaba230'] = $pane;
-    $display->panels['middle'][3] = 'new-ff41606e-1b52-4a79-aab0-debe9eaba230';
+    $display->panels['middle'][5] = 'new-ff41606e-1b52-4a79-aab0-debe9eaba230';
     $pane = new stdClass();
     $pane->pid = 'new-e97f0d8e-2a8b-4e50-9d92-28eed66c3c61';
     $pane->panel = 'middle';
@@ -1901,11 +2665,11 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 6;
     $pane->locks = array();
     $pane->uuid = 'e97f0d8e-2a8b-4e50-9d92-28eed66c3c61';
     $display->content['new-e97f0d8e-2a8b-4e50-9d92-28eed66c3c61'] = $pane;
-    $display->panels['middle'][4] = 'new-e97f0d8e-2a8b-4e50-9d92-28eed66c3c61';
+    $display->panels['middle'][6] = 'new-e97f0d8e-2a8b-4e50-9d92-28eed66c3c61';
     $pane = new stdClass();
     $pane->pid = 'new-f70e401a-0d0f-4c9d-86df-e3b5b6ceee6b';
     $pane->panel = 'middle';
@@ -1936,11 +2700,11 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 7;
     $pane->locks = array();
     $pane->uuid = 'f70e401a-0d0f-4c9d-86df-e3b5b6ceee6b';
     $display->content['new-f70e401a-0d0f-4c9d-86df-e3b5b6ceee6b'] = $pane;
-    $display->panels['middle'][5] = 'new-f70e401a-0d0f-4c9d-86df-e3b5b6ceee6b';
+    $display->panels['middle'][7] = 'new-f70e401a-0d0f-4c9d-86df-e3b5b6ceee6b';
     $pane = new stdClass();
     $pane->pid = 'new-f6cd05b5-40e3-4b94-bde8-16e9f55cde76';
     $pane->panel = 'middle';
@@ -1959,11 +2723,11 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 8;
     $pane->locks = array();
     $pane->uuid = 'f6cd05b5-40e3-4b94-bde8-16e9f55cde76';
     $display->content['new-f6cd05b5-40e3-4b94-bde8-16e9f55cde76'] = $pane;
-    $display->panels['middle'][6] = 'new-f6cd05b5-40e3-4b94-bde8-16e9f55cde76';
+    $display->panels['middle'][8] = 'new-f6cd05b5-40e3-4b94-bde8-16e9f55cde76';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-7eda85f3-ac5b-46f5-b4d3-2d48d48fd132';
   $handler->conf['display'] = $display;
@@ -2030,7 +2794,9 @@ function mmorpg_site_default_page_manager_pages() {
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -2038,6 +2804,82 @@ function mmorpg_site_default_page_manager_pages() {
     $pane->uuid = 'e5e5e9bb-5a42-47d6-ae94-9c1f25052f27';
     $display->content['new-e5e5e9bb-5a42-47d6-ae94-9c1f25052f27'] = $pane;
     $display->panels['middle'][0] = 'new-e5e5e9bb-5a42-47d6-ae94-9c1f25052f27';
+    $pane = new stdClass();
+    $pane->pid = 'new-688bebc4-047c-4017-bad0-56531800178e';
+    $pane->panel = 'middle';
+    $pane->type = 'views';
+    $pane->subtype = 'game_review_featured';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '1',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'default',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '688bebc4-047c-4017-bad0-56531800178e';
+    $display->content['new-688bebc4-047c-4017-bad0-56531800178e'] = $pane;
+    $display->panels['middle'][1] = 'new-688bebc4-047c-4017-bad0-56531800178e';
+    $pane = new stdClass();
+    $pane->pid = 'new-28b79afb-e70a-4957-9f5f-96006deb50a3';
+    $pane->panel = 'middle';
+    $pane->type = 'views';
+    $pane->subtype = 'game_reviews';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 1,
+      'nodes_per_page' => '0',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'default',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '28b79afb-e70a-4957-9f5f-96006deb50a3';
+    $display->content['new-28b79afb-e70a-4957-9f5f-96006deb50a3'] = $pane;
+    $display->panels['middle'][2] = 'new-28b79afb-e70a-4957-9f5f-96006deb50a3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -2876,6 +3718,166 @@ play-now/*',
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['playnow'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'sweepstakes';
+  $page->task = 'page';
+  $page->admin_title = 'Sweepstakes';
+  $page->admin_description = '';
+  $page->path = 'sweepstakes';
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_sweepstakes__panel_context_ef04e5a8-47f5-4f70-9475-d8f6fdeedc8b';
+  $handler->task = 'page';
+  $handler->subtask = 'sweepstakes';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Sweepstakes',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(),
+      'logic' => 'and',
+    ),
+    'panels_everywhere_site_template' => '-1',
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'header' => NULL,
+      'highlighted' => NULL,
+      'help' => NULL,
+      'content' => NULL,
+      'sidebar_first' => NULL,
+      'sidebar_second' => NULL,
+      'footer' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'ddf12fe8-b71b-4d31-b027-fe9f79f3fc3c';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'sweepstakes-sweepstakes_title_rss_block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '604800',
+        'granularity' => 'none',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3';
+    $display->content['new-4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3'] = $pane;
+    $display->panels['middle'][0] = 'new-4c93b5dc-6aaa-474b-a3d9-9bdad5aa08a3';
+    $pane = new stdClass();
+    $pane->pid = 'new-202f2ce5-bef0-4aa3-b4ce-6667b084f2ed';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'views-5949cc515d4897b423a89734083b9967';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'inherit_path' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '202f2ce5-bef0-4aa3-b4ce-6667b084f2ed';
+    $display->content['new-202f2ce5-bef0-4aa3-b4ce-6667b084f2ed'] = $pane;
+    $display->panels['middle'][1] = 'new-202f2ce5-bef0-4aa3-b4ce-6667b084f2ed';
+    $pane = new stdClass();
+    $pane->pid = 'new-14baf3d1-4bfc-40e6-9a52-4af72ed8255d';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'sweepstakes_listing-promoted_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '14baf3d1-4bfc-40e6-9a52-4af72ed8255d';
+    $display->content['new-14baf3d1-4bfc-40e6-9a52-4af72ed8255d'] = $pane;
+    $display->panels['middle'][2] = 'new-14baf3d1-4bfc-40e6-9a52-4af72ed8255d';
+    $pane = new stdClass();
+    $pane->pid = 'new-133984e3-0bc0-4a4c-9968-ad67d9f7f85a';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'sweepstakes_listing-listing_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '133984e3-0bc0-4a4c-9968-ad67d9f7f85a';
+    $display->content['new-133984e3-0bc0-4a4c-9968-ad67d9f7f85a'] = $pane;
+    $display->panels['middle'][3] = 'new-133984e3-0bc0-4a4c-9968-ad67d9f7f85a';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['sweepstakes'] = $page;
 
   return $pages;
 

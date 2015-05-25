@@ -66,3 +66,62 @@
 .pager .ajax-progress-throbber {
   display: none !important;
 }
+.pane-sharethis {
+  margin-top: 1em;
+}
+
+/* Node body theme */
+.page-node {
+  .node--mmorpg-article .field__item img {
+    max-width: 100%;
+    height: auto !important;
+    width: 100%;
+  }
+
+  h1{
+      padding: 10px 15px 5px 0px;
+      margin-left: 26px;
+      margin: 0px;
+      font-size: 35px;
+      font-weight: normal;
+      line-height: 1.2em;
+  }
+
+  .node__submitted{
+      font-size: 13px;
+      padding: 6px 0px 15px 1px;
+      border-top: 1px solid $light-blue;
+      display: inline-block;
+      margin-top: 5px;
+      color: $grey;
+  }
+
+  .field--name-field-article-overview {
+    display: none;
+  }
+
+  .field__item{
+      font-size: 14px;
+      line-height: 1.6em;
+      padding-top: 0px;
+      margin-top: 0px
+  }
+
+  .field--name-field-article-hero-image {
+      padding: 0px;
+  }
+
+  .field--name-field-article-news-post {
+    @extend %node_body;
+    top: -20px;
+    @include breakpoint(1024px) {
+      top: -40px;
+      margin-bottom: -40px;
+    }
+
+    img {
+      max-width: 715px;
+      width: 100%;
+    }
+  }
+}

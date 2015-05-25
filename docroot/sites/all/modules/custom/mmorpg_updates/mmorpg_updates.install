@@ -411,3 +411,51 @@ function mmorpg_updates_update_7047() {
     ))
     ->execute();
 }
+
+/**
+ * Enabling improved_multi_select module.
+ */
+function mmorpg_updates_update_7048() {
+  module_enable(array('improved_multi_select'));
+}
+
+/**
+ * Enabling Sweepstakes & refactored similar purpose fields into a single field.
+ */
+function mmorpg_updates_update_7049() {
+  module_enable(array('field_collection_table', 'sweepstakes'));
+
+  field_delete_instance(field_info_instance('node', 'field_game_hero_image', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_article_hero_image', 'giveaway'));
+  field_delete_instance(field_info_instance('node', 'field_article_hero_image', 'mmorpg_article'));
+
+  db_insert('nodequeue_auto')
+    ->fields(array(
+      'qid' => 2,
+      'auto_add' => 1,
+    ))
+    ->execute();
+}
+
+/**
+ * Enabling views_block_area,smtp module.
+ */
+function mmorpg_updates_update_7050() {
+  module_enable(array('views_block_area', 'smtp', 'ip2proxy'));
+}
+
+/**
+ * Creates a relationship between 'review' and 'review content' content type
+ */
+function mmorpg_updates_update_7051() {
+  node_collection_api_add_update_relationship('Review', 'review', array('review_content'));
+}
+
+/**
+ * Enabling views_conditional module.
+ */
+function mmorpg_updates_update_7052() {
+  module_enable(array('views_conditional'));
+}
+
+

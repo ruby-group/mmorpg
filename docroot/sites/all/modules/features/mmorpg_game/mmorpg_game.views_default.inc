@@ -34,17 +34,60 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Header Image */
-  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
-  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
-    'image_style' => 'articles_overview_200x155',
+  /* Field: Content: Promoted to front page */
+  $handler->display->display_options['fields']['promote']['id'] = 'promote';
+  $handler->display->display_options['fields']['promote']['table'] = 'node';
+  $handler->display->display_options['fields']['promote']['field'] = 'promote';
+  $handler->display->display_options['fields']['promote']['label'] = '';
+  $handler->display->display_options['fields']['promote']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['promote']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['promote']['type'] = 'custom';
+  $handler->display->display_options['fields']['promote']['type_custom_true'] = '1';
+  $handler->display->display_options['fields']['promote']['type_custom_false'] = '0';
+  $handler->display->display_options['fields']['promote']['not'] = 0;
+  /* Field: Content: Article Type */
+  $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['table'] = 'field_data_field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['field'] = 'field_article_type';
+  $handler->display->display_options['fields']['field_article_type']['label'] = '';
+  $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Content: Hero Image */
+  $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
+    'image_style' => 'giveaway_promoted_700x400',
     'image_link' => '',
   );
+  /* Field: Content: Hero Image */
+  $handler->display->display_options['fields']['field_hero_image_1']['id'] = 'field_hero_image_1';
+  $handler->display->display_options['fields']['field_hero_image_1']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image_1']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image_1']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hero_image_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image_1']['settings'] = array(
+    'image_style' => 'user_menu_200x160',
+    'image_link' => '',
+  );
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional_1']['id'] = 'views_conditional_1';
+  $handler->display->display_options['fields']['views_conditional_1']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional_1']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional_1']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional_1']['if'] = 'promote';
+  $handler->display->display_options['fields']['views_conditional_1']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional_1']['equalto'] = '1';
+  $handler->display->display_options['fields']['views_conditional_1']['then'] = '[field_hero_image]';
+  $handler->display->display_options['fields']['views_conditional_1']['or'] = '[field_hero_image_1]';
+  $handler->display->display_options['fields']['views_conditional_1']['strip_tags'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -58,29 +101,13 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['field_article_overview']['field'] = 'field_article_overview';
   $handler->display->display_options['fields']['field_article_overview']['label'] = '';
   $handler->display->display_options['fields']['field_article_overview']['element_label_colon'] = FALSE;
-  /* Field: Content: Promoted to front page */
-  $handler->display->display_options['fields']['promote']['id'] = 'promote';
-  $handler->display->display_options['fields']['promote']['table'] = 'node';
-  $handler->display->display_options['fields']['promote']['field'] = 'promote';
-  $handler->display->display_options['fields']['promote']['label'] = '';
-  $handler->display->display_options['fields']['promote']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['promote']['type'] = 'custom';
-  $handler->display->display_options['fields']['promote']['type_custom_true'] = '<div>true</div>';
-  $handler->display->display_options['fields']['promote']['type_custom_false'] = '<div>false</div>';
-  $handler->display->display_options['fields']['promote']['not'] = 0;
   /* Field: Content: ShareThis Link */
   $handler->display->display_options['fields']['sharethis']['id'] = 'sharethis';
   $handler->display->display_options['fields']['sharethis']['table'] = 'node';
   $handler->display->display_options['fields']['sharethis']['field'] = 'sharethis';
   $handler->display->display_options['fields']['sharethis']['label'] = '';
+  $handler->display->display_options['fields']['sharethis']['exclude'] = TRUE;
   $handler->display->display_options['fields']['sharethis']['element_label_colon'] = FALSE;
-  /* Field: Content: Article Type */
-  $handler->display->display_options['fields']['field_article_type']['id'] = 'field_article_type';
-  $handler->display->display_options['fields']['field_article_type']['table'] = 'field_data_field_article_type';
-  $handler->display->display_options['fields']['field_article_type']['field'] = 'field_article_type';
-  $handler->display->display_options['fields']['field_article_type']['label'] = '';
-  $handler->display->display_options['fields']['field_article_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_article_type']['type'] = 'taxonomy_term_reference_plain';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -95,6 +122,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['nid']['alter']['text'] = 'Keep Reading';
   $handler->display->display_options['fields']['nid']['alter']['make_link'] = TRUE;
@@ -105,12 +133,26 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['created']['alter']['text'] = 'Posted by [name] on [created]';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'F jS';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
+  /* Field: Views: Views Conditional */
+  $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['field'] = 'views_conditional';
+  $handler->display->display_options['fields']['views_conditional']['label'] = '';
+  $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['views_conditional']['if'] = 'promote';
+  $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '1';
+  $handler->display->display_options['fields']['views_conditional']['then'] = '[nid]
+[sharethis]
+[created]';
+  $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -175,8 +217,7 @@ function mmorpg_game_views_default_views() {
     t('next ›'),
     t('last »'),
     t('author'),
-    t('<div>true</div>'),
-    t('<div>false</div>'),
+    t('1'),
     t('Keep Reading'),
     t('Posted by [name] on [created]'),
     t('All'),
@@ -288,6 +329,11 @@ function mmorpg_game_views_default_views() {
     'tag' => 'Sound',
     'function' => 'average',
   );
+  /* Relationship: Content: Game Development Status (field_game_development_status) */
+  $handler->display->display_options['relationships']['field_game_development_status_value']['id'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['field'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['delta'] = '-1';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -403,6 +449,16 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'game' => 'game',
   );
+  /* Filter criterion: Field collection item: Status (field_dev_status) */
+  $handler->display->display_options['filters']['field_dev_status_tid']['id'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['table'] = 'field_data_field_dev_status';
+  $handler->display->display_options['filters']['field_dev_status_tid']['field'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['relationship'] = 'field_game_development_status_value';
+  $handler->display->display_options['filters']['field_dev_status_tid']['value'] = array(
+    279 => '279',
+  );
+  $handler->display->display_options['filters']['field_dev_status_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_dev_status_tid']['vocabulary'] = 'game_development_status';
 
   /* Display: Active Ratings */
   $handler = $view->new_display('page', 'Active Ratings', 'active_ratings');
@@ -434,6 +490,102 @@ function mmorpg_game_views_default_views() {
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Graphics';
+  $handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Graphics',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_1']['id'] = 'votingapi_cache_1';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['label'] = 'Value';
+  $handler->display->display_options['relationships']['votingapi_cache_1']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Value',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_2']['id'] = 'votingapi_cache_2';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['label'] = 'Fun';
+  $handler->display->display_options['relationships']['votingapi_cache_2']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Fun',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_3']['id'] = 'votingapi_cache_3';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['label'] = 'Community';
+  $handler->display->display_options['relationships']['votingapi_cache_3']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Community',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_4']['id'] = 'votingapi_cache_4';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['label'] = 'Role-playing';
+  $handler->display->display_options['relationships']['votingapi_cache_4']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Role_playing',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_5']['id'] = 'votingapi_cache_5';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['label'] = 'Performance Lag';
+  $handler->display->display_options['relationships']['votingapi_cache_5']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Performance_lag',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_6']['id'] = 'votingapi_cache_6';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['label'] = 'Service';
+  $handler->display->display_options['relationships']['votingapi_cache_6']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Service',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_7']['id'] = 'votingapi_cache_7';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['label'] = 'Sound';
+  $handler->display->display_options['relationships']['votingapi_cache_7']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'Sound',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Game Development Status (field_game_development_status) */
+  $handler->display->display_options['relationships']['field_game_development_status_value']['id'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['field'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['delta'] = '-1';
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache_8']['id'] = 'votingapi_cache_8';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['label'] = 'Hype';
+  $handler->display->display_options['relationships']['votingapi_cache_8']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'hype',
+    'function' => 'count',
+  );
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -515,6 +667,16 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_7']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_7']['precision'] = '0';
   $handler->display->display_options['fields']['value_7']['appearance'] = 'rate_views_widget_disabled';
+  /* Field: Vote results: Value */
+  $handler->display->display_options['fields']['value_8']['id'] = 'value_8';
+  $handler->display->display_options['fields']['value_8']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value_8']['field'] = 'value';
+  $handler->display->display_options['fields']['value_8']['relationship'] = 'votingapi_cache_8';
+  $handler->display->display_options['fields']['value_8']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value_8']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value_8']['precision'] = '0';
+  $handler->display->display_options['fields']['value_8']['separator'] = '.';
+  $handler->display->display_options['fields']['value_8']['appearance'] = 'rate_views_widget_disabled';
   /* Field: Custom: Average Game Rating */
   $handler->display->display_options['fields']['average_game_rating']['id'] = 'average_game_rating';
   $handler->display->display_options['fields']['average_game_rating']['table'] = 'custom';
@@ -539,6 +701,7 @@ function mmorpg_game_views_default_views() {
     t('Performance Lag'),
     t('Service'),
     t('Sound'),
+    t('field collection item from field_game_development_status'),
     t('[value]'),
     t('.'),
     t(','),
@@ -553,8 +716,415 @@ function mmorpg_game_views_default_views() {
 										
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>'),
+    t('Hype'),
   );
   $export['game_ratings'] = $view;
+
+  $view = new view();
+  $view->name = 'game_review_featured';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Game Review Featured';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Content: Author */
+  $handler->display->display_options['relationships']['uid']['id'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['table'] = 'node';
+  $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Field: Content: Hero Image */
+  $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
+    'image_style' => 'giveaway_promoted_700x400',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['nid']['alter']['text'] = 'Keep Reading';
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['link_to_node'] = TRUE;
+  /* Field: Content: ShareThis Link */
+  $handler->display->display_options['fields']['sharethis']['id'] = 'sharethis';
+  $handler->display->display_options['fields']['sharethis']['table'] = 'node';
+  $handler->display->display_options['fields']['sharethis']['field'] = 'sharethis';
+  $handler->display->display_options['fields']['sharethis']['label'] = '';
+  $handler->display->display_options['fields']['sharethis']['element_label_colon'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Node: Published at */
+  $handler->display->display_options['fields']['published_at']['id'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['table'] = 'publication_date';
+  $handler->display->display_options['fields']['published_at']['field'] = 'published_at';
+  $handler->display->display_options['fields']['published_at']['label'] = '';
+  $handler->display->display_options['fields']['published_at']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['published_at']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['published_at']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['published_at']['custom_date_format'] = 'F jS';
+  $handler->display->display_options['fields']['published_at']['second_date_format'] = 'long';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Posted by [name] on [published_at]';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Game (field_game) */
+  $handler->display->display_options['arguments']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['arguments']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'review' => 'review',
+  );
+  /* Filter criterion: Content: Promoted to front page */
+  $handler->display->display_options['filters']['promote']['id'] = 'promote';
+  $handler->display->display_options['filters']['promote']['table'] = 'node';
+  $handler->display->display_options['filters']['promote']['field'] = 'promote';
+  $handler->display->display_options['filters']['promote']['value'] = '1';
+  $translatables['game_review_featured'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('author'),
+    t('Keep Reading'),
+    t('Posted by [name] on [published_at]'),
+    t('All'),
+  );
+  $export['game_review_featured'] = $view;
+
+  $view = new view();
+  $view->name = 'game_reviews';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Game Reviews';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Final Score */
+  $handler->display->display_options['fields']['field_final_score']['id'] = 'field_final_score';
+  $handler->display->display_options['fields']['field_final_score']['table'] = 'field_data_field_final_score';
+  $handler->display->display_options['fields']['field_final_score']['field'] = 'field_final_score';
+  $handler->display->display_options['fields']['field_final_score']['label'] = '';
+  $handler->display->display_options['fields']['field_final_score']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_final_score']['settings'] = array(
+    'thousand_separator' => '',
+    'decimal_separator' => '.',
+    'scale' => '2',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Content: Hero Image */
+  $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
+    'image_style' => 'articles_overview_200x155',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Game (field_game) */
+  $handler->display->display_options['arguments']['field_game_target_id']['id'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['table'] = 'field_data_field_game';
+  $handler->display->display_options['arguments']['field_game_target_id']['field'] = 'field_game_target_id';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_game_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_game_target_id']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'review' => 'review',
+  );
+  $translatables['game_reviews'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('All'),
+  );
+  $export['game_reviews'] = $view;
+
+  $view = new view();
+  $view->name = 'hype';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Hype';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  /* Relationship: Content: Vote results */
+  $handler->display->display_options['relationships']['votingapi_cache']['id'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['table'] = 'node';
+  $handler->display->display_options['relationships']['votingapi_cache']['field'] = 'votingapi_cache';
+  $handler->display->display_options['relationships']['votingapi_cache']['label'] = 'Hype';
+  $handler->display->display_options['relationships']['votingapi_cache']['votingapi'] = array(
+    'value_type' => 'percent',
+    'tag' => 'hype',
+    'function' => 'average',
+  );
+  /* Relationship: Content: Game Development Status (field_game_development_status) */
+  $handler->display->display_options['relationships']['field_game_development_status_value']['id'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['table'] = 'field_data_field_game_development_status';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['field'] = 'field_game_development_status_value';
+  $handler->display->display_options['relationships']['field_game_development_status_value']['delta'] = '-1';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Vote results: Value */
+  $handler->display->display_options['fields']['value']['id'] = 'value';
+  $handler->display->display_options['fields']['value']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['field'] = 'value';
+  $handler->display->display_options['fields']['value']['relationship'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['label'] = 'Player Hype';
+  $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value']['precision'] = '0';
+  $handler->display->display_options['fields']['value']['separator'] = '.';
+  $handler->display->display_options['fields']['value']['appearance'] = 'rate_views_widget';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'game' => 'game',
+  );
+  /* Filter criterion: Field collection item: Status (field_dev_status) */
+  $handler->display->display_options['filters']['field_dev_status_tid']['id'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['table'] = 'field_data_field_dev_status';
+  $handler->display->display_options['filters']['field_dev_status_tid']['field'] = 'field_dev_status_tid';
+  $handler->display->display_options['filters']['field_dev_status_tid']['relationship'] = 'field_game_development_status_value';
+  $handler->display->display_options['filters']['field_dev_status_tid']['value'] = array(
+    278 => '278',
+    277 => '277',
+  );
+  $handler->display->display_options['filters']['field_dev_status_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_dev_status_tid']['vocabulary'] = 'game_development_status';
+
+  /* Display: active */
+  $handler = $view->new_display('page', 'active', 'active_hype');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal"></div>';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<input type="submit" name="submit" value="Cast your Hype" class="btn large cta" id="castRatingSubmit">';
+  $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['path'] = 'hype-active';
+
+  /* Display: Inactive */
+  $handler = $view->new_display('page', 'Inactive', 'hype_inactive');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = '<div class="cell ratingstotal"><a href="#" class="btn castratebutton">Hype this Game</a></div>';
+  $handler->display->display_options['header']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Vote results: Value */
+  $handler->display->display_options['fields']['value']['id'] = 'value';
+  $handler->display->display_options['fields']['value']['table'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['field'] = 'value';
+  $handler->display->display_options['fields']['value']['relationship'] = 'votingapi_cache';
+  $handler->display->display_options['fields']['value']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['value']['precision'] = '0';
+  $handler->display->display_options['fields']['value']['separator'] = '.';
+  $handler->display->display_options['fields']['value']['appearance'] = 'rate_views_widget_disabled';
+  $handler->display->display_options['path'] = 'hype-inactive';
+  $translatables['hype'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Hype'),
+    t('field collection item from field_game_development_status'),
+    t('Player Hype'),
+    t('.'),
+    t('All'),
+    t('active'),
+    t('<div class="cell ratingstotal"></div>'),
+    t('<input type="submit" name="submit" value="Cast your Hype" class="btn large cta" id="castRatingSubmit">'),
+    t('Inactive'),
+    t('<div class="cell ratingstotal"><a href="#" class="btn castratebutton">Hype this Game</a></div>'),
+  );
+  $export['hype'] = $view;
 
   $view = new view();
   $view->name = 'reviews';

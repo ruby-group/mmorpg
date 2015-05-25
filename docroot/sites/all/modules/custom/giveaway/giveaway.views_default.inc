@@ -703,18 +703,18 @@ function giveaway_views_default_views() {
     'trim_length' => '400',
   );
   /* Field: Content: Header Image */
-  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
-  $handler->display->display_options['fields']['field_article_hero_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
+  $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
     'image_style' => 'articles_overview_200x155',
     'image_link' => 'content',
   );
-  $handler->display->display_options['fields']['field_article_hero_image']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_hero_image']['group_column'] = 'entity_id';
   /* Field: Global: Giveaway Keys left */
   $handler->display->display_options['fields']['keys_left']['id'] = 'keys_left';
   $handler->display->display_options['fields']['keys_left']['table'] = 'views';
@@ -741,7 +741,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="giveaway_details giveaway_details_top">
-<div class="giveaway_image">[field_article_hero_image]</div>
+<div class="giveaway_image">[field_hero_image]</div>
 <div class="giveaway_type">Giveaway</div>
 </div>
 <div class="giveaway_details giveaway_details_bottom">
@@ -809,18 +809,18 @@ function giveaway_views_default_views() {
     'trim_length' => '400',
   );
   /* Field: Content: Header Image */
-  $handler->display->display_options['fields']['field_article_hero_image']['id'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['table'] = 'field_data_field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['field'] = 'field_article_hero_image';
-  $handler->display->display_options['fields']['field_article_hero_image']['label'] = '';
-  $handler->display->display_options['fields']['field_article_hero_image']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_article_hero_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_article_hero_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_article_hero_image']['settings'] = array(
+  $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
+  $handler->display->display_options['fields']['field_hero_image']['label'] = '';
+  $handler->display->display_options['fields']['field_hero_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hero_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hero_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_hero_image']['settings'] = array(
     'image_style' => 'giveaway_promoted_700x400',
     'image_link' => 'content',
   );
-  $handler->display->display_options['fields']['field_article_hero_image']['group_column'] = 'entity_id';
+  $handler->display->display_options['fields']['field_hero_image']['group_column'] = 'entity_id';
   /* Field: Views: Views Conditional */
   $handler->display->display_options['fields']['views_conditional']['id'] = 'views_conditional';
   $handler->display->display_options['fields']['views_conditional']['table'] = 'views_conditional';
@@ -873,7 +873,7 @@ function giveaway_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="promoted_giveaway_details promoted_giveaway_details_top">
-<div class="promoted_giveaway_image">[field_article_hero_image]</div>
+<div class="promoted_giveaway_image">[field_hero_image]</div>
 <div class="promoted_giveaway_type">Giveaway</div>
 </div>
 <div class="promoted_giveaway_details promoted_giveaway_details_bottom">
@@ -922,7 +922,7 @@ function giveaway_views_default_views() {
     t('Post date'),
     t('Listing pane'),
     t('<div class="giveaway_details giveaway_details_top">
-<div class="giveaway_image">[field_article_hero_image]</div>
+<div class="giveaway_image">[field_hero_image]</div>
 <div class="giveaway_type">Giveaway</div>
 </div>
 <div class="giveaway_details giveaway_details_bottom">
@@ -938,7 +938,7 @@ function giveaway_views_default_views() {
     t('.'),
     t(','),
     t('<div class="promoted_giveaway_details promoted_giveaway_details_top">
-<div class="promoted_giveaway_image">[field_article_hero_image]</div>
+<div class="promoted_giveaway_image">[field_hero_image]</div>
 <div class="promoted_giveaway_type">Giveaway</div>
 </div>
 <div class="promoted_giveaway_details promoted_giveaway_details_bottom">
