@@ -13,6 +13,7 @@ dependencies[] = node
 dependencies[] = om_maximenu
 dependencies[] = page_manager
 dependencies[] = panels_everywhere
+dependencies[] = panels_extra_styles
 dependencies[] = panels_mini
 dependencies[] = radioactivity
 dependencies[] = reviews
