@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   margin-bottom: 2em;
   display: inline-block;
+  min-height: 335px;
   .view-header {
     float: left;
     margin: 11em 0 0 3em;
@@ -96,12 +97,12 @@
   .total-average {
     display: none;
   }
-  .field-content, .game-average {
+}
+.views-field-average-game-rating .field-content, .views-field-average-game-rating .game-average, .view-hype .average-rating, .view-hype .user-vote {
     font-size: 80px;
     width: 100%;
     font-weight: bold;
   }
-}
 }
 .cast-view {
   float: left;
