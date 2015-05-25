@@ -650,7 +650,18 @@ function mmorpg_site_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'title' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'theme' => 0,
+      ),
+      'style' => 'wrapper_raw',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -685,7 +696,18 @@ function mmorpg_site_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'style' => 'wrapper_raw',
+      'settings' => array(
+        'title' => array(
+          'prefix' => '<div class="pro-con-section"><div class="final">',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '',
+          'suffix' => '</div>',
+        ),
+        'theme' => 0,
+      ),
     );
     $pane->css = array();
     $pane->extras = array();
@@ -805,7 +827,18 @@ function mmorpg_site_default_page_manager_handlers() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'title' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '',
+          'suffix' => '</div>',
+        ),
+        'theme' => 0,
+      ),
+      'style' => 'wrapper_raw',
     );
     $pane->css = array();
     $pane->extras = array();
@@ -1804,7 +1837,7 @@ game/*/video',
       ),
       2 => array(
         'type' => 'column',
-        'width' => 78.495067405574005,
+        'width' => 78.4950674055740051926477462984621524810791015625,
         'width_type' => '%',
         'parent' => '1',
         'children' => array(
@@ -1815,7 +1848,7 @@ game/*/video',
       ),
       3 => array(
         'type' => 'column',
-        'width' => 21.504932594425995,
+        'width' => 21.5049325944259948073522537015378475189208984375,
         'width_type' => '%',
         'parent' => '1',
         'children' => array(

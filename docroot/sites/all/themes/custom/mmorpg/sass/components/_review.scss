@@ -1,0 +1,31 @@
+.pro-con-section {
+  color: #fff;
+  padding: 1em;
+  background: #1b7dba;
+  margin-bottom: 1em;
+  position: relative;
+  .final {
+      background: rgba(255,255,255,0.3);
+      text-align: left;
+      color: #fff;
+      display: block;
+      text-align: center;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      padding: 15px 20px;
+      margin: 20px;
+      font-weight: bold;
+  }
+  .field__items .field__item {
+    margin-top: 4px;
+    margin-left: 15px;
+  }
+  .field--name-field-final-score .field__item  {
+    font-size: 70px;
+    margin-top: 0;
+  }
+  h2.pane-title {
+    font-size: 14px;
+  }
+}

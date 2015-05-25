@@ -29,7 +29,7 @@
    Node pages common styles
    ========================================================================== */
 /* line 31, ../sass/variables/_mixins.scss */
-.node-type-mmorpg-article .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .field--name-field-article-overview, .pane-video-exclusive .views-row .views-field-body .field-content,
+.page-node .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .field--name-field-article-overview, .pane-video-exclusive .views-row .views-field-body .field-content,
 .pane-video-details-player .views-row .views-field-body .field-content {
   background: #ffffff;
   border-top: 4px solid #bce6ff;
@@ -265,6 +265,48 @@
 .pane-sharethis {
   margin-top: 1em; }
 
+/* Node body theme */
+/* line 75, ../sass/abstractions/_global.scss */
+.page-node .node--mmorpg-article .field__item img {
+  max-width: 100%;
+  height: auto !important;
+  width: 100%; }
+/* line 81, ../sass/abstractions/_global.scss */
+.page-node h1 {
+  padding: 10px 15px 5px 0px;
+  margin-left: 26px;
+  margin: 0px;
+  font-size: 35px;
+  font-weight: normal;
+  line-height: 1.2em; }
+/* line 90, ../sass/abstractions/_global.scss */
+.page-node .node__submitted {
+  font-size: 13px;
+  padding: 6px 0px 15px 1px;
+  border-top: 1px solid #bce6ff;
+  display: inline-block;
+  margin-top: 5px;
+  color: #959595; }
+/* line 99, ../sass/abstractions/_global.scss */
+.page-node .field--name-field-article-overview {
+  display: none; }
+/* line 103, ../sass/abstractions/_global.scss */
+.page-node .field__item {
+  font-size: 14px;
+  line-height: 1.6em;
+  padding-top: 0px;
+  margin-top: 0px; }
+/* line 110, ../sass/abstractions/_global.scss */
+.page-node .field--name-field-article-hero-image {
+  padding: 0px; }
+/* line 114, ../sass/abstractions/_global.scss */
+.page-node .field--name-field-article-news-post {
+  top: -20px; }
+  /* line 122, ../sass/abstractions/_global.scss */
+  .page-node .field--name-field-article-news-post img {
+    max-width: 715px;
+    width: 100%; }
+
 /* line 1, ../sass/abstractions/_header.scss */
 header.header {
   padding-top: 0; }
@@ -439,59 +481,18 @@ body {
   font-size: 14px; }
 
 /* line 2, ../sass/components/_article.scss */
-.node-type-mmorpg-article .node--mmorpg-article .field__item img {
-  max-width: 100%;
-  height: auto !important;
-  width: 100%; }
-/* line 8, ../sass/components/_article.scss */
-.node-type-mmorpg-article h1 {
-  padding: 10px 15px 5px 0px;
-  margin-left: 26px;
-  margin: 0px;
-  font-size: 35px;
-  font-weight: normal;
-  line-height: 1.2em; }
-/* line 17, ../sass/components/_article.scss */
-.node-type-mmorpg-article .node__submitted {
-  font-size: 13px;
-  padding: 6px 0px 15px 1px;
-  border-top: 1px solid #bce6ff;
-  display: inline-block;
-  margin-top: 5px;
-  color: #959595; }
-/* line 26, ../sass/components/_article.scss */
-.node-type-mmorpg-article .field--name-field-article-overview {
-  display: none; }
-/* line 30, ../sass/components/_article.scss */
-.node-type-mmorpg-article .field__item {
-  font-size: 14px;
-  line-height: 1.6em;
-  padding-top: 0px;
-  margin-top: 0px; }
-/* line 37, ../sass/components/_article.scss */
-.node-type-mmorpg-article .field--name-field-article-hero-image {
-  padding: 0px; }
-/* line 41, ../sass/components/_article.scss */
-.node-type-mmorpg-article .field--name-field-article-news-post {
-  top: -20px; }
-  /* line 49, ../sass/components/_article.scss */
-  .node-type-mmorpg-article .field--name-field-article-news-post img {
-    max-width: 715px;
-    width: 100%; }
-
-/* line 57, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .views-field-title span {
   width: 100%; }
-  /* line 59, ../sass/components/_article.scss */
+  /* line 4, ../sass/components/_article.scss */
   .block-views-id-latest_updates-block .views-field-title span a {
     min-height: 45px;
     display: inline-block;
     width: 100%; }
-    /* line 63, ../sass/components/_article.scss */
+    /* line 8, ../sass/components/_article.scss */
     .block-views-id-latest_updates-block .views-field-title span a img {
       float: left;
       margin-right: 0.50em; }
-/* line 69, ../sass/components/_article.scss */
+/* line 14, ../sass/components/_article.scss */
 .block-views-id-latest_updates-block .view-footer a {
   color: #ffffff; }
 
@@ -1259,6 +1260,38 @@ ul.pager {
     width: 5.8%;
     display: block;
     height: 17px; }
+
+/* line 1, ../sass/components/_review.scss */
+.pro-con-section {
+  color: #fff;
+  padding: 1em;
+  background: #1b7dba;
+  margin-bottom: 1em;
+  position: relative; }
+  /* line 7, ../sass/components/_review.scss */
+  .pro-con-section .final {
+    background: rgba(255, 255, 255, 0.3);
+    text-align: left;
+    color: #fff;
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 15px 20px;
+    margin: 20px;
+    font-weight: bold; }
+  /* line 20, ../sass/components/_review.scss */
+  .pro-con-section .field__items .field__item {
+    margin-top: 4px;
+    margin-left: 15px; }
+  /* line 24, ../sass/components/_review.scss */
+  .pro-con-section .field--name-field-final-score .field__item {
+    font-size: 70px;
+    margin-top: 0; }
+  /* line 28, ../sass/components/_review.scss */
+  .pro-con-section h2.pane-title {
+    font-size: 14px; }
 
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
