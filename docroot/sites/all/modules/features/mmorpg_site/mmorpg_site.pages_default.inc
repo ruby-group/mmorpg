@@ -2761,7 +2761,9 @@ function mmorpg_site_default_page_manager_pages() {
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
-    $pane->style = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
@@ -2769,6 +2771,82 @@ function mmorpg_site_default_page_manager_pages() {
     $pane->uuid = 'e5e5e9bb-5a42-47d6-ae94-9c1f25052f27';
     $display->content['new-e5e5e9bb-5a42-47d6-ae94-9c1f25052f27'] = $pane;
     $display->panels['middle'][0] = 'new-e5e5e9bb-5a42-47d6-ae94-9c1f25052f27';
+    $pane = new stdClass();
+    $pane->pid = 'new-688bebc4-047c-4017-bad0-56531800178e';
+    $pane->panel = 'middle';
+    $pane->type = 'views';
+    $pane->subtype = 'game_review_featured';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '1',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'default',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '688bebc4-047c-4017-bad0-56531800178e';
+    $display->content['new-688bebc4-047c-4017-bad0-56531800178e'] = $pane;
+    $display->panels['middle'][1] = 'new-688bebc4-047c-4017-bad0-56531800178e';
+    $pane = new stdClass();
+    $pane->pid = 'new-28b79afb-e70a-4957-9f5f-96006deb50a3';
+    $pane->panel = 'middle';
+    $pane->type = 'views';
+    $pane->subtype = 'game_reviews';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 1,
+      'nodes_per_page' => '0',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '%1',
+      'url' => '',
+      'display' => 'default',
+      'context' => array(
+        0 => '',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '28b79afb-e70a-4957-9f5f-96006deb50a3';
+    $display->content['new-28b79afb-e70a-4957-9f5f-96006deb50a3'] = $pane;
+    $display->panels['middle'][2] = 'new-28b79afb-e70a-4957-9f5f-96006deb50a3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

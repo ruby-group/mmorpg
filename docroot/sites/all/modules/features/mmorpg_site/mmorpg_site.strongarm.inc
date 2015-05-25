@@ -806,14 +806,21 @@ return render($block[\'content\']);',
     'mmorpg_article' => 0,
     'article_news_post' => 0,
     'customer' => 0,
+    'developer' => 0,
     'game' => 0,
     'game_link' => 0,
-    'panel' => 0,
+    'giveaway' => 0,
     'play_now_promoted_game' => 0,
     'promoted_signup_now_link' => 0,
+    'publisher' => 0,
+    'review' => 0,
+    'review_content' => 0,
     'screenshot_gallery' => 0,
     'signup_now_link' => 0,
     'siteskin' => 0,
+    'sweepstake' => 0,
+    'test' => 0,
+    'webform' => 0,
   );
   $export['sharethis_node_types'] = $strongarm;
 
@@ -904,7 +911,7 @@ return render($block[\'content\']);',
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'sharethis_service_option';
-  $strongarm->value = '"ShareThis:sharethis","Facebook:facebook","Twitter:twitter","Google +:googleplus"';
+  $strongarm->value = '"Facebook:facebook","Twitter:twitter","Google +:googleplus","ShareThis:sharethis"';
   $export['sharethis_service_option'] = $strongarm;
 
   $strongarm = new stdClass();
