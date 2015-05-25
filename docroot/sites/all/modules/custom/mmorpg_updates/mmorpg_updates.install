@@ -444,3 +444,11 @@ function mmorpg_updates_update_7050() {
   module_enable(array('views_block_area', 'smtp', 'ip2proxy'));
 }
 
+/**
+ * Creates a relationship between 'review' and 'review content' content type
+ */
+function mmorpg_updates_update_7051() {
+  node_collection_api_add_update_relationship('Review', 'review', array('review_content'));
+}
+
+
