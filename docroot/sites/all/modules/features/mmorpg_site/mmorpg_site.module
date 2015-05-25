@@ -72,6 +72,14 @@ function mmorpg_site_block_info() {
     'info' => t('Title Block'),
     'cache' => DRUPAL_CACHE_PER_PAGE,
   );
+  $blocks['related_content'] = array(
+    'info' => t('Related Content Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['related_content_menu'] = array(
+    'info' => t('Related Content Menu Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
   return $blocks;
 }
 
@@ -86,6 +94,12 @@ function mmorpg_site_block_view($delta = '') {
       break;
     case 'title_block':
       $block['content'] = mmorpg_site_page_titles();
+      break;
+    case 'related_content':
+      $block['content'] = mmorpg_site_related_content();
+      break;
+    case 'related_content_menu':
+      $block['content'] = mmorpg_site_related_content_menu();
       break;
   } 
   return $block;
@@ -180,4 +194,51 @@ function mmorpg_site_page_titles() {
   $title = join($title,' / ');
   $title_html = '<div class="title_crumbs">' . $title . '</div>';
   return $title_html;
+}
+
+/**
+ * Returns the related content of a node.
+ */
+function mmorpg_site_related_content() {
+  $nid = arg(1);
+  $get_params = drupal_get_query_parameters();
+  $page = isset($get_params["page"]) ? $get_params["page"] : 1;
+  if (!isset($nid) || !is_numeric($nid) || !is_numeric($page)) {
+    return '';
+  }
+  $child_nodes = node_collection_api_get_child_node_instances($nid);
+
+  $child_nid = $child_nodes[$page - 1];
+  $child_node = node_load($child_nid);
+  return $child_node->body['und'][0]['value'];
+}
+
+/**
+ * Returns the related content menu for a node.
+ */
+function mmorpg_site_related_content_menu() {
+  $nid = arg(1);
+  $get_params = drupal_get_query_parameters();
+  $current_page_nid = isset($get_params["page"]) ? $get_params["page"] - 1 : 0;
+  if (!isset($nid) || !is_numeric($nid) || !is_numeric($current_page_nid)) {
+    return '';
+  }
+  $child_nodes = node_collection_api_get_child_node_instances($nid);
+  if (count($child_nodes) == 1) {
+    return '';
+  }
+
+  $menu = '<div class="pager">';
+
+  foreach ($child_nodes as $key => $child_nid) {
+    $active = array();
+    if($key == $current_page_nid) {
+      $active = array('class' => array('active-page'));
+    }
+    $page_no = $key + 1;
+    $get_params["page"] = $page_no;
+    $menu .= l(t('Page ') . $page_no, current_path() , array('attributes' => $active,'query'=>$get_params));
+  }
+  $menu .= '</div>';
+  return $menu;
 }

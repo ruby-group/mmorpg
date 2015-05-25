@@ -83,6 +83,22 @@ function mmorpg_game_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'review' => array(
+      'name' => t('Review'),
+      'base' => 'node_content',
+      'description' => t('The official review content type'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'review_content' => array(
+      'name' => t('Review Content'),
+      'base' => 'node_content',
+      'description' => t('The content pages for reviews.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'screenshot_gallery' => array(
       'name' => t('Screenshot Gallery'),
       'base' => 'node_content',
