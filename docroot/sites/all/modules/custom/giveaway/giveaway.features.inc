@@ -45,7 +45,7 @@ function giveaway_fe_nodequeue_export_fields() {
     'show_in_tab' => 1,
     'show_in_links' => 0,
     'reference' => 0,
-    'reverse' => 0,
+    'reverse' => 1,
     'i18n' => 0,
     'subqueues' => 1,
     'types' => array(
