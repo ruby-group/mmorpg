@@ -62,7 +62,9 @@ function mmorpg_game_menu_content() {
 
   //check if hype or ratings
   $game_node = node_load($game_nid);
-  $dev_status = $game_node->field_game_development_status['und'][0]['value'];
+  $fc_item_id = $game_node->field_game_development_status['und'][0]['value'];
+  $fc_entity = entity_load('field_collection_item', array($fc_item_id));
+  $dev_status = $fc_entity[$fc_item_id]->field_dev_status['und'][0]['tid'];
   $rating_hype = ($dev_status == 279) ? "Ratings" : "Hype";
 
   $active_attribute = array('class' => array('active'));
