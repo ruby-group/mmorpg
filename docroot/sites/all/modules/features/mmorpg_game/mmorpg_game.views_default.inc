@@ -1099,7 +1099,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value']['table'] = 'votingapi_cache';
   $handler->display->display_options['fields']['value']['field'] = 'value';
   $handler->display->display_options['fields']['value']['relationship'] = 'votingapi_cache';
-  $handler->display->display_options['fields']['value']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value']['label'] = 'Player Hype';
   $handler->display->display_options['fields']['value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value']['precision'] = '0';
   $handler->display->display_options['fields']['value']['separator'] = '.';

@@ -2481,6 +2481,7 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array(
@@ -2519,6 +2520,7 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
+      'style' => 'default',
       'settings' => NULL,
     );
     $pane->css = array(
@@ -2560,10 +2562,21 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'title' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '<div class="pane-game-ratings"> <div id="rate-view">',
+          'suffix' => '</div>',
+        ),
+        'theme' => 0,
+      ),
+      'style' => 'wrapper_raw',
     );
     $pane->css = array(
-      'css_id' => 'rate-view',
+      'css_id' => '',
       'css_class' => '',
     );
     $pane->extras = array();
@@ -2601,9 +2614,23 @@ function mmorpg_site_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'title' => array(
+          'prefix' => '',
+          'suffix' => '',
+        ),
+        'content' => array(
+          'prefix' => '<div class="cast-view">',
+          'suffix' => '</div></div>',
+        ),
+        'theme' => 0,
+      ),
+      'style' => 'wrapper_raw',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+    );
     $pane->extras = array();
     $pane->position = 4;
     $pane->locks = array();

@@ -29,7 +29,7 @@
    Node pages common styles
    ========================================================================== */
 /* line 31, ../sass/variables/_mixins.scss */
-.page-node .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .field--name-field-article-overview, .pane-video-exclusive .views-row .views-field-body .field-content,
+.page-node .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .field--name-field-article-overview, .views-field-field-article-overview, .pane-video-exclusive .views-row .views-field-body .field-content,
 .pane-video-details-player .views-row .views-field-body .field-content {
   background: #ffffff;
   border-top: 4px solid #bce6ff;
@@ -181,7 +181,7 @@
    Platforms
    ========================================================================== */
 /* line 133, ../sass/variables/_mixins.scss */
-.title_crumbs, .page-giveaways h2.pane-title {
+.title_crumbs, .page-giveaways h2.pane-title, .views-field-title {
   padding: 10px 15px 5px 0px;
   margin: 0px;
   font-size: 35px;
@@ -927,6 +927,19 @@ li.leaf-user-name .om-maximenu-middle {
 /* line 108, ../sass/components/_navigation.scss */
 .search-block-form #edit-actions {
   display: none; }
+
+/* line 1, ../sass/components/_overview.scss */
+.views-field-field-article-type {
+  margin-top: 1em;
+  position: relative;
+  top: 2em;
+  color: #bfcad1;
+  left: 1em;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8); }
+
+/* line 9, ../sass/components/_overview.scss */
+.views-field-field-article-overview {
+  top: -20px; }
 
 /* line 1, ../sass/components/_pager.scss */
 ul.pager {
