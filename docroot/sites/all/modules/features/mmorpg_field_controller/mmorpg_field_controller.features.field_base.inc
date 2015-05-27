@@ -50,7 +50,7 @@ function mmorpg_field_controller_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(),
-      'allowed_values_function' => 'mmorpg_countries_list',
+      'allowed_values_function' => 'country_get_list',
       'default_widget' => 'options_select',
       'description' => 'Provides country list to be included for nodes',
       'label' => 'Countries',

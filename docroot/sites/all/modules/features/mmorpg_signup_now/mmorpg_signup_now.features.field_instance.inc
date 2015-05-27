@@ -543,7 +543,7 @@ function mmorpg_signup_now_field_default_field_instances() {
     'label' => 'Available Countries',
     'required' => 0,
     'settings' => array(
-      'allowed_values_function' => 'mmorpg_countries_list',
+      'allowed_values_function' => 'country_get_list',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
