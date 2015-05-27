@@ -119,6 +119,7 @@
   position: absolute;
   top: 0;
   left: -3em;
+  font-weight: bold;
 }
 .rate-widget {
   position: relative;
@@ -161,5 +162,18 @@
     width: 5.8%;
     display: block;
     height: 17px;
+  }
+}
+
+#rate-view {
+  .views-field.views-field-value-8 {
+    border-top: 1px solid #807E7E;
+    padding-top: 1em;
+    .rate-mmorpg.ui-mmorpg {
+      border: 1px solid #ffba26 !important;
+    }
+    .rate-mmorpg-value {
+      background-color: #ffba26 !important;
+    }
   }
 }
