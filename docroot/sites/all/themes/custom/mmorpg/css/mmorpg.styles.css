@@ -1335,16 +1335,17 @@ ul.pager {
   color: #fff;
   position: absolute;
   top: 0;
-  left: -3em; }
+  left: -3em;
+  font-weight: bold; }
 
-/* line 123, ../sass/components/_ratings.scss */
+/* line 124, ../sass/components/_ratings.scss */
 .rate-widget {
   position: relative; }
 
-/* line 127, ../sass/components/_ratings.scss */
+/* line 128, ../sass/components/_ratings.scss */
 #rate-view .user-vote {
   display: none; }
-/* line 130, ../sass/components/_ratings.scss */
+/* line 131, ../sass/components/_ratings.scss */
 #rate-view .rate-mmorpg.ui-mmorpg {
   background: #494949;
   border: 1px solid #8ECCFF;
@@ -1354,12 +1355,12 @@ ul.pager {
   display: inline-table;
   height: 0.8em; }
 
-/* line 141, ../sass/components/_ratings.scss */
+/* line 142, ../sass/components/_ratings.scss */
 .page-game-ratings .panel-1col .panel-col {
   position: relative; }
 
 /*Sideblock Rating Block */
-/* line 146, ../sass/components/_ratings.scss */
+/* line 147, ../sass/components/_ratings.scss */
 .rightsidebar .view-promoted-signup-now-link .views-field-average-game-rating {
   background: #494949;
   border: 1px solid #848484;
@@ -1371,7 +1372,7 @@ ul.pager {
   margin-top: 0.75em;
   line-height: 18px;
   color: #fff; }
-  /* line 157, ../sass/components/_ratings.scss */
+  /* line 158, ../sass/components/_ratings.scss */
   .rightsidebar .view-promoted-signup-now-link .views-field-average-game-rating .field-content {
     background: #2697ff;
     padding: 1px 5px 2px;
@@ -1379,6 +1380,17 @@ ul.pager {
     width: 5.8%;
     display: block;
     height: 17px; }
+
+/* line 169, ../sass/components/_ratings.scss */
+#rate-view .views-field.views-field-value-8 {
+  border-top: 1px solid #807E7E;
+  padding-top: 1em; }
+  /* line 172, ../sass/components/_ratings.scss */
+  #rate-view .views-field.views-field-value-8 .rate-mmorpg.ui-mmorpg {
+    border: 1px solid #ffba26 !important; }
+  /* line 175, ../sass/components/_ratings.scss */
+  #rate-view .views-field.views-field-value-8 .rate-mmorpg-value {
+    background-color: #ffba26 !important; }
 
 /* line 1, ../sass/components/_review.scss */
 .pro-con-section {
