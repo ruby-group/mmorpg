@@ -881,6 +881,66 @@ function mmorpg_signup_now_views_default_views() {
   /* Display: Sitewide */
   $handler = $view->new_display('panel_pane', 'Sitewide', 'panel_pane_1');
   $handler->display->display_options['display_description'] = 'A content pane for sitewide promoted links';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Logo */
+  $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
+  $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
+  $handler->display->display_options['fields']['field_image']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['field_image']['label'] = '';
+  $handler->display->display_options['fields']['field_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_image']['settings'] = array(
+    'image_style' => 'promoted_signup_now_links_26x26',
+    'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_game_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Field: Target URL */
+  $handler->display->display_options['fields']['field_target_url']['id'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['table'] = 'field_data_field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['field'] = 'field_target_url';
+  $handler->display->display_options['fields']['field_target_url']['label'] = '';
+  $handler->display->display_options['fields']['field_target_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['text'] = '[title]';
+  $handler->display->display_options['fields']['field_target_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_target_url']['alter']['path'] = '[field_target_url-link_url]';
+  $handler->display->display_options['fields']['field_target_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_target_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_target_url']['type'] = 'clickmeter_link_default';
+  /* Field: Content: Tier */
+  $handler->display->display_options['fields']['field_psnl_tier']['id'] = 'field_psnl_tier';
+  $handler->display->display_options['fields']['field_psnl_tier']['table'] = 'field_data_field_psnl_tier';
+  $handler->display->display_options['fields']['field_psnl_tier']['field'] = 'field_psnl_tier';
+  $handler->display->display_options['fields']['field_psnl_tier']['label'] = '';
+  $handler->display->display_options['fields']['field_psnl_tier']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_psnl_tier']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: Max links to display */
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['id'] = 'field_tiers_max_links_to_display';
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['table'] = 'field_data_field_tiers_max_links_to_display';
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['field'] = 'field_tiers_max_links_to_display';
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['label'] = '';
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['element_wrapper_class'] = 'hidden';
+  $handler->display->display_options['fields']['field_tiers_max_links_to_display']['settings'] = array(
+    'thousand_separator' => '',
+    'prefix_suffix' => 1,
+  );
+  /* Field: Custom: Average Game Rating */
+  $handler->display->display_options['fields']['average_game_rating']['id'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['table'] = 'custom';
+  $handler->display->display_options['fields']['average_game_rating']['field'] = 'average_game_rating';
+  $handler->display->display_options['fields']['average_game_rating']['label'] = '';
+  $handler->display->display_options['fields']['average_game_rating']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['average_game_rating']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['operator'] = 'OR';
   $handler->display->display_options['filter_groups']['groups'] = array(
