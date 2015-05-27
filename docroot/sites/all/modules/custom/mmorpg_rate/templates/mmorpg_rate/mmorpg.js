@@ -69,11 +69,18 @@ Drupal.behaviors.averageGameRate = {
 
     var elem = [rateBtn, castBtn];
 
+    var reviewBlock = $(".pane-mmorpg-rate-add-review-block");
+
     $.each(elem, function(index, el) {
       $(el).click(function(e) {
         e.preventDefault();
+        if( $( "body.not-logged-in" ).length ) {
+          window.location = Drupal.settings.basePath + "user";
+          return
+        }
         $(rateView).toggle();
         $(castView).toggle();
+        $(reviewBlock).toggle();
       })
     })
   }
