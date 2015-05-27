@@ -179,13 +179,13 @@ function _giveaway_users_ip_is_within_limit($giveaway) {
     db_select('giveaway_keys')
       ->fields(NULL, array('gkid'))
       ->condition('gid', $giveaway->nid)
-      ->condition('ip_address', ip2long($_SERVER['REMOTE_ADDR']))
+      ->condition('ip_address', ip2long(ip_address()))
       ->execute()
       ->rowCount()
   ) {
     drupal_set_message(t("The maximum number of keys (@keys) have already been assigned to your IP Address (@ip).", array(
       '@keys' => $giveaway->field_keys_per_ip_address[LANGUAGE_NONE][0]['value'],
-      '@ip' => $_SERVER['REMOTE_ADDR']
+      '@ip' => ip_address()
     )), 'error');
     return FALSE;
   }
@@ -270,7 +270,7 @@ function _giveaway_dispense_key_to_user($gid, $uid) {
     ->fields(array(
       'uid' => $uid,
       'claimed_on' => time(),
-      'ip_address' => ip2long($_SERVER['REMOTE_ADDR'])
+      'ip_address' => ip2long(ip_address())
     ))
     ->condition('gkid', $id)
     ->execute();

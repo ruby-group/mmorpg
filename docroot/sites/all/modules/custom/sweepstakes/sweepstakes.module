@@ -81,7 +81,10 @@ function sweepstakes_entry_form() {
 
 function sweepstakes_entry_form_submit($form, &$form_state) {
   global $user;
-  if (_sweepstakes_check_unique_entry($form_state['values']['sid'], $user->uid)) {
+  if (_sweepstakes_check_unique_entry($form_state['values']['sid'], $user->uid)
+  and _sweepstakes_check_auth_user($user->uid)
+  and _sweepstakes_check_proxy(ip_address())
+  ) {
     _sweepstakes_add_entry($form_state['values']['sid'], $user->uid, NULL, NULL, 'user initiated');
   }
 }
@@ -96,6 +99,24 @@ function _sweepstakes_check_unique_entry($nid, $uid) {
 
   if ($entries > 0) {
     drupal_set_message(t('You are already enrolled in this sweepstakes'), 'error');
+    return FALSE;
+  }
+  return TRUE;
+}
+
+function _sweepstakes_check_auth_user($uid) {
+  if ($uid == 0) {
+    drupal_set_message(t("If you do not yet have a MMORPG.COM account, just !link to get one for free!", array('!link' => l('click here', 'user/register'))), 'error');
+    return FALSE;
+  }
+  return TRUE;
+}
+
+function _sweepstakes_check_proxy($ip_address) {
+  if (ip2proxy_is_proxy($ip_address)) {
+    drupal_set_message(t("Your IP Address (@ip) is banned from entering this sweepstakes.", array(
+      '@ip' => ip_address()
+    )), 'error');
     return FALSE;
   }
   return TRUE;
@@ -175,15 +196,27 @@ function sweepstakes_delete_duplicates($form, &$form_state) {
     ->fields(NULL, array('seid', 'ip_address'))
     ->condition('nid', $sweepstake)
     ->condition('valid', 1)
+    ->condition('source', 'user initiated')
     ->execute()
     ->fetchAllKeyed();
 
-  $operations = array();
+  $operations = $repeat_ips = array();
   foreach ($entries as $id => $ip_address) {
+    $repeat_ips[$ip_address][] = $id;
+    //--
     $operations[] = array(
-      'sweepstakes_delete_one_duplicate',
+      'sweepstakes_delete_one_duplicate_check_proxy',
       array($id, $ip_address)
     );
+  }
+
+  foreach ($repeat_ips as $ip => $ids) {
+    if (count($ids) > 1) {
+      $operations[] = array(
+        'sweepstakes_delete_one_duplicate',
+        array($ids)
+      );
+    }
   }
 
   batch_set(array(
@@ -193,14 +226,18 @@ function sweepstakes_delete_duplicates($form, &$form_state) {
   ));
 }
 
-function sweepstakes_delete_one_duplicate($id, $ip_address, &$context) {
+function sweepstakes_delete_one_duplicate_check_proxy($id, $ip_address, &$context) {
   if (ip2proxy_is_proxy($ip_address)) {
-    db_update('sweepstakes_entries')
-      ->fields(array('valid' => 0,))
-      ->condition('seid', $id)
-      ->execute();
+    sweepstakes_delete_one_duplicate($id);
     $context['results'][] = $id;
   }
+}
+
+function sweepstakes_delete_one_duplicate($id) {
+  db_update('sweepstakes_entries')
+    ->fields(array('valid' => 0,))
+    ->condition('seid', $id)
+    ->execute();
 }
 
 function sweepstakes_delete_duplicates_finished($success, $results, $operations) {
