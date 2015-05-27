@@ -5,7 +5,8 @@
     text-align: center;
     width: 88%;
     position: absolute;
-    bottom: 12em;
+    bottom: 18.5em;
+    right: 3em;
   }
   .view-content {
     float: none;
@@ -20,12 +21,14 @@
   height: 60px !important;
   border: 1px solid #ffba26 !important;
   }
-  .ui-slider-horizontal {
-    top: 5em;
+  .rate-mmorpg.ui-slider-horizontal {
+    top: 6.35em;
+  }
+  .rate-mmorpg.ui-mmorpg {
+    top: 7em;
   }
   .rate-mmorpg.ui-mmorpg, .ui-slider-horizontal {
     width: 308px !important;
-    top: 6em;
   }
   .rate-mmorpg-value {
   background: #ffba26;
@@ -33,7 +36,7 @@
   .views-label {
      float: left;
     width: 100%;
-    font-size: 16px;
+    font-size: 19px;
     margin-bottom: 1em;
   }
   .rate-info {
@@ -52,11 +55,5 @@
   }
 }
 
-.cast-view .view-hype {
-  width: 670px;
-  .rate-info {
-    left: 6em;
-  }
-}
 
 
