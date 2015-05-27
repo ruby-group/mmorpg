@@ -573,6 +573,334 @@ function mmorpg_game_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_community'
+  $field_instances['field_collection_item-field_ratings-field_ratings_community'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_community',
+    'label' => 'Community',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_fun'
+  $field_instances['field_collection_item-field_ratings-field_ratings_fun'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_fun',
+    'label' => 'Fun',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_graphics'
+  $field_instances['field_collection_item-field_ratings-field_ratings_graphics'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 8,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_graphics',
+    'label' => 'Graphics',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_lag'
+  $field_instances['field_collection_item-field_ratings-field_ratings_lag'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_lag',
+    'label' => 'Lag',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_rpg'
+  $field_instances['field_collection_item-field_ratings-field_ratings_rpg'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_rpg',
+    'label' => 'RPG',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_service'
+  $field_instances['field_collection_item-field_ratings-field_ratings_service'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_service',
+    'label' => 'Service',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_sound'
+  $field_instances['field_collection_item-field_ratings-field_ratings_sound'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_sound',
+    'label' => 'Sound',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_ratings-field_ratings_value'
+  $field_instances['field_collection_item-field_ratings-field_ratings_value'] = array(
+    'bundle' => 'field_ratings',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ratings_value',
+    'label' => 'Value',
+    'required' => 0,
+    'settings' => array(
+      'max' => 10,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'node-game-body'
   $field_instances['node-game-body'] = array(
     'bundle' => 'game',
@@ -1837,7 +2165,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -1876,7 +2204,7 @@ function mmorpg_game_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -1958,7 +2286,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -2121,7 +2449,7 @@ function mmorpg_game_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -2160,7 +2488,52 @@ function mmorpg_game_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-review-field_ratings'
+  $field_instances['node-review-field_ratings'] = array(
+    'bundle' => 'review',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ratings',
+    'label' => 'Ratings',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_collection',
+      'settings' => array(
+        'nodragging' => 0,
+      ),
+      'type' => 'field_collection_embed',
+      'weight' => 6,
     ),
   );
 
@@ -2696,6 +3069,7 @@ function mmorpg_game_field_default_field_instances() {
   t('Cancel Reason');
   t('Category');
   t('Classification');
+  t('Community');
   t('Cons');
   t('Date Type');
   t('Description');
@@ -2710,13 +3084,16 @@ function mmorpg_game_field_default_field_instances() {
   t('Exclusive');
   t('Expansion Pack');
   t('Final Score');
+  t('Fun');
   t('Game');
   t('Game Development Status');
   t('Game Overview');
   t('GameGravity Download Link');
+  t('Graphics');
   t('Hero Image');
   t('Image');
   t('Input the duration in m:ss format (e.g 10:06)');
+  t('Lag');
   t('Languages');
   t('Link');
   t('Logo');
@@ -2730,14 +3107,19 @@ function mmorpg_game_field_default_field_instances() {
   t('Payment Methods');
   t('Platforms');
   t('Pros');
+  t('RPG');
+  t('Ratings');
   t('Release Date');
   t('Release Quarter');
   t('Release Year');
   t('Retail Price');
+  t('Service');
   t('Setting/Theme');
   t('Show');
+  t('Sound');
   t('Status');
   t('Style');
+  t('Value');
   t('Video Mode');
   t('Video URL');
 
