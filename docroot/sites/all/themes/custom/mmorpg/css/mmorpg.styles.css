@@ -1424,6 +1424,18 @@ ul.pager {
   .pro-con-section h2.pane-title {
     font-size: 14px; }
 
+@media (min-width: 900px) {
+  /* line 34, ../sass/components/_review.scss */
+  .node-type-review .center-content {
+    width: 1040px; }
+    /* line 36, ../sass/components/_review.scss */
+    .node-type-review .center-content .pane-page-content {
+      width: 700px;
+      float: left; }
+    /* line 40, ../sass/components/_review.scss */
+    .node-type-review .center-content .rightsidebar {
+      margin-left: 10px; } }
+
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
   padding: 0 10px; }

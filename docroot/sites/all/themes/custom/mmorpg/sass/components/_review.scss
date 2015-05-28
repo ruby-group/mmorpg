@@ -29,3 +29,17 @@
     font-size: 14px;
   }
 }
+.node-type-review {
+  @include breakpoint(900px) {
+    .center-content {
+      width: 1040px;
+      .pane-page-content {
+        width: 700px;
+        float: left;
+      }
+      .rightsidebar {
+        margin-left: 10px;
+      }
+    }
+  }
+}
