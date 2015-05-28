@@ -17,3 +17,45 @@
     margin-bottom: 1em;
   }
 }
+
+.node-type-sweepstake {
+  .pane-sweepstakes-sweepstakes-entry-block {
+    text-align: center;
+    border-top: 1px solid #ddd;
+    margin-top: 2em;
+  }
+  .sweepstakes-entry-form {
+    display: inline-block;
+    height: 270px;
+    .form-item {
+      text-align: left;
+      label {
+        font-weight: lighter;
+      }
+    }
+  }
+  .sweepstakes-entry-form > div {
+    background-color: #EEF9FF;
+    padding: 2em;
+    height: 100px;
+    margin-top: 2em;
+    margin: 2em auto;
+    .form-submit {
+      margin-top: 2em;
+      padding: 1em;
+      font-size: 18px;
+    }
+  }
+}
+
+.field--name-field-sweepstakes-rules {
+  width: 80%;
+  padding: 10px !important;
+  border: 1px solid #cecece;
+  background: #fafafa;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
