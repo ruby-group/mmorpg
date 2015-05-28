@@ -1373,6 +1373,10 @@ ul.pager {
   .pro-con-section h2.pane-title {
     font-size: 14px; }
 
+/* line 46, ../sass/components/_review.scss */
+.pane-mmorpg-rate-add-review-block {
+  display: none; }
+
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
   padding: 0 10px; }
