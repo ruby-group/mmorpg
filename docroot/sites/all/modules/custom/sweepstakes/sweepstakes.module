@@ -82,8 +82,8 @@ function sweepstakes_entry_form() {
 function sweepstakes_entry_form_submit($form, &$form_state) {
   global $user;
   if (_sweepstakes_check_unique_entry($form_state['values']['sid'], $user->uid)
-  and _sweepstakes_check_auth_user($user->uid)
-  and _sweepstakes_check_proxy(ip_address())
+    and _sweepstakes_check_auth_user($user->uid)
+    and _sweepstakes_check_proxy(ip_address())
   ) {
     _sweepstakes_add_entry($form_state['values']['sid'], $user->uid, NULL, NULL, 'user initiated');
   }
@@ -249,29 +249,41 @@ function sweepstakes_delete_duplicates_finished($success, $results, $operations)
 
 function sweepstakes_pick_winners($form, &$form_state) {
   $sweepstake = node_load($form_state['values']['sid']);
+
+  //set an auto-redraw for 24 hours later.
+  variable_set('sweepstakes_redraw_timings', variable_get('sweepstakes_redraw_timings', array()) + array($sweepstake->nid => REQUEST_TIME + 24 * 60 * 60));
+
   $prizes = entity_load('field_collection_item', array_column($sweepstake->field_sweepstakes_prizes[LANGUAGE_NONE], 'value'));
 
   $operations = array();
   foreach ($prizes as $id => $prize) {
-    if (empty($prize->field_prize_giveaway)) {
-      // this is a non giveaway prize.
-      for ($count = 0; $count < $prize->field_prize_count[LANGUAGE_NONE][0]['value']; $count++) {
+    // avoid giving out more than available prizes.
+    $prizes_awarded = db_select('sweepstakes_entries')
+      ->fields(NULL, array('seid'))
+      ->condition('nid', $sweepstake->nid)
+      ->condition('prize_id', $id)
+      ->execute()
+      ->rowCount();
+
+    for ($count = $prizes_awarded; $count < $prize->field_prize_count[LANGUAGE_NONE][0]['value']; $count++) {
+      if (empty($prize->field_prize_giveaway)) {
+        // this is a non giveaway prize.
         $operations[] = array(
           'sweepstakes_pick_one_winner_for_non_giveaway',
           array($id, $sweepstake->nid)
         );
       }
-    }
-    else {
-      // this is a giveaway prize.
-      $operations[] = array(
-        'sweepstakes_pick_one_winner_for_giveaway',
-        array(
-          $id,
-          $sweepstake->nid,
-          $prize->field_prize_giveaway[LANGUAGE_NONE][0]['target_id']
-        )
-      );
+      else {
+        // this is a giveaway prize.
+        $operations[] = array(
+          'sweepstakes_pick_one_winner_for_giveaway',
+          array(
+            $id,
+            $sweepstake->nid,
+            $prize->field_prize_giveaway[LANGUAGE_NONE][0]['target_id']
+          )
+        );
+      }
     }
   }
 
@@ -289,6 +301,7 @@ function sweepstakes_pick_one_winner_for_non_giveaway($pid, $sid, &$context) {
     ->condition('prize_id', 0)
     ->condition('valid', 1)
     ->range(0, 1)
+    ->orderRandom()
     ->execute()
     ->fetchAssoc();
 
@@ -308,6 +321,7 @@ function sweepstakes_pick_one_winner_for_giveaway($pid, $sid, $gid, &$context) {
     ->condition('prize_id', 0)
     ->condition('valid', 1)
     ->range(0, 1)
+    ->orderRandom()
     ->execute()
     ->fetchAssoc();
 
@@ -370,7 +384,7 @@ function sweepstakes_email_one_winner($account, $sid, $message, $prize, &$contex
     'headers' => 'simple',
     'prize' => $prize,
     'user' => $account,
-    'link' => base_path() . drupal_get_path_alias('node/' . $sid),
+    'link' => url('node/' . $sid, array('absolute' => TRUE,)),
   ));
   $context['results'][] = $account->uid;
 }
@@ -402,32 +416,22 @@ function sweepstakes_email_winners_finished($success, $results, $operations) {
 }
 
 /**
- * Implements hook_menu().
+ * Implements hook_webform_submission_insert().
  */
-function sweepstakes_menu() {
-  return array(
-    'sweepstakes_prize_redirect' => array(
-      'type' => MENU_CALLBACK,
-      'page callback' => 'sweepstakes_post_webform_submission_callback',
-      'access callback' => TRUE,
-    )
-  );
-}
-
-function sweepstakes_post_webform_submission_callback() {
+function sweepstakes_webform_submission_insert($node, $submission) {
   global $user;
-  if ($user->uid == 0) {
-    drupal_goto();
-  }
-  $args = arg();
-  array_shift($args);
-  $args = explode('/', drupal_get_normal_path(implode('/', $args)));
-  $nid = next($args);
+
+  db_update('sweepstakes_entries')
+    ->fields(array('confirmed' => REQUEST_TIME,))
+    ->condition('nid', $node->nid)
+    ->condition('uid', $user->uid)
+    ->condition('prize_id', 0, '>')
+    ->execute();
 
   $prize = current(entity_load('field_collection_item', array(
     current(db_select('sweepstakes_entries')
       ->fields(NULL, array('prize_id'))
-      ->condition('nid', $nid)
+      ->condition('nid', $node->nid)
       ->condition('uid', $user->uid)
       ->condition('prize_id', 0, '>')
       ->range(0, 1)
@@ -440,5 +444,40 @@ function sweepstakes_post_webform_submission_callback() {
     return;
   }
 
-  return 'Thank you for providing the details. We will revert back with the shipping information of the gift';
+  drupal_set_message(t('Thank you for providing the details. We will revert back with the shipping information of the gift'));
+  drupal_goto('node/' . $node->nid);
+}
+
+/**
+ * Implements hook_action_info().
+ */
+function sweepstakes_action_info() {
+  return array(
+    'sweepstakes_unassign_prizes' => array(
+      'type' => 'data_sweepstakes_entries',
+      'label' => t('Un-assign prizes from users'),
+      'behavior' => array('changes_property'),
+      'configurable' => FALSE,
+      'vbo_configurable' => FALSE,
+      'triggers' => array('any'),
+    ),
+  );
+}
+
+function sweepstakes_unassign_prizes(&$entity, $context) {
+  $entity->prize_id = $entity->confirmed = 0;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function sweepstakes_cron() {
+  $sweepstakes = variable_get('sweepstakes_redraw_timings', array());
+  foreach ($sweepstakes as $id => $time) {
+    if ($time < REQUEST_TIME) {
+      unset($sweepstakes[$id]);
+
+    }
+  }
+  variable_set('sweepstakes_redraw_timings', $sweepstakes);
 }
