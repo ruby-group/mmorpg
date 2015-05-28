@@ -672,7 +672,7 @@ function mmorpg_game_views_default_views() {
   $handler->display->display_options['fields']['value_8']['table'] = 'votingapi_cache';
   $handler->display->display_options['fields']['value_8']['field'] = 'value';
   $handler->display->display_options['fields']['value_8']['relationship'] = 'votingapi_cache_8';
-  $handler->display->display_options['fields']['value_8']['label'] = 'Hype';
+  $handler->display->display_options['fields']['value_8']['label'] = 'Pre-Release Hype';
   $handler->display->display_options['fields']['value_8']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['value_8']['precision'] = '0';
   $handler->display->display_options['fields']['value_8']['separator'] = '.';
@@ -717,6 +717,7 @@ function mmorpg_game_views_default_views() {
 										<a href="#" class="btn castratebutton">Rate this Game</a>
 									</div>'),
     t('Hype'),
+    t('Pre-Release Hype'),
   );
   $export['game_ratings'] = $view;
 
