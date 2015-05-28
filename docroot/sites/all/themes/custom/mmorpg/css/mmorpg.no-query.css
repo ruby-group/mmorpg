@@ -617,11 +617,11 @@ body {
 /* line 2, ../sass/components/_hype.scss */
 .pane-game-ratings .view-hype .view-header {
   float: left;
-  margin: 11em 0 0 3em;
+  margin: 1em 0 0 3em;
   text-align: center;
   width: 88%;
   position: absolute;
-  bottom: 18.5em;
+  top: 22em;
   right: 3em; }
 /* line 11, ../sass/components/_hype.scss */
 .pane-game-ratings .view-hype .view-content {
@@ -638,10 +638,10 @@ body {
   border: 1px solid #ffba26 !important; }
 /* line 24, ../sass/components/_hype.scss */
 .pane-game-ratings .view-hype .rate-mmorpg.ui-slider-horizontal {
-  top: 6.35em; }
+  top: 6.15em; }
 /* line 27, ../sass/components/_hype.scss */
 .pane-game-ratings .view-hype .rate-mmorpg.ui-mmorpg {
-  top: 7em; }
+  top: 6.8em; }
 /* line 30, ../sass/components/_hype.scss */
 .pane-game-ratings .view-hype .rate-mmorpg.ui-mmorpg, .pane-game-ratings .view-hype .ui-slider-horizontal {
   width: 308px !important; }
