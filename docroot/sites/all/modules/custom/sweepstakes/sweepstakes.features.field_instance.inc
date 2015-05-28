@@ -237,7 +237,7 @@ function sweepstakes_field_default_field_instances() {
         'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -647,17 +647,55 @@ function sweepstakes_field_default_field_instances() {
     'label' => 'Rules',
     'required' => 1,
     'settings' => array(
-      'text_processing' => 0,
+      'display_summary' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 5,
+        'rows' => 20,
+        'summary_rows' => 5,
       ),
-      'type' => 'text_textarea',
+      'type' => 'text_textarea_with_summary',
       'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-sweepstake-field_sweepstakes_standby_msg'
+  $field_instances['node-sweepstake-field_sweepstakes_standby_msg'] = array(
+    'bundle' => 'sweepstake',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_sweepstakes_standby_msg',
+    'label' => 'Standby Message',
+    'required' => 1,
+    'settings' => array(
+      'display_summary' => 0,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 12,
     ),
   );
 
@@ -691,7 +729,7 @@ function sweepstakes_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -713,6 +751,7 @@ function sweepstakes_field_default_field_instances() {
   t('Rules');
   t('Select countries to filter the node based on user country.');
   t('Sponsor');
+  t('Standby Message');
   t('Tier');
   t('Tokens available: #username#, #prize#, #link#');
   t('Winner Email Message');

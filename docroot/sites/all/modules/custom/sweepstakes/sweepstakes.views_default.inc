@@ -137,6 +137,13 @@ function sweepstakes_views_default_views() {
       'override_label' => 0,
       'label' => '',
     ),
+    'action::sweepstakes_unassign_prizes' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
   );
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
@@ -206,6 +213,43 @@ function sweepstakes_views_default_views() {
   $handler->display->display_options['filters']['valid']['table'] = 'sweepstakes_entries';
   $handler->display->display_options['filters']['valid']['field'] = 'valid';
   $handler->display->display_options['filters']['valid']['value']['value'] = '1';
+  $handler->display->display_options['filters']['valid']['group'] = 1;
+  /* Filter criterion: User: E-mail */
+  $handler->display->display_options['filters']['mail']['id'] = 'mail';
+  $handler->display->display_options['filters']['mail']['table'] = 'users';
+  $handler->display->display_options['filters']['mail']['field'] = 'mail';
+  $handler->display->display_options['filters']['mail']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['mail']['operator'] = 'contains';
+  $handler->display->display_options['filters']['mail']['group'] = 1;
+  $handler->display->display_options['filters']['mail']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['mail']['expose']['operator_id'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['label'] = 'E-mail';
+  $handler->display->display_options['filters']['mail']['expose']['operator'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['identifier'] = 'mail';
+  $handler->display->display_options['filters']['mail']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Username';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -245,6 +289,8 @@ function sweepstakes_views_default_views() {
     t('Confirmed'),
     t('Edit link'),
     t('All'),
+    t('E-mail'),
+    t('Username'),
     t('Page'),
   );
   $export['sweepstakes_entries'] = $view;
@@ -584,7 +630,7 @@ function sweepstakes_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Header Image */
+  /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
@@ -669,7 +715,7 @@ function sweepstakes_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Header Image */
+  /* Field: Content: Hero Image */
   $handler->display->display_options['fields']['field_hero_image']['id'] = 'field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['table'] = 'field_data_field_hero_image';
   $handler->display->display_options['fields']['field_hero_image']['field'] = 'field_hero_image';
@@ -907,10 +953,15 @@ function sweepstakes_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['views_conditional']['if'] = 'confirmed';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
-  $handler->display->display_options['fields']['views_conditional']['equalto'] = '1';
-  $handler->display->display_options['fields']['views_conditional']['then'] = '* Confirmed *';
-  $handler->display->display_options['fields']['views_conditional']['or'] = 'N/A';
+  $handler->display->display_options['fields']['views_conditional']['equalto'] = '0';
+  $handler->display->display_options['fields']['views_conditional']['then'] = 'N/A';
+  $handler->display->display_options['fields']['views_conditional']['or'] = '* Confirmed *';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
+  /* Sort criterion: Field collection item: Tier (field_prize_tier) */
+  $handler->display->display_options['sorts']['field_prize_tier_value']['id'] = 'field_prize_tier_value';
+  $handler->display->display_options['sorts']['field_prize_tier_value']['table'] = 'field_data_field_prize_tier';
+  $handler->display->display_options['sorts']['field_prize_tier_value']['field'] = 'field_prize_tier_value';
+  $handler->display->display_options['sorts']['field_prize_tier_value']['relationship'] = 'prize_id';
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -926,6 +977,12 @@ function sweepstakes_views_default_views() {
   $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
     'sweepstake' => 'sweepstake',
   );
+  /* Filter criterion: Sweepstakes entries: Prize id */
+  $handler->display->display_options['filters']['prize_id']['id'] = 'prize_id';
+  $handler->display->display_options['filters']['prize_id']['table'] = 'sweepstakes_entries';
+  $handler->display->display_options['filters']['prize_id']['field'] = 'prize_id';
+  $handler->display->display_options['filters']['prize_id']['operator'] = '>';
+  $handler->display->display_options['filters']['prize_id']['value']['value'] = '0';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane');

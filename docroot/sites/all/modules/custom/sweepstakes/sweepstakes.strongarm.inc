@@ -155,10 +155,10 @@ function sweepstakes_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '15',
+          'weight' => '16',
         ),
         'webform_template' => array(
-          'weight' => '13',
+          'weight' => '14',
         ),
       ),
       'display' => array(),
