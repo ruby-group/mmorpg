@@ -143,11 +143,20 @@ function mmorpg_rate_add_review_block() {
 /**
  * Implements hook_form_form_id_alter()
  */
-
 function mmorpg_rate_form_reviews_add_review_alter(&$form, $form_state) {
   $form['review']['#type'] = 'textarea';
+  $form['#submit'] = array('mmorpg_rate_review_submit',$form['#submit'][0]);
 }
 
 function mmorpg_rate_form_reviews_edit_review_alter(&$form, $form_state) {
   $form['review']['#type'] = 'textarea';
+  $form['#submit'] = array('mmorpg_rate_review_submit',$form['#submit'][0]);
+}
+
+function mmorpg_rate_review_submit(&$form,&$form_submit) {
+  $text = $form_submit['values']['review'];
+  $form_submit['values']['review'] = array(
+    'value' => $form_submit['values']['review'],
+    'format' => 'plain_text',
+    );
 }
