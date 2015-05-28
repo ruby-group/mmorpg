@@ -1570,6 +1570,34 @@ ul.pager {
 .section-sweepstakes .giveaway_title {
   margin-bottom: 1em; }
 
+/* line 22, ../sass/components/_sweepstakes.scss */
+.node-type-sweepstake .pane-sweepstakes-sweepstakes-entry-block {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 2em; }
+/* line 27, ../sass/components/_sweepstakes.scss */
+.node-type-sweepstake .sweepstakes-entry-form {
+  display: inline-block;
+  height: 270px; }
+  /* line 30, ../sass/components/_sweepstakes.scss */
+  .node-type-sweepstake .sweepstakes-entry-form .form-item {
+    text-align: left; }
+    /* line 32, ../sass/components/_sweepstakes.scss */
+    .node-type-sweepstake .sweepstakes-entry-form .form-item label {
+      font-weight: lighter; }
+/* line 37, ../sass/components/_sweepstakes.scss */
+.node-type-sweepstake .sweepstakes-entry-form > div {
+  background-color: #EEF9FF;
+  padding: 2em;
+  height: 100px;
+  margin-top: 2em;
+  margin: 2em auto; }
+  /* line 43, ../sass/components/_sweepstakes.scss */
+  .node-type-sweepstake .sweepstakes-entry-form > div .form-submit {
+    margin-top: 2em;
+    padding: 1em;
+    font-size: 18px; }
+
 /* line 1, ../sass/components/_trending.scss */
 .trending {
   display: none;
