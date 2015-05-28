@@ -1436,6 +1436,10 @@ ul.pager {
     .node-type-review .center-content .rightsidebar {
       margin-left: 10px; } }
 
+/* line 46, ../sass/components/_review.scss */
+.pane-mmorpg-rate-add-review-block {
+  display: none; }
+
 /* line 1, ../sass/components/_rightsidebar.scss */
 .rightsidebar {
   padding: 0 10px; }
