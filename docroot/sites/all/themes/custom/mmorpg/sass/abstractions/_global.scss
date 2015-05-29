@@ -125,3 +125,10 @@
     }
   }
 }
+.center-content {
+  .field--name-field-article-overview, .field__item > p:first-child, p.field-overview{
+      @extend %node_body;
+      width: 95%;
+      top: -40px;
+  }
+}

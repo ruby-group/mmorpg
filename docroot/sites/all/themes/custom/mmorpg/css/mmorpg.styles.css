@@ -29,7 +29,7 @@
    Node pages common styles
    ========================================================================== */
 /* line 31, ../sass/variables/_mixins.scss */
-.page-node .field--name-field-article-news-post, .promoted-giveaway .promoted_giveaway_details_bottom, .field--name-field-article-overview, .views-field-field-article-overview, .pane-video-exclusive .views-row .views-field-body .field-content,
+.page-node .field--name-field-article-news-post, .center-content .field--name-field-article-overview, .center-content .field__item > p:first-child, .center-content p.field-overview, .promoted-giveaway .promoted_giveaway_details_bottom, .views-field-field-article-overview, .pane-video-exclusive .views-row .views-field-body .field-content,
 .pane-video-details-player .views-row .views-field-body .field-content {
   background: #ffffff;
   border-top: 4px solid #bce6ff;
@@ -311,6 +311,11 @@
   .page-node .field--name-field-article-news-post img {
     max-width: 715px;
     width: 100%; }
+
+/* line 129, ../sass/abstractions/_global.scss */
+.center-content .field--name-field-article-overview, .center-content .field__item > p:first-child, .center-content p.field-overview {
+  width: 95%;
+  top: -40px; }
 
 /* line 1, ../sass/abstractions/_header.scss */
 header.header {
@@ -819,11 +824,6 @@ body {
 .page-giveaways h2.pane-title {
   padding-top: 0;
   padding-bottom: 20px; }
-
-/* line 142, ../sass/components/_keygiveaway.scss */
-.field--name-field-article-overview {
-  width: 95%;
-  top: -40px; }
 
 /* line 3, ../sass/components/_navigation.scss */
 .om-menu .item-list ul {
@@ -1613,6 +1613,10 @@ ul.pager {
   margin-bottom: 20px;
   max-height: 300px;
   overflow-y: scroll; }
+
+/* line 63, ../sass/components/_sweepstakes.scss */
+.pane-node-body .field__item > p:first-child {
+  padding-top: 1em !important; }
 
 /* line 1, ../sass/components/_trending.scss */
 .trending {
