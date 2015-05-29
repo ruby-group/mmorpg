@@ -59,3 +59,8 @@
   max-height: 300px;
   overflow-y: scroll;
 }
+
+.pane-node-body .field__item > p:first-child {
+    padding-top: 1em !important;
+}
+
