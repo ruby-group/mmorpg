@@ -258,4 +258,190 @@ function demo_user_default_permissions_alter(&$data) {
   if (isset($data['view any unpublished video content'])) {
     $data['view any unpublished video content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
   }
+  if (isset($data['access administration pages'])) {
+    $data['access administration pages']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['access all webform results'])) {
+    $data['access all webform results']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['access content overview'])) {
+    $data['access content overview']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['access site in maintenance mode'])) {
+    $data['access site in maintenance mode']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['administer nodequeue'])) {
+    $data['administer nodequeue']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['administer nodes'])) {
+    $data['administer nodes']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['administer pollims'])) {
+    $data['administer pollims']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['administer signupnow settings'])) {
+    $data['administer signupnow settings']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['administer taxonomy'])) {
+    $data['administer taxonomy']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['create field_screenshot_category'])) {
+    $data['create field_screenshot_category']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['create review content'])) {
+    $data['create review content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['create review_content content'])) {
+    $data['create review_content content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['create sweepstake content'])) {
+    $data['create sweepstake content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['create webform content'])) {
+    $data['create webform content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete any review content'])) {
+    $data['delete any review content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete any review_content content'])) {
+    $data['delete any review_content content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete any sweepstake content'])) {
+    $data['delete any sweepstake content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete any webform content'])) {
+    $data['delete any webform content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete own review content'])) {
+    $data['delete own review content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete own review_content content'])) {
+    $data['delete own review_content content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['access administration menu'])) {
+    $data['access administration menu']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete own sweepstake content'])) {
+    $data['delete own sweepstake content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete own webform content'])) {
+    $data['delete own webform content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['delete revisions'])) {
+    $data['delete revisions']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit any game_of_the_year pollim'])) {
+    $data['edit any game_of_the_year pollim']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit any review content'])) {
+    $data['edit any review content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit any review_content content'])) {
+    $data['edit any review_content content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit any sweepstake content'])) {
+    $data['edit any sweepstake content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit any webform content'])) {
+    $data['edit any webform content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit field_screenshot_category'])) {
+    $data['edit field_screenshot_category']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit own field_screenshot_category'])) {
+    $data['edit own field_screenshot_category']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit own review content'])) {
+    $data['edit own review content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit own review_content content'])) {
+    $data['edit own review_content content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit own sweepstake content'])) {
+    $data['edit own sweepstake content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit own webform content'])) {
+    $data['edit own webform content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['edit webform components'])) {
+    $data['edit webform components']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['manipulate all queues'])) {
+    $data['manipulate all queues']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['manipulate queues'])) {
+    $data['manipulate queues']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['revert revisions'])) {
+    $data['revert revisions']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['schedule (un)publishing of nodes'])) {
+    $data['schedule (un)publishing of nodes']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['set any published on date'])) {
+    $data['set any published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['set customer published on date'])) {
+    $data['set customer published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['set giveaway published on date'])) {
+    $data['set giveaway published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['set review published on date'])) {
+    $data['set review published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['set review_content published on date'])) {
+    $data['set review_content published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['set siteskin published on date'])) {
+    $data['set siteskin published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['set sweepstake published on date'])) {
+    $data['set sweepstake published on date']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['use advanced search'])) {
+    $data['use advanced search']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any game_of_the_year pollim'])) {
+    $data['view any game_of_the_year pollim']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished content'])) {
+    $data['view any unpublished content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished game content'])) {
+    $data['view any unpublished game content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished mmorpg_article content'])) {
+    $data['view any unpublished mmorpg_article content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished panel content'])) {
+    $data['view any unpublished panel content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished review content'])) {
+    $data['view any unpublished review content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished review_content content'])) {
+    $data['view any unpublished review_content content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished sweepstake content'])) {
+    $data['view any unpublished sweepstake content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view any unpublished webform content'])) {
+    $data['view any unpublished webform content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view own field_screenshot_category'])) {
+    $data['view own field_screenshot_category']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view own unpublished content'])) {
+    $data['view own unpublished content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view revisions'])) {
+    $data['view revisions']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view scheduled content'])) {
+    $data['view scheduled content']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
+  if (isset($data['view the administration theme'])) {
+    $data['view the administration theme']['roles']['subadmin'] = 'subadmin'; /* WAS: '' */
+  }
 }
