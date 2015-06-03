@@ -1,0 +1,29 @@
+name = Troll
+description = Provides tools for community sites including users by IP address, banning IP addresses, advanced user searching, and blocking user by role.
+core = 7.x
+files[] = troll.install
+files[] = troll.module
+files[] = troll.admin.inc
+
+dependencies[] = date_api
+dependencies[] = date_popup
+
+; Information added by drupal.org packaging script on 2010-11-12
+version = "HEAD"
+project = "troll"
+datestamp = "1289564581"
+
+
+; Information added by Drupal.org packaging script on 2014-09-19
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "troll"
+datestamp = "1411099732"
+
+
+; Information added by Drupal.org packaging script on 2014-09-19
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "troll"
+datestamp = "1411099732"
+

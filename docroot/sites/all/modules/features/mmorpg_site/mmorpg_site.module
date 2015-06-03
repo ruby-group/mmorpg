@@ -44,6 +44,14 @@ function mmorpg_site_admin_paths() {
  */
 function mmorpg_site_menu() {
 
+  $items['admin/mmorpg/ip_ban'] = array(
+    'title' => 'IP Ban',
+    'description' => 'Ban users / ip addresses from signing up / signing into the site',
+    'page callback' => 'mmorpg_site_redirect_to_ip_ban',
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+  );
+
   $items['admin/mmorpg/reports'] = array(
     'title' => 'Reports',
     'description' => 'Access various advt. reports',
@@ -98,7 +106,7 @@ function mmorpg_site_block_info() {
  */
 function mmorpg_site_block_view($delta = '') {
   $block = array();
-  switch($delta) {
+  switch ($delta) {
     case 'invisible_block':
       $block['content'] = "<div class='placeholder'></div>";
       break;
@@ -111,7 +119,7 @@ function mmorpg_site_block_view($delta = '') {
     case 'related_content_menu':
       $block['content'] = mmorpg_site_related_content_menu();
       break;
-  } 
+  }
   return $block;
 }
 
@@ -181,9 +189,9 @@ function mmorpg_site_page_titles() {
   $arg3 = arg(3);
   $title = array();
   if ($arg0 == "game") {
-    $games_list_link = l('Games','games');
+    $games_list_link = l('Games', 'games');
     $game_node = node_load($arg1);
-    switch($arg2) {
+    switch ($arg2) {
       case 'overview':
       case 'forums':
       case 'ratings':
@@ -196,12 +204,12 @@ function mmorpg_site_page_titles() {
       case 'video':
         $title[] = $games_list_link;
         $video_node = node_load($arg3);
-        $title[] = l($game_node->title,$arg0.'/'.$arg1.'/overview');
+        $title[] = l($game_node->title, $arg0 . '/' . $arg1 . '/overview');
         $title[] = t($video_node->title);
         break;
     }
   }
-  $title = join($title,' / ');
+  $title = join($title, ' / ');
   $title_html = '<div class="title_crumbs">' . $title . '</div>';
   return $title_html;
 }
@@ -242,13 +250,20 @@ function mmorpg_site_related_content_menu() {
 
   foreach ($child_nodes as $key => $child_nid) {
     $active = array();
-    if($key == $current_page_nid) {
+    if ($key == $current_page_nid) {
       $active = array('class' => array('active-page'));
     }
     $page_no = $key + 1;
     $get_params["page"] = $page_no;
-    $menu .= l(t('Page ') . $page_no, current_path() , array('attributes' => $active,'query'=>$get_params));
+    $menu .= l(t('Page ') . $page_no, current_path(), array(
+      'attributes' => $active,
+      'query' => $get_params
+    ));
   }
   $menu .= '</div>';
   return $menu;
+}
+
+function mmorpg_site_redirect_to_ip_ban() {
+  drupal_goto('admin/people/troll');
 }

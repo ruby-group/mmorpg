@@ -1,0 +1,146 @@
+<?php
+
+/**
+ * @file
+ * .install file for troll module.
+ */
+
+/**
+ * Add DB tables.
+ */
+function troll_update_7001() {
+  $ret = array();
+
+  if (!db_table_exists('troll_blacklist')) {
+    db_create_table($ret, 'troll_blacklist', array(
+      'fields' => array(
+        'net' => array('type' => 'int', 'not null' => TRUE, 'disp-width' => '11'),
+        'bcast' => array('type' => 'int', 'not null' => TRUE, 'disp-width' => '11')),
+      'unique keys' => array(
+        'net' => array('net', 'bcast'))
+      )
+    );
+  }
+
+  if (!db_table_exists('troll_whitelist')) {
+    db_create_table($ret, 'troll_whitelist', array(
+      'fields' => array(
+        'net' => array('type' => 'int', 'not null' => TRUE, 'disp-width' => '11'),
+        'bcast' => array('type' => 'int', 'not null' => TRUE, 'disp-width' => '11')),
+      'unique keys' => array(
+        'net' => array('net', 'bcast'))
+      )
+    );
+  }
+
+  return $ret;
+}
+
+/**
+ * Support IPv6 address lengths.
+ */
+function troll_update_7002() {
+  db_drop_unique_key('troll_ip_ban', 'ip');
+  db_change_field('troll_ip_ban', 'ip_address', 'ip_address', array('type' => 'varchar', 'length' => '39', 'not null' => TRUE, 'default' => ''));
+  db_add_unique_key('troll_ip_ban', 'ip', array('ip_address'));
+  db_change_field('troll_ip_track', 'ip_address', 'ip_address', array('type' => 'varchar', 'length' => '39', 'not null' => TRUE, 'default' => ''));
+}
+
+/**
+ * Whitelist localhost's IP
+ */
+function troll_update_7003() {
+  $ret = array();
+
+  $localhost_present = db_query("SELECT net FROM {troll_whitelist} where net = :net and bcast = :bcast",
+    array(':net' => 2130706433, ':bcast' => 2130706433));
+
+  if (! $localhost_present) {
+    db_insert('troll_whitelist')>fields(array(':net' => 2130706433, ':bcast' => 2130706433));
+    $ret[] = t('The IP address for the localhost has been whitelisted');
+  }
+
+  return $ret;
+}
+
+/**
+ * Ability to block IP ranges and wildcards
+ */
+function troll_update_7004() {
+  $schema = drupal_get_schema('troll_ip_ban');
+  if(!db_field_exists('troll_ip_ban','ip_address_to')) {
+    db_add_field('troll_ip_ban','ip_address_to',array('type' => 'varchar', 'length' => '39', 'not null' => FALSE, 'default' => NULL));
+  }
+}
+
+/**
+ * This update will not run properly under Drupal 6 because _system_update_utf8() does
+ * not exist in Drupal 6.
+ *
+ * See http://drupal.org/node/54614
+ * @return array
+ */
+/*
+function troll_update_2() {
+  return _system_update_utf8(array('troll_blacklist', 'troll_ip_ban', 'troll_ip_track', 'troll_whitelist'));
+}
+ */
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function troll_uninstall() {
+  drupal_uninstall_schema('troll');
+  variable_del('troll_block_role');
+  variable_del('troll_blacklist_stutter');
+  variable_del('troll_blacklist_mod_requests');
+  variable_del('troll_blacklist_alt_page');
+  variable_del('troll_blacklist_alt_url');
+  variable_del('troll_enable_ip_ban');
+  variable_del('troll_ip_ban_redirect');
+  variable_del('troll_whitelist');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function troll_schema() {
+  $schema['troll_whitelist'] = array(
+    'fields' => array(
+         'net' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'unsigned' => TRUE, 'disp-width' => '11'),
+         'bcast' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'unsigned' => TRUE, 'disp-width' => '11')),
+    'unique keys' => array(
+         'net' => array('net', 'bcast')),
+  );
+  $schema['troll_ip_track'] = array(
+    'fields' => array(
+         'uid' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'disp-width' => '11'),
+         'accessed' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'disp-width' => '11'),
+         'ip_address' => array('type' => 'varchar', 'length' => '39', 'not null' => TRUE, 'default' => ''),
+         'created' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'disp-width' => '11')),
+    'indexes' => array(
+         'uid' => array('uid')),
+  );
+  $schema['troll_ip_ban'] = array(
+    'fields' => array(
+         'iid' => array('type' => 'serial', 'not null' => TRUE, 'disp-width' => '11'),
+         'ip_address' => array('type' => 'varchar', 'length' => '39', 'not null' => TRUE, 'default' => ''),
+         'ip_address_to' => array('type' => 'varchar', 'length' => '39', 'not null' => FALSE, 'default' => NULL),
+         'domain_name' => array('type' => 'varchar', 'length' => '255', 'not null' => TRUE, 'default' => ''),
+         'expires' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'disp-width' => '11'),
+         'created' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'disp-width' => '11'),
+         'uid' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'disp-width' => '10')),
+    'primary key' => array('iid'),
+    'unique keys' => array(
+         'ip' => array('ip_address')),
+  );
+  $schema['troll_blacklist'] = array(
+    'fields' => array(
+         'net' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'unsigned' => TRUE, 'disp-width' => '11'),
+         'bcast' => array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'unsigned' => TRUE, 'disp-width' => '11')),
+    'unique keys' => array(
+         'net' => array('net', 'bcast')),
+  );
+
+  return $schema;
+}
