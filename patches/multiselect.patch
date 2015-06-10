@@ -1,0 +1,14 @@
+diff --git a/multiselect.module b/multiselect.module
+index e17d6f5..1d7be28 100644
+--- a/multiselect.module
++++ b/multiselect.module
+@@ -110,7 +110,8 @@ function multiselect_field_widget_form(&$form, &$form_state, $field, $instance,
+   $properties = _options_properties($type, $multiple, $required, $has_value);
+ 
+   // Prepare the list of options.
+-  $options = _options_get_options($field, $instance, $properties, NULL, NULL);
++  $options = _options_get_options($field, $instance, $properties, $element['#entity_type'],
++    is_null(current(entity_extract_ids($element['#entity_type'], $element['#entity']))) ? NULL : $element['#entity']);
+ 
+   // Remove all tags from values. Very useful for views displays.
+   $options = array_map("strip_tags", $options);

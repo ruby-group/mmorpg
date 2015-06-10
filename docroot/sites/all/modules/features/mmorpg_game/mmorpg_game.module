@@ -1,0 +1,108 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Game feature.
+ */
+
+include_once 'mmorpg_game.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_game_block_info() {
+  $blocks = array();
+  $blocks['game_menu_block'] = array(
+    'info' => t('Game Menu Block'),
+  );
+  $blocks['game_rss_link_block'] = array(
+    'info' => t('Game RSS Link Block'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_game_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'game_menu_block' :
+      $block['content'] = mmorpg_game_menu_content();
+      break;
+    case 'game_rss_link_block' :
+      $block['content'] = mmorpg_game_rss_link_block();
+      break;
+  }
+
+  return $block;
+}
+
+function mmorpg_game_rss_link_block() {
+  $game_id = arg(1);
+  return l(t('RSS'), arg(0) . '/' . arg(1) . '/' . arg(2) . '/rss.xml');
+}
+
+function mmorpg_game_menu_content() {
+  $game_nid = intval(arg(1));
+  $current = arg(2);
+
+  if (arg(0) != 'admin' and ($game_nid == 0 or !in_array($current, array(
+        'overview',
+        'forum',
+        'ratings',
+        'reviews',
+        'screenshots',
+        'videos',
+        'video',
+      )))
+  ) {
+    drupal_access_denied();
+  }
+
+  //check if hype or ratings
+  $game_node = node_load($game_nid);
+  $fc_item_id = $game_node->field_game_development_status['und'][0]['value'];
+  $fc_entity = entity_load('field_collection_item', array($fc_item_id));
+  $dev_status = $fc_entity[$fc_item_id]->field_dev_status['und'][0]['tid'];
+  $rating_hype = ($dev_status == 279) ? "Ratings" : "Hype";
+
+  $active_attribute = array('class' => array('active'));
+  $overview_attributes = $forum_attributes = $ratings_attributes = $reviews_attributes
+    = $screenshots_attributes = $videos_attributes = array();
+
+  switch ($current) {
+    case 'overview':
+      $overview_attributes = $active_attribute;
+      break;
+    case 'forum':
+      $forum_attributes = $active_attribute;
+      break;
+    case 'ratings':
+      $ratings_attributes = $active_attribute;
+      break;
+    case 'reviews':
+      $reviews_attributes = $active_attribute;
+      break;
+    case 'screenshots':
+      $screenshots_attributes = $active_attribute;
+      break;
+    case 'videos':
+      $videos_attributes = $active_attribute;
+      break;
+    case 'video':
+      $videos_attributes = $active_attribute;
+      break;
+
+  }
+  $overview = l(t('Overview'), 'game/' . $game_nid . '/overview', array('attributes' => $overview_attributes));
+  $forum = l(t('Forum'), 'game/' . $game_nid . '/forum', array('attributes' => $forum_attributes));
+  $ratings = l(t($rating_hype), 'game/' . $game_nid . '/ratings', array('attributes' => $ratings_attributes));
+  $reviews = l(t('Reviews'), 'game/' . $game_nid . '/reviews', array('attributes' => $reviews_attributes));
+  $screenshots = l(t('Screenshots'), 'game/' . $game_nid . '/screenshots', array('attributes' => $screenshots_attributes));
+  $videos = l(t('Videos'), 'game/' . $game_nid . '/videos', array('attributes' => $videos_attributes));
+
+  $links = '<div class="game-sub-menu">' . $overview . $forum . $ratings . $reviews . $screenshots . $videos . '</div>';
+
+  return $links;
+}

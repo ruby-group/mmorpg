@@ -23,9 +23,14 @@ else {
  * Get the config file path of R
  */
 function _radioactivity_get_config_file_path() {
+<<<<<<< HEAD
   $dir = dirname(__FILE__);
   $config_file = $dir . "/radioactivity-bootstrap.cfg.inc";
   return $config_file;
+=======
+  $extracts = explode("/",__FILE__);
+  return "/home/{$extracts[2]}/includes/{$extracts[4]}.inc";
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 }
 
 /**
@@ -79,12 +84,17 @@ function _radioactivity_require_bootstrapping() {
     }
 
     require_once './includes/bootstrap.inc';
+<<<<<<< HEAD
     drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+=======
+    drupal_bootstrap(DRUPAL_BOOTSTRAP_VARIABLES);
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
     variable_set("radioactivity_bootstrap_warning", TRUE);
   }
 }
 
 /**
+<<<<<<< HEAD
  * Internal function to filter nested arrays().
  * @param type $array
  */
@@ -97,6 +107,12 @@ function _radioactivity_filter_nested_array($array) {
  */
 function _radioactivity_checksum_generate($data) {
   $temp = array_filter($data, "_radioactivity_filter_nested_array");
+=======
+ * Generate a checksum for given data
+ */
+function _radioactivity_checksum_generate($data) {
+  $temp = $data;
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   unset($temp['checksum']);
   ksort($temp);
   $temp = join(',', $temp);

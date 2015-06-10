@@ -1,0 +1,754 @@
+<?php
+
+/**
+ * @file
+ * Search users by IP address, banning IP addresses, advanced user
+ * searching, blocking user by role, and blacklisting by IP block.
+ *
+ * @author David Kent Norman
+ * @author Aaron Welch
+ * @link http://deekayen.net/
+ * @link http://advomatic.com/
+ */
+
+/**
+ * Implements hook_boot().
+ */
+function troll_boot() {
+  if (troll_is_blacklisted()) {
+    $alt_page = variable_get('troll_blacklist_alt_page', 0);
+    if ($alt_page) {
+      switch ($alt_page) {
+        case 'blank':
+          exit;
+          break;
+
+        case '404':
+          // drupal_not_found() can make a mess in admin logs with watchdog()
+          drupal_add_http_header('HTTP/1.0 404 Not Found');
+          drupal_set_title(t('Page not found'));
+          exit;
+          break;
+
+        case 'redirect':
+
+          // The default value of troll_blacklist_alt_url should not be an
+          // empty string because then we redirect to ourselves; use 127.0.0.1.
+          header('Location: ' . variable_get('troll_blacklist_alt_url', 'http://127.0.0.1'));
+          exit;
+          break;
+      }
+    }
+
+    $req_mod = variable_get('troll_blacklist_mod_requests', 0);
+    if ($req_mod == 'notice_post_drop' && !empty($_POST)) {
+      $_POST = array();
+      include_once 'includes/common.inc';
+      drupal_set_message(t('Your data submission was ignored because you are visiting from a blacklisted location.'), 'warning');
+    }
+    elseif ($req_mod == 'silent_post_drop') {
+      $_POST = array();
+    }
+
+    if (variable_get('troll_blacklist_stutter', 0)) {
+      sleep(rand(1, 5));
+    }
+  }
+
+  global $user;
+
+  if ($user->uid) {
+    $track = db_query("SELECT COUNT(ip_address) FROM {troll_ip_track} WHERE uid = :uid AND ip_address = :ip_address", array(':uid' => $user->uid, ':ip_address' => ip_address()))->fetchField();
+    if (!empty($track)) {
+      // A record for this IP exists. Update accessed timestamp.
+      db_update('troll_ip_track')
+        ->fields(array(
+          'accessed' => REQUEST_TIME,
+          'uid' => $user->uid,
+          'ip_address' => ip_address(),
+        ))
+        ->condition(db_and()->condition('uid', $user->uid)->condition('ip_address', ip_address()))
+        ->execute();
+    }
+    else {
+      // Insert new IP record for user.
+      db_insert('troll_ip_track')
+        ->fields(array(
+          'uid' => $user->uid,
+          'ip_address' => ip_address(),
+          'created' => REQUEST_TIME,
+          'accessed' => REQUEST_TIME,
+        ))
+        ->execute();
+    }
+  }
+
+  if (variable_get('troll_enable_ip_ban', 1)) {
+    $ban = db_query('SELECT EXISTS (SELECT 1 FROM {troll_ip_ban} WHERE (expires > :expires OR expires = 0) AND ( (:ip_address LIKE REPLACE(ip_address,\'*\',\'%\') AND ip_address_to IS NULL )OR (INET_ATON(:ip_address) >= INET_ATON(ip_address) AND INET_ATON(:ip_address) <= INET_ATON(ip_address_to)) ) ) as present', array(':expires' => REQUEST_TIME, ':ip_address' => ip_address()))->fetchField();
+    if ($ban) {
+      global $base_url;
+      watchdog('troll', 'IP Ban: !addr', array('!addr' => ip_address()), WATCHDOG_NOTICE);
+      $troll_ip_ban_redirect = variable_get('troll_ip_ban_redirect', '');
+      if (empty($troll_ip_ban_redirect)) {
+        include_once 'includes/common.inc';
+        $page = drupal_get_path('module', 'troll') . '/blocked.html';
+      }
+      else {
+        $page = $troll_ip_ban_redirect;
+      }
+      header('Location: ' . $base_url . '/' . $page);
+      die();
+    }
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function troll_help($path, $arg) {
+  switch ($path) {
+    case 'admin/people/troll/ip_ban':
+      if (!variable_get('troll_enable_ip_ban', 1)) {
+        return '<div class="messages error">' . t('IP banning is currently disabled. You can enable it in the !settings page.', array('!settings' => l(t('settings'), 'admin/people/troll/settings')));
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function troll_permission() {
+  return array(
+    'administer troll' => array(
+      'title' => t('Administer Troll'),
+      'description' => t('Set which IP addresses are blocked or whitelisted and which blacklists to use.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function troll_menu() {
+  $items['admin/people/troll'] = array(
+    'title' => 'Troll',
+    'description' => 'Manage visitor IP banning.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_search_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'weight' => 0,
+    'type' => MENU_LOCAL_TASK,
+  );
+  $items['admin/people/troll/search'] = array(
+    'title' => 'Search Users',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_search_form'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'weight' => 0,
+  );
+  $items['admin/people/troll/search/view'] = array(
+    'title' => 'Search Users',
+    'page callback' => 'troll_search_user_detail',
+    // Probably this is needed, but not in D6 version
+    // 'page arguments' => array(1),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/people/troll/search/block'] = array(
+    'title' => 'Block User',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_confirm_block_user_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/people/troll/ip_ban'] = array(
+    'title' => 'IP Banning',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_ip_ban'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+  $items['admin/people/troll/ip_ban/edit'] = array(
+    'title' => 'IP Ban Form',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_ip_ban_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/people/troll/ip_ban/user'] = array(
+    'title' => 'IP Ban User IP',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_confirm_block_ip_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/people/troll/ip_ban/delete/%'] = array(
+    'title' => 'Remove Ban',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_confirm_delete_ip_form',5),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/people/troll/ip_blacklist'] = array(
+    'title' => 'Blacklists',
+    'page callback' => 'troll_blacklist_summary',
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+  );
+  $items['admin/people/troll/ip_blacklist/summary'] = array(
+    'title' => 'Summary',
+    'page callback' => 'troll_blacklist_summary',
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => 0,
+  );
+  $items['admin/people/troll/ip_blacklist/punishment'] = array(
+    'title' => 'Visitor Punishment',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_blacklist_punishment_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+  $items['admin/people/troll/ip_blacklist/import'] = array(
+    'title' => 'Import Blacklist',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_blacklist_import_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 2,
+  );
+  $items['admin/people/troll/ip_blacklist/search'] = array(
+    'title' => 'Search Blacklisted IPs',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_blacklist_search_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 3,
+  );
+  $items['admin/people/troll/ip_blacklist/deleteblack'] = array(
+    'title' => 'Delete Blacklisted IPs',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_confirm_delete_black_block_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/people/troll/ip_blacklist/whitelist'] = array(
+    'title' => 'Whitelist',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_whitelist_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 4,
+  );
+  $items['admin/people/troll/ip_blacklist/deletewhite'] = array(
+    'title' => 'Delete Whitelisted IPs',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_confirm_delete_white_block_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/people/troll/dnsbl'] = array(
+    'title' => 'DNS Blacklist',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_dnsbl_settings'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 5,
+  );
+  $items['admin/people/troll/dnsbl/test'] = array(
+    'title' => 'IP test',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_dnsbl_test_form'),
+    'access arguments' => array('administer troll'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_CALLBACK,
+  );
+  $items['admin/people/troll/settings'] = array(
+    'title' => 'Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('troll_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'troll.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 6,
+  );
+  $items['user/%troll_user/troll'] = array(
+    'title' => 'Troll Track',
+    'page callback' => 'troll_search_user_detail',
+    'page arguments' => array(1),
+    'access arguments' => array('administer troll'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'troll.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_user().
+ */
+function troll_user_load($uid) {
+  if (is_object($uid) && !empty($uid->uid) || is_numeric($uid)) {
+    $account = '';
+    if (is_numeric($uid)) {
+      $account = user_load($uid);
+    }
+    else {
+      $account = user_load($uid->uid);
+      if (!empty($account)) {
+        $uid = $account->uid;
+      }
+    }
+    return $uid;
+  }
+}
+
+/**
+ * Helper function to lookup the last known IP Address for a given user.
+ */
+function _troll_last_ip($uid) {
+  $query = db_select('troll_ip_track', 't');
+  $query->addField('t', 'ip_address', 'ip_address');
+  $query->condition('uid', $uid, '=');
+  $query->orderBy('accessed', 'DESC');
+  $query->range(0, 1);
+  $result = $query->execute();
+  return $result->fetchField(0);
+}
+
+/**
+ * Implements hook_comment_view().
+ */
+function troll_comment_view($comment) {
+  $comment->troll_last_ip = _troll_last_ip($comment->uid);
+}
+
+/**
+ * Convert dotted decimal IP to long integer and check for validity.
+ *
+ * @param string $ip
+ *   A IP in decimal format
+ *
+ * @return int
+ *   returns the integer value of the IP address
+ */
+function _troll_longip($ip) {
+  $longip = ip2long($ip);
+  if ($longip === FALSE || $longip == -1) {
+    drupal_set_message(t('IP @ip not valid!', array('@ip' => $ip)), 'error');
+    drupal_goto('admin/people/troll/ip_blacklist');
+  }
+  return $longip;
+}
+
+/**
+ * Removes an IP ban from the database.
+ */
+function troll_remove_ip($ip) {
+  $deleted = db_delete('troll_ip_ban')
+    ->condition('ip_address', $ip)
+    ->execute();
+  if ($deleted) {
+    drupal_set_message(t('%ip IP ban has been removed.', array('%ip' => $ip)), 'status');
+  }
+  else {
+    drupal_set_message(t('An error occurred. IP ban not removed.'), 'error');
+  }
+}
+
+/**
+ * Removes IP block from the blacklist.
+ *
+ * @param int $net
+ *   The int value of the network IP
+ * @param int $bcast
+ *   The integer value of the network IP
+ */
+function troll_remove_blacklist($net, $bcast) {
+  $deleted = db_delete('troll_blacklist')
+    ->condition(db_and()->condition('net', $net)->condition('bcast', $bcast))
+    ->execute();
+  if ($deleted) {
+    drupal_set_message(t('Blacklist block removed.'), 'status');
+  }
+  else {
+    drupal_set_message(t('An error occurred. Blacklist block not removed.'), 'status');
+  }
+}
+
+/**
+ * Removes IP block from the whitelist.
+ *
+ * @param int $net
+ *   The int value of the network IP
+ * @param int $bcast
+ *   The integer value of the network IP
+ */
+function troll_remove_whitelist($net, $bcast) {
+  $deleted = db_delete('troll_whitelist')
+    ->condition(db_and()->condition('net', $net)
+    ->condition('bcast', $bcast))
+    ->execute();
+  if ($deleted) {
+    drupal_set_message(t('IP whitelist address removed.'), 'status');
+  }
+  else {
+    drupal_set_message(t('An error occurred, IP whitelist not removed.'), 'error');
+  }
+}
+
+/**
+ * Inserts an IP ban into the database.
+ *
+ * @param array $edit
+ *   trolls $edit array values to work with
+ */
+function troll_insert_ip($edit) {
+  global $user;
+  $dateObj = DateTime::createFromFormat('Y-m-d H:i:s', $edit['date']);
+  $expires = ($edit['expires'] == 1) ? $dateObj->getTimestamp():0;
+
+  $to_ip =  ($edit['range'] == 1) ? $edit['ip_address_to']:null;
+  db_delete('troll_ip_ban')
+    ->condition('ip_address', $edit['ip_address'])
+    ->execute();
+  $insert = db_insert('troll_ip_ban')
+    ->fields(array(
+      'ip_address' => $edit['ip_address'],
+      'ip_address_to' => $to_ip,
+      'domain_name' => $edit['domain_name'],
+      'created' => REQUEST_TIME,
+      'expires' => $expires,
+      'uid' => $user->uid,
+    ))
+    ->execute();
+  if ($insert) {
+    drupal_set_message(t('IP ban added: %ip', array('%ip' => $edit['ip_address'])), 'status');
+  }
+  else {
+    drupal_set_message(t('An error occurred. IP ban not created.'), 'error');
+  }
+}
+
+/**
+ * Updates an IP ban in the database.
+ *
+ * @param array $edit
+ *   trolls $edit array values to work with
+ */
+function troll_update_ip($edit) {
+  if (!is_array($edit)) {
+    return FALSE;
+  }
+
+  global $user;
+  $dateObj = DateTime::createFromFormat('Y-m-d H:i:s', $edit['date']);
+  $expires = ($edit['expires'] == 1) ? $dateObj->getTimestamp():0;
+  $to_ip =  ($edit['range'] == 1) ? $edit['ip_address_to']:null;
+  $num_updated = db_update('troll_ip_ban')
+    ->fields(array(
+      'ip_address' => $edit['ip_address'],
+      'ip_address_to' => $to_ip,
+      'domain_name' => $edit['domain_name'],
+      'expires' => $expires,
+      'uid' => $user->uid,
+    ))
+    ->condition('iid', $edit['iid'])
+    ->execute();
+
+  if ($num_updated) {
+    drupal_set_message(t('%num record(s) updated for IP ban: %ip', array('%num' => $num_updated, '%ip' => $edit['ip_address'])), 'status');
+  }
+  else {
+    drupal_set_message(t('An error occurred. IP ban not updated.'), 'error');
+  }
+}
+
+
+/**
+ * Logs IP information for users in the database.
+ */
+function troll_check_ip() {
+  global $user;
+  $check = db_query("SELECT COUNT(uid) FROM {troll_ip_track} WHERE ip_address = :ip_address AND uid = :uid", array(':ip_address' => ip_address(), ':uid' => $user->uid))->fetchField();
+  if (!empty($check)) {
+    db_insert('troll_ip_track')
+      ->fields(array(
+        'uid' => $user->uid,
+        'ip_address' => ip_address(),
+        'created' => REQUEST_TIME,
+      ))
+      ->execute();
+  }
+}
+
+/**
+ * Checks remote IP to see if it is blacklisted.
+ *
+ * @return int
+ *   zero if whitelisted or not blacklisted, otherwise the number of the IP
+ *   blacklist the block matches
+ */
+function troll_is_blacklisted() {
+  static $blacklisted, $whitelisted;
+
+  if (isset($blacklisted) && isset($whitelisted)) {
+    return $whitelisted ? FALSE : $blacklisted;
+  }
+
+  $longip = ip2long(ip_address());
+  if ($longip === FALSE || $longip == -1) {
+    return FALSE;
+  }
+  else {
+    $whitelisted = (bool) db_query_range('SELECT 1 FROM {troll_whitelist} w WHERE w.net <= :longip AND w.bcast >= :longip', 0, 1, array(':longip' => $longip))->fetchField();
+    if ($whitelisted) {
+      return FALSE;
+    }
+    return (bool) db_query_range('SELECT 1 FROM {troll_blacklist} b WHERE b.net <= :longip AND b.bcast >= :longip', 0, 1, array(':longip' => $longip))->fetchAll();
+  }
+}
+
+/**
+ * Bans a user.
+ *
+ * @param int $uid
+ *   User ID to block
+ */
+function troll_block_user($uid) {
+  // Block them.
+  $user_edit['status'] = 0;
+  // Remove all their permission roles.
+  $user_edit['roles'] = array();
+  // Set variable.
+  $name = null;
+
+  $user = user_load($uid);
+  user_save($user, $user_edit);
+
+  if (variable_get('troll_block_role', NULL)) {
+    $name = db_query_range('SELECT name FROM {users} WHERE uid = :uid', 0, 1, array(':uid' => $uid))->fetchField();
+    $role = db_query_range('SELECT name FROM {role} WHERE rid = :rid', 0, 1, array(':rid' => variable_get('troll_block_role', 0)))->fetchField();
+    db_insert('users_roles')
+      ->fields(array(
+        'uid' => $uid,
+        'rid' => variable_get('troll_block_role', '0'),
+      )
+    )->execute();
+    drupal_set_message(t('Blocked user !link and assigned role %role.', array(
+      '!link' => l($name, "admin/people/troll/search/view/$uid"),
+      '%role' => $role,
+    )), 'status');
+  }
+  else {
+    drupal_set_message(t('Blocked user !link.', array(
+      '!link' => l($name, "admin/people/troll/search/view/$uid"),
+    )), 'status');
+  }
+}
+
+/**
+ * Implements hook_comment().
+ */
+function troll_comment($comment, $op) {
+  if (variable_get('troll_dnsbl_active', 0) != 1) {
+    return;
+  }
+
+  switch ($op) {
+    case 'insert':
+    case 'update':
+      $comment = (object) $comment;
+
+      $ip = ip_address();
+      $blacklisted = _troll_dnsbl_blacklisted($ip);
+
+      if ($blacklisted == TRUE) {
+        $operation = comment_operations('unpublish');
+        $query = $operation['unpublish'][1];
+        db_query($query, $comment->cid);
+        drupal_set_message(t('Your comment has been queued for moderation by site administrators and will be published after approval.'), 'status');
+        watchdog('troll', 'Comment unpublished for DNSBL: %subject.', array('%subject' => $comment->subject), WATCHDOG_INFO, l(t('view'), 'node/' . $comment->nid, array('fragment' => 'comment-' . $comment->cid)));
+      }
+      else {
+        watchdog('troll', 'IP %ip is not DNS blacklisted.', array('%ip' => $ip), WATCHDOG_INFO, l(t('view'), 'node/' . $comment->nid, array('fragment' => 'comment-' . $comment->cid)));
+      }
+      return;
+
+    default:
+      return;
+  }
+}
+
+/**
+ * Check if an IP is blacklisted or not.
+ *
+ * @param string $ip
+ *   the IP to check.
+ *
+ * @return bool
+ *   true if blacklisted or false
+ */
+function _troll_dnsbl_blacklisted($ip) {
+  $servers = _troll_dnsbl_default_servers();
+  $servers = explode("\n", $servers);
+
+  $threshold = variable_get('troll_dnsbl_threshold', 1);
+
+  foreach ($servers as $server) {
+    // We trim because we end up with a new line at the end of each server
+    // for an obscure reason!
+    if (_troll_dnsbl_check($ip, trim($server))) {
+      $threshold--;
+    }
+
+    if ($threshold == 0) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
+}
+
+/**
+ * Perform a DNS query.
+ *
+ * @param string $ip
+ *   the IP to check
+ * @param string $server
+ *   the DNS to check.
+ *
+ * @return bool
+ *   true if the entry is there otherise false even if there's an error.
+ */
+function _troll_dnsbl_check($ip, $server) {
+  // Let's reverse the IP.
+  $ip = implode('.', array_reverse(explode('.', $ip)));
+
+  $request = implode('.', array($ip, $server));
+
+  $result = gethostbyname($request);
+
+  if ($request == $result) {
+    // No domain.
+    return FALSE;
+  }
+  else {
+    $octats = explode('.', $result);
+    return $octats[0] == 127;
+  }
+}
+
+/**
+ * Return the list of default DNSBL servers.
+ *
+ * @return array
+ *   the list of default servers.
+ */
+function _troll_dnsbl_default_servers() {
+  return  array(
+    'access.redhawk.org',
+    'b.barracudacentral.org',
+    'bl.shlink.org',
+    'bl.spamcannibal.org',
+    'bl.spamcop.net',
+    'bl.tiopan.com',
+    'blackholes.wirehub.net',
+    'blacklist.sci.kun.nl',
+    'block.dnsbl.sorbs.net',
+    'blocked.hilli.dk',
+    'bogons.cymru.com',
+    'cart00ney.surriel.com',
+    'cbl.abuseat.org',
+    'cblless.anti-spam.org.cn',
+    'dev.null.dk',
+    'dialup.blacklist.jippg.org',
+    'dialups.mail-abuse.org',
+    'dialups.visi.com',
+    'dnsbl.abuse.ch',
+    'dnsbl.ahbl.org',
+    'dnsbl.anticaptcha.net',
+    'dnsbl.antispam.or.id',
+    'dnsbl.dronebl.org',
+    'dnsbl.justspam.org',
+    'dnsbl.kempt.net',
+    'dnsbl.sorbs.net',
+    'dnsbl.tornevall.org',
+    'dnsbl-1.uceprotect.net',
+    'duinv.aupads.org',
+    'dnsbl-2.uceprotect.net',
+    'dnsbl-3.uceprotect.net',
+    'dul.dnsbl.sorbs.net',
+    'dul.ru',
+    'escalations.dnsbl.sorbs.net',
+    'hil.habeas.com',
+    'black.junkemailfilter.com',
+    'http.dnsbl.sorbs.net',
+    'intruders.docs.uu.se',
+    'ips.backscatterer.org',
+    'korea.services.net',
+    'l2.apews.org',
+    'mail-abuse.blacklist.jippg.org',
+    'misc.dnsbl.sorbs.net',
+    'msgid.bl.gweep.ca',
+    'new.dnsbl.sorbs.net',
+    'no-more-funn.moensted.dk',
+    'old.dnsbl.sorbs.net',
+    'opm.tornevall.org',
+    'pbl.spamhaus.org',
+    'proxy.bl.gweep.ca',
+    'psbl.surriel.com',
+    'pss.spambusters.org.ar',
+    'rbl.schulte.org',
+    'rbl.snark.net',
+    'recent.dnsbl.sorbs.net',
+    'relays.bl.gweep.ca',
+    'relays.bl.kundenserver.de',
+    'relays.mail-abuse.org',
+    'relays.nether.net',
+    'rsbl.aupads.org',
+    'sbl.spamhaus.org',
+    'smtp.dnsbl.sorbs.net',
+    'socks.dnsbl.sorbs.net',
+    'spam.dnsbl.sorbs.net',
+    'spam.olsentech.net',
+    'spamguard.leadmon.net',
+    'spamsources.fabel.dk',
+    'tor.ahbl.org',
+    'tor.dnsbl.sectoor.de',
+    'ubl.unsubscore.com',
+    'web.dnsbl.sorbs.net',
+    'xbl.spamhaus.org',
+    'zen.spamhaus.org',
+    'zombie.dnsbl.sorbs.net',
+    'dnsbl.inps.de',
+    'dyn.shlink.org',
+    'rbl.megarbl.net',
+    'bl.mailspike.net',
+  );
+}

@@ -1,0 +1,162 @@
+<?php
+/**
+ * Implements hook_init().
+ */
+function mmorpg_rate_init() {
+  drupal_add_library('system', 'ui.slider');
+}
+
+/**
+ * Implements hook_rate_templates().
+ */
+function mmorpg_rate_rate_templates() {
+  $templates = array();
+
+  $templates['mmorpg'] = new stdClass();
+  $templates['mmorpg']->value_type = 'percent';
+  $options = array();
+  foreach (range(0, 10, 0.1) as $option) {
+    $options["$option"] = "$option";
+  }
+  $templates['mmorpg']->options = $options;
+  $templates['mmorpg']->theme = 'rate_template_mmorpg';
+  $templates['mmorpg']->css = drupal_get_path('module', 'mmorpg_rate') . '/templates/mmorpg_rate/mmorpg.css';
+  $templates['mmorpg']->js = drupal_get_path('module', 'mmorpg_rate') . '/templates/mmorpg_rate/mmorpg.js';
+  $templates['mmorpg']->customizable = FALSE;
+  $templates['mmorpg']->translate = FALSE;
+  $templates['mmorpg']->template_title = t('mmorpg_rate');
+
+  return $templates;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mmorpg_rate_theme() {
+  return array(
+    'rate_template_mmorpg' => array(
+      'arguments' => array(
+        'links' => NULL,
+        'results' => NULL,
+        'mode' => NULL,
+        'just_voted' => FALSE,
+        'content_type' => NULL,
+        'content_id' => NULL,
+        'display_options' => NULL
+      ),
+      'template' => 'mmorpg',
+      'path' => drupal_get_path('module', 'mmorpg_rate') . '/templates/mmorpg_rate',
+    ),
+  );
+}
+
+/**
+ * Preprocess function for the mmorpg_rate template.
+ */
+function mmorpg_rate_preprocess_rate_template_mmorpg(&$variables) {
+
+  // Calculate start value for slider.
+  if (isset($variables['results']['rating'])) {
+    $variables['value'] = round($variables['results']['rating'],1);
+  }
+  else {
+    $variables['value'] = 5;
+  }
+
+  $buttons = array();
+  $id = 1;
+  foreach ($variables['links'] as $link) {
+    $button = theme('rate_button', array(
+      'text' => $link['text'],
+      'href' => $link['href'],
+      'class' => '',
+      'id' => $id
+    ));
+    $buttons[] = $button;
+    $id++;
+  }
+  $variables['buttons'] = $buttons;
+
+  $info = array();
+  if ($variables['mode'] == RATE_CLOSED) {
+    $info[] = t('Rating is closed.');
+  }
+  if (isset($variables['results']['user_vote'])) {
+    $variables['user_vote'] =round($variables['results']['user_vote'],1);
+  }
+  else {
+    $variables['user_vote'] = 5;
+  }
+  $variables['rating'] = round($variables['results']['rating'],1);
+}
+
+/**
+ * Implements hook_block_info(). A block that adds reviews by the user.
+ */
+function mmorpg_rate_block_info() {
+  $blocks['add_review_block'] = array(
+    'info' => t('Add Review Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_rate_block_view($delta = '') {
+  $block = array();
+  switch($delta) {
+    case 'add_review_block':
+      $block['content'] = mmorpg_rate_add_review_block();
+      break;
+  } 
+  return $block;
+}
+
+/**
+ * Returns a form to add the review.
+ */
+function mmorpg_rate_add_review_block() {
+  if (!user_access('add reviews')) {
+    return '';
+  }
+  global $user;
+  $nid = arg(1);
+  module_load_include('inc', 'reviews', 'includes/reviews.pages');
+  if (!reviews_check_user_review($nid, $user->uid)) {
+    $output = drupal_render(drupal_get_form('reviews_add_review',$nid));
+  } else {
+    $reviews = db_select('reviews', 'r')
+    ->fields('r',array('rid'))
+    ->condition('uid', $user->uid, '=')
+    ->condition('nid', $nid, '=')
+    ->range(0, 1)
+    ->execute()
+    ->fetchAll();
+    $rid = $reviews[0]->rid;
+    $output = drupal_render(drupal_get_form('reviews_edit_review',$nid,$rid));
+  }
+  return $output;
+}
+
+/**
+ * Implements hook_form_form_id_alter()
+ */
+function mmorpg_rate_form_reviews_add_review_alter(&$form, $form_state) {
+  $form['review']['#type'] = 'textarea';
+  $form['#submit'] = array('mmorpg_rate_review_submit',$form['#submit'][0]);
+}
+
+function mmorpg_rate_form_reviews_edit_review_alter(&$form, $form_state) {
+  $form['review']['#type'] = 'textarea';
+  $form['#submit'] = array('mmorpg_rate_review_submit',$form['#submit'][0]);
+}
+
+function mmorpg_rate_review_submit(&$form,&$form_submit) {
+  $text = $form_submit['values']['review'];
+  $form_submit['values']['review'] = array(
+    'value' => $form_submit['values']['review'],
+    'format' => 'plain_text',
+    );
+}

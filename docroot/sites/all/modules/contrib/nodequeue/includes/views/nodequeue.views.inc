@@ -47,6 +47,7 @@ function nodequeue_views_data() {
     ),
   );
 
+<<<<<<< HEAD
   // Nodequeue position and other.
   $data['nodequeue_nodes']['position_and_other'] = array(
     'title' => t('Position in nodequeue and other parameter'),
@@ -68,6 +69,8 @@ function nodequeue_views_data() {
     ),
   );
 
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   // timestamp
   $data['nodequeue_nodes']['timestamp'] = array(
     'title' => t('Added date'),
@@ -124,10 +127,13 @@ function nodequeue_views_data() {
   $data['nodequeue_nodes']['in_queue'] = array(
     'title' => t('In queue'),
     'help' => t('Filter to ensure a node IS or IS NOT in the related queue'),
+<<<<<<< HEAD
     'sort' => array(
       'help' => t('Sort by whether this is a nodequeue node or not'),
       'handler' => 'nodequeue_handler_sort_in_queue',
     ),
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
     'filter' => array(
       'handler' => 'nodequeue_handler_filter_in_queue',
       'label' => t('In queue'),
@@ -294,6 +300,7 @@ function nodequeue_views_data_alter(&$data) {
     ),
   );
 }
+<<<<<<< HEAD
 
 
 
@@ -383,3 +390,5 @@ function nodequeue_contextual_links_view_alter(&$element, $items) {
     }
   }
 }
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa

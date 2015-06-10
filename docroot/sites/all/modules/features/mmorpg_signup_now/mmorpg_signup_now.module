@@ -1,0 +1,152 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Signup Now feature.
+ */
+
+include_once 'mmorpg_signup_now.features.inc';
+
+function mmorpg_signup_now_init() {
+  $mmo_limit = variable_get('mmorpg_signup_now_mmo_limit', 10);
+  drupal_add_js(array('mmorpg_signup_now' => array('mmo_limit' => $mmo_limit)), array('type' => 'setting'));
+}
+
+/**
+ * Implements hook_permission().
+ */
+function mmorpg_signup_now_permission() {
+  return array(
+    'administer signupnow settings' => array(
+      'title' => t('Administer signupnow settings'),
+      'description' => t('Administer signup now content related settings.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mmorpg_signup_now_menu() {
+  $items = array();
+
+  $items['admin/mmorpg/signupnow-settings'] = array(
+    'title' => 'Signup Now',
+    'description' => 'Signup Now Link config page.',
+    'position' => 'right',
+    'weight' => -5,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mmorpg_signup_now_config_form'),
+    'access arguments' => array('administer signupnow settings'),
+    'type' => MENU_NORMAL_ITEM,
+    );
+
+  return $items;
+}
+
+//returns a form to get the limits
+function mmorpg_signup_now_config_form() {
+  return system_settings_form(array(
+    'mmorpg_signup_now_mmo_limit' => array(
+      '#type' => 'textfield',
+      '#title' => t('Max count of links on MMO block'),
+      '#maxlength' => 60,
+      '#default_value' => variable_get('mmorpg_signup_now_mmo_limit', 10),
+      )
+    ));
+}
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_signup_now_block_info() {
+  $blocks = array();
+  $blocks['play_now_page_filters'] = array(
+    'info' => t('Play Now Page Filters'),
+  );
+  $blocks['play_now_menu_link'] = array(
+    'info' => t('Play Now Menu Link'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_signup_now_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'play_now_page_filters' :
+      $block['content'] = mmorpg_signup_now_play_now_filter();
+      break;
+    case 'play_now_menu_link' :
+      $block['content'] = mmorpg_signup_now_menu_link();
+      break;
+  }
+  
+  return $block;
+}
+
+function mmorpg_signup_now_play_now_filter() {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('platforms');
+  $terms = taxonomy_get_tree($vocabulary->vid);
+  
+  $content = '';
+  $active_attribute = array('class' => array('active'));
+  $current = arg(1);
+
+  $content .= '<div>Filter</div>';
+  if($current == "") {
+      $content .= l(t('All Games'), 'play-now', array('attributes' => $active_attribute));
+    } else {
+    $content .= l(t('All Games'), 'play-now');
+  }
+  foreach ($terms as $term) {
+    if ($current == $term->tid) {
+      $content .= l(t($term->name), 'play-now/' . $term->tid, array('attributes' => $active_attribute));
+    } else {
+      $content .= l(t($term->name), 'play-now/' . $term->tid);
+    }
+  }
+  return $content;
+}
+
+function mmorpg_signup_now_menu_link() {
+  return '
+<div class="block block-views block-views-id-latest_updates-block first last">
+    <div class="content">
+        <div class="view view-latest-updates view-id-latest_updates view-display-id-block view-dom-id-40ce8da78d185c83880dc10892c4a943">
+            <div class="view-footer">
+                <a class="om-autoscroll" href="' . base_path() . 'play-now">Play Now Games</a>
+            </div>
+        </div>
+    </div>
+</div>';
+}
+
+/**
+ * returns the average game rating 
+ */
+function _mmorpg_signup_now_game_avg_rating($nid) {
+  $db_result = db_query('SELECT ROUND( avg(value),1) as value FROM {votingapi_vote} WHERE entity_id = :nid ', array(':nid' => $nid));
+  $result = $db_result->fetchAssoc();
+  return $result['value'];
+
+}
+
+function mmorpg_signup_now_views_data() {
+  $data['custom']['table']['group'] = t('Custom');
+   $data['custom']['table']['join'] = array(
+     // #global is a special flag which let's a table appear all the time.
+     '#global' => array(),
+   );
+
+   $data['custom']['average_game_rating'] = array(
+     'title' => t('Average Game Rating'),
+     'help' => t('Displays average ratings of a game'),
+     'field' => array(
+       'handler' => 'views_handler_average_game_rating',
+     ),
+   );
+
+   return $data;
+}

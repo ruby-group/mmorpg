@@ -32,6 +32,7 @@ function radioactivity_rules_action_info() {
         'allow null' => FALSE,
         'optional' => FALSE,
       ),
+<<<<<<< HEAD
       'floodcheck' => array(
         'type' => 'boolean',
         'label' => t('Flood protected'),
@@ -39,6 +40,8 @@ function radioactivity_rules_action_info() {
         'allow null' => FALSE,
         'optional' => TRUE,
       ),
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
     ),
   );
 
@@ -143,7 +146,11 @@ function radioactivity_rules_event_info() {
 /**
  * Action: Emit energy
  */
+<<<<<<< HEAD
 function radioactivity_rules_action_emit($field, $energy, $floodProtected) {
+=======
+function radioactivity_rules_action_emit($field, $energy) {
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 
   $info = $field->info();
 
@@ -160,9 +167,15 @@ function radioactivity_rules_action_emit($field, $energy, $floodProtected) {
 
   $profile = radioactivity_get_field_profile($entity_type, $bundle, $field_name);
   if ($profile && $profile->storageObject) {
+<<<<<<< HEAD
     $profile->storageObject->addIncident(new RadioactivityIncident($entity_type, $bundle, $field_name, $lang, $id, $energy, time(), $floodProtected));
   }
 
+=======
+    $profile->storageObject->addIncident(new RadioactivityIncident($entity_type, $bundle, $field_name, $lang, $id, $energy, time()));
+  }
+  field_cache_clear();
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 }
 
 /**
@@ -183,14 +196,25 @@ function radioactivity_rules_action_set($field, $energy) {
   }
   _radioactivity_update_energy(
     $entity_type,
+<<<<<<< HEAD
     $id,
     $field_name,
     $lang,
+=======
+    $bundle,
+    $field_name,
+    $lang,
+    $id,
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
     $energy,
     time(),
     TRUE
   );
 
+<<<<<<< HEAD
+=======
+  field_cache_clear();
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 }
 
 /**

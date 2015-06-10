@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 (function ($) {
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 
 /**
  * Nodequeue object
@@ -418,6 +421,15 @@ Drupal.nodequeue.autoAttach = function() {
 
 }
 
+<<<<<<< HEAD
 $(document).ready(Drupal.nodequeue.autoAttach);
 
 })(jQuery);
+=======
+if (Drupal.jsEnabled) {
+  $(document).ready(Drupal.nodequeue.autoAttach);
+}
+
+
+
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa

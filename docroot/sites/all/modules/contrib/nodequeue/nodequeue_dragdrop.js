@@ -17,6 +17,7 @@ Drupal.behaviors.nodequeueDrag = {
   }
 };
 
+<<<<<<< HEAD
 Drupal.behaviors.nodequeueWeightChange = {
   attach: function(context) {
     $('.nodequeue-dragdrop tr.draggable select.node-position').bind('change', function() {
@@ -44,6 +45,8 @@ Drupal.behaviors.nodequeueWeightChange = {
   }
 };
 
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 Drupal.behaviors.nodequeueReverse = {
   attach: function(context) {
     $('#edit-actions-reverse').click(function() {
@@ -112,10 +115,16 @@ Drupal.behaviors.nodequeueRemoveNode = {
   attach: function(context) {
     $('a.nodequeue-remove').css('display', 'block');
     $('a.nodequeue-remove').click(function() {
+<<<<<<< HEAD
       var node_edit = '#' + $(this).attr('id').replace('nodequeue-remove-', 'edit-nodes-') + '-position';
       $(node_edit).val('r');
       // Remove "node-position" class so that position rearrangement in misc/tabledrag.js will ignore this node.
       $(node_edit).removeClass('node-position');
+=======
+      a = $(this).attr('id');
+      a = '#' + a.replace('nodequeue-remove-', 'edit-') + '-position';
+      $(a).val('r');
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 
       // Hide the current row.
       $(this).parent().parent().fadeOut('fast', function() {
@@ -124,7 +133,10 @@ Drupal.behaviors.nodequeueRemoveNode = {
 
         if ($('#' + table_id + ' tbody tr:not(:hidden)').size() == 0) {
           nodequeuePrependEmptyMessage(table_id);
+<<<<<<< HEAD
           nodequeueInsertChangedWarning(table_id);
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
         }
         else {
           nodequeueRestripeTable(table_id)
@@ -162,9 +174,14 @@ function nodequeueUpdateNodePositions(table_id) {
   var reverse = Drupal.settings.nodequeue.reverse[table_id.replace(/-/g, '_')];
   var size = reverse ? $('#' + table_id + ' .node-position').size() : 1;
 
+<<<<<<< HEAD
   $('#' + table_id + ' tr').filter(":visible").find('select.node-position').each(function(i) {
     $(this).val(size);
     $(this).find("option[value='" + size + "']").attr('selected', 'selected');
+=======
+  $('#' + table_id + ' tr').filter(":visible").find('.node-position').each(function(i) {
+    $(this).val(size);
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
     reverse ? size-- : size++;
   });
 }

@@ -1,0 +1,23 @@
+<?php
+/**
+ * LOAD DATA LOCAL INFILE 'IP2PROXY-IP-COUNTRY.CSV'
+ * INTO TABLE `ip2proxy`
+ * FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+ * -- LINES TERMINATED BY '\r\n'
+ * IGNORE 1 LINES;
+ */
+
+/**
+ * @param $ip_address string|int - the IP address.
+ * @return bool
+ */
+function ip2proxy_is_proxy($ip_address) {
+
+  $ip_address = (is_int($ip_address) or strval(intval($ip_address)) === $ip_address) ?
+    long2ip($ip_address) : $ip_address;
+  return (bool) db_select('ip2proxy')
+    ->fields(NULL, array('ip_address'))
+    ->condition('ip_address', $ip_address)
+    ->execute()
+    ->rowCount();
+}

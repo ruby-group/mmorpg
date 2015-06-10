@@ -90,6 +90,7 @@ function smartqueue_update_7001() {
       ->execute();
   }
 }
+<<<<<<< HEAD
 
 /**
  * Clean-up leftovers from the {smartqueue} table.
@@ -99,3 +100,5 @@ function smartqueue_update_7002() {
 
   return t('The {smartqueue} table has been cleaned.');
 }
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa

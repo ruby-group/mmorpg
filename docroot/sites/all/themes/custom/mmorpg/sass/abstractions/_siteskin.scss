@@ -1,0 +1,16 @@
+.main-inner {
+  position: relative;
+  z-index: 2;
+}
+#skin-tracking-area{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 16em;
+
+  .skin-tracking-link {
+    height: 1000vh;
+    width: 100%;
+    position: fixed;
+  }
+}

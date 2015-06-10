@@ -1,0 +1,5 @@
+name = MMORPG Rate
+description = A customized plugin for MMORPG Rate
+core = 7.x
+package = Voting
+dependencies[] = rate

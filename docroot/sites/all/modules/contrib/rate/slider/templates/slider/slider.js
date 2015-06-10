@@ -3,7 +3,11 @@
     attach: function (context) {
       $('.rate-widget-slider:not(.rate-slider-processed)',context).addClass('rate-slider-processed').each(function() {
         var widget = $(this);
+<<<<<<< HEAD
         var ids = widget.attr('id').match(/^rate\-([a-z]+)\-([0-9]+)\-([0-9]+)\-([0-9])$/);
+=======
+        var ids = widget.attr('id').match(/^rate\-([a-z]+)\-([0-9]+)\-([0-9]+)\-([0-9])\-\-([0-9])$/);
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
         var data = {
           content_type: ids[1],
           content_id: ids[2],

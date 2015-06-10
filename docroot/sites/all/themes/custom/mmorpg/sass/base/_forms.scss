@@ -1,0 +1,29 @@
+.fullwidth {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn {
+  background: $btn-blue;
+  color:$white;
+  border-radius: 3px;
+  padding: 0.75em 0.50em;
+  margin-bottom: 0.50em;
+  &:hover {
+    background: $btn-bhover;
+  }
+}
+.btn.green {
+    background: #65c015;
+}
+.btn.large {
+  border: 0;
+}
+.center-content {
+  .views-exposed-form {
+    .views-exposed-widgets {
+      padding-bottom: 1em;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+.remainingkeys {
+  display: block;
+  padding: 10px;
+  font-size: 40px !important;
+  color: #14adff;
+  font-weight: bold;
+  text-align: center;
+  margin: 0.50em 0;
+}
+
+.node-type-giveaway {
+	p, strong, span {
+		font-size: 14px !important;
+	}
+  .-giveaway-show-claim-button {
+    text-align: center;
+  }
+}
+
+.view-giveaway-listing, .view-sweepstakes-listing {
+
+  .views-row{
+    margin: 1em 0;
+  }
+
+  .giveaway_details{
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .giveaway_details_top{
+    position: relative;
+
+    .giveaway_type{
+      @extend %gallery_overlay;
+      background: none;
+      padding: 0.75em;
+    }
+  }
+
+  .giveaway_details_bottom{
+    max-width: 68%;
+    margin-left: 1em;
+  }
+
+  .giveaway_title a{
+    color: $black;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .giveaway_body p{
+    line-height: 1.4em;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .giveaway_remaining{
+    color: $link;
+    font-weight: bold;
+  }
+}
+
+.promoted-giveaway{
+  .promoted_giveaway_details_top{
+    position: relative;
+
+    .promoted_giveaway_type{
+      @extend %gallery_overlay;
+      background: none;
+      padding: 0.75em;
+    }
+  }
+
+  .promoted_giveaway_details_bottom {
+    @extend %node_body;
+    width: 95%;
+    top: -40px;
+
+    &:hover{
+      background: $hover-lblue;
+      border-color: $hover-dblue;
+
+      &  .promoted_giveaway_title a{
+        color: $hover-dblue;
+      }
+    }
+
+    .promoted_giveaway_title a{
+      color: $black;
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+    .promoted_giveaway_body{
+      .views-more-link{
+        background: $btn-blue;
+        @extend %play_now_buttons;
+      }
+
+      span.comments{
+        font-size: 1.2em;
+        line-height: 1.3em;
+        display: inline-block;
+
+        span.comment_icon {
+          background: url("../images/bg_icns_dark.png") no-repeat transparent left;
+          background-position: -63px -96px;
+          padding-left: 1.5em;
+        }
+      }
+
+      .sharethis-wrapper{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 3em;
+      }
+    }
+
+    .promoted_giveaway_author{
+      color: #a2a2a2;
+
+      a{
+        color: $border-grey-dark;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: capitalize;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+}
+
+.page-giveaways h2.pane-title{
+  @extend %title;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+

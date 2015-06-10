@@ -1,0 +1,50 @@
+.rightsidebar {
+  padding: 0 10px;
+  h2.block__title,
+  h2.pane-title {
+    font-size: 18px;
+    font-weight: normal;
+    border-bottom: 3px solid $light-blue;
+    margin-bottom: 0;
+    padding-bottom: 0.50em;
+  }
+  .block__content {
+    line-height: 18px;
+  }
+
+  .views-row{
+    line-height: 40px;
+    font-size: 14px;
+    height: 40px;
+    border-bottom: 1px solid $border-grey-dark;
+
+    &:hover{
+      background: $hover-lblue;
+    }
+
+      .views-field-field-image,
+      .views-field-field-target-url{
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 0.25em;
+
+        .field-content{
+          display: table-cell;
+        }
+
+        img{
+          vertical-align: middle;
+        }
+      }
+  }
+
+  .view-footer p,
+  .view-footer a{
+    display: block;
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    color: $black;
+    margin: 0;
+    line-height: 18px;
+  }
+}

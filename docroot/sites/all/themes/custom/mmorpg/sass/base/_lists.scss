@@ -1,0 +1,16 @@
+.sidebar-listing {
+  .view-content {
+    line-height: 28px;
+  }
+  .views-row {
+    border-bottom: 1px solid #cecece;
+    padding:0.50em;
+    .views-field-field-game-hero-image {
+      float: left;
+      margin-right: 0.50em;
+    }
+    &:hover {
+      background-color: $hover-lblue !important;
+    }
+  }
+}

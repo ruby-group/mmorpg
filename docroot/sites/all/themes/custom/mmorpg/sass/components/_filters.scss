@@ -1,0 +1,148 @@
+.pane-mmorpg-signup-now-play-now-page-filters{
+  @include breakpoint(900px){
+    @include grid-span(10, 2);
+    float: none;
+    padding-bottom: 10px;
+  }
+
+  h2.pane-title{
+    padding: 10px 15px 5px 0px;
+      margin: 0px;
+      font-size: 35px;
+      font-weight: normal;
+      line-height: 1.2em;
+  }
+
+  h2.pane-title + div{
+    @extend %play_now_buttons;
+    background: $green;
+  }
+
+  a{
+    @extend %play_now_buttons;
+    background: $dark-gray;
+
+    &.active{
+      background: $btn-blue;
+    }
+  }
+}
+
+.views-exposed-form-giveaway-listing-listing-pane, .views-exposed-form-sweepstakes-listing-listing-pane {
+  label{
+    display: none;
+  }
+
+  .views-exposed-widget{
+    padding: 0;
+    float: none;
+    display: inline-block;
+  }
+
+  .form-submit{
+    margin-top: 0 !important;
+    position: relative;
+    border: 1px solid #2186d4;
+    cursor: pointer;
+    background: #2186d4;
+    font-size: 14px;
+    height: 35px;
+    color: #fff;
+    padding: 9px 9px 8px 9px !important;
+    border-radius: 2px;
+    top: 2px;
+  }
+
+  .chosen-container {
+
+    width: 100% !important;
+
+    .chosen-single{
+      height: auto;
+      border: none;
+      padding: 0;
+      border-radius: 0;
+    }
+    span {
+      position: relative;
+      border: 1px solid #2186d4;
+      cursor: pointer;
+      background: #2186d4;
+      font-size: 14px;
+      height: 35px;
+      width: 100%;
+      color: #fff;
+      margin-right: 15px;
+      border-radius: 2px;
+      -webkit-appearance: none;
+      padding: 0 1.25em 0 0.75em;
+      line-height: 35px;
+
+      & + div{
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid #fff;
+        top: 40%;
+        right: 12px;
+        -webkit-transition: all 50ms ease-in-out; /* Safari */
+        -moz-transition: all 50ms ease-in-out; /* Firefox */
+        transition: all 50ms ease-in-out;
+
+        b{
+          display: none;
+        }
+      }
+    }
+
+    &.chosen-with-drop span + div{
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 8px solid white;
+      border-top: 0;
+    }
+
+    ul.chosen-results{
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 8px 12px;
+        -webkit-transition: all 150ms ease-in-out; /* Safari */
+        -moz-transition: all 150ms ease-in-out; /* Firefox */
+        transition: all 150ms ease-in-out;
+
+        &.highlighted {
+          background: #bbb;
+          trasitiion: 0.3s;
+
+        }
+      }
+    }
+  }
+}
+
+//Screenshots gallery filters
+
+.view-screenshot-gallery-grid{
+
+  .form-type-bef-link{
+    display: inline-block;
+
+    a{
+      @extend %play_now_buttons;
+      background: $dark-gray;
+      margin-right: 3px;
+      &.active {
+        background: $green;
+      }
+    }
+  }
+
+  .selected a{
+    background: $green;
+  }
+}

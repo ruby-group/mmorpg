@@ -1,18 +1,11 @@
 {
   "name": "mmorpg",
-  "version": "0.0.0",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "version": "1.0.0",
   "dependencies": {
-    "eq.js": "~1.4.1",
-    "borealis": "~1.0.1"
-  },
-  "devDependencies": {
-    "north": "~0.2.0"
+    "respond": "fubhy/respond",
+    "selectivizr": "fubhy/selectivizr",
+    "html5shiv": "fubhy/html5shiv",
+    "matchmedia": "fubhy/matchmedia",
+    "pie": "fubhy/pie"
   }
 }

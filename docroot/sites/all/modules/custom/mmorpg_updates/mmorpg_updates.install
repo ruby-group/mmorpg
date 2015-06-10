@@ -4,16 +4,12 @@
  * Install, update and uninstall functions for global functions.
  */
 
-module_load_include('module', 'mmorpg_util', 'mmorpg_util');
-
 /**
  * Enable/disable modules.
  */
 function mmorpg_updates_update_7001() {
-  module_enable('admin_menu', 'admin_menu_toolbar', 'features');
-
-  module_disable('toolbar');
-
+  module_enable(array('admin_menu', 'admin_menu_toolbar', 'features'));
+  module_disable(array('toolbar'));
   cache_clear_all();
 }
 
@@ -29,7 +25,7 @@ function mmorpg_updates_update_7002() {
  * Enable WYSIWYG & add ckeditor in filtered html.
  */
 function mmorpg_updates_update_7003() {
-  module_enable(array('wysiwyg','wysiwyg_mediaembed'));
+  module_enable(array('wysiwyg', 'wysiwyg_mediaembed'));
 }
 
 /**
@@ -39,3 +35,434 @@ function mmorpg_updates_update_7004() {
   module_enable(array('mmorpg_wysiwyg'));
   mmorpg_util_features_revert(array('mmorpg_wysiwyg'));
 }
+
+/**
+ * Enable content type feature for article
+ */
+function mmorpg_updates_update_7005() {
+  node_type_delete('article');
+  module_enable(array('mmorpg_article'));
+}
+
+/**
+ * Enable content type feature for game
+ */
+function mmorpg_updates_update_7006() {
+  module_enable(array('mmorpg_game'));
+  mmorpg_util_features_revert(array('mmorpg_game'));
+}
+
+/**
+ * Revert mmorpg_article feature. Adds multi page view to new post in article
+ */
+function mmorpg_updates_update_7007() {
+  mmorpg_util_features_revert(array('mmorpg_article'));
+}
+
+/**
+ * Revert WYSIWYG feature.
+ */
+function mmorpg_updates_update_7008() {
+  module_enable(array('panels', 'panels_node', 'panels_ipe', 'page_manager'));
+  cache_clear_all();
+}
+
+/**
+ * Revert WYSIWYG feature.
+ */
+function mmorpg_updates_update_7009() {
+  mmorpg_util_features_revert(array('mmorpg_wysiwyg'));
+}
+
+/**
+ * Rebuild registry to clean out deleted modules.
+ */
+function mmorpg_updates_update_7010() {
+  cache_clear_all();
+}
+
+/**
+ * Revert article feature.
+ */
+function mmorpg_updates_update_7011() {
+  module_enable(array('om_maximenu', 'mmorpg_site'));
+  mmorpg_util_features_revert(array('mmorpg_article'));
+  cache_clear_all();
+}
+
+/**
+ * Add the sponsored article fields to nodes and update trending view.
+ */
+function mmorpg_updates_update_7012() {
+  mmorpg_deploy();
+}
+
+/**
+ * Creates a relationship between article and news post
+ */
+function mmorpg_updates_update_7013() {
+  node_collection_api_add_update_relationship('Article News Post', 'mmorpg_article', array('article_news_post'));
+}
+
+/**
+ * Revert WYSIWYG feature.
+ */
+function mmorpg_updates_update_7014() {
+  mmorpg_drush_fra();
+}
+
+/**
+ * Enable Migrate and MMORPGMigrate module.
+ */
+function mmorpg_updates_update_7015() {
+  module_enable(array('migrate', 'migrate_ui', 'mmorpg_migrate'));
+}
+
+/**
+ * De-registering some migrate modules
+ */
+function mmorpg_updates_update_7016() {
+  Migration::deRegisterMigration('MMORPGArticleType');
+  Migration::deRegisterMigration('MMORPGMigrateTblGamePaymentMethods');
+}
+
+/**
+ * Enable the site settings module
+ */
+function mmorpg_updates_update_7017() {
+  module_enable(array('mmorpg_site'));
+}
+
+/**
+ * Enable play now content type feature & revert wysiwyg.
+ */
+function mmorpg_updates_update_7018() {
+  module_enable(array('mmorpg_play_now', 'scheduler', 'link'));
+  mmorpg_util_features_revert(array('mmorpg_play_now', 'mmorpg_wysiwyg'));
+}
+
+/**
+ * Revert article mmorpg_article feature
+ */
+function mmorpg_updates_update_7019() {
+  mmorpg_util_features_revert(array('mmorpg_article'));
+}
+
+/**
+ * Enable uuid module and revert taxonomy feature
+ */
+function mmorpg_updates_update_7020() {
+  module_enable(array('uuid', 'uuid_features'));
+  mmorpg_util_features_revert(array('mmorpg_vocabularies'));
+}
+
+/**
+ * Enable clickmeter module, configure clickmeter for personnel account & add a field.
+ */
+function mmorpg_updates_update_7021() {
+  module_enable(array('clickmeter_link', 'chr', 'restclient'));
+  mmorpg_util_features_revert(array('mmorpg_play_now', 'mmorpg_site'));
+}
+
+/**
+ * Configuration for background image.
+ */
+function mmorpg_updates_update_7022() {
+  module_enable(array('mmorpg_siteskins'));
+}
+
+/**
+ * Enable date views module
+ */
+function mmorpg_updates_update_7023() {
+  mmorpg_util_features_revert(array(
+    'mmorpg_game',
+    'mmorpg_vocabularies',
+    'mmorpg_games_to_play',
+    'mmorpg_customer'
+  ));
+}
+
+/**
+ * Delete unused content types.
+ *
+ * Adapted from node_type_delete_confirm_submit().
+ */
+function mmorpg_updates_update_7024() {
+  module_disable(array('play_now_slides'));
+  $types = array(
+    'play_now_slides',
+  );
+  foreach ($types as $type) {
+    node_type_delete('play_now_slides');
+    variable_del('node_options_' . $type);
+    variable_del('node_preview_' . $type);
+    variable_del('node_submitted_' . $type);
+  }
+  node_types_rebuild();
+  menu_rebuild();
+
+  module_enable(array('mmorpg_signup_now'));
+}
+
+/**
+ * Revert signup now feature.
+ */
+function mmorpg_updates_update_7025() {
+  mmorpg_util_features_revert(array('mmorpg_signup_now',));
+}
+
+/**
+ * Enable country specific node & required module.
+ */
+function mmorpg_updates_update_7026() {
+  mmorpg_util_features_revert(array('mmorpg_signup_now',));
+}
+
+/**
+ * Refactored all the customer references into a single field.
+ */
+function mmorpg_updates_update_7027() {
+  field_delete_instance(field_info_instance('node', 'field_gtp_customer', 'games_to_play'));
+  field_delete_instance(field_info_instance('node', 'field_siteskin_customer', 'siteskin'));
+  field_delete_instance(field_info_instance('node', 'field_signup_customer', 'signup_now_link'));
+}
+
+/**
+ * Refactored all the clickmeter link references into a single field.
+ */
+function mmorpg_updates_update_7028() {
+  field_delete_instance(field_info_instance('node', 'field_gtp_target_url', 'games_to_play'));
+  field_delete_instance(field_info_instance('node', 'field_siteskin_tracking_link', 'siteskin'));
+}
+
+/**
+ * Enabling field controller
+ */
+function mmorpg_updates_update_7029() {
+  module_enable(array('mmorpg_field_controller',));
+}
+
+/**
+ * Revert features - signup now, field controller & game.
+ */
+function mmorpg_updates_update_7030() {
+  mmorpg_util_features_revert(array(
+    'mmorpg_signup_now',
+    'mmorpg_game',
+    'mmorpg_field_controller'
+  ));
+}
+
+/**
+ * Enable module - color field.
+ */
+function mmorpg_updates_update_7031() {
+  module_enable(array('color_field'));
+}
+
+/**
+ * Disable mmorpg_games_to_play feature
+ */
+function mmorpg_updates_update_7032() {
+  module_disable(array('mmorpg_games_to_play'));
+  node_type_delete('games_to_play');
+  module_enable(array('promoted_signup_now_link'));
+}
+
+/**
+ * Enable module - field_collection.
+ */
+function mmorpg_updates_update_7033() {
+  module_enable(array('field_collection'));
+}
+
+/**
+ * Enable pages.
+ */
+function mmorpg_updates_update_7034() {
+  $page = page_manager_get_page_cache('node_view');
+  $function = ctools_plugin_get_function($page->subtask, "enable callback");
+  $function($page, FALSE);
+
+  $page = page_manager_get_page_cache('page-home');
+  $function = ctools_plugin_get_function($page->subtask, "enable callback");
+  $function($page, FALSE);
+
+  menu_rebuild();
+}
+
+/**
+ * Refactored all the clickmeter fields.
+ */
+function mmorpg_updates_update_7035() {
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'mmorpg_article'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'promoted_signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'siteskin'));
+  field_delete_instance(field_info_instance('node', 'field_target_url', 'siteskin'));
+}
+
+/**
+ * Enabling new modules.
+ */
+function mmorpg_updates_update_7036() {
+  module_enable(array('hms_field', 'panels_everywhere'));
+
+  $page = page_manager_get_page_cache('site_template');
+  $function = ctools_plugin_get_function($page->subtask, "enable callback");
+  $function($page, FALSE);
+
+  field_delete_instance(field_info_instance('node', 'field_siteskin_image', 'siteskin'));
+}
+
+/**
+ * Refactoring of game reference field.
+ */
+function mmorpg_updates_update_7037() {
+  field_delete_instance(field_info_instance('node', 'field_video_game', 'video'));
+  field_delete_instance(field_info_instance('node', 'field_game_contents', 'signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_game_contents', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_psnl_game', 'promoted_signup_now_link'));
+  field_delete_instance(field_info_instance('node', 'field_game_link', 'game_link'));
+  field_delete_instance(field_info_instance('node', 'field_article_game', 'mmorpg_article'));
+  field_delete_instance(field_info_instance('node', 'field_screenshot_game', 'screenshot_gallery'));
+}
+
+/**
+ * Removing field_customer_contents field.
+ */
+function mmorpg_updates_update_7038() {
+  field_delete_instance(field_info_instance('node', 'field_customer_contents', 'signup_now_link'));
+}
+
+/**
+ * Removing field_dev_status field.
+ */
+function mmorpg_updates_update_7039() {
+  field_delete_instance(field_info_instance('node', 'field_dev_status', 'game'));
+}
+
+/**
+ * Removing expansion_type and game field.
+ */
+function mmorpg_updates_update_7040() {
+  field_delete_instance(field_info_instance('node', 'field_game', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_expansion_type', 'game'));
+}
+
+/**
+ * Removing more game fields.
+ */
+function mmorpg_updates_update_7041() {
+  field_delete_instance(field_info_instance('node', 'field_contact_name', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_game_contact_email', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_short_title', 'game'));
+}
+
+/**
+ * Enabling Giveaways.
+ */
+function mmorpg_updates_update_7042() {
+  module_enable(array('giveaway'));
+}
+
+/**
+ * Enabling Chosen to style select lists.
+ */
+function mmorpg_updates_update_7043() {
+  module_enable(array('chosen'));
+}
+
+/**
+ * Removing field collection game fields and enabling conditional_fields module.
+ */
+function mmorpg_updates_update_7044() {
+  module_enable(array('conditional_fields'));
+  field_delete_instance(field_info_instance('field_collection_item', 'field_game_cancel', 'field_game_development_status'));
+  field_delete_instance(field_info_instance('field_collection_item', 'field_status_date', 'field_game_development_status'));
+  field_delete_instance(field_info_instance('node', 'field_game_cancel', 'game'));
+}
+
+/**
+ * Enabling reviews module.
+ */
+function mmorpg_updates_update_7045() {
+  module_enable(array('reviews'));
+}
+
+/**
+ * Removing field_developer and field_publisher fields.
+ */
+function mmorpg_updates_update_7046() {
+  field_delete_instance(field_info_instance('node', 'field_developer', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_publisher', 'game'));
+}
+
+/**
+ * Allowing custom sort of giveaways.
+ */
+function mmorpg_updates_update_7047() {
+  module_enable(array('fe_nodequeue', 'auto_nodequeue', 'nodequeue'));
+  db_insert('nodequeue_auto')
+    ->fields(array(
+      'qid' => 1,
+      'auto_add' => 1,
+    ))
+    ->execute();
+}
+
+/**
+ * Enabling improved_multi_select module.
+ */
+function mmorpg_updates_update_7048() {
+  module_enable(array('improved_multi_select'));
+}
+
+/**
+ * Enabling Sweepstakes & refactored similar purpose fields into a single field.
+ */
+function mmorpg_updates_update_7049() {
+  module_enable(array('field_collection_table', 'sweepstakes'));
+
+  field_delete_instance(field_info_instance('node', 'field_game_hero_image', 'game'));
+  field_delete_instance(field_info_instance('node', 'field_article_hero_image', 'giveaway'));
+  field_delete_instance(field_info_instance('node', 'field_article_hero_image', 'mmorpg_article'));
+
+  db_insert('nodequeue_auto')
+    ->fields(array(
+      'qid' => 2,
+      'auto_add' => 1,
+    ))
+    ->execute();
+}
+
+/**
+ * Enabling views_block_area,smtp module.
+ */
+function mmorpg_updates_update_7050() {
+  module_enable(array('views_block_area', 'smtp', 'ip2proxy'));
+}
+
+/**
+ * Creates a relationship between 'review' and 'review content' content type
+ */
+function mmorpg_updates_update_7051() {
+  node_collection_api_add_update_relationship('Review', 'review', array('review_content'));
+}
+
+/**
+ * Enabling views_conditional module.
+ */
+function mmorpg_updates_update_7052() {
+  module_enable(array('views_conditional'));
+}
+
+/**
+ * Enabling troll module.
+ */
+function mmorpg_updates_update_7053() {
+  module_enable(array('troll'));
+}
+
+

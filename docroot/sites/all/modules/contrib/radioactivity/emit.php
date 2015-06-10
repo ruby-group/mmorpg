@@ -43,7 +43,10 @@ try {
 
     $energy = $incident['energy'];
     $energy = $energy / $incident['accuracy'] * 100;
+<<<<<<< HEAD
     $cid = 'field:' . $incident['entity_type'] . ':' . $incident['entity_id'];
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 
     $incident = new RadioactivityIncident(
       $incident['entity_type'],
@@ -52,6 +55,7 @@ try {
       $incident['language'],
       $incident['entity_id'],
       $energy,
+<<<<<<< HEAD
       time(),
       TRUE
     );
@@ -66,6 +70,20 @@ try {
     }
   }
 
+=======
+      time()
+    );
+
+    $cache[$class]->addIncident($incident);
+  }
+
+  if (defined('DRUPAL_ROOT')) {
+    // Clear field cache to reflect changes
+    db_delete("cache_field")->execute();
+  }
+
+
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 } catch (Exception $e) {
 
   header('HTTP/1.1 400 Bad Request');

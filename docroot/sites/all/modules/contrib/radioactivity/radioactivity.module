@@ -57,7 +57,11 @@ function theme_radioactivity_gauge($vars) {
  * Theme callback
  */
 function theme_radioactivity_history($vars) {
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   drupal_add_js(drupal_get_path('module', 'radioactivity') . '/js/jquery.sparkline.min.js');
   drupal_add_js(drupal_get_path('module', 'radioactivity') . '/js/radioactivity-history.js');
   drupal_add_css(drupal_get_path('module', 'radioactivity') . '/css/radioactivity.css');
@@ -68,7 +72,11 @@ function theme_radioactivity_history($vars) {
     'cutoff' => $vars['cutoff'],
     'tooltipFormat' => '<span style="color:{{color}}">&#9679;</span> {{value}} | {{offset:tooltips}}'
   );
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   foreach ($vars['dataset'] as $time => $value) {
     $data['values'][] = round($value, 2);
     $data['tooltips'][] = format_date($time, 'short');
@@ -243,6 +251,7 @@ function radioactivity_requirements($phase) {
 }
 
 /**
+<<<<<<< HEAD
  * Update field energy for given entity.
  *
  * @param string $entity_type
@@ -313,6 +322,44 @@ function _radioactivity_update_energy($entity_type, $entity_id, $field_name, $la
     entity_get_controller($entity_type)->resetCache(array($entity_id));
   }
 
+=======
+ * Update field energy for given entity_id+entity_type+bundle+field_name
+ */
+function _radioactivity_update_energy(
+  $entity_type,
+  $bundle,
+  $field_name,
+  $language,
+  $entity_id,
+  $energy_delta,
+  $time,
+  $force = FALSE
+) {
+
+  $table_name = "field_data_" . $field_name;
+
+  $energy_column_name = $field_name . '_' . RADIOACTIVITY_FIELD_ENERGY;
+  $timestamp_column_name = $field_name . '_' . RADIOACTIVITY_FIELD_TIMESTAMP;
+
+  $q = db_merge($table_name)->key(array(
+      'entity_type' => $entity_type,
+      'bundle' => $bundle,
+      'entity_id' => $entity_id,
+      'language' => $language,
+      'delta' => 0,
+    ))->fields(array(
+      'revision_id' => $entity_id,
+      $timestamp_column_name => $time,
+      $energy_column_name => $energy_delta,
+    ));
+
+  if (!$force) {
+    // update instead of set the energy
+    $q->expression($energy_column_name, $energy_column_name . ' + :inc', array(':inc' => $energy_delta));
+  }
+
+  $q->execute();
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 }
 
 /**
@@ -551,9 +598,12 @@ function radioactivity_cron() {
         } // History
 
       } // Bundles
+<<<<<<< HEAD
 
       // Clear the entity caches.
       entity_get_controller($entity_type)->resetCache();
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
     }
   }
 
@@ -653,13 +703,21 @@ function radioactivity_decay_profile_delete($machine_name) {
  * Callback for testing if certain machine name already exists
  */
 function radioactivity_decay_profile_exists($machine_name) {
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   $obj = db_select("radioactivity_decay_profile", "dcp")
     ->fields("dcp", array("machine_name"))
     ->condition("dcp.machine_name", $machine_name)
     ->execute()
     ->fetch();
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   return $obj != NULL;
 
 }
@@ -692,6 +750,7 @@ function radioactivity_form_ctools_export_ui_list_form_alter(&$form, &$form_stat
     }
   }
 }
+<<<<<<< HEAD
 
 /**
  * Implements hook_page_alter()
@@ -716,3 +775,5 @@ function radioactivity_ajax_render_alter(&$commands) {
   }
 
 }
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa

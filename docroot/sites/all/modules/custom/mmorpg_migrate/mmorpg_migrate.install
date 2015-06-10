@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Installation support for MMORPG migration.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function mmorpg_migrate_uninstall() {
+  variable_del('mmorpg_migrate_files_source_dir');
+}

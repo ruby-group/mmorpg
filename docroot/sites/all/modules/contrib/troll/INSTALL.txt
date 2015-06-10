@@ -1,0 +1,44 @@
+********************************************************************
+                     D R U P A L    M O D U L E
+********************************************************************
+Name: troll.module
+Authors: Aaron Welch <welch at advomatic dot com>
+         David Kent Norman http://deekayen.net
+         Jeff Warrington <jeff at qoolio dot org>
+         Mike Gifford https://openconcept.ca
+********************************************************************
+
+INSTALLATION:
+
+1. Place the troll directory in the modules directory of your drupal installation
+
+2. Enable this module by navigating to:
+        Administer > Site building > Modules
+
+
+CONFIGURATION:
+
+1. Select the 'Troll Block Role' by navigating to:
+        Administer > People > Troll > 'Settings' tab
+	Under 'User Blocking' section. Click on 'Troll Block Role:' dropdown menu.
+	Select the role that will be assign to troublesome users when ban.
+	You may need to create the Troll role.
+        Click on 'Save configuration' button.
+
+2. Ban or block a user by navigating to:
+	Administer > People > Troll
+	Use the 'Search Users' section to find the troublesome user.
+	Scroll down this page.
+	Find the column 'Actions'.
+	Click on appropriate link. Such as 'Block User' or 'Ban IP'.
+	Note that you will not see the 'Ban IP' link until troublesome users have
+	accessed the site with the Troll module enabled.
+
+3. Blacklist punishment is off by default. To select punishments, import
+blacklists, and create a whitelist navigate to:
+        Administer > People > Troll > Blacklists
+  TODO: Verify this functionality.
+
+** NOTE **
+You may want to add a key in the users table on the mail field to increase email searching speed
+

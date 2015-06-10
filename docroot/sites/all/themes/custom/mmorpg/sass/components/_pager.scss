@@ -1,0 +1,36 @@
+ul.pager{
+	padding-top: 20px;
+	
+	li{
+		line-height: 40px;
+		font-size: 1.2em;
+		font-weight: 100;
+		background: #65c015;
+		color: $white;
+		display: inline-block;
+		margin-right: 3px;
+		padding: 0;
+
+		&.pager__item--current{
+			background: #707070;
+			padding: 6px 17px;
+		}
+
+		&:hover{
+			background: #2186d4;
+		}
+
+		a{
+			color: $white;
+			padding: 6px 17px;
+			display: block;
+		}
+
+		&.pager__item--first,
+		&.pager__item--previous,
+		&.pager__item--next,
+		&.pager__item--last{
+			display: none;
+		}
+	}
+}

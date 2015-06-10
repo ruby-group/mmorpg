@@ -16,9 +16,13 @@ class nodequeue_handler_relationship_nodequeue extends views_handler_relationshi
     if (!empty($options['qids'])) {
       $map = array_flip(nodequeue_get_qid_map());
       foreach ($options['qids'] as $key => $value) {
+<<<<<<< HEAD
         if ($value && isset($map[$key])) {
           $this->options['names'][$map[$key]] = ($value) ? $map[$key] : 0;
         }
+=======
+        $this->options['names'][$map[$key]] = ($value) ? $map[$key] : 0;
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
       }
       unset($this->options['qids']);
     }
@@ -64,6 +68,7 @@ class nodequeue_handler_relationship_nodequeue extends views_handler_relationshi
   }
 
   /**
+<<<<<<< HEAD
    * Validate the options form.
    */
   function options_validate(&$form, &$form_state) {
@@ -77,6 +82,8 @@ class nodequeue_handler_relationship_nodequeue extends views_handler_relationshi
   }
 
   /**
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
    * Called to implement a relationship in a query.
    */
   function query() {

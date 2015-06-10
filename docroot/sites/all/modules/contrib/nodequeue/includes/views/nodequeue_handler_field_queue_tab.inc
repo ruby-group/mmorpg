@@ -5,6 +5,7 @@
  * Views field handler for the nodequeue queue links
  */
 class nodequeue_handler_field_queue_tab extends views_handler_field_node_link {
+<<<<<<< HEAD
   /**
    * Renders the link.
    */
@@ -20,5 +21,11 @@ class nodequeue_handler_field_queue_tab extends views_handler_field_node_link {
 
     $text = !empty($this->options['text']) ? $this->options['text'] : t('nodequeue');
     return $text;
+=======
+  function render($values) {
+    $text = !empty($this->options['text']) ? $this->options['text'] : t('view');
+    $nid = $values->{$this->aliases['nid']};
+    return l($text, "node/$nid/nodequeue");
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   }
 }

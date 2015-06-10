@@ -121,6 +121,7 @@ function _radioactivity_register_emitter($storage = NULL, $entity_type = NULL, $
     'language'    => $language,
     'entity_id'   => $entity_id,
   );
+<<<<<<< HEAD
 
   // Remove trash which may be injected by another module.
 
@@ -131,6 +132,8 @@ function _radioactivity_register_emitter($storage = NULL, $entity_type = NULL, $
     }
   }
 
+=======
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   @$cache['emitDefault'][] = _radioactivity_prepare_incident($incident);
 }
 
@@ -337,6 +340,7 @@ function radioactivity_field_formatter_settings_summary($field, $instance, $view
 }
 
 /**
+<<<<<<< HEAD
  * Update emitters on page
  * @param $ajax boolean
  * @return false|array
@@ -345,6 +349,20 @@ function radioactivity_update_emitters($ajax = FALSE) {
 
   $data = FALSE;
 
+=======
+ * Implements hook_page_alter()
+ */
+function radioactivity_page_alter($page) {
+  radioactivity_update_emitters();
+}
+
+/**
+ * Update emitters on page
+ */
+function radioactivity_update_emitters() {
+
+  // foreach emitters emitter->emit();
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
   $register = _radioactivity_register_emitter();
   module_load_include("inc", "radioactivity", "radioactivity-bootstrap");
   $path = base_path() . drupal_get_path('module', 'radioactivity') . '/emit.php';
@@ -356,6 +374,7 @@ function radioactivity_update_emitters($ajax = FALSE) {
   );
 
   if (count($register) > 0) {
+<<<<<<< HEAD
     if ($ajax) {
       $data = array(
         'emitters' => $register,
@@ -374,6 +393,14 @@ function radioactivity_update_emitters($ajax = FALSE) {
   if ($data) {
     return $data;
   }
+=======
+    drupal_add_library('system', 'jquery.cookie');
+    drupal_add_js(drupal_get_path('module', 'radioactivity') . '/js/radioactivity.js');
+    drupal_add_js(array('radioactivity' => array('emitters' => $register)), 'setting');
+    drupal_add_js(array('radioactivity' => array('config' => $config)), 'setting');
+  }
+  _radioactivity_register_emitter('RESET');
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 }
 
 /**

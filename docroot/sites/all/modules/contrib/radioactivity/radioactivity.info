@@ -13,9 +13,17 @@ files[] = includes/RadioactivityMemcachedIncidentStorage.inc
 files[] = includes/RadioactivityRedisIncidentStorage.inc
 files[] = includes/RadioactivityIncident.inc
 
+<<<<<<< HEAD
 ; Information added by Drupal.org packaging script on 2015-05-08
 version = "7.x-2.10"
 core = "7.x"
 project = "radioactivity"
 datestamp = "1431079082"
+=======
+; Information added by Drupal.org packaging script on 2014-03-11
+version = "7.x-2.9"
+core = "7.x"
+project = "radioactivity"
+datestamp = "1394545443"
+>>>>>>> 1b6c95ba06d0876d7fd67f319e9af63a7de3b0fa
 

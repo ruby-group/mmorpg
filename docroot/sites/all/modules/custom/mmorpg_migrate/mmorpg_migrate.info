@@ -1,0 +1,18 @@
+name = MMORPG Migrations
+description = Migrate content from mmorpg site.
+core = 7.x
+package = MMORPG
+; Migrate framework.
+dependencies[] = migrate
+
+; Features defining the entities, bundles and fields we are migrating.
+dependencies[] = mmorpg_vocabularies
+dependencies[] = mmorpg_customer
+
+; Support files.
+files[] = vocab.inc
+files[] = mssql.inc
+files[] = common.inc
+files[] = article.inc
+files[] = article_news_post.inc
+files[] = customer.inc
