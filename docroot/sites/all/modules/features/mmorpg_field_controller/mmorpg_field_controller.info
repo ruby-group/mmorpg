@@ -1,0 +1,17 @@
+name = MMORPG Field Controller
+description = All the field bases in one feature.
+core = 7.x
+package = MMORPG
+dependencies[] = clickmeter_link
+dependencies[] = entityreference
+dependencies[] = features
+dependencies[] = image
+dependencies[] = link
+dependencies[] = list
+dependencies[] = taxonomy
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = body
+features[field_base][] = field_countries_cce
+features[field_base][] = field_hero_image
+features[field_base][] = field_target_url

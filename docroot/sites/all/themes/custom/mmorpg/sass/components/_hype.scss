@@ -1,0 +1,59 @@
+.pane-game-ratings .view-hype {
+  .view-header {
+    float: left;
+    margin: 1em 0 0 3em;
+    text-align: center;
+    width: 88%;
+    position: absolute;
+    top: 22em;
+    right: 3em;
+  }
+  .view-content {
+    float: none;
+    text-align: center;
+    width: 62%;
+    margin: 0 auto;
+  }
+  .views-field {
+    margin-top: 0;
+  }
+  .rate-mmorpg.ui-mmorpg, .rate-mmorpg-value, .ui-slider-horizontal {
+  height: 60px !important;
+  border: 1px solid #ffba26 !important;
+  }
+  .rate-mmorpg.ui-slider-horizontal {
+    top: 6.15em;
+  }
+  .rate-mmorpg.ui-mmorpg {
+    top: 6.8em;
+  }
+  .rate-mmorpg.ui-mmorpg, .ui-slider-horizontal {
+    width: 308px !important;
+  }
+  .rate-mmorpg-value {
+  background: #ffba26;
+  }
+  .views-label {
+     float: left;
+    width: 100%;
+    font-size: 19px;
+    margin-bottom: 1em;
+  }
+  .rate-info {
+    left: 7.5em;
+    top: -1em;
+  }
+  .ui-slider-handle {
+    background: none;
+    border: 0;
+    outline: none;
+  }
+  .view-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 9em;
+  }
+}
+
+
+

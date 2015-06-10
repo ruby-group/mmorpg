@@ -1,12 +1,4 @@
 <?php
-
 /**
- * Implements hook_behat_info().
+ * Empty module file.
  */
-function behat_tests_behat_info() {
-  return array(
-    'paths' => array(
-      'features' => 'features',
-    ),
-  );
-}

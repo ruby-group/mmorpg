@@ -1,0 +1,286 @@
+diff --git a/troll.admin.inc b/troll.admin.inc
+index 8f49d9e..6f9a468 100644
+--- a/troll.admin.inc
++++ b/troll.admin.inc
+@@ -649,6 +649,9 @@ function troll_ip_ban_form($form, &$form_state) {
+   $ip = db_query_range('SELECT * FROM {troll_ip_ban} WHERE ip_address = :ip', 0, 1, array(
+       ':ip' => $ip))->fetchObject();
+ 
++  $default_range = (isset($ip->ip_address_to)) ? 1 : 0;
++  $domain_default = !empty($ip->domain_name) ? $ip->domain_name : (!empty($ip->ip_address) ? ( strpos($ip->ip_address,'*') === false ? gethostbyaddr($ip->ip_address) : '') : '');
++
+   $form['submit'] = array(
+     '#type' => 'submit',
+     '#value' => (isset($ip->ip_address)) ? t('Update Banned IP') : t('Ban IP'),
+@@ -658,14 +661,30 @@ function troll_ip_ban_form($form, &$form_state) {
+     '#type' => 'textfield',
+     '#title' => t('IP Address'),
+     '#default_value' => !empty($ip->ip_address) ? $ip->ip_address : '',
+-    '#description' => t('The IP address to ban.'),
++    '#description' => t('The IP address to ban. If "Add a range" is checked, this will be the starting IP address in the range. Use \'*\' as a wild card, e.g 192.205.*.*'),
+     '#required' => TRUE,
+   );
+ 
++  $form['range'] = array(
++    '#type' => 'checkbox', 
++    '#title' => t('Add a range'),
++    '#default_value' => $default_range
++  );
++
++  $form['ip_address_to'] = array(
++    '#type' => 'textfield',
++    '#title' => t('To IP Address'),
++    '#default_value' => !empty($ip->ip_address_to) ? $ip->ip_address_to : '',
++    '#description' => t('The last IP address in the range to be banned.'),
++    '#states' => array(
++      'visible' => array(':input[name="range"]' => array('checked' => true)),
++    ),
++  );
++
+   $form['domain_name'] = array(
+     '#type' => 'textfield',
+     '#title' => t('Domain Name'),
+-    '#default_value' => !empty($ip->domain_name) ? $ip->domain_name : (!empty($ip->ip_address) ? gethostbyaddr($ip->ip_address) : ''),
++    '#default_value' => $domain_default,
+     '#description' => t('The Domain Name of the IP address to ban - for reference only.'),
+   );
+   $form['iid'] = array(
+@@ -685,9 +704,16 @@ function troll_ip_ban_form($form, &$form_state) {
+  * @see troll_ip_ban_form()
+  */
+ function troll_ip_ban_form_validate($form, &$form_state) {
+-  if (!preg_match('([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})', $form_state['values']['ip_address'])) {
++  $temp_ip = str_replace('*','0',$form_state['values']['ip_address']);
++  if (!filter_var($temp_ip, FILTER_VALIDATE_IP)) {
+     form_set_error('ip_address', t('Please include a valid IP address.'));
+   }
++  if($form_state['values']['range'] == 1) {
++    $temp_ip = str_replace('*','0',$form_state['values']['ip_address_to']);
++    if (!filter_var($temp_ip, FILTER_VALIDATE_IP)) {
++      form_set_error('ip_address_to', t('Please include a valid IP address.'));
++    }
++  }
+ }
+ 
+ /**
+@@ -704,22 +730,7 @@ function troll_ip_ban_form_submit($form, &$form_state) {
+  * Helper function to return the expire form elements.
+  */
+ function troll_ip_ban_expire_form(&$form, $ip) {
+-  $timestamp = isset($ip->expires) ? $ip->expires : REQUEST_TIME;
+-
+-  $date = getdate(REQUEST_TIME);
+-  $curyear = $date['year'];
+-  $i = 0;
+-  while ($i < 10) {
+-    $years[$curyear + $i] = $curyear + $i;
+-    $i++;
+-  }
+-  $months = array(1 => t('January'), t('February'), t('March'), t('April'),
+-    t('May'), t('June'), t('July'), t('August'), t('September'), t('October'),
+-    t('November'), t('December'),
+-  );
+-  for ($i = 1; $i <= 31; $i++) {
+-    $days[$i] = $i;
+-  }
++  $timestamp = isset($ip->expires) && $ip->expires != 0 ? $ip->expires : REQUEST_TIME;
+ 
+   $form['timestamp'] = array(
+     '#type' => 'fieldset',
+@@ -730,23 +741,22 @@ function troll_ip_ban_expire_form(&$form, $ip) {
+   );
+   $form['timestamp']['expires'] = array(
+     '#type' => 'checkbox',
+-    '#default_value' => isset($ip->expires) ? TRUE : FALSE,
+-  );
+-  $form['timestamp']['month'] = array(
+-    '#type' => 'select',
+-    '#default_value' => date('n', $timestamp),
+-    '#options' => $months,
+-  );
+-  $form['timestamp']['day'] = array(
+-    '#type' => 'select',
+-    '#default_value' => date('j', $timestamp),
+-    '#options' => $days,
+-  );
+-  $form['timestamp']['year'] = array(
+-    '#type' => 'select',
+-    '#default_value' => date('Y', $timestamp),
+-    '#options' => $years,
+-  );
++    '#default_value' => isset($ip->expires) && $ip->expires != 0 ? TRUE : FALSE,
++  );
++  $format = 'Y-m-d H:i:s';
++  $time_zone = date('\U\T\C P',$timestamp);
++  $form['timestamp']['date'] = array(
++      '#type' => 'date_popup',
++      '#title' => t('select a date'),
++      '#default_value' => date('Y-m-d H:i:s',$timestamp),
++      '#date_format' => $format,
++      '#states' => array(
++        'visible' => array(':input[name="expires"]' => array('checked' => true)),
++      ),
++      '#description' => 'Timezone: ' . $time_zone,
++    );
++  $patht_to_module = drupal_get_path('module','troll');
++  drupal_add_css($patht_to_module . '/troll.css');
+ }
+ 
+ /**
+@@ -761,6 +771,7 @@ function troll_display_ip() {
+ 
+   $headers = array(
+     array('data' => t('IP Address'), 'field' => 'ip_address'),
++    array('data' => t('To IP Address'), 'field' => 'ip_address_to'),
+     array('data' => t('Domain Name'), 'field' => 'domain_name'),
+     array('data' => t('Expires'), 'field' => 'expires', 'sort' => 'desc'),
+     array('data' => t('Actions'), 'field' => 'delete'),
+@@ -772,6 +783,7 @@ function troll_display_ip() {
+   $query->fields('troll_ip_ban', array(
+     'iid',
+     'ip_address',
++    'ip_address_to',
+     'domain_name',
+     'expires',
+     'uid',
+@@ -780,10 +792,11 @@ function troll_display_ip() {
+   $result = $query->execute();
+   foreach ($result as $row) {
+     $thisip = l($row->ip_address, 'admin/people/troll/ip_ban/edit/' . $row->ip_address);
++    $toip = isset($row->ip_address_to) ? $row->ip_address_to : '-' ;
+     $thisdom = l(($row->domain_name ? $row->domain_name : gethostbyname($row->ip_address)), 'admin/people/troll/ip_ban/edit/' . $row->ip_address);
+-    $expires = ($row->expires ? date('M d, Y', $row->expires) : t('never'));
++    $expires = ($row->expires ? date('M d, Y H:i:s', $row->expires) : t('never'));
+     $action = l(t('remove'), 'admin/people/troll/ip_ban/delete/' . $row->ip_address);
+-    $rows[] = array($thisip, $thisdom, $expires, $action);
++    $rows[] = array($thisip, $toip, $thisdom, $expires, $action);
+   }
+ 
+  // Return empty if no rows are present.
+@@ -804,9 +817,8 @@ function troll_display_ip() {
+  * IP ban delete confirmation form.
+  */
+ function troll_confirm_delete_ip_form($form, &$form_state, $ip) {
+-
+   $ip = db_query('SELECT ip_address FROM {troll_ip_ban} WHERE ip_address = :ip',
+-    array(':ip' => $form_state['build_info']['args'][0]))->fetchField();
++    array(':ip' => $ip))->fetchField();
+   $form['ip_address'] = array(
+     '#type' => 'value',
+     '#value' => trim($ip),
+diff --git a/troll.info b/troll.info
+index b0eda76..4371836 100644
+--- a/troll.info
++++ b/troll.info
+@@ -4,8 +4,19 @@ core = 7.x
+ files[] = troll.install
+ files[] = troll.module
+ files[] = troll.admin.inc
++
++dependencies[] = date_api
++dependencies[] = date_popup
++
+ ; Information added by drupal.org packaging script on 2010-11-12
+ version = "HEAD"
+ project = "troll"
+ datestamp = "1289564581"
+ 
++
++; Information added by Drupal.org packaging script on 2014-09-19
++version = "7.x-1.x-dev"
++core = "7.x"
++project = "troll"
++datestamp = "1411099732"
++
+diff --git a/troll.install b/troll.install
+index 676ae6f..c1cb514 100644
+--- a/troll.install
++++ b/troll.install
+@@ -64,6 +64,16 @@ function troll_update_7003() {
+ }
+ 
+ /**
++ * Ability to block IP ranges and wildcards
++ */
++function troll_update_7004() {
++  $schema = drupal_get_schema('troll_ip_ban');
++  if(!db_field_exists('troll_ip_ban','ip_address_to')) {
++    db_add_field('troll_ip_ban','ip_address_to',array('type' => 'varchar', 'length' => '39', 'not null' => FALSE, 'default' => NULL));
++  }
++}
++
++/**
+  * This update will not run properly under Drupal 6 because _system_update_utf8() does
+  * not exist in Drupal 6.
+  *
+@@ -115,6 +125,7 @@ function troll_schema() {
+     'fields' => array(
+          'iid' => array('type' => 'serial', 'not null' => TRUE, 'disp-width' => '11'),
+          'ip_address' => array('type' => 'varchar', 'length' => '39', 'not null' => TRUE, 'default' => ''),
++         'ip_address_to' => array('type' => 'varchar', 'length' => '39', 'not null' => FALSE, 'default' => NULL),
+          'domain_name' => array('type' => 'varchar', 'length' => '255', 'not null' => TRUE, 'default' => ''),
+          'expires' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'disp-width' => '11'),
+          'created' => array('type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0, 'disp-width' => '11'),
+diff --git a/troll.module b/troll.module
+index e71ef76..1e2c397 100644
+--- a/troll.module
++++ b/troll.module
+@@ -84,8 +84,8 @@ function troll_boot() {
+   }
+ 
+   if (variable_get('troll_enable_ip_ban', 1)) {
+-    $ban = db_query('SELECT COUNT(ip_address) FROM {troll_ip_ban} WHERE (expires > :expires OR expires = 0) AND ip_address = :ip_address', array(':expires' => REQUEST_TIME, ':ip_address' => ip_address()))->fetchField();
+-    if (!empty($ban->ip_address)) {
++    $ban = db_query('SELECT EXISTS (SELECT 1 FROM {troll_ip_ban} WHERE (expires > :expires OR expires = 0) AND ( (:ip_address LIKE REPLACE(ip_address,\'*\',\'%\') AND ip_address_to IS NULL )OR (INET_ATON(:ip_address) >= INET_ATON(ip_address) AND INET_ATON(:ip_address) <= INET_ATON(ip_address_to)) ) ) as present', array(':expires' => REQUEST_TIME, ':ip_address' => ip_address()))->fetchField();
++    if ($ban) {
+       global $base_url;
+       watchdog('troll', 'IP Ban: !addr', array('!addr' => ip_address()), WATCHDOG_NOTICE);
+       $troll_ip_ban_redirect = variable_get('troll_ip_ban_redirect', '');
+@@ -196,10 +196,10 @@ function troll_menu() {
+     'type' => MENU_CALLBACK,
+   );
+ 
+-  $items['admin/people/troll/ip_ban/delete'] = array(
++  $items['admin/people/troll/ip_ban/delete/%'] = array(
+     'title' => 'Remove Ban',
+     'page callback' => 'drupal_get_form',
+-    'page arguments' => array('troll_confirm_delete_ip_form'),
++    'page arguments' => array('troll_confirm_delete_ip_form',5),
+     'access arguments' => array('administer troll'),
+     'file' => 'troll.admin.inc',
+     'type' => MENU_CALLBACK,
+@@ -430,15 +430,17 @@ function troll_remove_whitelist($net, $bcast) {
+  */
+ function troll_insert_ip($edit) {
+   global $user;
++  $dateObj = DateTime::createFromFormat('Y-m-d H:i:s', $edit['date']);
++  $expires = ($edit['expires'] == 1) ? $dateObj->getTimestamp():0;
+ 
+-  $expires = ($edit['expires'] == 1) ? mktime(23, 59, 0, $edit['month'], $edit['day'], $edit['year']) : 0;
+-
++  $to_ip =  ($edit['range'] == 1) ? $edit['ip_address_to']:null;
+   db_delete('troll_ip_ban')
+     ->condition('ip_address', $edit['ip_address'])
+     ->execute();
+   $insert = db_insert('troll_ip_ban')
+     ->fields(array(
+       'ip_address' => $edit['ip_address'],
++      'ip_address_to' => $to_ip,
+       'domain_name' => $edit['domain_name'],
+       'created' => REQUEST_TIME,
+       'expires' => $expires,
+@@ -465,10 +467,13 @@ function troll_update_ip($edit) {
+   }
+ 
+   global $user;
+-  $expires = ($edit['expires'] == 1) ? mktime(23, 59, 0, $edit['month'], $edit['day'], $edit['year']) : 0;
++  $dateObj = DateTime::createFromFormat('Y-m-d H:i:s', $edit['date']);
++  $expires = ($edit['expires'] == 1) ? $dateObj->getTimestamp():0;
++  $to_ip =  ($edit['range'] == 1) ? $edit['ip_address_to']:null;
+   $num_updated = db_update('troll_ip_ban')
+     ->fields(array(
+       'ip_address' => $edit['ip_address'],
++      'ip_address_to' => $to_ip,
+       'domain_name' => $edit['domain_name'],
+       'expires' => $expires,
+       'uid' => $user->uid,

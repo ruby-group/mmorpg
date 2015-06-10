@@ -1,0 +1,15 @@
+.views-field-field-article-type {
+  margin-top: 1em;
+  position: relative;
+  top: 2em;
+  color: #bfcad1;
+  left: 1em;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.8);
+}
+.views-field-field-article-overview {
+  @extend %node_body;
+    top: -20px;
+}
+.views-field-title {
+  @extend %title;
+}

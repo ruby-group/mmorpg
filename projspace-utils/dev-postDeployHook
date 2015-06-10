@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #Use this script for executing operations on the dev instance after 
 #the code is deployed via projspace. This does not combine with
 #git's deployhook. This only gets executed while you choose a version
@@ -6,10 +6,14 @@
 
 #Put all of your actions before #EOF.
 
+<<<<<<< HEAD
 cd /home/mmorpg/www/dev/docroot && drush aa --html --bootstrap --detail --skip=insights > sites/default/files/report.html
 
 
 
+=======
+cd /home/mmorpg/www/dev/docroot && drush updb -y && drush rr && drush cc drush && drush fra -y && drush cc all && drush aa --html --bootstrap --detail --skip=insights > sites/default/files/report.html
+>>>>>>> 2553ba0c5a103772c9369ed105a67644e69e5b8b
 
 #EOF
 

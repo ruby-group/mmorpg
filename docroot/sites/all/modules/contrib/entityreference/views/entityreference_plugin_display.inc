@@ -97,6 +97,11 @@ class entityreference_plugin_display extends views_plugin_display {
       $this->view->query->add_where(NULL, $id_field, $options['ids']);
     }
 
+    // Avoid self reference.
+    if (!empty($options['entity_id_to_exclude'])) {
+      $this->view->query->add_where(NULL, $id_field, $options['entity_id_to_exclude'], '<>');
+    }
+
     $this->view->set_items_per_page($options['limit']);
   }
 

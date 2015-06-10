@@ -1,0 +1,269 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Site Configs feature.
+ */
+
+include_once 'mmorpg_site.features.inc';
+
+/**
+ * Implements hook_init().
+ */
+function mmorpg_site_init() {
+  $categories = array(
+    'game' => 'games',
+  );
+
+  $node = menu_get_object();
+  if (!$node) {
+    return;
+  }
+  if (array_key_exists($node->type, $categories)) {
+    drupal_add_js(array(
+      'MMORPG_page_viewed' => array(
+        'type' => 'single',
+        'section' => $categories[$node->type],
+        'id' => $node->nid,
+      )
+    ), 'setting');
+  }
+}
+
+/**
+ * Implements hook_admin_paths().
+ */
+function mmorpg_site_admin_paths() {
+  return array(
+    'node/*/entries' => TRUE,
+    'node/*/keys' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mmorpg_site_menu() {
+
+  $items['admin/mmorpg/ip_ban'] = array(
+    'title' => 'IP Ban',
+    'description' => 'Ban users / ip addresses from signing up / signing into the site',
+    'page callback' => 'mmorpg_site_redirect_to_ip_ban',
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/mmorpg/reports'] = array(
+    'title' => 'Reports',
+    'description' => 'Access various advt. reports',
+    'access callback' => TRUE,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['admin/mmorpg/reports/blank'] = array(
+    'title' => 'Reports',
+    'access callback' => TRUE,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['personalization'] = array(
+    'page callback' => 'mmorpg_site_personalization_endpoint',
+    'access arguments' => array('access content'),
+  );
+
+  $items['update_counts'] = array(
+    'page callback' => 'mmorpg_site_update_count_endpoint',
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_site_block_info() {
+  $blocks['invisible_block'] = array(
+    'info' => t('Invisible Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  $blocks['title_block'] = array(
+    'info' => t('Title Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['related_content'] = array(
+    'info' => t('Related Content Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  $blocks['related_content_menu'] = array(
+    'info' => t('Related Content Menu Block'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_site_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'invisible_block':
+      $block['content'] = "<div class='placeholder'></div>";
+      break;
+    case 'title_block':
+      $block['content'] = mmorpg_site_page_titles();
+      break;
+    case 'related_content':
+      $block['content'] = mmorpg_site_related_content();
+      break;
+    case 'related_content_menu':
+      $block['content'] = mmorpg_site_related_content_menu();
+      break;
+  }
+  return $block;
+}
+
+/**
+ * All the navigation content that is personal to the user is to be loaded after
+ * the initial page load via ajax.
+ */
+function mmorpg_site_personalization_endpoint() {
+  global $user;
+  $play_now_block = module_invoke('mmorpg_signup_now', 'block_view', 'play_now_menu_link');
+  $latest_updates_block = module_invoke('views', 'block_view', 'latest_updates-block');
+
+  $output = array(
+    'games' => render($play_now_block['content']),
+    'reviews' => '',
+    'updates' => render($latest_updates_block['content']),
+    'videos' => '',
+    'community' => '',
+    'blogs' => '',
+    'tgn' => '',
+    'store' => '',
+    'username' => '',
+  );
+  if ($user->uid > 0) {
+    $latest_news_block = module_invoke('views', 'block_view', 'trending-latest_news');
+
+    $output['tgn'] = 'Not Implemented';
+    $output['blogs'] = 'Not Implemented';
+    $output['store'] = 'Not Implemented';
+    $output['videos'] = 'Not Implemented';
+    $output['reviews'] = 'Not Implemented';
+    $output['username'] = render($latest_news_block['content']);
+    $output['community'] = 'Not Implemented';
+  }
+  drupal_json_output($output);
+}
+
+/**
+ * This returns a list of the recent node ids in various categories
+ * so that the browser can compute new content counts.
+ */
+function mmorpg_site_update_count_endpoint() {
+  $dummy_ids = range(1, 20);
+
+  drupal_json_output(array(
+    'expires' => time() + 5 * 60 * 60,
+    'data' => array(
+      'games' => $dummy_ids,
+      'reviews' => $dummy_ids,
+      'updates' => $dummy_ids,
+      'videos' => $dummy_ids,
+      'community' => $dummy_ids,
+      'blogs' => $dummy_ids,
+      'tgn' => $dummy_ids,
+      'store' => $dummy_ids,
+    ),
+  ));
+}
+
+/**
+ * It returns the title for page.
+ */
+function mmorpg_site_page_titles() {
+  $arg0 = arg(0);
+  $arg1 = arg(1);
+  $arg2 = arg(2);
+  $arg3 = arg(3);
+  $title = array();
+  if ($arg0 == "game") {
+    $games_list_link = l('Games', 'games');
+    $game_node = node_load($arg1);
+    switch ($arg2) {
+      case 'overview':
+      case 'forums':
+      case 'ratings':
+      case 'reviews':
+      case 'screenshots':
+      case 'videos':
+        $title[] = $games_list_link;
+        $title[] = t($game_node->title);
+        break;
+      case 'video':
+        $title[] = $games_list_link;
+        $video_node = node_load($arg3);
+        $title[] = l($game_node->title, $arg0 . '/' . $arg1 . '/overview');
+        $title[] = t($video_node->title);
+        break;
+    }
+  }
+  $title = join($title, ' / ');
+  $title_html = '<div class="title_crumbs">' . $title . '</div>';
+  return $title_html;
+}
+
+/**
+ * Returns the related content of a node.
+ */
+function mmorpg_site_related_content() {
+  $nid = arg(1);
+  $get_params = drupal_get_query_parameters();
+  $page = isset($get_params["page"]) ? $get_params["page"] : 1;
+  if (!isset($nid) || !is_numeric($nid) || !is_numeric($page)) {
+    return '';
+  }
+  $child_nodes = node_collection_api_get_child_node_instances($nid);
+
+  $child_nid = $child_nodes[$page - 1];
+  $child_node = node_load($child_nid);
+  return $child_node->body['und'][0]['value'];
+}
+
+/**
+ * Returns the related content menu for a node.
+ */
+function mmorpg_site_related_content_menu() {
+  $nid = arg(1);
+  $get_params = drupal_get_query_parameters();
+  $current_page_nid = isset($get_params["page"]) ? $get_params["page"] - 1 : 0;
+  if (!isset($nid) || !is_numeric($nid) || !is_numeric($current_page_nid)) {
+    return '';
+  }
+  $child_nodes = node_collection_api_get_child_node_instances($nid);
+  if (count($child_nodes) == 1) {
+    return '';
+  }
+
+  $menu = '<div class="pager">';
+
+  foreach ($child_nodes as $key => $child_nid) {
+    $active = array();
+    if ($key == $current_page_nid) {
+      $active = array('class' => array('active-page'));
+    }
+    $page_no = $key + 1;
+    $get_params["page"] = $page_no;
+    $menu .= l(t('Page ') . $page_no, current_path(), array(
+      'attributes' => $active,
+      'query' => $get_params
+    ));
+  }
+  $menu .= '</div>';
+  return $menu;
+}
+
+function mmorpg_site_redirect_to_ip_ban() {
+  drupal_goto('admin/people/troll');
+}

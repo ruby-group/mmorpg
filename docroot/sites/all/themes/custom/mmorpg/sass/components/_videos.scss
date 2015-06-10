@@ -1,0 +1,94 @@
+.pane-video-exclusive,
+.pane-video-details-player{
+  margin-bottom: 1em;
+  .views-row {
+    padding: 1em;
+    position: relative;
+    .views-field-body {
+      .field-content {
+        @extend %node_body;
+      }
+
+      p{
+        margin-top: 0;
+      }
+    }
+
+    .views-field-field-video-url,
+    .views-field-field-video-url iframe{
+      height: 400px;
+    }
+
+    .promoted_bg{
+      background: $black;
+      max-height: 450px;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      left: 0;
+    }
+  }
+}
+
+.pane-video-gallery-grid{
+  
+  .views-row{
+    @extend %gallery_rows;
+    max-width: 150px;
+    float: none;
+    vertical-align: top;
+    margin: 0px 3px;
+    margin-bottom: 10px;
+  }
+
+  .video_image a{
+    display: block;
+    border-bottom: 4px solid $light-blue;
+    height: 124px;
+
+    img{
+      height: 120px;
+    }
+  }
+
+  .video_hover{
+    @extend %gallery_overlay;
+    max-width: 150px;
+    height: 120px;
+
+    span{
+      display: block;
+      padding: 0.75em 1.75em;
+      margin-left: 0.5em;
+      background: url('../images/video_icon.png') no-repeat transparent 2px 10px;
+    }
+
+    &:hover{
+        @extend %gallery_hover;
+    }
+    
+    &:hover + .video_image > a {
+      border-bottom: 4px solid $hover-dblue;
+    }
+
+    &:hover + .video_title > a{
+      color: $hover-dblue;
+    }
+  }
+
+  .video_title a{
+    color: $black;
+    font-size: 16px;
+    padding: 10px 0 15px 0;
+    text-shadow: none;
+    border-bottom: 0px !important;
+    display: block;
+    font-weight: 400;
+
+    &:hover{
+      color: $hover-dblue;
+    }
+  }
+}

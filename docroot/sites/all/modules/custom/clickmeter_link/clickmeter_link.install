@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Install file for the link module.
+ */
+
+/**
+ * Implements hook_field_schema().
+ */
+function clickmeter_link_field_schema($field) {
+  return array(
+    'columns' => array(
+      'url' => array(
+        'type' => 'varchar',
+        // Maximum URLs length.
+        'length' => 2048,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'group' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'domain' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'pixel_id' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'pixel_url' => array(
+        'type' => 'varchar',
+        'length' => 2048,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'link_id' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'link_url' => array(
+        'type' => 'varchar',
+        'length' => 2048,
+        'not null' => FALSE,
+        'sortable' => TRUE,
+      ),
+      'attributes' => array(
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => FALSE,
+      ),
+    ),
+  );
+}

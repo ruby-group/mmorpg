@@ -1,0 +1,215 @@
+<?php
+/**
+ * @file
+ * This contains code to register and support core migration for MMORPG.
+ */
+
+/**
+ * Implements hook_flush_caches().
+ */
+function mmorpg_migrate_flush_caches() {
+  mmorpg_migrate_register_all_migrations();
+}
+
+/**
+ * Register all MMORPG migrations.
+ */
+function mmorpg_migrate_register_migrations() {
+  mmorpg_migrate_register_all_migrations();
+}
+
+/**
+ * Implements hook_migrate_api().
+ */
+function MMORPG_migrate_migrate_api() {
+  return array(
+    'api' => 2,
+    'groups' => array(
+      'MMORPG' => array(
+        'title' => 'MMORPG .Net->D7 migration',
+        'disable_hooks' => array(),
+      )
+    ),
+  );
+}
+
+function mmorpg_migrate_register_all_migrations() {
+  // These are our common arguments for all our migrations.
+  $common_arguments = array(
+    'group_name' => 'MMORPG',
+  );
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of FAQ category terms'),
+      'machine_name' => 'MMORPGFaqTerms',
+    );
+  Migration::registerMigration('MMORPGMigrateFaqMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Expansion Types'),
+      'machine_name' => 'MMORPGMigrateExpansion',
+    );
+  Migration::registerMigration('MMORPGMigrateExpansionMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Origins'),
+      'machine_name' => 'MMORPGMigrateOrigin',
+    );
+  Migration::registerMigration('MMORPGMigrateOriginMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Distribution Types'),
+      'machine_name' => 'MMORPGMigrateDistributionTypes',
+    );
+  Migration::registerMigration('MMORPGMigrateDistributionTypesMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Languages'),
+      'machine_name' => 'MMORPGMigrateLanguage',
+    );
+  Migration::registerMigration('MMORPGMigrateLanguageMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of MMO Genres'),
+      'machine_name' => 'MMORPGMigrateMMOGenres',
+    );
+  Migration::registerMigration('MMORPGMigrateMMOGenresMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Genres'),
+      'machine_name' => 'MMORPGMigrateGenres',
+    );
+  Migration::registerMigration('MMORPGMigrateGenresMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Game Classifications'),
+      'machine_name' => 'MMORPGMigrateGameClassification',
+    );
+  Migration::registerMigration('MMORPGMigrateGameClassificationMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Game Styles'),
+      'machine_name' => 'MMORPGMigrateGameStyles',
+    );
+  Migration::registerMigration('MMORPGMigrateGameStylesMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Game Engine'),
+      'machine_name' => 'MMORPGMigrateGameEngine',
+    );
+  Migration::registerMigration('MMORPGMigrateGameEngineMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Platform'),
+      'machine_name' => 'MMORPGMigratePlatform',
+    );
+  Migration::registerMigration('MMORPGMigratePlatformMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Status'),
+      'machine_name' => 'MMORPGGameStatus',
+    );
+  Migration::registerMigration('MMORPGGameStatusMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Cancel Reasons'),
+      'machine_name' => 'MMORPGCancelReason',
+    );
+  Migration::registerMigration('MMORPGCancelReasonMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Screenshot Type'),
+      'machine_name' => 'MMORPGScreenShotType',
+    );
+  Migration::registerMigration('MMORPGScreenShotTypeMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Column'),
+      'machine_name' => 'MMORPGColumn',
+    );
+  Migration::registerMigration('MMORPGColumnMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Article Subcategories'),
+      'machine_name' => 'MMORPGArticleSubCategories',
+    );
+  Migration::registerMigration('MMORPGArticleSubCategoriesMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Shows'),
+      'machine_name' => 'MMORPGTblShows',
+    );
+  Migration::registerMigration('MMORPGTblShowsMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Video Categories'),
+      'machine_name' => 'MMORPGTblVideoCategories',
+    );
+  Migration::registerMigration('MMORPGTblVideoCategoriesMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Offer Types'),
+      'machine_name' => 'MMORPGTblOfferTypes',
+    );
+  Migration::registerMigration('MMORPGTblOfferTypesMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Rendering Engines'),
+      'machine_name' => 'MMORPGTblRenderingEngines',
+    );
+  Migration::registerMigration('MMORPGTblRenderingEnginesMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Game Pay Types'),
+      'machine_name' => 'MMORPGGamePayTypes',
+    );
+  Migration::registerMigration('MMORPGGamePayTypesMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Business Model'),
+      'machine_name' => 'MMORPGBusinessModel',
+    );
+  Migration::registerMigration('MMORPGBusinessModelMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Vide Mode'),
+      'machine_name' => 'MMORPGVideoMode',
+    );
+  Migration::registerMigration('MMORPGVideoModeMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Vide Mode'),
+      'machine_name' => 'MMORPGPros',
+    );
+  Migration::registerMigration('MMORPGProsMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Vide Mode'),
+      'machine_name' => 'MMORPGCons',
+    );
+  Migration::registerMigration('MMORPGConsMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Blog Tags'),
+      'machine_name' => 'MMORPGBlogTags',
+    );
+  Migration::registerMigration('MMORPGBlogTagsMigration', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Articles'),
+      'machine_name' => 'MMORPGArticle',
+    );
+  Migration::registerMigration('MMORPGArticleMigrate', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Article News Post'),
+      'machine_name' => 'MMORPGArticleNewsPost',
+    );
+  Migration::registerMigration('MMORPGArticleNewsPostMigrate', $arguments['machine_name'], $arguments);
+
+  $arguments = $common_arguments + array(
+      'description' => t('Migration of Customers'),
+      'machine_name' => 'MMORPGCustomers',
+    );
+  Migration::registerMigration('MMORPGCustomerMigrate', $arguments['machine_name'], $arguments);
+} 

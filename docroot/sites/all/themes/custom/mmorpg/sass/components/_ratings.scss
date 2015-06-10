@@ -1,0 +1,179 @@
+.pane-game-ratings {
+  background-color: $darkbg;
+  color: white;
+  border-radius: 4px;
+  padding: 1em;
+  width: 100%;
+  background-image: url(http://skywisenight.com/spec_rev7/content/images/639_r0.jpg);
+  background-position: 0px -40px;
+  background-repeat: no-repeat;
+  margin-bottom: 2em;
+  display: inline-block;
+  min-height: 335px;
+  .view-header {
+    float: left;
+    margin: 11em 0 0 3em;
+    text-align: center;
+  }
+  .view-footer {
+    .btn {
+      background: $green;
+    }
+  }
+  .view-content {
+    float: right;
+  }
+  .views-field {
+    margin: 1em 0;
+  }
+  .views-label {
+    float: left;
+    min-width: 165px;
+  }
+  .ui-slider-horizontal {
+    background: #494949;
+    border: 1px solid #8ECCFF;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    display: inline-table;
+    width: 240px;
+    height: 0.8em;
+  }
+  .rate-mmorpg-value {
+    background: #2697ff;
+    height: 13px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    display: inline-table;
+  }
+  .views-row {
+    .field-content {
+      display: inline-block;
+    }
+    .total-average {
+      margin-right: 0.50em;
+      min-width: 40px;
+      float: left;
+    }
+  }
+  .ratingstotal {
+    .label {
+      font-size: 19px;
+    }
+    .currentScore {
+      margin-top: 0;
+      font-size: 80px;
+    }
+  }
+  a.btn {
+    color: white;
+  }
+  .view-display-id-active_ratings {
+   .view-content {
+    background: rgba(0, 0, 0, 0.53);
+    border: 1px solid #777;
+    padding: 0 1em 0;
+  }
+  .view-footer {
+    display: inline-block;
+    width: 50%;
+    float: right;
+    text-align: center;
+  }
+}
+.views-field-average-game-rating {
+  position: absolute;
+  left: 2em;
+  text-align: center;
+  top: 8em;
+  width: 170px;
+  .views-label-average-game-rating {
+    font-size: 19px;
+    display: inline-block;
+    float: none;
+  }
+  .total-average {
+    display: none;
+  }
+}
+.views-field-average-game-rating .field-content, .views-field-average-game-rating .game-average, .view-hype .average-rating, .view-hype .user-vote {
+    font-size: 80px;
+    width: 100%;
+    font-weight: bold;
+  }
+}
+.cast-view {
+  display: none;
+  .average-rating {
+    display: none;
+  }
+}
+.pane-mmorpg-rate-add-review-block {
+  float: left;
+}
+.rate-info {
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: -3em;
+  font-weight: bold;
+}
+.rate-widget {
+  position: relative;
+}
+#rate-view {
+  .user-vote {
+    display: none;
+  }
+  .rate-mmorpg.ui-mmorpg {
+    background: #494949;
+    border: 1px solid #8ECCFF;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    display: inline-table;
+    height: 0.8em;
+  }
+}
+.page-game-ratings {
+  .panel-1col .panel-col {
+    position: relative;
+  }
+}
+/*Sideblock Rating Block */
+.rightsidebar .view-promoted-signup-now-link .views-field-average-game-rating {
+  background: #494949;
+  border: 1px solid #848484;
+  border-radius: 2px;
+  display: inline-block;
+  width: 80px;
+  float: right;
+  font-size: 13px;
+  margin-top: 0.75em;
+  line-height: 18px;
+  color: #fff;
+  .field-content {
+    background: #2697ff;
+    padding: 1px 5px 2px;
+    line-height: 16px;
+    width: 5.8%;
+    display: block;
+    height: 17px;
+  }
+}
+
+#rate-view {
+  .views-field.views-field-value-8 {
+    border-top: 1px solid #807E7E;
+    padding-top: 1em;
+    .rate-mmorpg.ui-mmorpg {
+      border: 1px solid #ffba26 !important;
+    }
+    .rate-mmorpg-value {
+      background-color: #ffba26 !important;
+    }
+  }
+}

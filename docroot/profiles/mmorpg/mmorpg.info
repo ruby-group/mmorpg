@@ -23,6 +23,7 @@ dependencies[] = rdf
 
 ; CONTRIB
 dependencies[] = adminimal_admin_menu
+dependencies[] = features
 
 ; MMORPG
 dependencies[] = mmorpg_updates

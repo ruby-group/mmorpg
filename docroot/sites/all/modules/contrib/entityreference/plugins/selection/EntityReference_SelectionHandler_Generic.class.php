@@ -46,7 +46,8 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
       'target_bundles' => array(),
       'sort' => array(
         'type' => 'none',
-      )
+      ),
+      'allow_self_reference' => 1,
     );
 
     if (!empty($entity_info['entity keys']['bundle'])) {
@@ -149,6 +150,13 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
       );
     }
 
+    $form['allow_self_reference'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Allow to choose self reference'),
+      '#description' => t('If checked you will be able to set reference to self entity. Disabled by default'),
+      '#default_value' => $field['settings']['handler_settings']['allow_self_reference'],
+    );
+
     return $form;
   }
 
@@ -208,31 +216,31 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
    * Implements EntityReferenceHandler::validateAutocompleteInput().
    */
   public function validateAutocompleteInput($input, &$element, &$form_state, $form) {
-      $entities = $this->getReferencableEntities($input, '=', 6);
-      if (empty($entities)) {
-        // Error if there are no entities available for a required field.
-        form_error($element, t('There are no entities matching "%value"', array('%value' => $input)));
+    $entities = $this->getReferencableEntities($input, '=', 6);
+    if (empty($entities)) {
+      // Error if there are no entities available for a required field.
+      form_error($element, t('There are no entities matching "%value"', array('%value' => $input)));
+    }
+    elseif (count($entities) > 5) {
+      // Error if there are more than 5 matching entities.
+      form_error($element, t('Many entities are called %value. Specify the one you want by appending the id in parentheses, like "@value (@id)"', array(
+        '%value' => $input,
+        '@value' => $input,
+        '@id' => key($entities),
+      )));
+    }
+    elseif (count($entities) > 1) {
+      // More helpful error if there are only a few matching entities.
+      $multiples = array();
+      foreach ($entities as $id => $name) {
+        $multiples[] = $name . ' (' . $id . ')';
       }
-      elseif (count($entities) > 5) {
-        // Error if there are more than 5 matching entities.
-        form_error($element, t('Many entities are called %value. Specify the one you want by appending the id in parentheses, like "@value (@id)"', array(
-          '%value' => $input,
-          '@value' => $input,
-          '@id' => key($entities),
-        )));
-      }
-      elseif (count($entities) > 1) {
-        // More helpful error if there are only a few matching entities.
-        $multiples = array();
-        foreach ($entities as $id => $name) {
-          $multiples[] = $name . ' (' . $id . ')';
-        }
-        form_error($element, t('Multiple entities match this reference; "%multiple"', array('%multiple' => implode('", "', $multiples))));
-      }
-      else {
-        // Take the one and only matching entity.
-        return key($entities);
-      }
+      form_error($element, t('Multiple entities match this reference; "%multiple"', array('%multiple' => implode('", "', $multiples))));
+    }
+    else {
+      // Take the one and only matching entity.
+      return key($entities);
+    }
   }
 
   /**
@@ -267,6 +275,12 @@ class EntityReference_SelectionHandler_Generic implements EntityReference_Select
         list($field, $column) = explode(':', $sort_settings['field'], 2);
         $query->fieldOrderBy($field, $column, $sort_settings['direction']);
       }
+    }
+
+    // Exclude self reference.
+    if ($this->field['settings']['handler_settings']['allow_self_reference']==0 && isset($this->entity)) {
+      list($entity_id,,) = entity_extract_ids($this->entity_type, $this->entity);
+      $query->entityCondition('entity_id', $entity_id, '<>');
     }
 
     return $query;

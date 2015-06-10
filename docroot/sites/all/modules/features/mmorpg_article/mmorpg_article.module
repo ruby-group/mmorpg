@@ -1,0 +1,170 @@
+<?php
+/**
+ * @file
+ * Code for the MMORPG Article feature.
+ */
+
+include_once 'mmorpg_article.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function mmorpg_article_block_info() {
+  $blocks['trending'] = array(
+    'info' => t('Trending'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mmorpg_article_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'trending':
+      $organic_content = views_get_view_result('trending', 'organic');
+      foreach ($organic_content as &$item) {
+        $item = l($item->node_title, drupal_get_path_alias('node/' . $item->nid)) . "<span>|</span>";
+      }
+
+      $sponsored_content = views_get_view_result('trending', 'sponsored');
+      foreach ($sponsored_content as &$item) {
+        $item = clickmeter_link_render_item_as_link(
+          $item->node_title,
+          "<span>|</span>",
+          $item->_field_data['nid']['entity']->field_target_url[LANGUAGE_NONE][0]['link_url'],
+          $item->_field_data['nid']['entity']->field_target_url[LANGUAGE_NONE][0]['pixel_url']
+        );
+      }
+
+      foreach ($sponsored_content as $sponsored_item) {
+        array_splice($organic_content, rand(0, variable_get('mmorpg_trending_ad_space', 5)), 0, array($sponsored_item));
+      }
+
+      $organic_content = array_slice($organic_content, 0, variable_get('mmorpg_trending_max', 5));
+
+      $block['content'] = theme('item_list', array(
+        'items' => $organic_content,
+        'title' => 'Trending',
+        'type' => 'ul',
+        'attributes' => array('class' => 'trending_links'),
+      ));
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function mmorpg_article_cron() {
+  $query = new EntityFieldQuery();
+  $result = $query
+    ->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'mmorpg_article')
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->fieldCondition('field_article_sponsored_untill', 'value', time(), '<=')
+    ->fieldCondition('field_article_sponsored', 'value', 1, '=')
+    ->execute();
+
+  if (isset($result['node'])) {
+    $nodes = entity_load('node', array_keys($result['node']));
+    foreach ($nodes as $node) {
+      $node->field_article_sponsored[LANGUAGE_NONE][0]['value'] = 0;
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mmorpg_article_menu() {
+
+  $items['admin/mmorpg'] = array(
+    'title' => 'MMORPG',
+    'description' => 'MMORPG Settings',
+    'position' => 'left',
+    'weight' => -10,
+    'page callback' => 'mmorpg_article_settings_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'mmorpg_article.admin.inc',
+  );
+
+  $items['admin/mmorpg/settings'] = array(
+    'title' => 'MMORPG Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mmorpg_article_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'mmorpg_article.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+
+  $items['admin/mmorpg/article-settings'] = array(
+    'title' => 'Article Settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mmorpg_article_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'mmorpg_article.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_node_view
+ */
+
+function mmorpg_article_node_view($node, $view_mode, $langcode) {
+  if ($node->type == 'mmorpg_article') {
+    $game_id = $node->field_game[LANGUAGE_NONE][0]['target_id'];
+    $news_post = &$node->content['field_article_news_post'][0]['#markup'];
+    $nid = $node->nid;
+    $related_node = mmorpg_article_get_related_node($nid, $game_id);
+    if ($related_node) {
+      $related_url = drupal_get_path_alias('node/' . $related_node->nid);
+      $related_title = $related_node->title;
+      $replace_content = '<p><h2>Related content</h2>' . l($related_title, $related_url) . '</p>';
+    }
+    else {
+      $replace_content = '';
+    }
+    $news_post_new = preg_replace('/\[related-content\]\[\/related-content\]/', $replace_content, $news_post);
+    $news_post = $news_post_new;
+  }
+}
+
+function mmorpg_article_get_related_node($nid, $game_id) {
+  $return_nid = mmorpg_article_get_related_nid($nid, $game_id);
+  if (!isset($return_nid)) {
+    $return_nid = mmorpg_article_get_related_nid($nid, NULL);
+  }
+  if (isset($return_nid)) {
+    return node_load($return_nid);
+  }
+  return NULL;
+}
+
+function mmorpg_article_get_related_nid($nid, $game_id) {
+  $query = new EntityFieldQuery();
+  $entity_query = $query->entityCondition('entity_type', 'node')
+    ->propertyCondition('type', 'mmorpg_article')
+    ->propertyCondition('nid', $nid, '<>')
+    ->propertyCondition('status', 1)
+    ->fieldOrderBy('field_article_radioactivity', 'radioactivity_energy', 'DESC')
+    ->range(0, 1);
+  if (isset($game_id)) {
+    $entity_query = $entity_query->fieldCondition('field_game', 'target_id', $game_id, '=');
+  }
+  $entities = $entity_query->execute();
+  if (isset($entities['node'])) {
+    $nids = array_keys($entities['node']);
+    return array_shift($nids);
+  }
+  else {
+    return NULL;
+  }
+}

@@ -1,0 +1,40 @@
+.sharethis-wrapper {
+	span {
+		display: inline-block;
+		margin-right: 6px;
+		border: 1px solid #979797;
+		background: #848484;
+		color: #fff;
+		padding: 6px 10px;
+		margin-bottom: 10px;
+		padding-left: 28px;
+	}
+	.st_sharethis_custom {
+	  border-color: #2F8BFF;
+	  background-color: #0070FF;
+		&:before {
+			content: "Share";
+		}
+	}
+	.st_facebook_custom {
+		background: #4e69a2;
+		border-color: #3c5488;
+		&:before {
+			content: "Facebook";
+		}
+	}
+	.st_twitter_custom {
+	  border-color: #2F8BFF;
+	  background-color: #00C2FF;
+		&:before {
+			content: "Tweet";
+		}
+	}
+	.st_googleplus_custom {
+	  border-color: #FF9B2F;
+	  background-color: #F37E00;
+		&:before {
+			content: "G+";
+		}
+	}
+}

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #Use this script for executing operations on the test instance after 
 #the code is deployed via projspace. This does not combine with
 #git's deployhook. This only gets executed while you choose a version
@@ -6,6 +6,7 @@
 
 #Put all of your actions before #EOF.
 
+cd /home/mmorpg/www/test/docroot && drush updb -y && drush rr && drush cc drush && drush fra -y && drush cc all && drush aa --html --bootstrap --detail --skip=insights > sites/default/files/report.html
 
 #EOF
 
